@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Ability" format=3 uid="uid://diq634606rqd7"]
+
+[ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://workspaces/artemis/resources/ability/ability.gd" id="1_fv26d"]
+
+[resource]
+script = ExtResource("1_fv26d")
+name = "Attack"
+description = "Attacks an enemy."
+metadata/_custom_type_script = "uid://ny1mjfoo1mqc"

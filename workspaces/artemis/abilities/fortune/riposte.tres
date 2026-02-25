@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Ability" format=3 uid="uid://dgvncaqhl24en"]
+
+[ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://workspaces/artemis/resources/ability/ability.gd" id="1_bsgnn"]
+
+[resource]
+script = ExtResource("1_bsgnn")
+name = "Riposte"
+description = "Taunt the Enemy.
+
+This increases the chance that the enemy will attack you."
+metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
