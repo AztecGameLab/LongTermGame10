@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://workspaces/artemis/resources/ability/ability.gd" id="1_esku1"]
 [ext_resource type="Script" uid="uid://d0rap3gi3boj5" path="res://workspaces/artemis/resources/ability/action/damage_action.gd" id="2_ow335"]
 [ext_resource type="Script" uid="uid://be5ru5snax08s" path="res://workspaces/artemis/resources/ability/action/apply_status_action.gd" id="3_brxxv"]
+[ext_resource type="Resource" uid="uid://t0dpm8me25dg" path="res://workspaces/artemis/implementation/effects/heal_over_time.tres" id="4_ow335"]
 [ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://workspaces/artemis/resources/ability/action/sequenced_action_group.gd" id="4_r2exp"]
 
 [sub_resource type="Resource" id="Resource_gx307"]
@@ -14,6 +15,7 @@ metadata/_custom_type_script = "uid://d0rap3gi3boj5"
 
 [sub_resource type="Resource" id="Resource_vo55w"]
 script = ExtResource("3_brxxv")
+status_effect = ExtResource("4_ow335")
 override_target = true
 metadata/_custom_type_script = "uid://be5ru5snax08s"
 
