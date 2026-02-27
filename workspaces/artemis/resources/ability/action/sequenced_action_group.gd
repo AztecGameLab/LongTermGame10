@@ -6,9 +6,9 @@ class_name SequencedActionGroup
 
 ## The seconds to wait between one action finishing,
 ## and the next one starting.
-@export_range(0.0, 5.0, 0.1, "suffix:secs") var delay: float = 1.0
+@export_range(0.0, 5.0, 0.1, "suffix:secs") var delay: float = 0.3
 
-func run(caster, target):
+func run(caster: Character, target: Character) -> void:
 	for action in actions:
 		action.run(caster, target)
 		await action.finished

@@ -4,4 +4,4 @@ class_name Action
 
 signal finished();
 
-@abstract func run(caster: Node2D, target: Node2D);
+@abstract func run(caster: Character, target: Character);

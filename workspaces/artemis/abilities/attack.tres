@@ -2,8 +2,60 @@
 
 [ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://workspaces/artemis/resources/ability/ability.gd" id="1_fv26d"]
 
+[sub_resource type="GDScript" id="GDScript_fv26d"]
+script/source = "extends Action
+class_name ConditionalAction
+
+enum ConditionType {
+	CASTER_HP_BELOW,
+	TARGET_HP_BELOW,
+	TARGET_HAS_STATUS,
+	CASTER_HAS_STATUS,
+}
+
+@export var condition: ConditionType
+
+## HP percentage threshold for HP-based conditions.
+@export_range(0.0, 1.0, 0.01) var threshold_percent: float = 0.5
+
+## The status effect to check for status-based conditions.
+@export var required_status_effect: StatusEffect
+
+## Runs when the condition is true.
+@export var true_action: Action
+
+## Runs when the condition is false. Optional.
+@export var false_action: Action
+
+func run(caster: Character, target: Character) -> void:
+	var result := _evaluate(caster, target)
+	var chosen: Action = true_action if result else false_action
+
+	if chosen:
+		chosen.run(caster, target)
+		await chosen.finished
+	finished.emit()
+
+func _evaluate(caster: Character, target: Character) -> bool:
+	match condition:
+		ConditionType.CASTER_HP_BELOW:
+			return float(caster.current_health) / float(caster.max_health) < threshold_percent
+		ConditionType.TARGET_HP_BELOW:
+			return float(target.current_health) / float(target.max_health) < threshold_percent
+		ConditionType.TARGET_HAS_STATUS:
+			return target.has_status_effect(required_status_effect) if required_status_effect else false
+		ConditionType.CASTER_HAS_STATUS:
+			return caster.has_status_effect(required_status_effect) if required_status_effect else false
+	return false
+"
+
+[sub_resource type="Resource" id="Resource_sathr"]
+script = SubResource("GDScript_fv26d")
+metadata/_custom_type_script = "uid://b88mxyjq25kt1"
+
 [resource]
 script = ExtResource("1_fv26d")
 name = "Attack"
 description = "Attacks an enemy."
+action = SubResource("Resource_sathr")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"

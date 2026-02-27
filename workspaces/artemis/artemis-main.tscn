@@ -1,3 +1,6 @@
 [gd_scene format=3 uid="uid://bh8o5oygmnqgd"]
 
+[ext_resource type="Script" uid="uid://c2dcuh7wij0sh" path="res://workspaces/artemis/character.gd" id="1_ha2wl"]
+
 [node name="Node2D" type="Node2D" unique_id=859969339]
+script = ExtResource("1_ha2wl")
