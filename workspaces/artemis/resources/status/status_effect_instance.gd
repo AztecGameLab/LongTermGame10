@@ -7,6 +7,9 @@ var owner: Character
 var source: Character
 var remaining_turns: int
 
+## Used by custom effect scripts to store arbitrary state. 
+var status_effect_state: Dictionary = {}
+
 func _init(p_effect: StatusEffect, p_owner: Character, p_source: Character) -> void:
 	effect = p_effect
 	owner = p_owner

@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://bh8o5oygmnqgd"]
 
 [ext_resource type="Script" uid="uid://c2dcuh7wij0sh" path="res://workspaces/artemis/character.gd" id="1_ha2wl"]
+[ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://workspaces/artemis/resources/ability/ability.gd" id="2_dq3ge"]
+[ext_resource type="Resource" uid="uid://b6mlqpxywhb6g" path="res://workspaces/artemis/implementation/abilities/heal.tres" id="3_lhvlb"]
+[ext_resource type="Resource" uid="uid://c71y0pm2tt1g" path="res://workspaces/artemis/implementation/abilities/fortune/pierce.tres" id="4_lhvlb"]
 
 [node name="Node2D" type="Node2D" unique_id=859969339]
 script = ExtResource("1_ha2wl")
+abilities = Array[ExtResource("2_dq3ge")]([ExtResource("3_lhvlb"), ExtResource("4_lhvlb")])

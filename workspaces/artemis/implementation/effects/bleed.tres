@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="StatusEffect" format=3 uid="uid://dpscjkruqnc5j"]
+
+[ext_resource type="Script" uid="uid://c4rwprj6d61c0" path="res://workspaces/artemis/resources/status/status_effect.gd" id="1_7bdpg"]
+[ext_resource type="Script" uid="uid://uc0cajujggfu" path="res://workspaces/artemis/resources/stats/stat_modifier.gd" id="2_aqp5v"]
+[ext_resource type="Script" uid="uid://bihndepd0cudw" path="res://workspaces/artemis/resources/ability/action/static_damage_action.gd" id="3_aqp5v"]
+
+[sub_resource type="Resource" id="Resource_aqp5v"]
+script = ExtResource("3_aqp5v")
+damage = 2
+override_target = true
+metadata/_custom_type_script = "uid://bihndepd0cudw"
+
+[resource]
+script = ExtResource("1_7bdpg")
+name = "Bleed"
+description = "Lowers HP by 2 each turn."
+has_trigger = true
+trigger_type = 1
+trigger_action = SubResource("Resource_aqp5v")
+metadata/_custom_type_script = "uid://c4rwprj6d61c0"

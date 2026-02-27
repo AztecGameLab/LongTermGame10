@@ -1,5 +1,6 @@
 extends Node2D
 class_name Character
+## Basic Character Class. Not Final.
 
 enum Stat {
 	DAMAGE_MULTIPLIER,
@@ -7,6 +8,7 @@ enum Stat {
 	ACCURACY,
 	DODGE,
 	LUCK,
+	DANGER
 }
 
 # --- Signals ---
@@ -19,24 +21,29 @@ signal status_effect_removed(instance: StatusEffectInstance)
 
 # --- Exports ---
 
-@export_group("Stats")
 @export var max_health: int = 50
 
+@export var abilities: Array[Ability]
+
+@export_group("Stats")
 ## Outgoing damage scaling. 1.0 = normal damage.
 @export var base_damage_multiplier: float = 1.0
 
 ## Percentage of incoming damage reduced. 0.0 = no reduction, 1.0 = immune.
-@export_range(0.0, 1.0, 0.01) var base_defense: float = 0.0
+@export_range(0.0, 1.0, 0.05) var base_defense: float = 0.0
 
 ## Biases damage rolls toward max or min value.[br]
 ## -1.0 = always min, 0.0 = centered, 1.0 = always max.
-@export_range(-1.0, 1.0, 0.01) var base_accuracy: float = 0.0
+@export_range(-1.0, 1.0, 0.05) var base_accuracy: float = 0.0
 
 ## Chance to completely avoid an incoming hit.
-@export_range(0.0, 1.0, 0.01) var base_dodge: float = 0.0
+@export_range(0.0, 1.0, 0.05) var base_dodge: float = 0.0
 
 ## Used by ability-specific RNG checks.
-@export_range(-1.0, 1.0, 0.01) var base_luck: float = 0.0
+@export_range(-1.0, 1.0, 0.05) var base_luck: float = 0.0
+
+## Used by the AI to determine which character to target. Higher danger = more likely to be targeted.
+@export_range(0.0, 10.0, 0.1) var base_danger: float = 1.0
 
 # --- Runtime State ---
 
@@ -58,21 +65,18 @@ func get_stat(stat: Stat) -> float:
 		Stat.ACCURACY: value = base_accuracy
 		Stat.DODGE: value = base_dodge
 		Stat.LUCK: value = base_luck
+		Stat.DANGER: value = base_danger
 		_: value = 0.0
 	for instance in _status_effects:
 		value = instance.compute_stat_modifier(stat, value)
 	return value
 
-## Shorthand for get_stat(Stat.ACCURACY).
-func get_accuracy() -> float:
-	return get_stat(Stat.ACCURACY)
 
-
-# --- Damage Pipeline ---
+# --- Damage/Heal Pipeline ---
 
 ## Runs incoming damage through the full pipeline and applies it.
 func receive_damage(raw_amount: int, source: Character = null, is_reflected: bool = false) -> DamageContext:
-	var context := DamageContext.new(raw_amount, source, self)
+	var context := DamageContext.new(raw_amount, source, self )
 	context.is_reflected = is_reflected
 
 	# Source's outgoing damage multiplier
@@ -104,15 +108,11 @@ func receive_damage(raw_amount: int, source: Character = null, is_reflected: boo
 
 	return context
 
-
-# --- Heal Pipeline ---
-
 ## Restores health, capped at max_health.
 func heal(amount: int, source: Character = null) -> void:
 	var actual := mini(amount, max_health - current_health)
-	if actual > 0:
-		current_health += actual
-		healed.emit(actual, source)
+	current_health += actual
+	healed.emit(actual, source)
 
 
 # --- Status Effect Management ---
@@ -125,7 +125,7 @@ func add_status_effect(effect: StatusEffect, source: Character = null) -> Status
 		existing.refresh_duration()
 		return existing
 
-	var instance := StatusEffectInstance.new(effect, self, source)
+	var instance := StatusEffectInstance.new(effect, self , source)
 	_status_effects.append(instance)
 	instance.on_applied()
 	status_effect_added.emit(instance)
@@ -184,9 +184,11 @@ func _remove_effect_instance(instance: StatusEffectInstance) -> void:
 
 func _run_effect_trigger(instance: StatusEffectInstance, trigger: StatusEffect.TriggerType) -> void:
 	if instance.effect.has_trigger and instance.effect.trigger_type == trigger and instance.effect.trigger_action:
+		# Has no "Caster" since they run automatically on certain events, instead of being activated by a character.
 		instance.effect.trigger_action.run(null, instance.owner)
 
 
 func die() -> void:
 	died.emit()
+	# TODO: Change from `queue_free()` to a proper death system later on.
 	queue_free()

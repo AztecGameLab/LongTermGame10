@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="Ability" format=3 uid="uid://bjo2fl306x6p5"]
+
+[ext_resource type="Script" uid="uid://xwcbloqu4nwu" path="res://workspaces/artemis/resources/ability/action/abstracts/action.gd" id="1_acu7h"]
+[ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://workspaces/artemis/resources/ability/ability.gd" id="1_esku1"]
+[ext_resource type="Script" uid="uid://d0rap3gi3boj5" path="res://workspaces/artemis/resources/ability/action/damage_action.gd" id="2_ow335"]
+[ext_resource type="Script" uid="uid://be5ru5snax08s" path="res://workspaces/artemis/resources/ability/action/apply_status_action.gd" id="3_brxxv"]
+[ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://workspaces/artemis/resources/ability/action/sequenced_action_group.gd" id="4_r2exp"]
+
+[sub_resource type="Resource" id="Resource_gx307"]
+script = ExtResource("2_ow335")
+damage_minimum = 2
+damage_maximum = 10
+metadata/_custom_type_script = "uid://d0rap3gi3boj5"
+
+[sub_resource type="Resource" id="Resource_vo55w"]
+script = ExtResource("3_brxxv")
+override_target = true
+metadata/_custom_type_script = "uid://be5ru5snax08s"
+
+[sub_resource type="Resource" id="Resource_6vpj7"]
+script = ExtResource("4_r2exp")
+actions = Array[ExtResource("1_acu7h")]([SubResource("Resource_gx307"), SubResource("Resource_vo55w")])
+metadata/_custom_type_script = "uid://da17dshmjafs6"
+
+[resource]
+script = ExtResource("1_esku1")
+name = "Test"
+description = "This is a test ability."
+action = SubResource("Resource_6vpj7")
+metadata/_custom_type_script = "uid://ny1mjfoo1mqc"

@@ -23,6 +23,7 @@ enum TriggerType {
 @export var duration_turns: int = 3
 
 @export_group("Stat Modifiers")
+@export_custom(PROPERTY_HINT_GROUP_ENABLE, "") var has_status_modifiers: bool = false
 ## Stat changes that are active while this effect is on a character.
 @export var stat_modifiers: Array[StatModifier]
 
@@ -30,6 +31,8 @@ enum TriggerType {
 ## Enable to run an action in response to a game event.
 @export_custom(PROPERTY_HINT_GROUP_ENABLE, "") var has_trigger: bool = false
 @export var trigger_type: TriggerType = TriggerType.ON_TURN_START
+## Which action(s) to run when triggered.
+## [br]The default target of the action is the character the effect is attached to.
 @export var trigger_action: Action
 
 
