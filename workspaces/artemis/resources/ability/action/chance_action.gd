@@ -1,24 +1,27 @@
 extends Action
 class_name ChanceAction
 
-## Base probability of hitting before stat modifications.
-@export_range(0.0, 1.0, 0.01) var base_hit_chance: float = 1.0
+## Biases the chance towards success or failure.[br]
+## -1.0 = guaranteed fail, 0.0 = 50/50, 1.0 = guaranteed success.
+## Can be modified by status effects through luck.
+@export_range(-1.0, 1.0, 0.05) var default_bias: float = 0.0
 
-@export var hit_action: Action
+@export var success_action: Action
 
 ## Optional. If null, nothing happens on miss.
-@export var miss_action: Action
+@export var fail_action: Action
 
-func run(caster: Character, target: Character) -> void:
-	var accuracy := caster.get_stat(Character.Stat.ACCURACY) if caster else 0.0
-	var dodge := target.get_stat(Character.Stat.DODGE)
+func run(source: Character, target: Character) -> void:
 
-	var effective_chance := clampf(base_hit_chance + accuracy - dodge, 0.0, 1.0)
-	var roll := randf()
+	var success_bias := default_bias
+	if source:
+		success_bias = source.get_modified_field(StatusEffectModifier.FIELD.OUTGOING_LUCK, default_bias)
+	
+	var success: bool = RNG.binary_with_bias(success_bias)
 
-	var chosen: Action = hit_action if roll <= effective_chance else miss_action
+	var action: Action = success_action if success else fail_action
 
-	if chosen:
-		chosen.run(caster, target)
-		await chosen.finished
+	if action:
+		action.run(source, target)
+		await action.finished
 	finished.emit()

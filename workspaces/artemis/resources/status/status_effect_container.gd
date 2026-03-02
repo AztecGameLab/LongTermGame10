@@ -1,4 +1,4 @@
-class_name StatusEffectInstance
+class_name StatusEffectContainer
 ## Runtime state for a status effect on a character.
 ## Delegates all behavior back to the StatusEffect resource.
 
@@ -16,13 +16,13 @@ func _init(p_effect: StatusEffect, p_owner: Character, p_source: Character) -> v
 	source = p_source
 	remaining_turns = p_effect.duration_turns
 
-func compute_stat_modifier(stat: Character.Stat, current_value: float) -> float:
-	return effect.compute_stat_modifier(stat, current_value, self)
+func modify_value(field: StatusEffectModifier.FIELD, value: float) -> float:
+	return effect.modify_value(field, value, self)
 
-func on_damage_received(context: DamageContext) -> void:
+func on_damage_received(context: AttackContext) -> void:
 	effect.on_damage_received(context, self)
 
-func on_damage_dealt(context: DamageContext) -> void:
+func on_damage_dealt(context: AttackContext) -> void:
 	effect.on_damage_dealt(context, self)
 
 func on_applied() -> void:

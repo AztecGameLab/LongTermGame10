@@ -8,9 +8,9 @@ class_name SequencedActionGroup
 ## and the next one starting.
 @export_range(0.0, 5.0, 0.1, "suffix:secs") var delay: float = 0.3
 
-func run(caster: Character, target: Character) -> void:
+func run(source: Character, target: Character) -> void:
 	for action in actions:
-		action.run(caster, target)
+		action.run(source, target)
 		await action.finished
 		if delay > 0.0:
 			await Engine.get_main_loop().create_timer(delay).timeout

@@ -1,3 +1,4 @@
+@icon("uid://ds4qxgv6y0gbu")
 extends Resource
 class_name Ability
 
@@ -11,6 +12,8 @@ enum MoveTargetType {
 	TEAMMATE,
 	## Targets a teammate, but not the character using the move.
 	TEAMMATE_EXCLUDE_SELF,
+	## Targets everyone on the team except for the character using the move.
+	ALL_TEAMMATES_EXCLUDE_SELF,
 	## Targets the entire team of the character using the move.
 	ALL_TEAMMATES,
 	

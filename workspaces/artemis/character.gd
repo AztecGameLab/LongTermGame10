@@ -16,8 +16,8 @@ enum Stat {
 signal damaged(amount: int, source: Character)
 signal healed(amount: int, source: Character)
 signal died()
-signal status_effect_added(instance: StatusEffectInstance)
-signal status_effect_removed(instance: StatusEffectInstance)
+signal status_effect_added(instance: StatusEffectContainer)
+signal status_effect_removed(instance: StatusEffectContainer)
 
 # --- Exports ---
 
@@ -25,30 +25,10 @@ signal status_effect_removed(instance: StatusEffectInstance)
 
 @export var abilities: Array[Ability]
 
-@export_group("Stats")
-## Outgoing damage scaling. 1.0 = normal damage.
-@export var base_damage_multiplier: float = 1.0
-
-## Percentage of incoming damage reduced. 0.0 = no reduction, 1.0 = immune.
-@export_range(0.0, 1.0, 0.05) var base_defense: float = 0.0
-
-## Biases damage rolls toward max or min value.[br]
-## -1.0 = always min, 0.0 = centered, 1.0 = always max.
-@export_range(-1.0, 1.0, 0.05) var base_accuracy: float = 0.0
-
-## Chance to completely avoid an incoming hit.
-@export_range(0.0, 1.0, 0.05) var base_dodge: float = 0.0
-
-## Used by ability-specific RNG checks.
-@export_range(-1.0, 1.0, 0.05) var base_luck: float = 0.0
-
-## Used by the AI to determine which character to target. Higher danger = more likely to be targeted.
-@export_range(0.0, 10.0, 0.1) var base_danger: float = 1.0
-
 # --- Runtime State ---
 
 var current_health: int
-var _status_effects: Array[StatusEffectInstance] = []
+var _status_effects: Array[StatusEffectContainer] = []
 
 func _ready() -> void:
 	current_health = max_health
@@ -56,29 +36,58 @@ func _ready() -> void:
 
 # --- Stat Pipeline ---
 
+func get_default_field(field: StatusEffectModifier.FIELD) -> float:
+	match field:
+		StatusEffectModifier.FIELD.OUTGOING_ATTACK_HIT_CHANCE:
+			return 1.0
+		StatusEffectModifier.FIELD.INCOMING_ATTACK_HIT_CHANCE:
+			return 1.0
+		StatusEffectModifier.FIELD.OUTGOING_LUCK:
+			return 0.0
+		StatusEffectModifier.FIELD.OUTGOING_DAMAGE_RNG_BIAS:
+			return 0.0
+		_:
+			return 0.0
+
+func get_modified_field(field: StatusEffectModifier.FIELD, value: float = get_default_field(field)) -> float:
+	var modified := value
+	for instance in _status_effects:
+		modified = instance.modify_value(field, modified)
+	return modified
+
 ## Gets the effective value of a stat, after all status effect modifiers.
 func get_stat(stat: Stat) -> float:
-	var value: float
-	match stat:
-		Stat.DAMAGE_MULTIPLIER: value = base_damage_multiplier
-		Stat.DEFENSE: value = base_defense
-		Stat.ACCURACY: value = base_accuracy
-		Stat.DODGE: value = base_dodge
-		Stat.LUCK: value = base_luck
-		Stat.DANGER: value = base_danger
-		_: value = 0.0
-	for instance in _status_effects:
-		value = instance.compute_stat_modifier(stat, value)
-	return value
+	# TODO: Use new stats
+	return 0.0
 
 
 # --- Damage/Heal Pipeline ---
 
-## Runs incoming damage through the full pipeline and applies it.
-func receive_damage(raw_amount: int, source: Character = null, is_reflected: bool = false) -> DamageContext:
-	var context := DamageContext.new(raw_amount, source, self )
-	context.is_reflected = is_reflected
+func deal_outgoing_damage(damage: int, target: Character):
+	var context := AttackContext.new(target)
+	context.damage = damage
+	context.source = self
+	target.receive_damage(damage, self)
+	for instance in _status_effects.duplicate():
+		instance.on_damage_dealt(context)
+	pass
 
+func receive_incoming_damage(damage: int, source: Character = null) -> void:
+	
+	pass
+
+func receive_incoming_heal(amount: int, source: Character = null) -> void:
+
+	pass
+
+func send_outgoing_heal(amount: int, target: Character):
+	target.receive_incoming_heal(amount, self)
+
+## Runs incoming damage through the full pipeline and applies it.
+func receive_damage(raw_amount: int, source: Character = null) -> AttackContext:
+	var context := AttackContext.new(self)
+	context.damage = raw_amount
+	context.source = source
 	# Source's outgoing damage multiplier
 	if source:
 		var multiplier := source.get_stat(Stat.DAMAGE_MULTIPLIER)
@@ -118,14 +127,14 @@ func heal(amount: int, source: Character = null) -> void:
 # --- Status Effect Management ---
 
 ## Applies a status effect. If already active, refreshes the duration instead.
-func add_status_effect(effect: StatusEffect, source: Character = null) -> StatusEffectInstance:
+func add_status_effect(effect: StatusEffect, source: Character = null) -> StatusEffectContainer:
 	var existing := get_status_effect(effect)
 
 	if existing:
 		existing.refresh_duration()
 		return existing
 
-	var instance := StatusEffectInstance.new(effect, self , source)
+	var instance := StatusEffectContainer.new(effect, self , source)
 	_status_effects.append(instance)
 	instance.on_applied()
 	status_effect_added.emit(instance)
@@ -138,11 +147,11 @@ func remove_status_effect(effect: StatusEffect) -> bool:
 		return true
 	return false
 
-func remove_status_effect_instance(instance: StatusEffectInstance) -> void:
+func remove_status_effect_instance(instance: StatusEffectContainer) -> void:
 	if instance in _status_effects:
 		_remove_effect_instance(instance)
 
-func get_status_effect(effect: StatusEffect) -> StatusEffectInstance:
+func get_status_effect(effect: StatusEffect) -> StatusEffectContainer:
 	for instance in _status_effects:
 		if instance.effect == effect:
 			return instance
@@ -151,7 +160,7 @@ func get_status_effect(effect: StatusEffect) -> StatusEffectInstance:
 func has_status_effect(effect: StatusEffect) -> bool:
 	return get_status_effect(effect) != null
 
-func get_all_status_effects() -> Array[StatusEffectInstance]:
+func get_all_status_effects() -> Array[StatusEffectContainer]:
 	return _status_effects.duplicate()
 
 
@@ -165,7 +174,7 @@ func on_turn_started() -> void:
 ## Called by the battle system right after this character acts.
 ## Ticks down durations and removes expired effects.
 func on_turn_ended() -> void:
-	var expired: Array[StatusEffectInstance] = []
+	var expired: Array[StatusEffectContainer] = []
 	for instance in _status_effects.duplicate():
 		_run_effect_trigger(instance, StatusEffect.TriggerType.ON_TURN_END)
 		if instance.tick_duration():
@@ -177,14 +186,14 @@ func on_turn_ended() -> void:
 
 # --- Internals ---
 
-func _remove_effect_instance(instance: StatusEffectInstance) -> void:
+func _remove_effect_instance(instance: StatusEffectContainer) -> void:
 	_status_effects.erase(instance)
 	instance.on_removed()
 	status_effect_removed.emit(instance)
 
-func _run_effect_trigger(instance: StatusEffectInstance, trigger: StatusEffect.TriggerType) -> void:
+func _run_effect_trigger(instance: StatusEffectContainer, trigger: StatusEffect.TriggerType) -> void:
 	if instance.effect.has_trigger and instance.effect.trigger_type == trigger and instance.effect.trigger_action:
-		# Has no "Caster" since they run automatically on certain events, instead of being activated by a character.
+		# Has no "source" since they are not directly caused by an ability.
 		instance.effect.trigger_action.run(null, instance.owner)
 
 

@@ -3,7 +3,7 @@ class_name ApplyStatusAction
 
 @export var status_effect: StatusEffect
 
-func run(caster: Character, target: Character) -> void:
+func run(source: Character, target: Character) -> void:
 	if status_effect:
-		target.add_status_effect(status_effect, caster)
+		target.add_status_effect(status_effect, source)
 	finished.emit()

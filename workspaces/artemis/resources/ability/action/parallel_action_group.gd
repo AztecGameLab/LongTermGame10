@@ -4,9 +4,9 @@ class_name ParallelActionGroup
 @export_group("Action Group")
 @export var actions: Array[Action];
 
-func run(caster: Character, target: Character) -> void:
+func run(source: Character, target: Character) -> void:
 	for action in actions:
-		action.run(caster, target)
+		action.run(source, target)
 	var signals: Array[Signal] = []
 	for action in actions:
 		signals.append(action.finished)

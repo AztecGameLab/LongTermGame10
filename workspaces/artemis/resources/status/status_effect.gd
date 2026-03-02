@@ -1,3 +1,4 @@
+@icon("uid://b230jcebk6c8q")
 extends Resource
 class_name StatusEffect
 
@@ -22,43 +23,55 @@ enum TriggerType {
 @export_custom(PROPERTY_HINT_GROUP_ENABLE, "") var limited_duration: bool = true
 @export var duration_turns: int = 3
 
-@export_group("Stat Modifiers")
-@export_custom(PROPERTY_HINT_GROUP_ENABLE, "") var has_status_modifiers: bool = false
-## Stat changes that are active while this effect is on a character.
-@export var stat_modifiers: Array[StatModifier]
+@export_group("Stacking")
+## Disable for effects that don't stack and should just refresh duration when reapplied.
+@export_custom(PROPERTY_HINT_GROUP_ENABLE, "") var can_stack: bool = false
+@export var max_stacks: int = 3
 
-@export_group("Trigger")
-## Enable to run an action in response to a game event.
-@export_custom(PROPERTY_HINT_GROUP_ENABLE, "") var has_trigger: bool = false
-@export var trigger_type: TriggerType = TriggerType.ON_TURN_START
-## Which action(s) to run when triggered.
-## [br]The default target of the action is the character the effect is attached to.
-@export var trigger_action: Action
+@export_group("Effects")
+@export var modifiers: Array[StatusEffectModifier]
+@export var triggers: Array[StatusEffectTrigger]
+
+# @export_group("Stat Modifiers")
+# @export_custom(PROPERTY_HINT_GROUP_ENABLE, "") var has_status_modifiers: bool = false
+# ## Stat changes that are active while this effect is on a character.
+# @export var stat_modifiers: Array[StatModifier]
+
+# @export_group("Trigger")
+# ## Enable to run an action in response to a game event.
+# @export_custom(PROPERTY_HINT_GROUP_ENABLE, "") var has_trigger: bool = false
+# @export var trigger_type: TriggerType = TriggerType.ON_TURN_START
+# ## Which action(s) to run when triggered.
+# ## [br]The default target of the action is the character the effect is attached to.
+# @export var trigger_action: Action
 
 
 # --- Virtual Methods ---
 # Override these in a custom script for effects that need special behavior.
 
-## Override to customize how this effect modifies stats.
-## Default just applies the stat_modifiers array.
-func compute_stat_modifier(stat: Character.Stat, current_value: float, _instance: StatusEffectInstance) -> float:
-	for modifier in stat_modifiers:
-		if modifier.stat == stat:
-			current_value = modifier.apply(current_value)
-	return current_value
+func modify_value(field: StatusEffectModifier.FIELD, value: float, _instance: StatusEffectContainer) -> float:
+	var modified_value := value
+	var field_modifiers := _get_modifiers(field)
+	for modifier in field_modifiers:
+		modified_value = modifier.modify_value(modified_value)
+	return modified_value
 
 ## Override to react to the owner taking damage.
-func on_damage_received(_context: DamageContext, _instance: StatusEffectInstance) -> void:
+func on_damage_received(_context: AttackContext, _instance: StatusEffectContainer) -> void:
 	pass
 
 ## Override to react to the owner dealing damage.
-func on_damage_dealt(_context: DamageContext, _instance: StatusEffectInstance) -> void:
+func on_damage_dealt(_context: AttackContext, _instance: StatusEffectContainer) -> void:
 	pass
 
 ## Override to run logic when the effect is first applied.
-func on_applied(_instance: StatusEffectInstance) -> void:
+func on_applied(_instance: StatusEffectContainer) -> void:
 	pass
 
 ## Override to clean up when the effect is removed.
-func on_removed(_instance: StatusEffectInstance) -> void:
+func on_removed(_instance: StatusEffectContainer) -> void:
 	pass
+
+
+func _get_modifiers(field: StatusEffectModifier.FIELD) -> Array[StatusEffectModifier]:
+	return modifiers.filter(func(m): return m.modifier_field == field);

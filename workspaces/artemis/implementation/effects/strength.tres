@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="StatusEffect" format=3 uid="uid://cjybefoa1fp4o"]
+
+[ext_resource type="Script" uid="uid://w6h7oqtjl61k" path="res://workspaces/artemis/resources/status/status_effect_modifier.gd" id="1_foqd3"]
+[ext_resource type="Script" uid="uid://c4rwprj6d61c0" path="res://workspaces/artemis/resources/status/status_effect.gd" id="1_qwhks"]
+[ext_resource type="Script" uid="uid://d0uvf6jnorxpw" path="res://workspaces/artemis/resources/status/status_effect_trigger.gd" id="3_g63qx"]
+
+[resource]
+script = ExtResource("1_qwhks")
+name = "Strength"
+description = "Increases damage dealt by 2"
+can_stack = true
+modifiers = Array[ExtResource("1_foqd3")]([null])
+triggers = Array[ExtResource("3_g63qx")]([null])
+metadata/_custom_type_script = "uid://c4rwprj6d61c0"
