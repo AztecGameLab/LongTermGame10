@@ -13,7 +13,9 @@ enum Stat {
 
 # --- Signals ---
 
-signal damaged(amount: int, source: Character)
+## Fires when the character is attacked. 
+## [br][param amount] is the actual damage dealt until zero. [param context] contains the source and the raw damage.
+signal damaged(amount: int, context: AttackContext)
 signal healed(amount: int, source: Character)
 signal died()
 signal status_effect_added(instance: StatusEffectContainer)
@@ -54,6 +56,35 @@ func get_modified_field(field: StatusEffectModifier.FIELD, value: float = get_de
 	for instance in _status_effects:
 		modified = instance.modify_value(field, modified)
 	return modified
+	
+func get_outgoing_hit_chance(value: float) -> float:
+	return get_modified_field(StatusEffectModifier.FIELD.OUTGOING_ATTACK_HIT_CHANCE, value)
+	
+func get_incoming_hit_chance(value: float) -> float:
+	return get_modified_field(StatusEffectModifier.FIELD.INCOMING_ATTACK_HIT_CHANCE, value)
+	
+func get_outgoing_damage(value: int) -> int:
+	return roundi(get_modified_field(StatusEffectModifier.FIELD.OUTGOING_DAMAGE, value))
+	
+func get_incoming_damage(value: int) -> int:
+	return roundi(get_modified_field(StatusEffectModifier.FIELD.INCOMING_DAMAGE, value))
+	
+func on_damage_dealt(attackContext: AttackContext):
+	for instance in _status_effects:
+		instance.on_damage_dealt(attackContext)
+		
+func on_damage_received(attackContext: AttackContext):
+	for instance in _status_effects:
+		instance.on_damage_received(attackContext)
+	
+	var damage := maxi(attackContext.damage, 0)
+	current_health -= damage
+	current_health = maxi(current_health, 0)
+
+	damaged.emit(damage, attackContext)
+
+	if current_health <= 0:
+		die()
 
 ## Gets the effective value of a stat, after all status effect modifiers.
 func get_stat(stat: Stat) -> float:
@@ -62,60 +93,6 @@ func get_stat(stat: Stat) -> float:
 
 
 # --- Damage/Heal Pipeline ---
-
-func deal_outgoing_damage(damage: int, target: Character):
-	var context := AttackContext.new(target)
-	context.damage = damage
-	context.source = self
-	target.receive_damage(damage, self)
-	for instance in _status_effects.duplicate():
-		instance.on_damage_dealt(context)
-	pass
-
-func receive_incoming_damage(damage: int, source: Character = null) -> void:
-	
-	pass
-
-func receive_incoming_heal(amount: int, source: Character = null) -> void:
-
-	pass
-
-func send_outgoing_heal(amount: int, target: Character):
-	target.receive_incoming_heal(amount, self)
-
-## Runs incoming damage through the full pipeline and applies it.
-func receive_damage(raw_amount: int, source: Character = null) -> AttackContext:
-	var context := AttackContext.new(self)
-	context.damage = raw_amount
-	context.source = source
-	# Source's outgoing damage multiplier
-	if source:
-		var multiplier := source.get_stat(Stat.DAMAGE_MULTIPLIER)
-		context.final_amount = roundi(context.final_amount * multiplier)
-
-	# Target's defense reduction
-	var defense := get_stat(Stat.DEFENSE)
-	if defense > 0.0:
-		context.final_amount = roundi(context.final_amount * (1.0 - clampf(defense, 0.0, 1.0)))
-
-	# Status effect intercepts
-	for instance in _status_effects.duplicate():
-		instance.on_damage_received(context)
-	if source:
-		for instance in source._status_effects.duplicate():
-			instance.on_damage_dealt(context)
-
-	# Apply final damage
-	context.final_amount = maxi(context.final_amount, 0)
-	current_health -= context.final_amount
-	current_health = maxi(current_health, 0)
-
-	damaged.emit(context.final_amount, source)
-
-	if current_health <= 0:
-		die()
-
-	return context
 
 ## Restores health, capped at max_health.
 func heal(amount: int, source: Character = null) -> void:

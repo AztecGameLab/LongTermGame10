@@ -15,3 +15,7 @@ static func curve_with_bias(minimum: int, maximum: int, bias: float = 0.0) -> in
 ## [bias] is a value between -1.0 and 1.0 that biases the roll towards false or true, respectively.
 static func binary_with_bias(bias: float = 0.0) -> bool:
 	return curve_with_bias(0, 1, bias) == 1
+
+
+static func chance(percentage: float) -> bool:
+	return randf() <= clampf(percentage, 0.0, 1.0)

@@ -7,6 +7,8 @@ enum MoveTargetType {
 	SELF,
 	## Targets everybody on the battlefield.
 	EVERYONE,
+	## Targets the last character that attacked the character using this move.
+	ATTACKER,
 	
 	## Targets a teammate
 	TEAMMATE,

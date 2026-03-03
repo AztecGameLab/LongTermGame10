@@ -1,5 +1,5 @@
 extends Action
-class_name ChanceAction
+class_name LuckChanceAction
 
 ## Biases the chance towards success or failure.[br]
 ## -1.0 = guaranteed fail, 0.0 = 50/50, 1.0 = guaranteed success.

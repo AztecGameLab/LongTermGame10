@@ -2,6 +2,7 @@ extends Resource
 class_name StatusEffectModifier
 ## A component of a Status Effect that specifies a modification to a value of a character's action
 
+## The available fields for modification.
 enum FIELD {
 	## Modifies the raw amount of damage done by any actions from this character.
 	OUTGOING_DAMAGE,
