@@ -18,8 +18,11 @@ func _init(p_effect: StatusEffect, p_source: Character, p_target: Character) -> 
 	target = p_target
 	remaining_turns = p_effect.duration_turns
 
-func modify_value(field: StatusEffectModifier.FIELD, value: float) -> float:
+func modify_value(field: StatusEffectModifier.Field, value: float) -> float:
 	return effect.modify_value(field, value, self)
+	
+func run_triggers(trigger: StatusEffectTrigger.Type) -> void:
+	return effect.run_triggers(trigger, self)
 
 func on_damage_received(context: AttackContext) -> void:
 	effect.on_damage_received(context, self)

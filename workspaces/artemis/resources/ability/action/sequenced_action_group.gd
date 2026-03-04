@@ -10,8 +10,6 @@ class_name SequencedActionGroup
 
 func run(source: Character, target: Character) -> void:
 	for action in actions:
-		action.run(source, target)
-		await action.finished
+		await action.run(source, target)
 		if delay > 0.0:
 			await Engine.get_main_loop().create_timer(delay).timeout
-	finished.emit()

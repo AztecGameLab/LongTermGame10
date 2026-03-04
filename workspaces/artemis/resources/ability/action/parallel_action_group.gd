@@ -5,10 +5,7 @@ class_name ParallelActionGroup
 @export var actions: Array[Action];
 
 func run(source: Character, target: Character) -> void:
+	var coroutines: Array[Callable] = []
 	for action in actions:
-		action.run(source, target)
-	var signals: Array[Signal] = []
-	for action in actions:
-		signals.append(action.finished)
-	await Signals.all(signals)
-	finished.emit()
+		coroutines.append(func(): await action.run(source, target))
+	await Concurrently.fire_all(coroutines)

@@ -1,10 +1,52 @@
 [gd_scene format=3 uid="uid://bh8o5oygmnqgd"]
 
+[ext_resource type="Script" uid="uid://cbi33r5foad57" path="res://workspaces/artemis/resources/logic/battle_manager.gd" id="1_f6buf"]
 [ext_resource type="Script" uid="uid://c2dcuh7wij0sh" path="res://workspaces/artemis/character.gd" id="1_ha2wl"]
 [ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://workspaces/artemis/resources/ability/ability.gd" id="2_dq3ge"]
+[ext_resource type="Script" uid="uid://doviul66xwvvb" path="res://workspaces/artemis/health_label.gd" id="3_dq3ge"]
 [ext_resource type="Resource" uid="uid://b6mlqpxywhb6g" path="res://workspaces/artemis/implementation/abilities/heal.tres" id="3_lhvlb"]
 [ext_resource type="Resource" uid="uid://c71y0pm2tt1g" path="res://workspaces/artemis/implementation/abilities/fortune/pierce.tres" id="4_lhvlb"]
+[ext_resource type="Resource" uid="uid://bnv8ckim477pc" path="res://workspaces/artemis/implementation/abilities/strength.tres" id="6_vmnyc"]
 
-[node name="Node2D" type="Node2D" unique_id=859969339]
+[node name="Node2D" type="Node2D" unique_id=217755439 node_paths=PackedStringArray("player_team", "boss_team")]
+script = ExtResource("1_f6buf")
+player_team = [NodePath("Player")]
+boss_team = [NodePath("Boss")]
+metadata/_custom_type_script = "uid://cbi33r5foad57"
+
+[node name="Player" type="Node2D" parent="." unique_id=1941574995]
+position = Vector2(561, 471)
 script = ExtResource("1_ha2wl")
+max_health = 500
+abilities = Array[ExtResource("2_dq3ge")]([ExtResource("4_lhvlb"), ExtResource("4_lhvlb"), ExtResource("4_lhvlb"), ExtResource("4_lhvlb"), ExtResource("3_lhvlb"), ExtResource("6_vmnyc")])
+metadata/_custom_type_script = "uid://c2dcuh7wij0sh"
+
+[node name="Label" type="Label" parent="Player" unique_id=1181677918]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("3_dq3ge")
+
+[node name="Boss" type="Node2D" parent="." unique_id=1270920420]
+position = Vector2(1240, 456)
+script = ExtResource("1_ha2wl")
+max_health = 500
 abilities = Array[ExtResource("2_dq3ge")]([ExtResource("3_lhvlb"), ExtResource("4_lhvlb")])
+metadata/_custom_type_script = "uid://c2dcuh7wij0sh"
+
+[node name="Label" type="Label" parent="Boss" unique_id=2042712014]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("3_dq3ge")
+
+[node name="Button" type="Button" parent="." unique_id=1737307383]
+offset_left = 576.0
+offset_top = 126.0
+offset_right = 1196.0
+offset_bottom = 249.0
+text = "Run Turn"
+
+[connection signal="damaged" from="Player" to="Player/Label" method="_on_damaged"]
+[connection signal="healed" from="Player" to="Player/Label" method="_on_healed"]
+[connection signal="damaged" from="Boss" to="Boss/Label" method="_on_damaged"]
+[connection signal="healed" from="Boss" to="Boss/Label" method="_on_healed"]
+[connection signal="pressed" from="Button" to="." method="run_turn"]

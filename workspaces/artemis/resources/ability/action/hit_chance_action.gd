@@ -15,14 +15,12 @@ func run(source: Character, target: Character) -> void:
 	
 	var calc_chance := success_chance
 	if source:
-		calc_chance = source.get_modified_field(StatusEffectModifier.FIELD.OUTGOING_ATTACK_HIT_CHANCE)
-	calc_chance = source.get_modified_field(StatusEffectModifier.FIELD.INCOMING_ATTACK_HIT_CHANCE)
+		calc_chance = source.get_modified_field(StatusEffectModifier.Field.OUTGOING_ATTACK_HIT_CHANCE)
+	calc_chance = source.get_modified_field(StatusEffectModifier.Field.INCOMING_ATTACK_HIT_CHANCE)
 	
 	var success: bool = RNG.chance(calc_chance)
 
 	var action: Action = success_action if success else fail_action
 
 	if action:
-		action.run(source, target)
-		await action.finished
-	finished.emit()
+		await action.run(source, target)

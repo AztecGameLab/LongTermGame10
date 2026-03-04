@@ -11,13 +11,11 @@ class_name DamageAction
 
 func run(source: Character, target: Character) -> void:
 	if can_miss and not BattleManager.check_hit_success(source, target):
-		finished.emit()
 		return
 
 	var damage_bias := 0.0
 	if source:
-		damage_bias = source.get_modified_field(StatusEffectModifier.FIELD.OUTGOING_DAMAGE_RNG_BIAS)
+		damage_bias = source.get_modified_field(StatusEffectModifier.Field.OUTGOING_DAMAGE_RNG_BIAS)
 	var damage := RNG.curve_with_bias(damage_minimum, damage_maximum, damage_bias)
 
 	BattleManager.apply_damage(damage, source, target)
-	finished.emit()

@@ -3,7 +3,7 @@ class_name StatusEffectModifier
 ## A component of a Status Effect that specifies a modification to a value of a character's action
 
 ## The available fields for modification.
-enum FIELD {
+enum Field {
 	## Modifies the raw amount of damage done by any actions from this character.
 	OUTGOING_DAMAGE,
 	
@@ -33,7 +33,7 @@ enum FIELD {
 	OUTGOING_HEALING
 }
 
-enum TYPE {
+enum Type {
 	## Adds the modifier to the value.[br]
 	## Use negative numbers to subtract.
 	ADD,
@@ -45,18 +45,18 @@ enum TYPE {
 	MULTIPLY
 }
 
-@export var modifier_field: FIELD
-@export var modifier_type: TYPE
+@export var modifier_field: Field
+@export var modifier_type: Type
 @export var modifier_amount: float
 
 
 func modify_value(value: float) -> float:
 	match modifier_type:
-		TYPE.ADD:
+		Type.ADD:
 			return value + modifier_amount;
-		TYPE.ADD_PERCENT:
+		Type.ADD_PERCENT:
 			return value + (value * modifier_amount);
-		TYPE.MULTIPLY:
+		Type.MULTIPLY:
 			return value * modifier_amount;
 		_:
 			# Default case, should never fire.

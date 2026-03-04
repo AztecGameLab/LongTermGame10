@@ -30,6 +30,9 @@ signal status_effect_removed(instance: StatusEffectContainer)
 # --- Runtime State ---
 
 var current_health: int
+var alive: bool:
+	get():
+		return current_health > 0
 var _status_effects: Array[StatusEffectContainer] = []
 
 func _ready() -> void:
@@ -38,54 +41,42 @@ func _ready() -> void:
 
 # --- Stat Pipeline ---
 
-func get_default_field(field: StatusEffectModifier.FIELD) -> float:
+func get_default_field(field: StatusEffectModifier.Field) -> float:
 	match field:
-		StatusEffectModifier.FIELD.OUTGOING_ATTACK_HIT_CHANCE:
+		StatusEffectModifier.Field.OUTGOING_ATTACK_HIT_CHANCE:
 			return 1.0
-		StatusEffectModifier.FIELD.INCOMING_ATTACK_HIT_CHANCE:
+		StatusEffectModifier.Field.INCOMING_ATTACK_HIT_CHANCE:
 			return 1.0
-		StatusEffectModifier.FIELD.OUTGOING_LUCK:
+		StatusEffectModifier.Field.OUTGOING_LUCK:
 			return 0.0
-		StatusEffectModifier.FIELD.OUTGOING_DAMAGE_RNG_BIAS:
+		StatusEffectModifier.Field.OUTGOING_DAMAGE_RNG_BIAS:
 			return 0.0
 		_:
 			return 0.0
 
-func get_modified_field(field: StatusEffectModifier.FIELD, value: float = get_default_field(field)) -> float:
+func get_modified_field(field: StatusEffectModifier.Field, value: float = get_default_field(field)) -> float:
 	var modified := value
 	for instance in _status_effects:
 		modified = instance.modify_value(field, modified)
 	return modified
 	
 func get_outgoing_hit_chance(value: float) -> float:
-	return get_modified_field(StatusEffectModifier.FIELD.OUTGOING_ATTACK_HIT_CHANCE, value)
+	return get_modified_field(StatusEffectModifier.Field.OUTGOING_ATTACK_HIT_CHANCE, value)
 	
 func get_incoming_hit_chance(value: float) -> float:
-	return get_modified_field(StatusEffectModifier.FIELD.INCOMING_ATTACK_HIT_CHANCE, value)
+	return get_modified_field(StatusEffectModifier.Field.INCOMING_ATTACK_HIT_CHANCE, value)
 	
 func get_outgoing_damage(value: int) -> int:
-	return roundi(get_modified_field(StatusEffectModifier.FIELD.OUTGOING_DAMAGE, value))
+	return roundi(get_modified_field(StatusEffectModifier.Field.OUTGOING_DAMAGE, value))
 	
 func get_incoming_damage(value: int) -> int:
-	return roundi(get_modified_field(StatusEffectModifier.FIELD.INCOMING_DAMAGE, value))
+	return roundi(get_modified_field(StatusEffectModifier.Field.INCOMING_DAMAGE, value))
+
+func get_outgoing_healing(value: int) -> int:
+	return roundi(get_modified_field(StatusEffectModifier.Field.OUTGOING_HEALING, value))
 	
-func on_damage_dealt(attackContext: AttackContext):
-	for instance in _status_effects:
-		instance.on_damage_dealt(attackContext)
-		
-func on_damage_received(attackContext: AttackContext):
-	var damage := maxi(attackContext.damage, 0)
-	current_health -= damage
-	current_health = maxi(current_health, 0)
-	
-	for instance in _status_effects:
-		instance.on_damage_received(attackContext)
-
-	damaged.emit(damage, attackContext)
-
-	if current_health <= 0:
-		die()
-
+func get_incoming_healing(value: int) -> int:
+	return roundi(get_modified_field(StatusEffectModifier.Field.INCOMING_HEALING, value))
 
 # --- Damage/Heal Pipeline ---
 
@@ -141,20 +132,36 @@ func get_all_status_effects() -> Array[StatusEffectContainer]:
 ## Called by the battle system right before this character acts.
 func on_turn_started() -> void:
 	for instance in _status_effects.duplicate():
-		_run_effect_trigger(instance, StatusEffect.TriggerType.ON_TURN_START)
+		await instance.run_triggers(StatusEffectTrigger.Type.ON_TURN_START)
 
 ## Called by the battle system right after this character acts.
 ## Ticks down durations and removes expired effects.
 func on_turn_ended() -> void:
 	var expired: Array[StatusEffectContainer] = []
 	for instance in _status_effects.duplicate():
-		_run_effect_trigger(instance, StatusEffect.TriggerType.ON_TURN_END)
+		await instance.run_triggers(StatusEffectTrigger.Type.ON_TURN_END)
 		if instance.tick_duration():
 			expired.append(instance)
 
 	for instance in expired:
 		_remove_effect_instance(instance)
 
+func on_damage_dealt(attackContext: AttackContext):
+	for instance in _status_effects:
+		instance.on_damage_dealt(attackContext)
+		
+func on_damage_received(attackContext: AttackContext):
+	var damage := maxi(attackContext.damage, 0)
+	current_health -= damage
+	current_health = maxi(current_health, 0)
+	
+	for instance in _status_effects:
+		instance.on_damage_received(attackContext)
+
+	damaged.emit(damage, attackContext)
+
+	if current_health <= 0:
+		die()
 
 # --- Internals ---
 
@@ -163,13 +170,6 @@ func _remove_effect_instance(instance: StatusEffectContainer) -> void:
 	instance.on_removed()
 	status_effect_removed.emit(instance)
 
-func _run_effect_trigger(instance: StatusEffectContainer, type: StatusEffect.TriggerType) -> void:
-	if instance.effect.has_trigger and instance.effect.trigger_type == type and instance.effect.trigger_action:
-		# Has no "source" since they are not directly caused by an ability.
-		instance.effect.trigger_action.run(null, instance.target)
-
 
 func die() -> void:
 	died.emit()
-	# TODO: Change from `queue_free()` to a proper death system later on.
-	queue_free()

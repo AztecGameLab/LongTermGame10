@@ -1,8 +1,6 @@
 class_name QueuedAction
 ## Represents an action that is going to be run by the [BattleManager].
 
-signal finished();
-
 ## The [Action] that will be ran.
 var action: Action
 
@@ -19,6 +17,4 @@ func _init(p_action: Action, p_source: Character, p_target: Character) -> void:
 	source = p_source
 
 func run():
-	action.run(source, target)
-	await action.finished
-	finished.emit()
+	await action.run(source, target)

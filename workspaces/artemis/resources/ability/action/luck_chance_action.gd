@@ -15,13 +15,11 @@ func run(source: Character, target: Character) -> void:
 
 	var success_bias := default_bias
 	if source:
-		success_bias = source.get_modified_field(StatusEffectModifier.FIELD.OUTGOING_LUCK, default_bias)
+		success_bias = source.get_modified_field(StatusEffectModifier.Field.OUTGOING_LUCK, default_bias)
 	
 	var success: bool = RNG.binary_with_bias(success_bias)
 
 	var action: Action = success_action if success else fail_action
 
 	if action:
-		action.run(source, target)
-		await action.finished
-	finished.emit()
+		await action.run(source, target)

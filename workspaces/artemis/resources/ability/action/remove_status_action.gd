@@ -6,4 +6,3 @@ class_name RemoveStatusAction
 func run(_source: Character, target: Character) -> void:
 	if status_effect:
 		target.remove_status_effect(status_effect)
-	finished.emit()

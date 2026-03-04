@@ -10,8 +10,6 @@ class_name StaticDamageAction
 
 func run(source: Character, target: Character) -> void:
 	if can_miss and not BattleManager.check_hit_success(source, target):
-		finished.emit()
 		return
 
 	BattleManager.apply_damage(damage, source, target)
-	finished.emit()

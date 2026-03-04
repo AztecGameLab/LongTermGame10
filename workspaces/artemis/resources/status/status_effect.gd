@@ -29,21 +29,21 @@ var max_stacks:
 	get:
 		return stacks.size()
 
-func run_triggers(type: TriggerType, _instance: StatusEffectContainer) -> void:
+func run_triggers(type: StatusEffectTrigger.Type, _instance: StatusEffectContainer) -> void:
 	# Get the current stack
 	var stack := stacks[_instance.stacks - 1]
 	for trigger in stack.triggers:
 		if trigger.trigger_type == type and trigger.action:
-			trigger.action.run(null, _instance.target)
+			await trigger.action.run(null, _instance.target)
 
-func modify_value(field: StatusEffectModifier.FIELD, value: float, _instance: StatusEffectContainer) -> float:
+func modify_value(field: StatusEffectModifier.Field, value: float, _instance: StatusEffectContainer) -> float:
 	var modified_value := value
 	var field_modifiers := _get_modifiers(field, _instance)
 	for modifier in field_modifiers:
 		modified_value = modifier.modify_value(modified_value)
 	return modified_value
 
-func _get_modifiers(field: StatusEffectModifier.FIELD, _instance: StatusEffectContainer) -> Array[StatusEffectModifier]:
+func _get_modifiers(field: StatusEffectModifier.Field, _instance: StatusEffectContainer) -> Array[StatusEffectModifier]:
 	var stack := stacks[_instance.stacks - 1]
 	return stack.modifiers.filter(func(m): return m.modifier_field == field);
 
