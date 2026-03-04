@@ -37,6 +37,9 @@ enum TYPE {
 	## Adds the modifier to the value.[br]
 	## Use negative numbers to subtract.
 	ADD,
+	## Adds a percentage (0.0 to 1.0) of the value to itself.[br]
+	## Use negative numbers to subtract, i.e. [code]subtract 30% = value + (value * -0.3)[/code]
+	ADD_PERCENT,
 	## Multiplies the value by the modifier.[br]
 	## Use values <1 to divide, i.e. [code]30% = value * 0.3[/code]
 	MULTIPLY
@@ -51,6 +54,8 @@ func modify_value(value: float) -> float:
 	match modifier_type:
 		TYPE.ADD:
 			return value + modifier_amount;
+		TYPE.ADD_PERCENT:
+			return value + (value * modifier_amount);
 		TYPE.MULTIPLY:
 			return value * modifier_amount;
 		_:

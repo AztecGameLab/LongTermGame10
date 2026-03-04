@@ -18,49 +18,43 @@ enum TriggerType {
 @export var name: String
 @export_multiline var description: String
 
+@export var stacks: Array[StatusEffectStack]
+
 @export_group("Limited Duration")
 ## Disable for effects that last until explicitly removed.
 @export_custom(PROPERTY_HINT_GROUP_ENABLE, "") var limited_duration: bool = true
 @export var duration_turns: int = 3
 
-@export_group("Stacking")
-## Disable for effects that don't stack and should just refresh duration when reapplied.
-@export_custom(PROPERTY_HINT_GROUP_ENABLE, "") var can_stack: bool = false
-@export var max_stacks: int = 3
+var max_stacks:
+	get:
+		return stacks.size()
 
-@export_group("Effects")
-@export var modifiers: Array[StatusEffectModifier]
-@export var triggers: Array[StatusEffectTrigger]
-
-# @export_group("Stat Modifiers")
-# @export_custom(PROPERTY_HINT_GROUP_ENABLE, "") var has_status_modifiers: bool = false
-# ## Stat changes that are active while this effect is on a character.
-# @export var stat_modifiers: Array[StatModifier]
-
-# @export_group("Trigger")
-# ## Enable to run an action in response to a game event.
-# @export_custom(PROPERTY_HINT_GROUP_ENABLE, "") var has_trigger: bool = false
-# @export var trigger_type: TriggerType = TriggerType.ON_TURN_START
-# ## Which action(s) to run when triggered.
-# ## [br]The default target of the action is the character the effect is attached to.
-# @export var trigger_action: Action
-
-
-# --- Virtual Methods ---
-# Override these in a custom script for effects that need special behavior.
+func run_triggers(type: TriggerType, _instance: StatusEffectContainer) -> void:
+	# Get the current stack
+	var stack := stacks[_instance.stacks - 1]
+	for trigger in stack.triggers:
+		if trigger.trigger_type == type and trigger.action:
+			trigger.action.run(null, _instance.target)
 
 func modify_value(field: StatusEffectModifier.FIELD, value: float, _instance: StatusEffectContainer) -> float:
 	var modified_value := value
-	var field_modifiers := _get_modifiers(field)
+	var field_modifiers := _get_modifiers(field, _instance)
 	for modifier in field_modifiers:
 		modified_value = modifier.modify_value(modified_value)
 	return modified_value
 
-## Override to react to the owner taking damage.
+func _get_modifiers(field: StatusEffectModifier.FIELD, _instance: StatusEffectContainer) -> Array[StatusEffectModifier]:
+	var stack := stacks[_instance.stacks - 1]
+	return stack.modifiers.filter(func(m): return m.modifier_field == field);
+
+# --- Virtual Methods ---
+# Override these in a custom script for effects that need special behavior.
+
+## Override to react to the attached character taking damage.
 func on_damage_received(_context: AttackContext, _instance: StatusEffectContainer) -> void:
 	pass
 
-## Override to react to the owner dealing damage.
+## Override to react to the attached character dealing damage.
 func on_damage_dealt(_context: AttackContext, _instance: StatusEffectContainer) -> void:
 	pass
 
@@ -71,7 +65,3 @@ func on_applied(_instance: StatusEffectContainer) -> void:
 ## Override to clean up when the effect is removed.
 func on_removed(_instance: StatusEffectContainer) -> void:
 	pass
-
-
-func _get_modifiers(field: StatusEffectModifier.FIELD) -> Array[StatusEffectModifier]:
-	return modifiers.filter(func(m): return m.modifier_field == field);

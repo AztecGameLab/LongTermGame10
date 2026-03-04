@@ -2,10 +2,35 @@
 
 [ext_resource type="Script" uid="uid://c4rwprj6d61c0" path="res://workspaces/artemis/resources/status/status_effect.gd" id="1_7bdpg"]
 [ext_resource type="Script" uid="uid://w6h7oqtjl61k" path="res://workspaces/artemis/resources/status/status_effect_modifier.gd" id="1_aqp5v"]
+[ext_resource type="Script" uid="uid://c2ci25gmhnb4w" path="res://workspaces/artemis/resources/status/status_effect_stack.gd" id="2_yvft3"]
 [ext_resource type="Script" uid="uid://d0uvf6jnorxpw" path="res://workspaces/artemis/resources/status/status_effect_trigger.gd" id="3_yvft3"]
+[ext_resource type="Script" uid="uid://bihndepd0cudw" path="res://workspaces/artemis/resources/ability/action/static_damage_action.gd" id="5_a8wml"]
+
+[sub_resource type="Resource" id="Resource_7u8n7"]
+script = ExtResource("5_a8wml")
+damage = 4
+can_miss = false
+metadata/_custom_type_script = "uid://bihndepd0cudw"
+
+[sub_resource type="Resource" id="Resource_1acph"]
+script = ExtResource("3_yvft3")
+trigger_type = 1
+action = SubResource("Resource_7u8n7")
+metadata/_custom_type_script = "uid://d0uvf6jnorxpw"
+
+[sub_resource type="Resource" id="Resource_a8wml"]
+script = ExtResource("2_yvft3")
+triggers = Array[ExtResource("3_yvft3")]([SubResource("Resource_1acph")])
+metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
+
+[sub_resource type="Resource" id="Resource_ro6od"]
+script = ExtResource("2_yvft3")
+triggers = Array[ExtResource("3_yvft3")]([SubResource("Resource_1acph")])
+metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
 
 [resource]
 script = ExtResource("1_7bdpg")
 name = "Bleed"
 description = "Lowers HP by 2 each turn."
+stacks = Array[ExtResource("2_yvft3")]([SubResource("Resource_a8wml"), SubResource("Resource_ro6od")])
 metadata/_custom_type_script = "uid://c4rwprj6d61c0"

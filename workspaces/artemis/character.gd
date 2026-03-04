@@ -74,22 +74,17 @@ func on_damage_dealt(attackContext: AttackContext):
 		instance.on_damage_dealt(attackContext)
 		
 func on_damage_received(attackContext: AttackContext):
-	for instance in _status_effects:
-		instance.on_damage_received(attackContext)
-	
 	var damage := maxi(attackContext.damage, 0)
 	current_health -= damage
 	current_health = maxi(current_health, 0)
+	
+	for instance in _status_effects:
+		instance.on_damage_received(attackContext)
 
 	damaged.emit(damage, attackContext)
 
 	if current_health <= 0:
 		die()
-
-## Gets the effective value of a stat, after all status effect modifiers.
-func get_stat(stat: Stat) -> float:
-	# TODO: Use new stats
-	return 0.0
 
 
 # --- Damage/Heal Pipeline ---
@@ -108,10 +103,10 @@ func add_status_effect(effect: StatusEffect, source: Character = null) -> Status
 	var existing := get_status_effect(effect)
 
 	if existing:
-		existing.refresh_duration()
+		existing.add_stack()
 		return existing
 
-	var instance := StatusEffectContainer.new(effect, self , source)
+	var instance := StatusEffectContainer.new(effect, source, self )
 	_status_effects.append(instance)
 	instance.on_applied()
 	status_effect_added.emit(instance)
@@ -168,10 +163,10 @@ func _remove_effect_instance(instance: StatusEffectContainer) -> void:
 	instance.on_removed()
 	status_effect_removed.emit(instance)
 
-func _run_effect_trigger(instance: StatusEffectContainer, trigger: StatusEffect.TriggerType) -> void:
-	if instance.effect.has_trigger and instance.effect.trigger_type == trigger and instance.effect.trigger_action:
+func _run_effect_trigger(instance: StatusEffectContainer, type: StatusEffect.TriggerType) -> void:
+	if instance.effect.has_trigger and instance.effect.trigger_type == type and instance.effect.trigger_action:
 		# Has no "source" since they are not directly caused by an ability.
-		instance.effect.trigger_action.run(null, instance.owner)
+		instance.effect.trigger_action.run(null, instance.target)
 
 
 func die() -> void:

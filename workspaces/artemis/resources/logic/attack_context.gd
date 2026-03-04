@@ -9,7 +9,7 @@ var source: Character
 ## Who is receiving the damage.
 var target: Character
 
-func _init(p_damage: int, p_target: Character, p_source: Character) -> void:
+func _init(p_damage: int, p_source: Character, p_target: Character) -> void:
 	damage = p_damage
-	target = p_target
 	source = p_source
+	target = p_target
