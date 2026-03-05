@@ -16,7 +16,6 @@ enum TriggerType {
 }
 
 @export var name: String
-@export_multiline var description: String
 
 @export var stacks: Array[StatusEffectStack]
 
@@ -25,13 +24,13 @@ enum TriggerType {
 @export_custom(PROPERTY_HINT_GROUP_ENABLE, "") var limited_duration: bool = true
 @export var duration_turns: int = 3
 
-var max_stacks:
+var max_stack:
 	get:
 		return stacks.size()
 
 func run_triggers(type: StatusEffectTrigger.Type, _instance: StatusEffectContainer) -> void:
 	# Get the current stack
-	var stack := stacks[_instance.stacks - 1]
+	var stack := stacks[_instance.stack - 1]
 	for trigger in stack.triggers:
 		if trigger.trigger_type == type and trigger.action:
 			await trigger.action.run(null, _instance.target)
@@ -44,7 +43,7 @@ func modify_value(field: StatusEffectModifier.Field, value: float, _instance: St
 	return modified_value
 
 func _get_modifiers(field: StatusEffectModifier.Field, _instance: StatusEffectContainer) -> Array[StatusEffectModifier]:
-	var stack := stacks[_instance.stacks - 1]
+	var stack := stacks[_instance.stack - 1]
 	return stack.modifiers.filter(func(m): return m.modifier_field == field);
 
 # --- Virtual Methods ---

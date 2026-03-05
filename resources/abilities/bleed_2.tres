@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Ability" format=3 uid="uid://27g4lt4yhmqu"]
+
+[ext_resource type="Script" uid="uid://be5ru5snax08s" path="res://scripts/ability/action/apply_status_action.gd" id="1_h5x8q"]
+[ext_resource type="Resource" uid="uid://dpscjkruqnc5j" path="res://resources/status_effects/bleed.tres" id="2_gjoai"]
+[ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="3_hao7a"]
+
+[sub_resource type="Resource" id="Resource_aqwkb"]
+script = ExtResource("1_h5x8q")
+status_effect = ExtResource("2_gjoai")
+stack = 2
+metadata/_custom_type_script = "uid://be5ru5snax08s"
+
+[resource]
+script = ExtResource("3_hao7a")
+name = "Bleed"
+description = "Applies 2 stacks of bleed to the target enemy, or adds one stack to an existing effect."
+action = SubResource("Resource_aqwkb")
+metadata/_custom_type_script = "uid://ny1mjfoo1mqc"

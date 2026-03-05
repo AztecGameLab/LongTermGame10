@@ -90,14 +90,14 @@ func heal(amount: int, source: Character = null) -> void:
 # --- Status Effect Management ---
 
 ## Applies a status effect. If already active, refreshes the duration instead.
-func add_status_effect(effect: StatusEffect, source: Character = null) -> StatusEffectContainer:
+func add_status_effect(effect: StatusEffect, source: Character, stack: int) -> StatusEffectContainer:
 	var existing := get_status_effect(effect)
 
 	if existing:
 		existing.add_stack()
 		return existing
 
-	var instance := StatusEffectContainer.new(effect, source, self )
+	var instance := StatusEffectContainer.new(effect, source, self, stack)
 	_status_effects.append(instance)
 	instance.on_applied()
 	status_effect_added.emit(instance)

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Ability" format=3 uid="uid://dgvncaqhl24en"]
 
-[ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://workspaces/artemis/resources/ability/ability.gd" id="1_bsgnn"]
+[ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="1_bsgnn"]
 
 [resource]
 script = ExtResource("1_bsgnn")

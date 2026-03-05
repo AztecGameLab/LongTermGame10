@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="StatusEffect" format=3 uid="uid://cjybefoa1fp4o"]
+
+[ext_resource type="Script" uid="uid://c4rwprj6d61c0" path="res://scripts/status_effects/status_effect.gd" id="1_df2h8"]
+[ext_resource type="Script" uid="uid://c2ci25gmhnb4w" path="res://scripts/status_effects/status_effect_stack.gd" id="2_x4rp0"]
+[ext_resource type="Script" uid="uid://w6h7oqtjl61k" path="res://scripts/status_effects/status_effect_modifier.gd" id="3_fedou"]
+[ext_resource type="Script" uid="uid://d0uvf6jnorxpw" path="res://scripts/status_effects/status_effect_trigger.gd" id="4_vfrfl"]
+
+[sub_resource type="Resource" id="Resource_c1bpb"]
+script = ExtResource("3_fedou")
+modifier_type = 2
+modifier_amount = 2.0
+metadata/_custom_type_script = "uid://w6h7oqtjl61k"
+
+[sub_resource type="Resource" id="Resource_uio3q"]
+script = ExtResource("2_x4rp0")
+modifiers = Array[ExtResource("3_fedou")]([SubResource("Resource_c1bpb")])
+metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
+
+[resource]
+script = ExtResource("1_df2h8")
+name = "Strength"
+stacks = Array[ExtResource("2_x4rp0")]([SubResource("Resource_uio3q")])
+metadata/_custom_type_script = "uid://c4rwprj6d61c0"

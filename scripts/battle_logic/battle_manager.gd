@@ -68,6 +68,9 @@ func run_turn():
 			continue
 		await character.on_turn_started()
 		var ability: Ability = character.abilities.pick_random()
+		if not ability:
+			print(character.name + " using Nothing")
+			continue
 		print(character.name + " using " + ability.name)
 		if ability.move_target_type == Ability.MoveTargetType.SELF:
 			_queued_actions.append(QueuedAction.new(ability.action, character, character))
@@ -80,6 +83,9 @@ func run_turn():
 			continue
 		await character.on_turn_started()
 		var ability: Ability = character.abilities.pick_random()
+		if not ability:
+			print(character.name + " using Nothing")
+			continue
 		print(character.name + " using " + ability.name)
 		if ability.move_target_type == Ability.MoveTargetType.SELF:
 			_queued_actions.append(QueuedAction.new(ability.action, character, character))
