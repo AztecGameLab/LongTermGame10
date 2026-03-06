@@ -8,10 +8,10 @@ enum Type {
 	ON_TURN_START,
 	## Runs after the attached character acts.
 	ON_TURN_END,
-	## Runs when the attached character is attacked.
-	ON_ATTACKED,
-	## Runs when an ally of the attached character is attacked.
-	ON_ALLY_ATTACKED,
+	### Runs when the attached character is attacked.
+	#ON_ATTACKED,
+	### Runs when an ally of the attached character is attacked.
+	#ON_ALLY_ATTACKED,
 }
 
 ## Specifies when this trigger runs during the battle.

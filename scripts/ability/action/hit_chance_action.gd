@@ -4,7 +4,7 @@ class_name HitChanceAction
 ## The chance of success.[br]
 ## 0.0 = guaranteed fail, 0.5 = 50/50, 1.0 = guaranteed success.
 ## Can be modified by status effects through hit chance.
-@export_range(0.0, 1.0, 0.05) var success_chance: float = 0.5
+@export_range(0.0, 1.0, 0.05) var success_chance: float = 1.0
 
 @export var success_action: Action
 

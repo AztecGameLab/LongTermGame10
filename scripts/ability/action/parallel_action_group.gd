@@ -1,7 +1,6 @@
 extends Action
 class_name ParallelActionGroup
 
-@export_group("Action Group")
 @export var actions: Array[Action];
 
 func run(source: Character, target: Character) -> void:

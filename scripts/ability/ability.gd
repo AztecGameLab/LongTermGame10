@@ -34,6 +34,6 @@ enum MoveTargetType {
 @export var move_target_type: MoveTargetType = MoveTargetType.ENEMY;
 
 ## The action(s) to take.[br]
-## For multiple actions, use a ParallelActionGroup or SequencedActionGroup depending on whether you want
-## them to execute simultaneously, or one after another with a delay.
+## For multiple actions you may use a ParallelActionGroup or SequencedActionGroup,
+## depending on whether you want them to execute simultaneously or sequentially.
 @export var action: Action;

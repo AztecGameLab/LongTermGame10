@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="StatusEffect" format=3 uid="uid://boirpi7nfrlio"]
+
+[ext_resource type="Script" uid="uid://c4rwprj6d61c0" path="res://scripts/status_effects/status_effect.gd" id="1_isq7a"]
+[ext_resource type="Script" uid="uid://c2ci25gmhnb4w" path="res://scripts/status_effects/status_effect_stack.gd" id="2_84h3c"]
+[ext_resource type="Script" uid="uid://w6h7oqtjl61k" path="res://scripts/status_effects/status_effect_modifier.gd" id="3_df4r0"]
+[ext_resource type="Script" uid="uid://d0uvf6jnorxpw" path="res://scripts/status_effects/status_effect_trigger.gd" id="4_ew45o"]
+[ext_resource type="Script" uid="uid://bihndepd0cudw" path="res://scripts/ability/action/static_damage_action.gd" id="5_ew45o"]
+
+[sub_resource type="Resource" id="Resource_ats08"]
+script = ExtResource("3_df4r0")
+modifier_type = 1
+modifier_amount = -0.3
+metadata/_custom_type_script = "uid://w6h7oqtjl61k"
+
+[sub_resource type="Resource" id="Resource_rcryw"]
+script = ExtResource("5_ew45o")
+metadata/_custom_type_script = "uid://bihndepd0cudw"
+
+[sub_resource type="Resource" id="Resource_mr55s"]
+script = ExtResource("4_ew45o")
+trigger_type = 1
+action = SubResource("Resource_rcryw")
+metadata/_custom_type_script = "uid://d0uvf6jnorxpw"
+
+[sub_resource type="Resource" id="Resource_c1j84"]
+script = ExtResource("4_ew45o")
+metadata/_custom_type_script = "uid://d0uvf6jnorxpw"
+
+[sub_resource type="Resource" id="Resource_g1knb"]
+script = ExtResource("2_84h3c")
+modifiers = Array[ExtResource("3_df4r0")]([SubResource("Resource_ats08")])
+triggers = Array[ExtResource("4_ew45o")]([SubResource("Resource_mr55s"), SubResource("Resource_c1j84")])
+description = "Deals 5hp every turn, and reduce outgoing damage by 30%"
+metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
+
+[sub_resource type="Resource" id="Resource_1oaxg"]
+script = ExtResource("2_84h3c")
+metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
+
+[resource]
+script = ExtResource("1_isq7a")
+name = "Demo Status Effect"
+stacks = Array[ExtResource("2_84h3c")]([SubResource("Resource_g1knb"), SubResource("Resource_1oaxg")])
+metadata/_custom_type_script = "uid://c4rwprj6d61c0"

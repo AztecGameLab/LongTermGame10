@@ -2,19 +2,6 @@
 extends Resource
 class_name StatusEffect
 
-enum TriggerType {
-	## Runs before the owner acts. Good for regen/buffs.
-	ON_TURN_START,
-	## Runs after the owner acts. Good for Poison/Bleed.
-	ON_TURN_END,
-	## Runs when the owner takes damage.
-	ON_DAMAGED,
-	## Runs when the owner is targeted by an attack (before damage).
-	ON_ATTACKED,
-	## Runs when an ally of the owner is attacked.
-	ON_ALLY_ATTACKED,
-}
-
 @export var name: String
 
 @export var stacks: Array[StatusEffectStack]
