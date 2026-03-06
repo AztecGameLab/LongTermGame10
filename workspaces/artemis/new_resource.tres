@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Ability" format=3 uid="uid://i7iq6q546qyo"]
+
+[ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="1_aau4b"]
+[ext_resource type="Script" uid="uid://3xfxcysmuqdm" path="res://scripts/ability/action/repeat_action.gd" id="1_ondbj"]
+
+[sub_resource type="Resource" id="Resource_yega5"]
+script = ExtResource("1_ondbj")
+metadata/_custom_type_script = "uid://3xfxcysmuqdm"
+
+[resource]
+script = ExtResource("1_aau4b")
+action = SubResource("Resource_yega5")
+metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
