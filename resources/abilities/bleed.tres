@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Ability" format=3 uid="uid://sg2oek573oja"]
+
+[ext_resource type="Script" uid="uid://be5ru5snax08s" path="res://scripts/ability/action/apply_status_action.gd" id="1_5t4l2"]
+[ext_resource type="Resource" uid="uid://dpscjkruqnc5j" path="res://resources/status_effects/bleed.tres" id="2_dx13h"]
+[ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="3_t7m4w"]
+
+[sub_resource type="Resource" id="Resource_aqwkb"]
+script = ExtResource("1_5t4l2")
+status_effect = ExtResource("2_dx13h")
+metadata/_custom_type_script = "uid://be5ru5snax08s"
+
+[resource]
+script = ExtResource("3_t7m4w")
+name = "Bleed"
+description = "Applies bleed to the target enemy."
+action = SubResource("Resource_aqwkb")
+metadata/_custom_type_script = "uid://ny1mjfoo1mqc"

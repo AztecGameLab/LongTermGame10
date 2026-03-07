@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Ability" format=3 uid="uid://bnv8ckim477pc"]
+
+[ext_resource type="Script" uid="uid://be5ru5snax08s" path="res://scripts/ability/action/apply_status_action.gd" id="1_d5b8t"]
+[ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="1_y516x"]
+[ext_resource type="Resource" uid="uid://cjybefoa1fp4o" path="res://resources/status_effects/strength.tres" id="2_r03x2"]
+
+[sub_resource type="Resource" id="Resource_lvpx5"]
+script = ExtResource("1_d5b8t")
+status_effect = ExtResource("2_r03x2")
+metadata/_custom_type_script = "uid://be5ru5snax08s"
+
+[resource]
+script = ExtResource("1_y516x")
+name = "Strength"
+description = "Increases your damage amount."
+action = SubResource("Resource_lvpx5")
+metadata/_custom_type_script = "uid://ny1mjfoo1mqc"

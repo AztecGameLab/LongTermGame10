@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="StatusEffect" format=3 uid="uid://de833mfrvpnia"]
+
+[ext_resource type="Script" uid="uid://w6h7oqtjl61k" path="res://scripts/status_effects/status_effect_modifier.gd" id="1_7fml0"]
+[ext_resource type="Script" uid="uid://c4rwprj6d61c0" path="res://scripts/status_effects/status_effect.gd" id="2_dfnv4"]
+[ext_resource type="Script" uid="uid://c2ci25gmhnb4w" path="res://scripts/status_effects/status_effect_stack.gd" id="2_fo1nq"]
+[ext_resource type="Script" uid="uid://d0uvf6jnorxpw" path="res://scripts/status_effects/status_effect_trigger.gd" id="3_fo1nq"]
+[ext_resource type="Script" uid="uid://d0rap3gi3boj5" path="res://scripts/ability/action/damage_action.gd" id="4_dfnv4"]
+
+[sub_resource type="Resource" id="Resource_5ggwq"]
+script = ExtResource("4_dfnv4")
+damage_minimum = 2
+damage_maximum = 5
+override_target = true
+action_target = 2
+metadata/_custom_type_script = "uid://d0rap3gi3boj5"
+
+[sub_resource type="Resource" id="Resource_3ro7g"]
+script = ExtResource("3_fo1nq")
+trigger_type = 2
+action = SubResource("Resource_5ggwq")
+metadata/_custom_type_script = "uid://d0uvf6jnorxpw"
+
+[sub_resource type="Resource" id="Resource_7xj4l"]
+script = ExtResource("2_fo1nq")
+triggers = Array[ExtResource("3_fo1nq")]([SubResource("Resource_3ro7g")])
+metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
+
+[resource]
+script = ExtResource("2_dfnv4")
+name = "Revenge"
+description = "When attacked, Fortune attacks back."
+stacks = Array[ExtResource("2_fo1nq")]([SubResource("Resource_7xj4l")])
+metadata/_custom_type_script = "uid://c4rwprj6d61c0"
