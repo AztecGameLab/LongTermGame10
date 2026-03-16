@@ -13,6 +13,7 @@ metadata/_custom_type_script = "uid://w6h7oqtjl61k"
 
 [sub_resource type="Resource" id="Resource_uio3q"]
 script = ExtResource("2_x4rp0")
+description = "Deal double damage to targets."
 modifiers = Array[ExtResource("3_fedou")]([SubResource("Resource_c1bpb")])
 metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
 

@@ -1,6 +1,6 @@
 extends Resource
 class_name StatusEffectTrigger
-## A component of a Status Effect that specifies an action to trigger at a certain point during the battle.
+## A component of a Status Effect that specifies an actions to trigger at a certain point during the battle.
 
 # The available trigger types.
 enum Type {
@@ -18,6 +18,5 @@ enum Type {
 @export var trigger_type: Type
 
 ## The action(s) to take.[br]
-## For multiple actions, use a ParallelActionGroup or SequencedActionGroup depending on whether you want
-## them to execute simultaneously, or one after another with a delay.
+## For multiple actions you may use a [GroupAction]
 @export var action: Action;

@@ -2,10 +2,28 @@
 
 [ext_resource type="Script" uid="uid://w6h7oqtjl61k" path="res://scripts/status_effects/status_effect_modifier.gd" id="1_0yoec"]
 [ext_resource type="Script" uid="uid://c4rwprj6d61c0" path="res://scripts/status_effects/status_effect.gd" id="1_njdor"]
+[ext_resource type="Script" uid="uid://c2ci25gmhnb4w" path="res://scripts/status_effects/status_effect_stack.gd" id="2_nrql3"]
 [ext_resource type="Script" uid="uid://d0uvf6jnorxpw" path="res://scripts/status_effects/status_effect_trigger.gd" id="3_a7ryv"]
+[ext_resource type="Script" uid="uid://c84i4tkx4t6au" path="res://scripts/ability/action/heal_action.gd" id="5_80fsd"]
+
+[sub_resource type="Resource" id="Resource_nr16a"]
+script = ExtResource("5_80fsd")
+heal_amount = 10
+metadata/_custom_type_script = "uid://c84i4tkx4t6au"
+
+[sub_resource type="Resource" id="Resource_kwfm3"]
+script = ExtResource("3_a7ryv")
+action = SubResource("Resource_nr16a")
+metadata/_custom_type_script = "uid://d0uvf6jnorxpw"
+
+[sub_resource type="Resource" id="Resource_c1t11"]
+script = ExtResource("2_nrql3")
+description = "Heals you 10hp for the next 3 turns."
+triggers = Array[ExtResource("3_a7ryv")]([SubResource("Resource_kwfm3")])
+metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
 
 [resource]
 script = ExtResource("1_njdor")
 name = "Heal Over Time"
-description = "Heals at the start of every turn."
+stacks = Array[ExtResource("2_nrql3")]([SubResource("Resource_c1t11")])
 metadata/_custom_type_script = "uid://c4rwprj6d61c0"

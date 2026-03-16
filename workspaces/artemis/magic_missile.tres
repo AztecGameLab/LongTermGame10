@@ -1,24 +1,24 @@
 [gd_resource type="Resource" script_class="Ability" format=3 uid="uid://x7qp8pjldd1c"]
 
 [ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="1_aj16p"]
+[ext_resource type="Script" uid="uid://xwcbloqu4nwu" path="res://scripts/ability/action/abstracts/action.gd" id="1_b8pi5"]
 [ext_resource type="Script" uid="uid://3xfxcysmuqdm" path="res://scripts/ability/action/repeat_action.gd" id="2_b8pi5"]
 [ext_resource type="Script" uid="uid://bihndepd0cudw" path="res://scripts/ability/action/static_damage_action.gd" id="3_587jm"]
 
-[sub_resource type="Resource" id="Resource_ymjxj"]
+[sub_resource type="Resource" id="Resource_18k2j"]
 script = ExtResource("3_587jm")
 damage = 10
 metadata/_custom_type_script = "uid://bihndepd0cudw"
 
-[sub_resource type="Resource" id="Resource_18k2j"]
+[sub_resource type="Resource" id="Resource_ymjxj"]
 script = ExtResource("2_b8pi5")
-times = 4
-hit_chance_decrease = 0.2
-action = SubResource("Resource_ymjxj")
+hit_chance_decrease = 0.1
+action = SubResource("Resource_18k2j")
 metadata/_custom_type_script = "uid://3xfxcysmuqdm"
 
 [resource]
 script = ExtResource("1_aj16p")
 name = "Magic Missile"
 description = "Fires 4 magic missiles."
-action = SubResource("Resource_18k2j")
+actions = Array[ExtResource("1_b8pi5")]([SubResource("Resource_ymjxj")])
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"

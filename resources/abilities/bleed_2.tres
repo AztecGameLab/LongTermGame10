@@ -6,8 +6,8 @@
 
 [sub_resource type="Resource" id="Resource_aqwkb"]
 script = ExtResource("1_h5x8q")
+applied_stacks = 2
 status_effect = ExtResource("2_gjoai")
-stack = 2
 metadata/_custom_type_script = "uid://be5ru5snax08s"
 
 [resource]

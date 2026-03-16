@@ -33,6 +33,10 @@ static func apply_healing(healing: int, source: Character, target: Character) ->
 
 ## --- Main Class ---
 
+signal round_started
+signal round_ended
+signal game_ended
+
 @export var player_team: Array[Character]
 @export var boss_team: Array[Character]
 
@@ -42,15 +46,20 @@ var turn: int = 0
 
 var _battle_running: bool = true
 
-func insert_next_action(action: QueuedAction):
-	_queued_actions.insert(0, action)
+func insert_next_action(actions: QueuedAction):
+	_queued_actions.insert(0, actions)
 
 func _run_actions():
+	round_started.emit()
 	while (_queued_actions.size() > 0):
 		var action := _queued_actions[0]
 		_queued_actions.remove_at(0)
-		if (not action.source) or action.source.alive:
+		var source := action.source
+		if (not source) or source.alive:
 			await action.run()
+		# FIXME: Temporary timeout to wait after each turn
+		await get_tree().create_timer(0.5).timeout
+	round_ended.emit()
 
 func check_team_alive(team: Array[Character]) -> bool:
 	for character in team:
@@ -66,37 +75,35 @@ func run_turn():
 	for character in player_team:
 		if not character.alive:
 			continue
-		await character.on_turn_started()
 		var ability: Ability = character.abilities.pick_random()
 		if not ability:
 			print(character.name + " using Nothing")
 			continue
 		print(character.name + " using " + ability.name)
 		if ability.move_target_type == Ability.MoveTargetType.SELF:
-			_queued_actions.append(QueuedAction.new(ability.action, character, character))
+			_queued_actions.append(QueuedAction.new(ability.action, character, character, ability))
 		else:
 			var target: Character = boss_team.pick_random()
-			_queued_actions.append(QueuedAction.new(ability.action, character, target))
-		await character.on_turn_ended()
+			_queued_actions.append(QueuedAction.new(ability.action, character, target, ability))
 	for character in boss_team:
 		if not character.alive:
 			continue
-		await character.on_turn_started()
 		var ability: Ability = character.abilities.pick_random()
 		if not ability:
 			print(character.name + " using Nothing")
 			continue
 		print(character.name + " using " + ability.name)
 		if ability.move_target_type == Ability.MoveTargetType.SELF:
-			_queued_actions.append(QueuedAction.new(ability.action, character, character))
+			_queued_actions.append(QueuedAction.new(ability.action, character, character, ability))
 		else:
 			var target: Character = player_team.pick_random()
-			_queued_actions.append(QueuedAction.new(ability.action, character, target))
-		await character.on_turn_ended()
+			_queued_actions.append(QueuedAction.new(ability.action, character, target, ability))
 	await _run_actions()
 	if (!check_team_alive(player_team)):
 		print("Boss Wins!")
 		_battle_running = false
+		game_ended.emit()
 	if (!check_team_alive(boss_team)):
 		print("Player Wins!")
 		_battle_running = false
+		game_ended.emit()

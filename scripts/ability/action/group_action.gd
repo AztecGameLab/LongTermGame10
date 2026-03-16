@@ -1,5 +1,5 @@
 extends Action
-class_name SequencedActionGroup
+class_name GroupAction
 
 ## The sequence of actions to execute in order.
 @export var actions: Array[Action];

@@ -7,7 +7,7 @@ var source: Character
 var target: Character
 var remaining_turns: int
 
-var stack: int = 1
+var stacks: int = 1
 
 ## Used by custom effect scripts to store arbitrary state. 
 var custom_state: Dictionary = {}
@@ -16,7 +16,7 @@ func _init(p_effect: StatusEffect, p_source: Character, p_target: Character, p_s
 	effect = p_effect
 	source = p_source
 	target = p_target
-	stack = p_stack
+	stacks = p_stack
 	remaining_turns = p_effect.duration_turns
 
 func modify_value(field: StatusEffectModifier.Field, value: float) -> float:
@@ -44,7 +44,9 @@ func tick_duration() -> bool:
 	remaining_turns -= 1
 	return remaining_turns <= 0
 
-func add_stack() -> void:
-	if stack < effect.max_stack:
-		stack += 1
+func add_stack(p_stacks: int = 1) -> void:
+	p_stacks = mini(p_stacks + p_stacks, effect.max_stack)
+	refresh_duration()
+
+func refresh_duration() -> void:
 	remaining_turns = effect.duration_turns
