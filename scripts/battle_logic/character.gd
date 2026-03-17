@@ -108,6 +108,7 @@ func add_status_effect(effect: StatusEffect, source: Character, stacks: int, max
 		var new_stacks = mini(existing.stacks + stacks, existing.effect.max_stack)
 		if max_stacks != 0:
 			new_stacks = mini(new_stacks, max_stacks)
+		new_stacks = maxi(new_stacks, existing.stacks)
 		existing.stacks = new_stacks
 		return existing
 
