@@ -15,14 +15,14 @@ class_name RepeatAction
 ## For multiple actions you may use a [GroupAction]
 @export var action: Action
 
-func run(source: Character, target: Character) -> void:
+func run(context: ActionContext) -> void:
 	if action:
 		var hit_chance := 1.0
 		for i in range(times):
 			var calc_chance := hit_chance
-			if source:
-				calc_chance = source.get_modified_field(StatusEffectModifier.Field.OUTGOING_ATTACK_HIT_CHANCE)
-			calc_chance = source.get_modified_field(StatusEffectModifier.Field.INCOMING_ATTACK_HIT_CHANCE)
+			if context.source:
+				calc_chance = context.source.get_modified_field(StatusEffectModifier.Field.OUTGOING_ATTACK_HIT_CHANCE)
+			calc_chance = context.source.get_modified_field(StatusEffectModifier.Field.INCOMING_ATTACK_HIT_CHANCE)
 
 			var success: bool = RNG.chance(calc_chance)
 			
@@ -31,5 +31,5 @@ func run(source: Character, target: Character) -> void:
 					return
 				continue
 			
-			await action.run(source, target)
+			await action.run(context)
 			hit_chance -= hit_chance_decrease

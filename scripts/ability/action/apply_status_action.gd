@@ -15,6 +15,7 @@ class_name ApplyStatusAction
 ## [br]Set to [code]0[/code] to have no limit.
 @export var max_stacks: int = 0
 
-func run(source: Character, target: Character) -> void:
-	if status_effect:
-		target.add_status_effect(status_effect, source, applied_stacks, max_stacks)
+func run(context: ActionContext) -> void:
+	for target in resolve_targets(context):
+		if status_effect:
+			target.add_status_effect(status_effect, context.source, applied_stacks, max_stacks)

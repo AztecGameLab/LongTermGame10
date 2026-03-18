@@ -3,5 +3,6 @@ class_name HealAction
 
 @export var heal_amount: int
 
-func run(source: Character, target: Character) -> void:
-	BattleManager.apply_healing(heal_amount, source, target)
+func run(context: ActionContext) -> void:
+	for target in resolve_targets(context):
+		BattleManager.apply_healing(heal_amount, context.source, target)

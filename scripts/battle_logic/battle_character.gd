@@ -1,6 +1,6 @@
 extends Node2D
-class_name Character
-## Basic Character Class. Not Final.
+class_name BattleCharacter
+## Basic BattleCharacter Class. Not Final.
 
 enum Stat {
 	DAMAGE_MULTIPLIER,
@@ -16,12 +16,12 @@ enum Stat {
 ## Fires when the character is attacked. 
 ## [br][param amount] is the actual damage dealt until zero. [param context] contains the source and the raw damage.
 signal damaged(amount: int, context: AttackContext)
-signal healed(amount: int, source: Character)
+signal healed(amount: int, source: BattleCharacter)
 
 signal health_updated(new_health: int)
 signal died()
 
-signal used_ability(ability: Ability, targets: Array[Character])
+signal used_ability(ability: Ability, targets: Array[BattleCharacter])
 
 signal status_effect_added(instance: StatusEffectContainer)
 signal status_effect_removed(instance: StatusEffectContainer)
@@ -46,10 +46,9 @@ var alive: bool:
 		return current_health > 0
 var _status_effects: Array[StatusEffectContainer] = []
 
-var last_attacker: Character = null
+var last_attacker: BattleCharacter = null
 
-var team: Array[Character] = []
-var enemy_team: Array[Character] = []
+var battle: BattleContext
 
 func _ready() -> void:
 	current_health = max_health
@@ -97,7 +96,7 @@ func get_incoming_healing(value: int) -> int:
 # --- Damage/Heal Pipeline ---
 
 ## Restores health, capped at max_health.
-func heal(amount: int, source: Character = null) -> void:
+func heal(amount: int, source: BattleCharacter = null) -> void:
 	var actual := mini(amount, max_health - current_health)
 	current_health += actual
 	healed.emit(actual, source)
@@ -106,7 +105,7 @@ func heal(amount: int, source: Character = null) -> void:
 # --- Status Effect Management ---
 
 ## Applies a status effect. If already active, refreshes the duration instead.
-func add_status_effect(effect: StatusEffect, source: Character, stacks: int, max_stacks: int) -> StatusEffectContainer:
+func add_status_effect(effect: StatusEffect, source: BattleCharacter, stacks: int, max_stacks: int) -> StatusEffectContainer:
 	var existing := get_status_effect(effect)
 
 	if existing:
@@ -117,7 +116,7 @@ func add_status_effect(effect: StatusEffect, source: Character, stacks: int, max
 		existing.stacks = new_stacks
 		return existing
 
-	var instance := StatusEffectContainer.new(effect, source, self, stacks)
+	var instance := StatusEffectContainer.new(effect, source, self, battle, stacks)
 	_status_effects.append(instance)
 	instance.on_applied()
 	status_effect_added.emit(instance)

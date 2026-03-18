@@ -20,7 +20,7 @@ func run_triggers(type: StatusEffectTrigger.Type, _instance: StatusEffectContain
 	var stack := stacks[_instance.stacks - 1]
 	for trigger in stack.triggers:
 		if trigger.trigger_type == type and trigger.action:
-			await trigger.action.run(null, _instance.target)
+			await trigger.action.run(ActionContext.new(null, _instance.target, _instance.battle, _instance.source))
 
 func modify_value(field: StatusEffectModifier.Field, value: float, _instance: StatusEffectContainer) -> float:
 	var modified_value := value

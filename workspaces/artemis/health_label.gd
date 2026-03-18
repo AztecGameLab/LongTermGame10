@@ -1,6 +1,6 @@
 extends Label
 
-@onready var parent: Character = self.get_parent()
+@onready var parent: BattleCharacter = self.get_parent()
 
 func _ready() -> void:
 	text = str(parent.max_health)

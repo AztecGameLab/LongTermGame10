@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bh8o5oygmnqgd"]
 
 [ext_resource type="Script" uid="uid://cbi33r5foad57" path="res://scripts/battle_logic/battle_manager.gd" id="1_f6buf"]
-[ext_resource type="Script" uid="uid://c2dcuh7wij0sh" path="res://scripts/battle_logic/character.gd" id="1_ha2wl"]
+[ext_resource type="Script" uid="uid://c2dcuh7wij0sh" path="res://scripts/battle_logic/battle_character.gd" id="1_ha2wl"]
 [ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="2_dq3ge"]
 [ext_resource type="Script" uid="uid://doviul66xwvvb" path="res://workspaces/artemis/health_label.gd" id="3_dq3ge"]
 [ext_resource type="Resource" uid="uid://b6mlqpxywhb6g" path="res://resources/abilities/heal.tres" id="3_lhvlb"]

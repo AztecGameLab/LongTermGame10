@@ -6,4 +6,4 @@ class_name Action
 
 ## Runs the action. Each type contains its own logic. This is a coroutine, so it must be awaited.
 ## Being a coroutine allows us to have actions that take time, such as waiting for an animation to finish, or waiting for a timer.
-@abstract func run(source: Character, target: Character);
+@abstract func run(context: ActionContext) -> void;

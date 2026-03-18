@@ -11,16 +11,15 @@ class_name HitChanceAction
 ## Optional. If null, nothing happens on miss.
 @export var fail_action: Action
 
-func run(source: Character, target: Character) -> void:
-	
+func run(context: ActionContext) -> void:
 	var calc_chance := success_chance
-	if source:
-		calc_chance = source.get_modified_field(StatusEffectModifier.Field.OUTGOING_ATTACK_HIT_CHANCE)
-	calc_chance = source.get_modified_field(StatusEffectModifier.Field.INCOMING_ATTACK_HIT_CHANCE)
+	if context.source:
+		calc_chance = context.source.get_modified_field(StatusEffectModifier.Field.OUTGOING_ATTACK_HIT_CHANCE)
+	calc_chance = context.source.get_modified_field(StatusEffectModifier.Field.INCOMING_ATTACK_HIT_CHANCE)
 	
 	var success: bool = RNG.chance(calc_chance)
 
 	var action: Action = success_action if success else fail_action
 
 	if action:
-		await action.run(source, target)
+		await action.run(context)
