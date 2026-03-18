@@ -21,7 +21,7 @@ signal healed(amount: int, source: Character)
 signal health_updated(new_health: int)
 signal died()
 
-signal used_ability(ability: Ability, target: Character)
+signal used_ability(ability: Ability, targets: Array[Character])
 
 signal status_effect_added(instance: StatusEffectContainer)
 signal status_effect_removed(instance: StatusEffectContainer)
@@ -45,6 +45,11 @@ var alive: bool:
 	get():
 		return current_health > 0
 var _status_effects: Array[StatusEffectContainer] = []
+
+var last_attacker: Character = null
+
+var team: Array[Character] = []
+var enemy_team: Array[Character] = []
 
 func _ready() -> void:
 	current_health = max_health
@@ -167,6 +172,9 @@ func on_damage_dealt(attackContext: AttackContext):
 		instance.on_damage_dealt(attackContext)
 		
 func on_damage_received(attackContext: AttackContext):
+	if attackContext.source != null and attackContext.source != self:
+		last_attacker = attackContext.source
+
 	var damage := maxi(attackContext.damage, 0)
 	current_health -= damage
 	current_health = maxi(current_health, 0)

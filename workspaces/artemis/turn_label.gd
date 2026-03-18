@@ -12,8 +12,7 @@ func _ready() -> void:
 	timer.timeout.connect(_on_timeout)
 	add_child(timer)
 
-func _on_character_used_ability(ability: Ability, _target: Character) -> void:
-	print(ability.name)
+func _on_character_used_ability(ability: Ability, _targets: Array[Character]) -> void:
 	text = ability.name
 	timer.start()
 

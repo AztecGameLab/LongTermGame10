@@ -31,6 +31,46 @@ static func apply_healing(healing: int, source: Character, target: Character) ->
 	healing = target.get_incoming_healing(healing)
 	target.heal(healing, source)
 
+static func get_targets(source: Character, source_team: Array[Character], target_team: Array[Character], move_target_type: Ability.MoveTargetType) -> Array[Character]:
+	var targets: Array[Character] = []
+	match move_target_type:
+		Ability.MoveTargetType.SELF:
+			targets = [source]
+		Ability.MoveTargetType.ALL_TEAMMATES:
+			targets = source_team
+		Ability.MoveTargetType.ALL_TEAMMATES_EXCLUDE_SELF:
+			targets = source_team.filter(func(teammate): return teammate != source)
+		Ability.MoveTargetType.ATTACKER:
+			if source.last_attacker and source.last_attacker.alive:
+				targets = [source.last_attacker]
+		Ability.MoveTargetType.ENEMY:
+			var alive_enemies := target_team.filter(func(enemy): return enemy.alive)
+			if alive_enemies.size() > 0:
+				targets = [alive_enemies.pick_random()]
+		Ability.MoveTargetType.ALL_ENEMIES:
+			targets = target_team
+		Ability.MoveTargetType.EVERYONE:
+			targets.append_array(source_team)
+			targets.append_array(target_team)
+	return targets.filter(func(target): return target and target.alive)
+
+static func get_actions(source_team: Array[Character], target_team: Array[Character]) -> Array[QueuedAction]:
+	var actions: Array[QueuedAction] = []
+	for character in source_team:
+		if not character.alive:
+			continue
+		var ability: Ability = character.abilities.pick_random()
+		if not ability:
+			print(character.name + " has no abilities and will do nothing.")
+			continue
+		var targets := get_targets(character, source_team, target_team, ability.move_target_type)
+		if targets.size() == 0:
+			print(character.name + " has no valid targets and will do nothing.")
+			continue
+		var action := QueuedAction.new(ability.action, character, targets, ability)
+		actions.append(action)
+	return actions
+
 ## --- Main Class ---
 
 signal round_started
@@ -46,6 +86,15 @@ var turn: int = 0
 
 var _battle_running: bool = true
 
+func _ready() -> void:
+	_queued_actions = []
+	for character in player_team:
+		character.team = player_team
+		character.enemy_team = boss_team
+	for character in boss_team:
+		character.team = boss_team
+		character.enemy_team = player_team
+
 func insert_next_action(actions: QueuedAction):
 	_queued_actions.insert(0, actions)
 
@@ -57,7 +106,8 @@ func _run_actions():
 		var source := action.source
 		if (not source) or source.alive:
 			await action.run()
-		# FIXME: Temporary timeout to wait after each turn
+		# FIXME: Temporary timeout to wait after each turn.
+		# This is here mainly since we have no animations yet.
 		await get_tree().create_timer(0.5).timeout
 	round_ended.emit()
 
@@ -72,32 +122,8 @@ func run_turn():
 		return
 	turn += 1
 	print("Turn " + str(turn))
-	for character in player_team:
-		if not character.alive:
-			continue
-		var ability: Ability = character.abilities.pick_random()
-		if not ability:
-			print(character.name + " using Nothing")
-			continue
-		print(character.name + " using " + ability.name)
-		if ability.move_target_type == Ability.MoveTargetType.SELF:
-			_queued_actions.append(QueuedAction.new(ability.action, character, character, ability))
-		else:
-			var target: Character = boss_team.pick_random()
-			_queued_actions.append(QueuedAction.new(ability.action, character, target, ability))
-	for character in boss_team:
-		if not character.alive:
-			continue
-		var ability: Ability = character.abilities.pick_random()
-		if not ability:
-			print(character.name + " using Nothing")
-			continue
-		print(character.name + " using " + ability.name)
-		if ability.move_target_type == Ability.MoveTargetType.SELF:
-			_queued_actions.append(QueuedAction.new(ability.action, character, character, ability))
-		else:
-			var target: Character = player_team.pick_random()
-			_queued_actions.append(QueuedAction.new(ability.action, character, target, ability))
+	_queued_actions.append_array(get_actions(player_team, boss_team))
+	_queued_actions.append_array(get_actions(boss_team, player_team))
 	await _run_actions()
 	if (!check_team_alive(player_team)):
 		print("Boss Wins!")
