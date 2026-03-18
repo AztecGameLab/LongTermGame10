@@ -3,39 +3,42 @@ class_name StatusEffectContainer
 ## Delegates all behavior back to the StatusEffect resource.
 
 var effect: StatusEffect
-var source: Character
-var target: Character
+var source: BattleCharacter
+var target: BattleCharacter
 var remaining_turns: int
 
-var stack: int = 1
+var battle: BattleContext
+
+var stacks: int = 1
 
 ## Used by custom effect scripts to store arbitrary state. 
 var custom_state: Dictionary = {}
 
-func _init(p_effect: StatusEffect, p_source: Character, p_target: Character, p_stack: int = 1) -> void:
+func _init(p_effect: StatusEffect, p_source: BattleCharacter, p_target: BattleCharacter, p_battle: BattleContext, p_stack: int = 1) -> void:
 	effect = p_effect
 	source = p_source
 	target = p_target
-	stack = p_stack
+	battle = p_battle
+	stacks = p_stack
 	remaining_turns = p_effect.duration_turns
 
 func modify_value(field: StatusEffectModifier.Field, value: float) -> float:
-	return effect.modify_value(field, value, self)
+	return effect.modify_value(field, value, self )
 	
 func run_triggers(trigger: StatusEffectTrigger.Type) -> void:
-	return effect.run_triggers(trigger, self)
+	return effect.run_triggers(trigger, self )
 
 func on_damage_received(context: AttackContext) -> void:
-	effect.on_damage_received(context, self)
+	effect.on_damage_received(context, self )
 
 func on_damage_dealt(context: AttackContext) -> void:
-	effect.on_damage_dealt(context, self)
+	effect.on_damage_dealt(context, self )
 
 func on_applied() -> void:
-	effect.on_applied(self)
+	effect.on_applied(self )
 
 func on_removed() -> void:
-	effect.on_removed(self)
+	effect.on_removed(self )
 
 ## Ticks down duration. Returns true if the effect has expired.
 func tick_duration() -> bool:
@@ -44,7 +47,9 @@ func tick_duration() -> bool:
 	remaining_turns -= 1
 	return remaining_turns <= 0
 
-func add_stack() -> void:
-	if stack < effect.max_stack:
-		stack += 1
+func add_stack(p_stacks: int = 1) -> void:
+	p_stacks = mini(p_stacks + p_stacks, effect.max_stack)
+	refresh_duration()
+
+func refresh_duration() -> void:
 	remaining_turns = effect.duration_turns

@@ -1,5 +1,5 @@
 extends Action
-class_name SequencedActionGroup
+class_name GroupAction
 
 ## The sequence of actions to execute in order.
 @export var actions: Array[Action];
@@ -8,8 +8,8 @@ class_name SequencedActionGroup
 ## and the next one starting.
 @export_range(0.0, 5.0, 0.1, "suffix:secs") var delay: float = 0.3
 
-func run(source: Character, target: Character) -> void:
+func run(context: ActionContext) -> void:
 	for action in actions:
-		await action.run(source, target)
+		await action.run(context)
 		if delay > 0.0:
 			await Engine.get_main_loop().create_timer(delay).timeout

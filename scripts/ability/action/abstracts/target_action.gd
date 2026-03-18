@@ -10,3 +10,13 @@ class_name TargetAction
 @export_custom(PROPERTY_HINT_GROUP_ENABLE, "") var override_target: bool
 ## Applies if overriding the target
 @export var action_target: Ability.MoveTargetType;
+
+func resolve_targets(context: ActionContext) -> Array[BattleCharacter]:
+	if not override_target:
+		return [context.target]
+	return BattleManager.get_targets(
+		context.source,
+		context.battle.get_allies(context.source),
+		context.battle.get_enemies(context.source),
+		action_target
+	)

@@ -8,8 +8,9 @@ class_name StaticDamageAction
 ## [br]For more control, use [HitChanceAction]
 @export var can_miss: bool = true
 
-func run(source: Character, target: Character) -> void:
-	if can_miss and not BattleManager.check_hit_success(source, target):
-		return
+func run(context: ActionContext) -> void:
+	for target in resolve_targets(context):
+		if can_miss and not BattleManager.check_hit_success(context.source, target):
+			return
 
-	BattleManager.apply_damage(damage, source, target)
+		BattleManager.apply_damage(damage, context.source, target)

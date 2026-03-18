@@ -1,11 +1,10 @@
 extends Label
 
+@onready var parent: BattleCharacter = self.get_parent()
+
 func _ready() -> void:
-	text = str(500)
+	text = str(parent.max_health)
+	parent.health_updated.connect(_on_character_health_updated)
 
-func _on_damaged(_amount: int, context: AttackContext) -> void:
-	text = str(context.target.current_health)
-
-
-func _on_healed(amount: int, source: Character) -> void:
-	text = str(source.current_health)
+func _on_character_health_updated(new_health: int) -> void:
+	text = str(new_health)
