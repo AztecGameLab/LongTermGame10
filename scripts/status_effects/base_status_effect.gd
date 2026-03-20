@@ -8,6 +8,9 @@ class_name BaseStatusEffect
 ## The name shown in the hover tooltip.
 @export var name: String
 
+## The icon to show next to the character.
+@export var icon: Texture2D
+
 # --- Virtual Methods ---
 # Override in subclasses to customize behavior.
 

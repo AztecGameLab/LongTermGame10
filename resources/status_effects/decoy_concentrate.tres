@@ -1,11 +1,10 @@
 [gd_resource type="Resource" script_class="ConcentrationStatusEffect" format=3 uid="uid://dslms6qfxsm5p"]
 
 [ext_resource type="Script" uid="uid://dasiej7totk8c" path="res://scripts/status_effects/concentration_status_effect.gd" id="1_1xgjd"]
-[ext_resource type="Resource" uid="uid://cxv5tiiv3qpq2" path="res://workspaces/artemis/demo_ability.tres" id="1_wts27"]
 
 [resource]
 script = ExtResource("1_1xgjd")
 description = "Coralleine is concentrating on Decoy"
-ability = ExtResource("1_wts27")
+concentration_label = "decoy"
 name = "Concentration"
 metadata/_custom_type_script = "uid://dasiej7totk8c"
