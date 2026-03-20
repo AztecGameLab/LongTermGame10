@@ -1,9 +1,11 @@
+@abstract
 @icon("uid://b230jcebk6c8q")
 extends Resource
 class_name BaseStatusEffect
 ## Base class for all status effect types.
 ## Subclasses override only the methods relevant to their behavior.
 
+## The name shown in the hover tooltip.
 @export var name: String
 
 # --- Virtual Methods ---
@@ -44,6 +46,13 @@ func on_reapplied(_container: StatusEffectContainer, _stacks: int, _max_stacks: 
 ## Called by the container's [code]_init[/code] to set initial state.
 func _setup_container(_container: StatusEffectContainer) -> void:
 	pass
+
+## Returns the display name for this effect.
+func get_effect_name(_container: StatusEffectContainer) -> String:
+	return name
+
+## Returns the description for this effect.
+@abstract func get_effect_description(_container: StatusEffectContainer) -> String;
 
 ## Returns the remaining turns for display purposes. Returns [code]-1[/code] if no duration to display.
 func get_remaining_turns(_container: StatusEffectContainer) -> int:

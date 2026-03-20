@@ -5,9 +5,14 @@ class_name FadingStatusEffect
 
 @export var max_stacks: int
 
+## The description for the hover tooltip.
 @export_multiline var description: String
 
+## The modifiers this effect should apply.
+## [br]For [code]n[/code] stacks, any modifier values become [code]modifier * n[/code]
 @export var modifiers: Array[StatusEffectModifier]
+## The triggers the effect should apply.
+## [br]These only apply once, you can use [ScalingDamageAction] to scale with the number of stacks.
 @export var triggers: Array[StatusEffectTrigger]
 
 func modify_value(field: StatusEffectModifier.Field, value: float, container: StatusEffectContainer) -> float:
@@ -31,6 +36,7 @@ func run_triggers(type: StatusEffectTrigger.Type, container: StatusEffectContain
 			await trigger.action.run(ActionContext.new(null, container.target, container.battle, container.source, container))
 
 func tick(container: StatusEffectContainer) -> bool:
+	# Use the stacks to determine duration.
 	container.stacks -= 1
 	return container.stacks <= 0
 
@@ -40,6 +46,9 @@ func on_reapplied(container: StatusEffectContainer, stacks: int, p_max_stacks: i
 	if p_max_stacks != 0:
 		new_stacks = mini(new_stacks, p_max_stacks)
 	container.stacks = new_stacks
+
+func get_effect_description(_container: StatusEffectContainer) -> String:
+	return description
 
 func get_remaining_turns(container: StatusEffectContainer) -> int:
 	return container.stacks

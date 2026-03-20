@@ -1,5 +1,8 @@
 extends BaseStatusEffect
 class_name StatusEffect
+## A basic status effect.
+## [br]You can give this any number of stacks, 
+## each with its own modifiers and triggers.
 
 @export var stacks: Array[StatusEffectStack]
 
@@ -47,6 +50,9 @@ func on_reapplied(container: StatusEffectContainer, p_stacks: int, p_max_stacks:
 
 func _setup_container(container: StatusEffectContainer) -> void:
 	container.remaining_turns = duration_turns
+
+func get_effect_description(container: StatusEffectContainer) -> String:
+	return stacks[container.stacks - 1].description
 
 func get_remaining_turns(container: StatusEffectContainer) -> int:
 	if not limited_duration:
