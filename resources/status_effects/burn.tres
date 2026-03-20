@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="FadingStatusEffect" format=3 uid="uid://b5uv4uthbh2j6"]
+
+[ext_resource type="Script" uid="uid://w6h7oqtjl61k" path="res://scripts/status_effects/status_effect_modifier.gd" id="1_v15xi"]
+[ext_resource type="Script" uid="uid://dot0bfh4ojuo7" path="res://scripts/status_effects/fading_status_effect.gd" id="2_ati8t"]
+[ext_resource type="Script" uid="uid://d0uvf6jnorxpw" path="res://scripts/status_effects/status_effect_trigger.gd" id="3_koph0"]
+[ext_resource type="Script" uid="uid://ba2qm14bj1fq" path="res://scripts/ability/action/scaling_damage_action.gd" id="4_d0ykq"]
+
+[sub_resource type="Resource" id="Resource_7mdxj"]
+script = ExtResource("4_d0ykq")
+damage_per_stack = 1
+can_miss = false
+metadata/_custom_type_script = "uid://ba2qm14bj1fq"
+
+[sub_resource type="Resource" id="Resource_ba18c"]
+script = ExtResource("3_koph0")
+trigger_type = 1
+action = SubResource("Resource_7mdxj")
+metadata/_custom_type_script = "uid://d0uvf6jnorxpw"
+
+[resource]
+script = ExtResource("2_ati8t")
+max_stacks = 50
+description = "Deals 1 damage for each stack. Stacks decrease by 1 per-turn."
+triggers = Array[ExtResource("3_koph0")]([SubResource("Resource_ba18c")])
+name = "Burn"
+metadata/_custom_type_script = "uid://dot0bfh4ojuo7"

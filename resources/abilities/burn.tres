@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Ability" format=3 uid="uid://y06qhqwsm5s3"]
+
+[ext_resource type="Script" uid="uid://be5ru5snax08s" path="res://scripts/ability/action/apply_status_action.gd" id="1_b8l7u"]
+[ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="1_qfdwb"]
+[ext_resource type="Resource" uid="uid://b5uv4uthbh2j6" path="res://resources/status_effects/burn.tres" id="2_8446f"]
+
+[sub_resource type="Resource" id="Resource_8446f"]
+script = ExtResource("1_b8l7u")
+applied_stacks = 50
+upgrade_stacks = 0
+status_effect = ExtResource("2_8446f")
+metadata/_custom_type_script = "uid://be5ru5snax08s"
+
+[resource]
+script = ExtResource("1_qfdwb")
+name = "Burn"
+description = "Applies a burn effect to the target."
+action = SubResource("Resource_8446f")
+metadata/_custom_type_script = "uid://ny1mjfoo1mqc"

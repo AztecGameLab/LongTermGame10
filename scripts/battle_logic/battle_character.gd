@@ -104,16 +104,12 @@ func heal(amount: int, source: BattleCharacter = null) -> void:
 
 # --- Status Effect Management ---
 
-## Applies a status effect. If already active, refreshes the duration instead.
-func add_status_effect(effect: StatusEffect, source: BattleCharacter, stacks: int, max_stacks: int) -> StatusEffectContainer:
+## Applies a status effect. If already active, delegates reapplication to the effect.
+func add_status_effect(effect: BaseStatusEffect, source: BattleCharacter, stacks: int, max_stacks: int) -> StatusEffectContainer:
 	var existing := get_status_effect(effect)
 
 	if existing:
-		var new_stacks = mini(existing.stacks + stacks, existing.effect.max_stack)
-		if max_stacks != 0:
-			new_stacks = mini(new_stacks, max_stacks)
-		new_stacks = maxi(new_stacks, existing.stacks)
-		existing.stacks = new_stacks
+		existing.effect.on_reapplied(existing, stacks, max_stacks)
 		return existing
 
 	var instance := StatusEffectContainer.new(effect, source, self, battle, stacks)
@@ -122,7 +118,7 @@ func add_status_effect(effect: StatusEffect, source: BattleCharacter, stacks: in
 	status_effect_added.emit(instance)
 	return instance
 
-func remove_status_effect(effect: StatusEffect, stacks: int) -> void:
+func remove_status_effect(effect: BaseStatusEffect, stacks: int) -> void:
 	var instance := get_status_effect(effect)
 	if instance:
 		if stacks >= instance.stacks:
@@ -134,13 +130,13 @@ func remove_status_effect_instance(instance: StatusEffectContainer) -> void:
 	if instance in _status_effects:
 		_remove_effect_instance(instance)
 
-func get_status_effect(effect: StatusEffect) -> StatusEffectContainer:
+func get_status_effect(effect: BaseStatusEffect) -> StatusEffectContainer:
 	for instance in _status_effects:
 		if instance.effect == effect:
 			return instance
 	return null
 
-func has_status_effect(effect: StatusEffect) -> bool:
+func has_status_effect(effect: BaseStatusEffect) -> bool:
 	return get_status_effect(effect) != null
 
 func get_all_status_effects() -> Array[StatusEffectContainer]:
@@ -160,7 +156,7 @@ func on_turn_ended() -> void:
 	var expired: Array[StatusEffectContainer] = []
 	for instance in _status_effects.duplicate():
 		await instance.run_triggers(StatusEffectTrigger.Type.ON_TURN_END)
-		if instance.tick_duration():
+		if instance.tick():
 			expired.append(instance)
 
 	for instance in expired:
