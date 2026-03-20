@@ -5,7 +5,7 @@ class_name RemoveStatusAction
 @export var remove_stacks: int = 1
 
 ## The status effect to remove
-@export var status_effect: StatusEffect
+@export var status_effect: BaseStatusEffect
 
 func run(context: ActionContext) -> void:
 	for target in resolve_targets(context):

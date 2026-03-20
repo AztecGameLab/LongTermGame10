@@ -8,7 +8,7 @@ class_name ApplyStatusAction
 @export var upgrade_stacks: int = 1
 
 ## The status effect to apply
-@export var status_effect: StatusEffect
+@export var status_effect: BaseStatusEffect
 
 ## The maximum stacks this action can set it to. 
 ## [br]Even if the effect has higher stacks, it will be capped from this action.

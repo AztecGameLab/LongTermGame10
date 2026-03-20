@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://b6mlqpxywhb6g" path="res://resources/abilities/heal.tres" id="3_lhvlb"]
 [ext_resource type="Resource" uid="uid://c71y0pm2tt1g" path="res://resources/abilities/fortune/pierce.tres" id="4_lhvlb"]
 [ext_resource type="Resource" uid="uid://bnv8ckim477pc" path="res://resources/abilities/strength.tres" id="6_vmnyc"]
+[ext_resource type="Resource" uid="uid://y06qhqwsm5s3" path="res://resources/abilities/burn.tres" id="7_ra02i"]
 [ext_resource type="Resource" uid="uid://sg2oek573oja" path="res://resources/abilities/bleed.tres" id="8_6onex"]
 [ext_resource type="Script" uid="uid://b1qn3ek7b7ps4" path="res://workspaces/artemis/turn_label.gd" id="8_h88bq"]
 
@@ -19,7 +20,7 @@ boss_team = [NodePath("Boss")]
 position = Vector2(561, 471)
 script = ExtResource("1_ha2wl")
 max_health = 500
-abilities = Array[ExtResource("2_dq3ge")]([ExtResource("4_lhvlb"), ExtResource("4_lhvlb"), ExtResource("4_lhvlb"), ExtResource("4_lhvlb"), ExtResource("3_lhvlb"), ExtResource("6_vmnyc")])
+abilities = Array[ExtResource("2_dq3ge")]([ExtResource("4_lhvlb"), ExtResource("4_lhvlb"), ExtResource("4_lhvlb"), ExtResource("3_lhvlb"), ExtResource("6_vmnyc"), ExtResource("7_ra02i")])
 metadata/_custom_type_script = "uid://c2dcuh7wij0sh"
 
 [node name="Health" type="Label" parent="Player" unique_id=1181677918]

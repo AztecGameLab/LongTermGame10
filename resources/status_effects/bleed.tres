@@ -44,6 +44,6 @@ metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
 
 [resource]
 script = ExtResource("1_7bdpg")
-name = "Bleed"
 stacks = Array[ExtResource("2_yvft3")]([SubResource("Resource_a8wml"), SubResource("Resource_ro6od")])
+name = "Bleed"
 metadata/_custom_type_script = "uid://c4rwprj6d61c0"
