@@ -1,0 +1,115 @@
+[gd_resource type="Resource" script_class="StatusEffect" format=3 uid="uid://cdouutpu8rmxs"]
+
+[ext_resource type="Script" uid="uid://c4rwprj6d61c0" path="res://scripts/status_effects/status_effect.gd" id="1_g18pq"]
+[ext_resource type="Script" uid="uid://c2ci25gmhnb4w" path="res://scripts/status_effects/status_effect_stack.gd" id="2_7jt8v"]
+[ext_resource type="Script" uid="uid://w6h7oqtjl61k" path="res://scripts/status_effects/status_effect_modifier.gd" id="3_yvl41"]
+[ext_resource type="Script" uid="uid://d0uvf6jnorxpw" path="res://scripts/status_effects/status_effect_trigger.gd" id="4_8x5e2"]
+
+[sub_resource type="Resource" id="Resource_yvl41"]
+script = ExtResource("3_yvl41")
+modifier_field = 4
+modifier_type = 1
+modifier_amount = 0.10000000000002274
+metadata/_graph_x = 820.0
+metadata/_graph_y = -20.0
+metadata/_graph_w = 357.0
+metadata/_graph_h = 144.0
+
+[sub_resource type="Resource" id="Resource_8x5e2"]
+script = ExtResource("2_7jt8v")
+description = "Increase luck by 10%"
+modifiers = Array[ExtResource("3_yvl41")]([SubResource("Resource_yvl41")])
+metadata/_graph_x = 340.0
+metadata/_graph_y = -40.0
+metadata/_graph_w = 380.0
+metadata/_graph_h = 220.0
+
+[sub_resource type="Resource" id="Resource_vd7an"]
+script = ExtResource("3_yvl41")
+modifier_field = 4
+modifier_type = 1
+modifier_amount = 0.10000000000002274
+metadata/_graph_x = 820.0
+metadata/_graph_y = 260.0
+metadata/_graph_w = 357.0
+metadata/_graph_h = 144.0
+
+[sub_resource type="Resource" id="Resource_fx8iy"]
+script = ExtResource("3_yvl41")
+modifier_field = 5
+modifier_amount = 0.10000000000002274
+metadata/_graph_x = 820.0
+metadata/_graph_y = 420.0
+metadata/_graph_w = 357.0
+metadata/_graph_h = 144.0
+
+[sub_resource type="Resource" id="Resource_jv430"]
+script = ExtResource("3_yvl41")
+modifier_field = 3
+modifier_type = 1
+modifier_amount = -0.10000000000002274
+metadata/_graph_x = 820.0
+metadata/_graph_y = 580.0
+metadata/_graph_w = 357.0
+metadata/_graph_h = 144.0
+
+[sub_resource type="Resource" id="Resource_qnfh1"]
+script = ExtResource("2_7jt8v")
+description = "Increase luck by 10%
+Increase accuracy by 10%
+Increase dodge by 10%"
+modifiers = Array[ExtResource("3_yvl41")]([SubResource("Resource_vd7an"), SubResource("Resource_fx8iy"), SubResource("Resource_jv430")])
+metadata/_graph_x = 340.0
+metadata/_graph_y = 220.0
+metadata/_graph_w = 380.0
+metadata/_graph_h = 315.0
+
+[sub_resource type="Resource" id="Resource_c66xc"]
+script = ExtResource("3_yvl41")
+modifier_field = 4
+modifier_type = 1
+modifier_amount = 0.20000000000004547
+metadata/_graph_x = 820.0
+metadata/_graph_y = 840.0
+metadata/_graph_w = 357.0
+metadata/_graph_h = 144.0
+
+[sub_resource type="Resource" id="Resource_p5nnn"]
+script = ExtResource("3_yvl41")
+modifier_field = 5
+modifier_amount = 0.10000000000002274
+metadata/_graph_x = 820.0
+metadata/_graph_y = 1000.0
+metadata/_graph_w = 357.0
+metadata/_graph_h = 144.0
+
+[sub_resource type="Resource" id="Resource_x7v6g"]
+script = ExtResource("3_yvl41")
+modifier_field = 3
+modifier_type = 1
+modifier_amount = -0.10000000000002274
+metadata/_graph_x = 820.0
+metadata/_graph_y = 1160.0
+metadata/_graph_w = 357.0
+metadata/_graph_h = 144.0
+
+[sub_resource type="Resource" id="Resource_ijvbu"]
+script = ExtResource("2_7jt8v")
+description = "Increase luck by 20%
+Increase accuracy by 10%
+Increase dodge by 10%"
+modifiers = Array[ExtResource("3_yvl41")]([SubResource("Resource_c66xc"), SubResource("Resource_p5nnn"), SubResource("Resource_x7v6g")])
+metadata/_graph_x = 320.0
+metadata/_graph_y = 620.0
+metadata/_graph_w = 380.0
+metadata/_graph_h = 315.0
+
+[resource]
+script = ExtResource("1_g18pq")
+stacks = Array[ExtResource("2_7jt8v")]([SubResource("Resource_8x5e2"), SubResource("Resource_qnfh1"), SubResource("Resource_ijvbu")])
+name = "Lucky Charm"
+metadata/_custom_type_script = "uid://c4rwprj6d61c0"
+metadata/_graph_x = -20.0
+metadata/_graph_y = 20.0
+metadata/_graph_w = 235.0
+metadata/_graph_h = 317.0

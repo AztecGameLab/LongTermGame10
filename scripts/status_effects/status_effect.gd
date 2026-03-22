@@ -43,7 +43,7 @@ func tick(container: StatusEffectContainer) -> bool:
 
 func on_reapplied(container: StatusEffectContainer, p_stacks: int, p_max_stacks: int) -> void:
 	var new_stacks = mini(container.stacks + p_stacks, max_stack)
-	if p_max_stacks != 0:
+	if p_max_stacks > 0:
 		new_stacks = mini(new_stacks, p_max_stacks)
 	container.stacks = maxi(new_stacks, container.stacks)
 	container.remaining_turns = duration_turns

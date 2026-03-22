@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="Ability" format=3 uid="uid://dh2e4jgo3fh0j"]
+
+[ext_resource type="Script" uid="uid://be5ru5snax08s" path="res://scripts/ability/action/apply_status_action.gd" id="1_vucgn"]
+[ext_resource type="Resource" uid="uid://cdouutpu8rmxs" path="res://resources/status_effects/lucky_charm.tres" id="2_x5yb0"]
+[ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="3_yfufn"]
+
+[sub_resource type="Resource" id="Resource_knga0"]
+script = ExtResource("1_vucgn")
+applied_stacks = 3
+upgrade_stacks = 3
+status_effect = ExtResource("2_x5yb0")
+metadata/_graph_x = 580.0
+metadata/_graph_y = 40.0
+metadata/_graph_w = 243.00012
+metadata/_graph_h = 202.0
+
+[resource]
+script = ExtResource("3_yfufn")
+name = "Lucky Charm"
+description = "For the next 3 turns, you have:
+- Increased luck by 10%
+- Increased accuracy by 10%
+- Increased dodge by 10%"
+move_target_type = 3
+action = SubResource("Resource_knga0")
+metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
+metadata/_graph_x = 50.0
+metadata/_graph_y = 50.0
+metadata/_graph_w = 384.0
+metadata/_graph_h = 252.0
+metadata/_external_layouts = {
+"uid://cdouutpu8rmxs": {
+"h": 80.0,
+"w": 260.0,
+"x": 940.0,
+"y": 80.0
+}
+}

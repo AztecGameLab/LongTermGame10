@@ -12,8 +12,8 @@ class_name ApplyStatusAction
 
 ## The maximum stacks this action can set it to. 
 ## [br]Even if the effect has higher stacks, it will be capped from this action.
-## [br]Set to [code]0[/code] to have no limit.
-@export var max_stacks: int = 0
+## [br]Set to [code]-1[/code] to have no limit.
+@export var max_stacks: int = -1
 
 func run(context: ActionContext) -> void:
 	for target in resolve_targets(context):
