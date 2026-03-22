@@ -24,6 +24,6 @@ metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
 
 [resource]
 script = ExtResource("1_njdor")
-name = "Heal Over Time"
 stacks = Array[ExtResource("2_nrql3")]([SubResource("Resource_c1t11")])
+name = "Heal Over Time"
 metadata/_custom_type_script = "uid://c4rwprj6d61c0"

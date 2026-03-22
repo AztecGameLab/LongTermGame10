@@ -10,7 +10,7 @@ status_effect = ExtResource("2_jlf7w")
 metadata/_graph_x = 580.0
 metadata/_graph_y = 40.0
 metadata/_graph_w = 243.0
-metadata/_graph_h = 201.99991
+metadata/_graph_h = 202.0
 
 [resource]
 script = ExtResource("1_deuky")
@@ -22,12 +22,12 @@ action = SubResource("Resource_jlf7w")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
 metadata/_graph_x = 50.0
 metadata/_graph_y = 50.0
-metadata/_graph_w = 384.00018
-metadata/_graph_h = 252.00005
+metadata/_graph_w = 384.0
+metadata/_graph_h = 252.0
 metadata/_external_layouts = {
 "uid://cdouutpu8rmxs": {
-"h": 80.000046,
-"w": 259.99976,
+"h": 80.0,
+"w": 260.0,
 "x": 940.0,
 "y": 120.0
 }

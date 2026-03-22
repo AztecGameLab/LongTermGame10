@@ -22,7 +22,6 @@ var _save_snapshot := {}  # Backup of port properties for rollback on save failu
 var _watched_resources: Array[Resource] = []  # Resources with changed signal connected
 var _nav_stack: Array[Resource] = []  # Navigation history for "Back" button
 var _back_button: Button
-var _context_menu: PopupMenu
 var _context_position: Vector2
 var _file_dialog: FileDialog
 var _undo_redo := UndoRedo.new()
@@ -36,8 +35,6 @@ var _port_context_menu: PopupMenu
 var _clipboard_nodes := []   # [{resource, position, is_external, is_texture}]
 var _clipboard_connections := []  # [{from_idx, from_port, to_idx, to_port}]
 
-const _LINK_EXTERNAL_ID := 99999
-
 
 func _ready() -> void:
 	if not is_inside_tree():
@@ -50,7 +47,6 @@ func _ready() -> void:
 	graph_edit.connection_request.connect(_on_connection_request)
 	graph_edit.disconnection_request.connect(_on_disconnection_request)
 	graph_edit.delete_nodes_request.connect(_on_delete_nodes_request)
-	graph_edit.popup_request.connect(_on_popup_request)
 	graph_edit.connection_to_empty.connect(_on_connection_to_empty)
 	graph_edit.gui_input.connect(_on_graph_gui_input)
 
@@ -66,14 +62,13 @@ func _ready() -> void:
 	_back_button.anchor_left = 0.0
 	_back_button.anchor_top = 0.0
 	_back_button.offset_left = 8
-	_back_button.offset_top = 8
+	_back_button.offset_top = 48
 	_back_button.z_index = 10
 	graph_edit.add_child(_back_button)
 
 	for port_type in PortTypes.PORT_COLORS:
 		graph_edit.add_valid_connection_type(port_type, port_type)
 
-	_build_context_menu()
 	_build_port_context_menu()
 
 
@@ -241,52 +236,6 @@ func _duplicate_selected() -> void:
 	_paste_unique()
 
 
-## ── Context menu (right-click) ──
-
-func _build_context_menu() -> void:
-	_context_menu = PopupMenu.new()
-	add_child(_context_menu)
-
-	var categories := Registry.get_categories()
-	var id := 0
-	for category_name in categories:
-		# Skip Root and Status Effects (status effects are always external .tres)
-		if category_name == "Root" or category_name == "Status Effects":
-			continue
-		var sub_menu := PopupMenu.new()
-		sub_menu.name = category_name.replace(" / ", "_").replace(" ", "_")
-		var types: Array = categories[category_name]
-		for type_key in types:
-			var info: Dictionary = Registry.get_type_info(type_key)
-			sub_menu.add_item(info.get("display_name", type_key), id)
-			sub_menu.set_item_metadata(sub_menu.get_item_index(id), type_key)
-			id += 1
-		sub_menu.id_pressed.connect(_on_context_menu_id_pressed.bind(sub_menu))
-		_context_menu.add_child(sub_menu)
-		_context_menu.add_submenu_item(category_name, sub_menu.name)
-
-	_context_menu.add_separator()
-	_context_menu.add_item("Link External Resource...", _LINK_EXTERNAL_ID)
-	_context_menu.id_pressed.connect(func(id_val: int):
-		if id_val == _LINK_EXTERNAL_ID:
-			_pending_from_node = &""
-			_pending_from_port = -1
-			_open_link_external_dialog()
-	)
-
-
-func _on_popup_request(at_position: Vector2) -> void:
-	_context_position = (at_position + graph_edit.scroll_offset) / graph_edit.zoom
-	_context_menu.position = Vector2i(graph_edit.get_screen_position()) + Vector2i(at_position)
-	_context_menu.popup()
-
-
-func _on_context_menu_id_pressed(id: int, sub_menu: PopupMenu) -> void:
-	var idx := sub_menu.get_item_index(id)
-	var type_key: String = sub_menu.get_item_metadata(idx)
-	_create_new_node(type_key, _context_position)
-
-
 ## ── Drag-from-port context menu ──
 
 func _build_port_context_menu() -> void:
@@ -371,20 +320,6 @@ func _open_quick_link(base_types: Array[StringName]) -> void:
 	EditorInterface.popup_quick_open(_on_link_external_selected, base_types)
 
 
-## Full file browser fallback for the context menu "Link External Resource...".
-func _open_link_external_dialog(filters := PackedStringArray(["*.tres ; Godot Resource"])) -> void:
-	if _file_dialog:
-		_file_dialog.queue_free()
-	_file_dialog = FileDialog.new()
-	_file_dialog.file_mode = FileDialog.FILE_MODE_OPEN_FILE
-	_file_dialog.access = FileDialog.ACCESS_RESOURCES
-	_file_dialog.filters = filters
-	_file_dialog.file_selected.connect(_on_link_external_selected)
-	_file_dialog.min_size = Vector2i(700, 500)
-	add_child(_file_dialog)
-	_file_dialog.popup_centered()
-
-
 func _on_link_external_selected(path: String) -> void:
 	var resource := ResourceLoader.load(path)
 	if resource == null:
@@ -458,21 +393,6 @@ func _prepare_new_node(type_key: String, position: Vector2 = Vector2.ZERO) -> Gr
 	node.position_offset = position
 	return node
 
-
-## Creates a node and registers it as a single undo action (for context menu use).
-func _create_new_node(type_key: String, position: Vector2 = Vector2.ZERO) -> GraphNode:
-	var node := _prepare_new_node(type_key, position)
-	if node == null:
-		return null
-
-	var info := Registry.get_type_info(type_key)
-	_undo_redo.create_action("Create %s" % info.get("display_name", type_key))
-	_undo_redo.add_do_method(_do_add_node.bind(node))
-	_undo_redo.add_undo_method(_do_remove_node.bind(node))
-	_undo_redo.add_undo_reference(node)
-	_undo_redo.commit_action()
-
-	return node
 
 
 func _generate_unique_name(base: String) -> String:

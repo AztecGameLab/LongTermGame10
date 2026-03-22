@@ -10,8 +10,8 @@ script = ExtResource("3_yvl41")
 modifier_field = 4
 modifier_type = 1
 modifier_amount = 0.10000000000002274
-metadata/_graph_x = 1780.0
-metadata/_graph_y = 80.0
+metadata/_graph_x = 820.0
+metadata/_graph_y = -20.0
 metadata/_graph_w = 357.0
 metadata/_graph_h = 144.0
 
@@ -19,8 +19,8 @@ metadata/_graph_h = 144.0
 script = ExtResource("2_7jt8v")
 description = "Increase luck by 10%"
 modifiers = Array[ExtResource("3_yvl41")]([SubResource("Resource_yvl41")])
-metadata/_graph_x = 1300.0
-metadata/_graph_y = 60.0
+metadata/_graph_x = 340.0
+metadata/_graph_y = -40.0
 metadata/_graph_w = 380.0
 metadata/_graph_h = 220.0
 
@@ -29,8 +29,8 @@ script = ExtResource("3_yvl41")
 modifier_field = 4
 modifier_type = 1
 modifier_amount = 0.10000000000002274
-metadata/_graph_x = 1780.0
-metadata/_graph_y = 360.0
+metadata/_graph_x = 820.0
+metadata/_graph_y = 260.0
 metadata/_graph_w = 357.0
 metadata/_graph_h = 144.0
 
@@ -38,8 +38,8 @@ metadata/_graph_h = 144.0
 script = ExtResource("3_yvl41")
 modifier_field = 5
 modifier_amount = 0.10000000000002274
-metadata/_graph_x = 1780.0
-metadata/_graph_y = 520.0
+metadata/_graph_x = 820.0
+metadata/_graph_y = 420.0
 metadata/_graph_w = 357.0
 metadata/_graph_h = 144.0
 
@@ -48,8 +48,8 @@ script = ExtResource("3_yvl41")
 modifier_field = 3
 modifier_type = 1
 modifier_amount = -0.10000000000002274
-metadata/_graph_x = 1780.0
-metadata/_graph_y = 680.0
+metadata/_graph_x = 820.0
+metadata/_graph_y = 580.0
 metadata/_graph_w = 357.0
 metadata/_graph_h = 144.0
 
@@ -59,8 +59,8 @@ description = "Increase luck by 10%
 Increase accuracy by 10%
 Increase dodge by 10%"
 modifiers = Array[ExtResource("3_yvl41")]([SubResource("Resource_vd7an"), SubResource("Resource_fx8iy"), SubResource("Resource_jv430")])
-metadata/_graph_x = 1300.0
-metadata/_graph_y = 320.0
+metadata/_graph_x = 340.0
+metadata/_graph_y = 220.0
 metadata/_graph_w = 380.0
 metadata/_graph_h = 315.0
 
@@ -69,8 +69,8 @@ script = ExtResource("3_yvl41")
 modifier_field = 4
 modifier_type = 1
 modifier_amount = 0.20000000000004547
-metadata/_graph_x = 1780.0
-metadata/_graph_y = 940.0
+metadata/_graph_x = 820.0
+metadata/_graph_y = 840.0
 metadata/_graph_w = 357.0
 metadata/_graph_h = 144.0
 
@@ -78,8 +78,8 @@ metadata/_graph_h = 144.0
 script = ExtResource("3_yvl41")
 modifier_field = 5
 modifier_amount = 0.10000000000002274
-metadata/_graph_x = 1780.0
-metadata/_graph_y = 1100.0
+metadata/_graph_x = 820.0
+metadata/_graph_y = 1000.0
 metadata/_graph_w = 357.0
 metadata/_graph_h = 144.0
 
@@ -88,8 +88,8 @@ script = ExtResource("3_yvl41")
 modifier_field = 3
 modifier_type = 1
 modifier_amount = -0.10000000000002274
-metadata/_graph_x = 1780.0
-metadata/_graph_y = 1260.0
+metadata/_graph_x = 820.0
+metadata/_graph_y = 1160.0
 metadata/_graph_w = 357.0
 metadata/_graph_h = 144.0
 
@@ -99,8 +99,8 @@ description = "Increase luck by 20%
 Increase accuracy by 10%
 Increase dodge by 10%"
 modifiers = Array[ExtResource("3_yvl41")]([SubResource("Resource_c66xc"), SubResource("Resource_p5nnn"), SubResource("Resource_x7v6g")])
-metadata/_graph_x = 1280.0
-metadata/_graph_y = 720.0
+metadata/_graph_x = 320.0
+metadata/_graph_y = 620.0
 metadata/_graph_w = 380.0
 metadata/_graph_h = 315.0
 
@@ -109,7 +109,7 @@ script = ExtResource("1_g18pq")
 stacks = Array[ExtResource("2_7jt8v")]([SubResource("Resource_8x5e2"), SubResource("Resource_qnfh1"), SubResource("Resource_ijvbu")])
 name = "Lucky Charm"
 metadata/_custom_type_script = "uid://c4rwprj6d61c0"
-metadata/_graph_x = 940.0
-metadata/_graph_y = 120.0
+metadata/_graph_x = -20.0
+metadata/_graph_y = 20.0
 metadata/_graph_w = 235.0
 metadata/_graph_h = 317.0
