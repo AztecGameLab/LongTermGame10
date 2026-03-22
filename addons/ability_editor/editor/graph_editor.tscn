@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://doetavueg20g0"]
+
+[ext_resource type="Script" uid="uid://bdk5a5widfq0y" path="res://addons/ability_editor/editor/graph_editor.gd" id="1_graph"]
+
+[node name="AbilityGraphEditor" type="VBoxContainer" unique_id=995098933]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+script = ExtResource("1_graph")
+
+[node name="Toolbar" type="HBoxContainer" parent="." unique_id=1298978538]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+
+[node name="LoadButton" type="Button" parent="Toolbar" unique_id=103937782]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Load"
+
+[node name="SaveButton" type="Button" parent="Toolbar" unique_id=1739122461]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+text = "Save"
+
+[node name="ReloadButton" type="Button" parent="Toolbar" unique_id=1808385933]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+text = "Reload"
+
+[node name="Separator" type="VSeparator" parent="Toolbar" unique_id=393681907]
+layout_mode = 2
+
+[node name="ResourceLabel" type="Label" parent="Toolbar" unique_id=1249400028]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "No resource loaded"
+
+[node name="WarningBar" type="PanelContainer" parent="Toolbar" unique_id=862170998]
+self_modulate = Color(0.8419772, 0.6947503, 1.1551381e-06, 1)
+layout_mode = 2
+
+[node name="WarningLabel" type="Label" parent="Toolbar/WarningBar" unique_id=1995415]
+layout_mode = 2
+text = "⚠ Experimental! Make sure to commit your changes often, in case of data loss. ⚠"
+horizontal_alignment = 1
+
+[node name="GraphEdit" type="GraphEdit" parent="." unique_id=481666125]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+right_disconnects = true

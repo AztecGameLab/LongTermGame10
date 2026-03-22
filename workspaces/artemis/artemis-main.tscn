@@ -11,7 +11,6 @@
 [ext_resource type="Resource" uid="uid://sg2oek573oja" path="res://resources/abilities/fortune/bleed.tres" id="8_6onex"]
 [ext_resource type="Script" uid="uid://b1qn3ek7b7ps4" path="res://workspaces/artemis/turn_label.gd" id="8_h88bq"]
 
-
 [node name="Node2D" type="Node2D" unique_id=217755439 node_paths=PackedStringArray("player_team", "boss_team")]
 script = ExtResource("1_f6buf")
 player_team = [NodePath("Player")]
