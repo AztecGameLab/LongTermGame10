@@ -568,6 +568,8 @@ func load_resource(resource: Resource) -> void:
 	resource_label.text = res_path
 	_dirty = false
 	_ignore_changed -= 1
+	_clipboard_nodes.clear()
+	_clipboard_connections.clear()
 	_update_button_states()
 
 
@@ -732,26 +734,46 @@ func _on_file_selected_save(path: String) -> void:
 	_do_save(path)
 
 
-## Compare current resource state against the pre-save snapshot.
-## Returns an array of error messages if any arrays lost items. Empty = safe.
+## Validate that the rebuild didn't lose any connections the graph still has.
+## Counts outgoing connections per (node, property) in the graph and compares
+## against the resource's array sizes after rebuild. Returns error messages if
+## the rebuild produced fewer items than the graph expects.
 func _validate_no_data_loss() -> Array[String]:
-	var errors: Array[String] = []
-	for res in _save_snapshot:
-		if not is_instance_valid(res):
+	# Count expected array sizes from graph connections
+	var expected := {}  # {Resource: {prop_name: count}}
+	for conn in graph_edit.get_connection_list():
+		var from_node: GraphNode = graph_edit.get_node_or_null(NodePath(conn.from_node))
+		if from_node == null or not from_node.has_meta("resource"):
 			continue
-		var old_props: Dictionary = _save_snapshot[res]
-		for prop_name in old_props:
-			var old_value = old_props[prop_name]
-			var new_value = res.get(prop_name)
-			if old_value is Array and new_value is Array:
-				if new_value.size() < old_value.size():
-					var res_name: String = ""
-					if "name" in res:
-						res_name = str(res.get("name"))
-					errors.append(
-						"%s.%s: had %d items, now has %d" % [
-							res_name if not res_name.is_empty() else str(res),
-							prop_name, old_value.size(), new_value.size()])
+		if from_node.get_meta("is_external", false):
+			continue
+		var slot_idx := Serializer._output_port_to_slot(from_node, conn.from_port)
+		if slot_idx < 0:
+			continue
+		var slot_child := from_node.get_child(slot_idx)
+		if not slot_child.has_meta("dynamic_property"):
+			continue
+		var res: Resource = from_node.get_meta("resource")
+		var prop_name: String = slot_child.get_meta("dynamic_property")
+		if not expected.has(res):
+			expected[res] = {}
+		expected[res][prop_name] = expected[res].get(prop_name, 0) + 1
+
+	# Compare expected vs actual
+	var errors: Array[String] = []
+	for res in expected:
+		for prop_name in expected[res]:
+			var expect_count: int = expected[res][prop_name]
+			var arr = res.get(prop_name)
+			var actual_count: int = arr.size() if arr is Array else 0
+			if actual_count < expect_count:
+				var res_name: String = ""
+				if "name" in res:
+					res_name = str(res.get("name"))
+				errors.append(
+					"%s.%s: graph has %d connections, but resource has %d items" % [
+						res_name if not res_name.is_empty() else str(res),
+						prop_name, expect_count, actual_count])
 	return errors
 
 
