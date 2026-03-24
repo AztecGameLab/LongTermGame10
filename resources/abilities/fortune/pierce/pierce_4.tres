@@ -1,0 +1,87 @@
+[gd_resource type="Resource" script_class="Ability" format=3 uid="uid://w5ubyihph7x8"]
+
+[ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="1_fs1un"]
+[ext_resource type="Script" uid="uid://xwcbloqu4nwu" path="res://scripts/ability/action/abstracts/action.gd" id="1_g16nt"]
+[ext_resource type="Script" uid="uid://d0rap3gi3boj5" path="res://scripts/ability/action/damage_action.gd" id="2_4xo20"]
+[ext_resource type="Script" uid="uid://be5ru5snax08s" path="res://scripts/ability/action/apply_status_action.gd" id="3_mwtfa"]
+[ext_resource type="Script" uid="uid://c4rwprj6d61c0" path="res://scripts/status_effects/status_effect.gd" id="4_v4a5p"]
+[ext_resource type="Script" uid="uid://c2ci25gmhnb4w" path="res://scripts/status_effects/status_effect_stack.gd" id="5_18w3q"]
+[ext_resource type="Script" uid="uid://w6h7oqtjl61k" path="res://scripts/status_effects/status_effect_modifier.gd" id="6_npl40"]
+[ext_resource type="Script" uid="uid://d0uvf6jnorxpw" path="res://scripts/status_effects/status_effect_trigger.gd" id="7_qaglk"]
+[ext_resource type="Script" uid="uid://bihndepd0cudw" path="res://scripts/ability/action/static_damage_action.gd" id="8_1a2ig"]
+[ext_resource type="Script" uid="uid://cy60nwkkhatr8" path="res://scripts/ability/action/hit_chance_action.gd" id="9_i033t"]
+[ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="10_c5t8i"]
+
+[sub_resource type="Resource" id="Resource_dwgw3"]
+script = ExtResource("2_4xo20")
+damage_minimum = 30
+damage_maximum = 80
+metadata/_custom_type_script = "uid://d0rap3gi3boj5"
+
+[sub_resource type="Resource" id="Resource_pncom"]
+script = ExtResource("8_1a2ig")
+damage = 10
+can_miss = false
+metadata/_custom_type_script = "uid://bihndepd0cudw"
+
+[sub_resource type="Resource" id="Resource_wycta"]
+script = ExtResource("7_qaglk")
+trigger_type = 1
+action = SubResource("Resource_pncom")
+metadata/_custom_type_script = "uid://d0uvf6jnorxpw"
+
+[sub_resource type="Resource" id="Resource_sktrb"]
+script = ExtResource("5_18w3q")
+description = "Lowers HP by 10 each turn."
+triggers = Array[ExtResource("7_qaglk")]([SubResource("Resource_wycta")])
+metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
+
+[sub_resource type="Resource" id="Resource_vtkqb"]
+script = ExtResource("8_1a2ig")
+damage = 20
+can_miss = false
+metadata/_custom_type_script = "uid://bihndepd0cudw"
+
+[sub_resource type="Resource" id="Resource_205e0"]
+script = ExtResource("7_qaglk")
+trigger_type = 1
+action = SubResource("Resource_vtkqb")
+metadata/_custom_type_script = "uid://d0uvf6jnorxpw"
+
+[sub_resource type="Resource" id="Resource_3xw03"]
+script = ExtResource("5_18w3q")
+description = "Lowers HP by 20 each turn."
+triggers = Array[ExtResource("7_qaglk")]([SubResource("Resource_205e0")])
+metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
+
+[sub_resource type="Resource" id="Resource_2jogv"]
+script = ExtResource("4_v4a5p")
+stacks = Array[ExtResource("5_18w3q")]([SubResource("Resource_sktrb"), SubResource("Resource_3xw03")])
+name = "Bleed"
+metadata/_custom_type_script = "uid://c4rwprj6d61c0"
+
+[sub_resource type="Resource" id="Resource_dwo4e"]
+script = ExtResource("3_mwtfa")
+status_effect = SubResource("Resource_2jogv")
+metadata/_custom_type_script = "uid://be5ru5snax08s"
+
+[sub_resource type="Resource" id="Resource_l6ajp"]
+script = ExtResource("2_4xo20")
+metadata/_custom_type_script = "uid://d0rap3gi3boj5"
+
+[sub_resource type="Resource" id="Resource_lj2ny"]
+script = ExtResource("9_i033t")
+success_chance = 0.5
+success_action = SubResource("Resource_l6ajp")
+metadata/_custom_type_script = "uid://cy60nwkkhatr8"
+
+[sub_resource type="Resource" id="Resource_8m4ft"]
+script = ExtResource("10_c5t8i")
+actions = Array[ExtResource("1_g16nt")]([SubResource("Resource_dwgw3"), SubResource("Resource_dwo4e"), SubResource("Resource_lj2ny")])
+metadata/_custom_type_script = "uid://da17dshmjafs6"
+
+[resource]
+script = ExtResource("1_fs1un")
+description = "Damage increase and chance to attack again"
+action = SubResource("Resource_8m4ft")
+metadata/_custom_type_script = "uid://ny1mjfoo1mqc"

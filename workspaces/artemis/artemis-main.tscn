@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="2_dq3ge"]
 [ext_resource type="Script" uid="uid://doviul66xwvvb" path="res://workspaces/artemis/health_label.gd" id="3_dq3ge"]
 [ext_resource type="Resource" uid="uid://b6mlqpxywhb6g" path="res://resources/abilities/heal.tres" id="3_lhvlb"]
-[ext_resource type="Resource" uid="uid://c71y0pm2tt1g" path="res://resources/abilities/fortune/pierce.tres" id="4_lhvlb"]
+[ext_resource type="Resource" uid="uid://c71y0pm2tt1g" path="res://resources/abilities/fortune/pierce/pierce_1.tres" id="4_lhvlb"]
 [ext_resource type="Resource" uid="uid://bnv8ckim477pc" path="res://resources/abilities/strength.tres" id="6_vmnyc"]
 [ext_resource type="Resource" uid="uid://y06qhqwsm5s3" path="res://resources/abilities/burn.tres" id="7_ra02i"]
 [ext_resource type="Resource" uid="uid://sg2oek573oja" path="res://resources/abilities/bleed.tres" id="8_6onex"]
