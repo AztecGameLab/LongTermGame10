@@ -25,6 +25,7 @@ metadata/_custom_type_script = "uid://da17dshmjafs6"
 
 [resource]
 script = ExtResource("1_bmkyx")
+name = "Pierce Level 3"
 description = "Applies bleed to enemy"
 action = SubResource("Resource_f5fax")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"

@@ -11,6 +11,7 @@ metadata/_custom_type_script = "uid://d0rap3gi3boj5"
 
 [resource]
 script = ExtResource("1_x5i48")
+name = "Pierce Level 2"
 description = "Does a little bit more damage"
 action = SubResource("Resource_n52ha")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"

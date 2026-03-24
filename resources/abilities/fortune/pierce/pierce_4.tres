@@ -65,14 +65,16 @@ script = ExtResource("3_mwtfa")
 status_effect = SubResource("Resource_2jogv")
 metadata/_custom_type_script = "uid://be5ru5snax08s"
 
-[sub_resource type="Resource" id="Resource_l6ajp"]
+[sub_resource type="Resource" id="Resource_g16nt"]
 script = ExtResource("2_4xo20")
+damage_minimum = 30
+damage_maximum = 80
 metadata/_custom_type_script = "uid://d0rap3gi3boj5"
 
 [sub_resource type="Resource" id="Resource_lj2ny"]
 script = ExtResource("9_i033t")
 success_chance = 0.5
-success_action = SubResource("Resource_l6ajp")
+success_action = SubResource("Resource_g16nt")
 metadata/_custom_type_script = "uid://cy60nwkkhatr8"
 
 [sub_resource type="Resource" id="Resource_8m4ft"]
@@ -82,6 +84,7 @@ metadata/_custom_type_script = "uid://da17dshmjafs6"
 
 [resource]
 script = ExtResource("1_fs1un")
+name = "Pierce Level 4"
 description = "Damage increase and chance to attack again"
 action = SubResource("Resource_8m4ft")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
