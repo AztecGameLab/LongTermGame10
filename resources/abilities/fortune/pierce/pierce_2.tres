@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Ability" format=3 uid="uid://o1bswl3proq7"]
+
+[ext_resource type="Script" uid="uid://d0rap3gi3boj5" path="res://scripts/ability/action/damage_action.gd" id="1_atmg6"]
+[ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="1_x5i48"]
+
+[sub_resource type="Resource" id="Resource_n52ha"]
+script = ExtResource("1_atmg6")
+damage_minimum = 20
+damage_maximum = 60
+metadata/_custom_type_script = "uid://d0rap3gi3boj5"
+
+[resource]
+script = ExtResource("1_x5i48")
+description = "Does a little bit more damage"
+action = SubResource("Resource_n52ha")
+metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
