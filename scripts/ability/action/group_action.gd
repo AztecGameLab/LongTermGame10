@@ -6,7 +6,7 @@ class_name GroupAction
 
 ## The seconds to wait between one action finishing,
 ## and the next one starting.
-@export_range(0.0, 5.0, 0.1, "suffix:secs") var delay: float = 0.3
+@export_range(0.0, 5.0, 0.1, "suffix:secs") var delay: float = 0.0
 
 func run(context: ActionContext) -> void:
 	for action in actions:
