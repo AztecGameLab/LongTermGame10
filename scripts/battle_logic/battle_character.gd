@@ -21,7 +21,7 @@ signal healed(amount: int, source: BattleCharacter)
 signal health_updated(new_health: int)
 signal died()
 
-signal used_ability(ability: Ability, targets: Array[BattleCharacter])
+signal used_ability(ability: BaseAbility, targets: Array[BattleCharacter])
 
 signal status_effect_added(instance: StatusEffectContainer)
 signal status_effect_removed(instance: StatusEffectContainer)
@@ -30,7 +30,7 @@ signal status_effect_removed(instance: StatusEffectContainer)
 
 @export var max_health: int = 50
 
-@export var abilities: Array[Ability]
+@export var abilities: Array[BaseAbility]
 
 # --- Runtime State ---
 
@@ -105,7 +105,7 @@ func heal(amount: int, source: BattleCharacter = null) -> void:
 # --- Status Effect Management ---
 
 ## Applies a status effect. If already active, delegates reapplication to the effect.
-func add_status_effect(effect: BaseStatusEffect, source: BattleCharacter, stacks: int, max_stacks: int) -> StatusEffectContainer:
+func add_status_effect(effect: BaseStatusEffect, source: BattleCharacter, stacks: int = 1, max_stacks: int = -1) -> StatusEffectContainer:
 	var existing := get_status_effect(effect)
 
 	if existing:

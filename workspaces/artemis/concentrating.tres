@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ConcentrationAbility" format=3 uid="uid://c52juwpfxw4vq"]
+
+[ext_resource type="Resource" uid="uid://dslms6qfxsm5p" path="res://resources/status_effects/decoy_concentrate.tres" id="1_f0ktl"]
+[ext_resource type="Script" uid="uid://fe5c3bvlmltj" path="res://scripts/ability/concentration_ability.gd" id="1_qu883"]
+
+[resource]
+script = ExtResource("1_qu883")
+name = "Concentration"
+description = "Concentrate on something."
+concentration_effect = ExtResource("1_f0ktl")
+metadata/_custom_type_script = "uid://fe5c3bvlmltj"
+metadata/_graph_x = -80.0
+metadata/_graph_y = 60.0
+metadata/_graph_w = 460.0
+metadata/_graph_h = 240.0
+metadata/_external_layouts = {
+"uid://dslms6qfxsm5p": {
+"h": 70.0,
+"w": 379.0,
+"x": 504.5,
+"y": 125.5
+}
+}

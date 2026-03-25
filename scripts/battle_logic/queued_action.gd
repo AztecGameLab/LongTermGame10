@@ -16,9 +16,9 @@ var source: BattleCharacter = null
 
 ## The ability these actions come from, if it is a character's direct turn.
 ## This will be null if it is a reactive action, for instance a revenge when getting hit.
-var ability: Ability = null
+var ability: BaseAbility = null
 
-func _init(p_battle_context: BattleContext, p_action: Action, p_source: BattleCharacter, p_target: Array[BattleCharacter], p_ability: Ability) -> void:
+func _init(p_battle_context: BattleContext, p_action: Action, p_source: BattleCharacter, p_target: Array[BattleCharacter], p_ability: BaseAbility) -> void:
 	battle_context = p_battle_context
 	action = p_action
 	targets = p_target

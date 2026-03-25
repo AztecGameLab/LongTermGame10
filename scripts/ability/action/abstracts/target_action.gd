@@ -9,7 +9,7 @@ class_name TargetAction
 ## Leave disabled to use the same target.
 @export_custom(PROPERTY_HINT_GROUP_ENABLE, "") var override_target: bool
 ## Applies if overriding the target
-@export var action_target: Ability.MoveTargetType;
+@export var action_target: BaseAbility.TargetType;
 
 func resolve_targets(context: ActionContext) -> Array[BattleCharacter]:
 	if not override_target:

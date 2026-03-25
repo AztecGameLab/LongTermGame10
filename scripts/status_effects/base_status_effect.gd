@@ -5,6 +5,8 @@ class_name BaseStatusEffect
 ## Base class for all status effect types.
 ## Subclasses override only the methods relevant to their behavior.
 
+signal updated
+
 ## The name shown in the hover tooltip.
 @export var name: String
 
