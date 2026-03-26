@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="StatusEffect" format=3 uid="uid://r64xcaj0mr4c"]
+
+[ext_resource type="Script" uid="uid://c4rwprj6d61c0" path="res://scripts/status_effects/status_effect.gd" id="1_sqsqw"]
+[ext_resource type="Script" uid="uid://c2ci25gmhnb4w" path="res://scripts/status_effects/status_effect_stack.gd" id="2_kggwh"]
+[ext_resource type="Script" uid="uid://w6h7oqtjl61k" path="res://scripts/status_effects/status_effect_modifier.gd" id="3_cwu6n"]
+[ext_resource type="Script" uid="uid://d0uvf6jnorxpw" path="res://scripts/status_effects/status_effect_trigger.gd" id="4_2gru0"]
+[ext_resource type="Script" uid="uid://c84i4tkx4t6au" path="res://scripts/ability/action/heal_action.gd" id="5_o2d0y"]
+[ext_resource type="Script" uid="uid://dkyoonc2qagl3" path="res://scripts/ability/action/luck_chance_action.gd" id="6_v6n5j"]
+[ext_resource type="Script" uid="uid://4uj0ujy2m4of" path="res://scripts/ability/action/remove_status_action.gd" id="7_vnlfn"]
+
+[sub_resource type="Resource" id="Resource_nr16a"]
+script = ExtResource("5_o2d0y")
+heal_amount = 30
+overheal = true
+metadata/_custom_type_script = "uid://c84i4tkx4t6au"
+
+[sub_resource type="Resource" id="Resource_kwfm3"]
+script = ExtResource("4_2gru0")
+action = SubResource("Resource_nr16a")
+metadata/_custom_type_script = "uid://d0uvf6jnorxpw"
+
+[sub_resource type="Resource" id="Resource_rmv01"]
+script = ExtResource("7_vnlfn")
+remove_stacks = 99
+metadata/_custom_type_script = "uid://4uj0ujy2m4of"
+
+[sub_resource type="Resource" id="Resource_luck01"]
+script = ExtResource("6_v6n5j")
+success_action = SubResource("Resource_rmv01")
+metadata/_custom_type_script = "uid://dkyoonc2qagl3"
+
+[sub_resource type="Resource" id="Resource_cure01"]
+script = ExtResource("4_2gru0")
+action = SubResource("Resource_luck01")
+metadata/_custom_type_script = "uid://d0uvf6jnorxpw"
+
+[sub_resource type="Resource" id="Resource_c1t11"]
+script = ExtResource("2_kggwh")
+description = "Heals you 30hp each turn. May cure an ailment. Can heal past max HP."
+triggers = Array[ExtResource("4_2gru0")]([SubResource("Resource_kwfm3"), SubResource("Resource_cure01")])
+metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
+
+[resource]
+script = ExtResource("1_sqsqw")
+stacks = Array[ExtResource("2_kggwh")]([SubResource("Resource_c1t11")])
+limited_duration = false
+name = "Regenerate Level 4"
+metadata/_custom_type_script = "uid://c4rwprj6d61c0"
