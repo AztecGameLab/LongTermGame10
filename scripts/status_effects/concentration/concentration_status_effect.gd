@@ -59,10 +59,11 @@ func run_triggers(type: StatusEffectTrigger.Type, container: StatusEffectContain
 			await trigger.action.run(ActionContext.new(null, container.target, container.battle, container.source, container))
 	
 	if type == StatusEffectTrigger.Type.ON_TURN_END:
+		state.turns_concentrated += 1
 		if state.full_capacity != state._was_used:
 			state.full_capacity = state._was_used
 			state._was_used = false
-			updated.emit()
+		updated.emit()
 
 func on_damage_received(_context: AttackContext, container: StatusEffectContainer) -> void:
 	if RNG.chance(break_chance):
