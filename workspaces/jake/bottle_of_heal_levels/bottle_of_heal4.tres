@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="Ability" format=3 uid="uid://boy7gg5bk727q"]
+
+[ext_resource type="Script" uid="uid://xwcbloqu4nwu" path="res://scripts/ability/action/abstracts/action.gd" id="1_wj7fy"]
+[ext_resource type="Script" uid="uid://c84i4tkx4t6au" path="res://scripts/ability/action/heal_action.gd" id="2_kvkmb"]
+[ext_resource type="Script" uid="uid://be5ru5snax08s" path="res://scripts/ability/action/apply_status_action.gd" id="3_6ql61"]
+[ext_resource type="Resource" uid="uid://bwgjdhbcxwwij" path="res://workspaces/jake/bottle_of_heal_levels/regeneration.tres" id="4_rql4s"]
+[ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="5_gx8lk"]
+[ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="6_rkw3s"]
+
+[sub_resource type="Resource" id="Resource_nmp6t"]
+script = ExtResource("2_kvkmb")
+heal_amount = 50
+metadata/_custom_type_script = "uid://c84i4tkx4t6au"
+
+[sub_resource type="Resource" id="Resource_agflx"]
+script = ExtResource("3_6ql61")
+upgrade_stacks = 0
+status_effect = ExtResource("4_rql4s")
+max_stacks = 1
+metadata/_custom_type_script = "uid://be5ru5snax08s"
+
+[sub_resource type="Resource" id="Resource_wc13e"]
+script = ExtResource("5_gx8lk")
+actions = Array[ExtResource("1_wj7fy")]([SubResource("Resource_nmp6t"), SubResource("Resource_agflx")])
+metadata/_custom_type_script = "uid://da17dshmjafs6"
+
+[resource]
+script = ExtResource("6_rkw3s")
+name = "Bottle of Regeneration"
+description = "Heals the party a bunch and gives slight regeneration."
+move_target_type = 6
+action = SubResource("Resource_wc13e")
+metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
