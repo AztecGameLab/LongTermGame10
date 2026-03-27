@@ -11,6 +11,16 @@ class_name BaseStatusEffect
 ## The icon to show next to the character.
 @export var icon: Texture2D
 
+## Type of status effect
+enum EffectType {
+	POSITIVE,
+	NEGATIVE,
+	LOCKED
+}
+
+## Whether this effect is positive, negative, or locked (cannot be transferred).
+@export var effect_type: EffectType = EffectType.NEGATIVE
+
 # --- Virtual Methods ---
 # Override in subclasses to customize behavior.
 

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Ability" format=3 uid="uid://db3vxvsbuyf36"]
+
+[ext_resource type="Script" uid="uid://coagjoj2grxm7" path="res://scripts/ability/action/lifesteal_action.gd" id="1_7humo"]
+[ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="2_aqbhc"]
+
+[sub_resource type="Resource" id="Resource_l5dib"]
+script = ExtResource("1_7humo")
+damage_minimum = 20
+damage_maximum = 40
+metadata/_custom_type_script = "uid://coagjoj2grxm7"
+
+[resource]
+script = ExtResource("2_aqbhc")
+name = "Lifesteal Level 2"
+description = "Steal a percentage of the increased damage dealt to the enemy as health."
+action = SubResource("Resource_l5dib")
+metadata/_custom_type_script = "uid://ny1mjfoo1mqc"

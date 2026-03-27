@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="Ability" format=3 uid="uid://cjl4tl2emlhod"]
+
+[ext_resource type="Script" uid="uid://xwcbloqu4nwu" path="res://scripts/ability/action/abstracts/action.gd" id="1_qd3ra"]
+[ext_resource type="Script" uid="uid://coagjoj2grxm7" path="res://scripts/ability/action/lifesteal_action.gd" id="2_3s6es"]
+[ext_resource type="Script" uid="uid://dkyoonc2qagl3" path="res://scripts/ability/action/luck_chance_action.gd" id="3_weeie"]
+[ext_resource type="Script" uid="uid://deeb01dip6syv" path="res://scripts/ability/action/steal_status_action.gd" id="4_er3r1"]
+[ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="5_4frgf"]
+[ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="6_ga7il"]
+
+[sub_resource type="Resource" id="Resource_qh8t0"]
+script = ExtResource("2_3s6es")
+damage_minimum = 30
+damage_maximum = 60
+lifesteal_percent = 1.0
+metadata/_custom_type_script = "uid://coagjoj2grxm7"
+
+[sub_resource type="Resource" id="Resource_r4dnt"]
+script = ExtResource("4_er3r1")
+metadata/_custom_type_script = "uid://deeb01dip6syv"
+
+[sub_resource type="Resource" id="Resource_v7apg"]
+script = ExtResource("3_weeie")
+success_action = SubResource("Resource_r4dnt")
+metadata/_custom_type_script = "uid://dkyoonc2qagl3"
+
+[sub_resource type="Resource" id="Resource_ly7en"]
+script = ExtResource("5_4frgf")
+actions = Array[ExtResource("1_qd3ra")]([SubResource("Resource_qh8t0"), SubResource("Resource_v7apg")])
+metadata/_custom_type_script = "uid://da17dshmjafs6"
+
+[resource]
+script = ExtResource("6_ga7il")
+name = "Lifesteal Level 4"
+description = "Steal ALL of the damage dealt to the enemy as health and there is a chance to steal a positive status effect from the enemy. "
+action = SubResource("Resource_ly7en")
+metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
