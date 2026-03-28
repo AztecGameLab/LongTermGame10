@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Ability" format=3 uid="uid://cp1djbgsqcqsx"]
+
+[ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="1_mnbr0"]
+[ext_resource type="Script" uid="uid://coagjoj2grxm7" path="res://scripts/ability/action/lifesteal_action.gd" id="1_ntos2"]
+
+[sub_resource type="Resource" id="Resource_l5dib"]
+script = ExtResource("1_ntos2")
+damage_minimum = 10
+damage_maximum = 30
+metadata/_custom_type_script = "uid://coagjoj2grxm7"
+
+[resource]
+script = ExtResource("1_mnbr0")
+name = "Lifesteal"
+description = "Steal a percentage of the damage dealt to the enemy as health."
+action = SubResource("Resource_l5dib")
+metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
