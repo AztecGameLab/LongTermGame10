@@ -15,12 +15,12 @@ const PT := PortTypes.PortType
 
 var _root_resource: Resource
 var _root_node: GraphNode
-var _ignore_changed := 0  # Re-entrant counter: > 0 means suppress changed signals
-var _dirty := false  # True when graph has been modified since last save/load
-var _reload_pending := false  # Debounce flag for deferred reload
-var _save_snapshot := {}  # Backup of port properties for rollback on save failure
-var _watched_resources: Array[Resource] = []  # Resources with changed signal connected
-var _nav_stack: Array[Resource] = []  # Navigation history for "Back" button
+var _ignore_changed := 0 # Re-entrant counter: > 0 means suppress changed signals
+var _dirty := false # True when graph has been modified since last save/load
+var _reload_pending := false # Debounce flag for deferred reload
+var _save_snapshot := {} # Backup of port properties for rollback on save failure
+var _watched_resources: Array[Resource] = [] # Resources with changed signal connected
+var _nav_stack: Array[Resource] = [] # Navigation history for "Back" button
 var _back_button: Button
 var _context_position: Vector2
 var _file_dialog: FileDialog
@@ -32,8 +32,8 @@ var _pending_from_port: int = -1
 var _port_context_menu: PopupMenu
 
 # Clipboard for copy/paste
-var _clipboard_nodes := []   # [{resource, position, is_external, is_texture}]
-var _clipboard_connections := []  # [{from_idx, from_port, to_idx, to_port}]
+var _clipboard_nodes := [] # [{resource, position, is_external, is_texture}]
+var _clipboard_connections := [] # [{from_idx, from_port, to_idx, to_port}]
 
 
 func _ready() -> void:
@@ -266,6 +266,8 @@ func _on_connection_to_empty(from_node: StringName, from_port: int, release_posi
 			base_types = [&"Texture2D"]
 		elif port_type == PT.STATUS_EFFECT:
 			base_types = [&"BaseStatusEffect"]
+		elif port_type == PT.CONCENTRATION_STATUS_EFFECT:
+			base_types = [&"ConcentrationStatusEffect"]
 		_open_quick_link(base_types)
 		return
 
@@ -392,7 +394,6 @@ func _prepare_new_node(type_key: String, position: Vector2 = Vector2.ZERO) -> Gr
 	node.name = _generate_unique_name(type_key)
 	node.position_offset = position
 	return node
-
 
 
 func _generate_unique_name(base: String) -> String:
@@ -740,7 +741,7 @@ func _on_file_selected_save(path: String) -> void:
 ## the rebuild produced fewer items than the graph expects.
 func _validate_no_data_loss() -> Array[String]:
 	# Count expected array sizes from graph connections
-	var expected := {}  # {Resource: {prop_name: count}}
+	var expected := {} # {Resource: {prop_name: count}}
 	for conn in graph_edit.get_connection_list():
 		var from_node: GraphNode = graph_edit.get_node_or_null(NodePath(conn.from_node))
 		if from_node == null or not from_node.has_meta("resource"):
@@ -912,7 +913,7 @@ func _drop_data(at_position: Vector2, data: Variant) -> void:
 			if class_key.is_empty():
 				continue
 
-			if _root_node == null and (resource is Ability or resource is BaseStatusEffect):
+			if _root_node == null and (resource is BaseAbility or resource is BaseStatusEffect):
 				load_resource(resource)
 				return
 
@@ -998,7 +999,7 @@ func _on_remove_dynamic_port(graph_node: GraphNode, property_name: String, remov
 	for conn in graph_edit.get_connection_list():
 		if conn.from_node == graph_node.name:
 			if conn.from_port == removed_port:
-				continue  # Skip the removed port's connection
+				continue # Skip the removed port's connection
 			var new_port: int = conn.from_port
 			if conn.from_port > removed_port:
 				new_port -= 1

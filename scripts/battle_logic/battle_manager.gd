@@ -31,25 +31,25 @@ static func apply_healing(healing: int, source: BattleCharacter, target: BattleC
 	healing = target.get_incoming_healing(healing)
 	target.heal(healing, source)
 
-static func get_targets(source: BattleCharacter, source_team: Array[BattleCharacter], target_team: Array[BattleCharacter], move_target_type: Ability.MoveTargetType) -> Array[BattleCharacter]:
+static func get_targets(source: BattleCharacter, source_team: Array[BattleCharacter], target_team: Array[BattleCharacter], move_target_type: BaseAbility.TargetType) -> Array[BattleCharacter]:
 	var targets: Array[BattleCharacter] = []
 	match move_target_type:
-		Ability.MoveTargetType.SELF:
+		BaseAbility.TargetType.SELF:
 			targets = [source]
-		Ability.MoveTargetType.ALL_TEAMMATES:
+		BaseAbility.TargetType.ALL_TEAMMATES:
 			targets = source_team
-		Ability.MoveTargetType.ALL_TEAMMATES_EXCLUDE_SELF:
+		BaseAbility.TargetType.ALL_TEAMMATES_EXCLUDE_SELF:
 			targets = source_team.filter(func(teammate): return teammate != source)
-		Ability.MoveTargetType.ATTACKER:
+		BaseAbility.TargetType.ATTACKER:
 			if source.last_attacker and source.last_attacker.alive:
 				targets = [source.last_attacker]
-		Ability.MoveTargetType.ENEMY:
+		BaseAbility.TargetType.ENEMY:
 			var alive_enemies := target_team.filter(func(enemy): return enemy.alive)
 			if alive_enemies.size() > 0:
 				targets = [alive_enemies.pick_random()]
-		Ability.MoveTargetType.ALL_ENEMIES:
+		BaseAbility.TargetType.ALL_ENEMIES:
 			targets = target_team
-		Ability.MoveTargetType.EVERYONE:
+		BaseAbility.TargetType.EVERYONE:
 			targets.append_array(source_team)
 			targets.append_array(target_team)
 	return targets.filter(func(target): return target and target.alive)
@@ -59,15 +59,15 @@ static func get_actions(battle_context: BattleContext, source_team: Array[Battle
 	for character in source_team:
 		if not character.alive:
 			continue
-		var ability: Ability = character.abilities.pick_random()
+		var ability: BaseAbility = character.abilities.pick_random()
 		if not ability:
 			print(character.name + " has no abilities and will do nothing.")
 			continue
-		var targets := get_targets(character, source_team, target_team, ability.move_target_type)
+		var targets := get_targets(character, source_team, target_team, ability.get_target_type(character))
 		if targets.size() == 0:
 			print(character.name + " has no valid targets and will do nothing.")
 			continue
-		var action := QueuedAction.new(battle_context, ability.action, character, targets, ability)
+		var action := QueuedAction.new(battle_context, ability.get_action(character), character, targets, ability)
 		actions.append(action)
 	return actions
 

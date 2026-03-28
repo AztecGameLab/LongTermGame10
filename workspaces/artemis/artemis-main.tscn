@@ -2,25 +2,23 @@
 
 [ext_resource type="Script" uid="uid://cbi33r5foad57" path="res://scripts/battle_logic/battle_manager.gd" id="1_f6buf"]
 [ext_resource type="Script" uid="uid://c2dcuh7wij0sh" path="res://scripts/battle_logic/battle_character.gd" id="1_ha2wl"]
-[ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="2_dq3ge"]
 [ext_resource type="Script" uid="uid://doviul66xwvvb" path="res://workspaces/artemis/health_label.gd" id="3_dq3ge"]
 [ext_resource type="Resource" uid="uid://b6mlqpxywhb6g" path="res://resources/abilities/umi/heal.tres" id="3_lhvlb"]
+[ext_resource type="Script" uid="uid://d1o5abfusku1j" path="res://scripts/ability/base_ability.gd" id="3_ra02i"]
 [ext_resource type="Resource" uid="uid://c71y0pm2tt1g" path="res://resources/abilities/fortune/pierce/pierce_1.tres" id="4_lhvlb"]
 [ext_resource type="Resource" uid="uid://bnv8ckim477pc" path="res://resources/abilities/fortune/strength.tres" id="6_vmnyc"]
-[ext_resource type="Resource" uid="uid://y06qhqwsm5s3" path="res://resources/abilities/umi/burn.tres" id="7_ra02i"]
+[ext_resource type="Resource" uid="uid://y06qhqwsm5s3" path="res://resources/abilities/umi/burn.tres" id="7_sbfs0"]
 [ext_resource type="Resource" uid="uid://sg2oek573oja" path="res://resources/abilities/fortune/bleed.tres" id="8_6onex"]
 [ext_resource type="Script" uid="uid://b1qn3ek7b7ps4" path="res://workspaces/artemis/turn_label.gd" id="8_h88bq"]
 
-[node name="Node2D" type="Node2D" unique_id=217755439 node_paths=PackedStringArray("player_team", "boss_team")]
+[node name="Node2D" type="Node2D" unique_id=217755439]
 script = ExtResource("1_f6buf")
-player_team = [NodePath("Player")]
-boss_team = [NodePath("Boss")]
 
 [node name="Player" type="Node2D" parent="." unique_id=1941574995]
 position = Vector2(561, 471)
 script = ExtResource("1_ha2wl")
 max_health = 500
-abilities = Array[ExtResource("2_dq3ge")]([ExtResource("4_lhvlb"), ExtResource("4_lhvlb"), ExtResource("4_lhvlb"), ExtResource("3_lhvlb"), ExtResource("6_vmnyc"), ExtResource("7_ra02i")])
+abilities = Array[ExtResource("3_ra02i")]([ExtResource("4_lhvlb"), ExtResource("4_lhvlb"), ExtResource("4_lhvlb"), ExtResource("3_lhvlb"), ExtResource("6_vmnyc"), ExtResource("7_sbfs0")])
 metadata/_custom_type_script = "uid://c2dcuh7wij0sh"
 
 [node name="Health" type="Label" parent="Player" unique_id=1181677918]
@@ -43,7 +41,7 @@ script = ExtResource("8_h88bq")
 position = Vector2(1240, 456)
 script = ExtResource("1_ha2wl")
 max_health = 500
-abilities = Array[ExtResource("2_dq3ge")]([ExtResource("3_lhvlb"), ExtResource("8_6onex")])
+abilities = Array[ExtResource("3_ra02i")]([ExtResource("3_lhvlb"), ExtResource("8_6onex")])
 metadata/_custom_type_script = "uid://c2dcuh7wij0sh"
 
 [node name="Health" type="Label" parent="Boss" unique_id=2042712014]

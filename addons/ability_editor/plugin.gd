@@ -23,7 +23,7 @@ func _exit_tree() -> void:
 
 
 func _handles(object: Object) -> bool:
-	return object is Ability or object is BaseStatusEffect
+	return object is BaseAbility or object is BaseStatusEffect
 
 
 func _edit(object: Object) -> void:

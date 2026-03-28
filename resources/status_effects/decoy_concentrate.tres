@@ -1,10 +1,43 @@
 [gd_resource type="Resource" script_class="ConcentrationStatusEffect" format=3 uid="uid://dslms6qfxsm5p"]
 
-[ext_resource type="Script" uid="uid://dasiej7totk8c" path="res://scripts/status_effects/concentration_status_effect.gd" id="1_1xgjd"]
+[ext_resource type="Script" uid="uid://dasiej7totk8c" path="res://scripts/status_effects/concentration/concentration_status_effect.gd" id="1_1xgjd"]
+[ext_resource type="Script" uid="uid://w6h7oqtjl61k" path="res://scripts/status_effects/status_effect_modifier.gd" id="1_cjx0m"]
+[ext_resource type="Script" uid="uid://c2ci25gmhnb4w" path="res://scripts/status_effects/status_effect_stack.gd" id="2_57boh"]
+[ext_resource type="Script" uid="uid://d0uvf6jnorxpw" path="res://scripts/status_effects/status_effect_trigger.gd" id="3_ci3bw"]
+[ext_resource type="Texture2D" uid="uid://ca04ekf2lfi36" path="res://icon.svg" id="4_xy8y4"]
+
+[sub_resource type="Resource" id="Resource_q31bm"]
+script = ExtResource("2_57boh")
+description = "Coralleine is concentrating on decoy.
+"
+metadata/_graph_x = 600.0
+metadata/_graph_y = 180.0
+metadata/_graph_w = 420.0
+metadata/_graph_h = 180.0
+
+[sub_resource type="Resource" id="Resource_d7bjq"]
+script = ExtResource("2_57boh")
+metadata/_graph_x = 600.0
+metadata/_graph_y = 380.0
+metadata/_graph_w = 420.0
+metadata/_graph_h = 171.0
 
 [resource]
 script = ExtResource("1_1xgjd")
-description = "Coralleine is concentrating on Decoy"
-concentration_label = "decoy"
+full_capacity_stack = SubResource("Resource_q31bm")
+half_capacity_stack = SubResource("Resource_d7bjq")
 name = "Concentration"
+icon = ExtResource("4_xy8y4")
 metadata/_custom_type_script = "uid://dasiej7totk8c"
+metadata/_graph_x = 40.0
+metadata/_graph_y = 160.0
+metadata/_graph_w = 440.0
+metadata/_graph_h = 200.0
+metadata/_external_layouts = {
+"uid://ca04ekf2lfi36": {
+"h": 101.0,
+"w": 149.0,
+"x": 600.0,
+"y": 40.0
+}
+}

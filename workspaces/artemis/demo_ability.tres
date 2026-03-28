@@ -31,7 +31,7 @@ metadata/_custom_type_script = "uid://cy60nwkkhatr8"
 
 [resource]
 script = ExtResource("1_oh3o1")
+action = SubResource("Resource_pd4pw")
 name = "Life Steal"
 description = "Damages the target for 10 health and gives the user 5 health back."
-action = SubResource("Resource_pd4pw")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"

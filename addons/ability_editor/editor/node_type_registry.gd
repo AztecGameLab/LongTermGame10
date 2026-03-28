@@ -16,6 +16,7 @@ const CLASS_PORT_TYPES := {
 	"Action": PT.ACTION,
 	"TargetAction": PT.ACTION,
 	"BaseStatusEffect": PT.STATUS_EFFECT,
+	"ConcentrationStatusEffect": PT.CONCENTRATION_STATUS_EFFECT,
 	"StatusEffectStack": PT.STACK,
 	"StatusEffectModifier": PT.MODIFIER,
 	"StatusEffectTrigger": PT.TRIGGER,
@@ -34,7 +35,7 @@ const _BASE_SCRIPT_PORT_TYPE_UIDS := {
 	"uid://dwogyp2cbh5l1": PT.STATUS_EFFECT, # base_status_effect.gd
 	"uid://c4rwprj6d61c0": PT.STATUS_EFFECT, # status_effect.gd
 	"uid://dot0bfh4ojuo7": PT.STATUS_EFFECT, # fading_status_effect.gd
-	"uid://dasiej7totk8c": PT.STATUS_EFFECT, # concentration_status_effect.gd
+	"uid://dasiej7totk8c": PT.CONCENTRATION_STATUS_EFFECT, # concentration_status_effect.gd
 	"uid://c2ci25gmhnb4w": PT.STACK,        # status_effect_stack.gd
 	"uid://w6h7oqtjl61k": PT.MODIFIER,      # status_effect_modifier.gd
 	"uid://d0uvf6jnorxpw": PT.TRIGGER,      # status_effect_trigger.gd
@@ -56,6 +57,7 @@ static func _build_types() -> void:
 			_BASE_SCRIPT_PORT_TYPES[script.resource_path] = _BASE_SCRIPT_PORT_TYPE_UIDS[uid]
 
 	_reg("Ability", "Ability", "uid://ny1mjfoo1mqc", "Root")
+	_reg("ConcentrationAbility", "Concentration Ability", "uid://fe5c3bvlmltj", "Root")
 
 	_reg("DamageAction", "Damage", "uid://d0rap3gi3boj5", "Actions / Target")
 	_reg("StaticDamageAction", "Static Damage", "uid://bihndepd0cudw", "Actions / Target")
@@ -171,7 +173,7 @@ static func get_types_for_port_type(port_type: int) -> Array:
 
 
 # Port types that should always reference external .tres files (never inline).
-const ALWAYS_EXTERNAL_PORT_TYPES := [PT.STATUS_EFFECT, PT.TEXTURE]
+const ALWAYS_EXTERNAL_PORT_TYPES := [PT.STATUS_EFFECT, PT.CONCENTRATION_STATUS_EFFECT, PT.TEXTURE]
 
 
 # ── Property introspection utilities (shared with factory + serializer) ──
