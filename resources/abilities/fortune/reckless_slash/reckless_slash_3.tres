@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://d0rap3gi3boj5" path="res://scripts/ability/action/damage_action.gd" id="2_k2374"]
 [ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="3_in3pi"]
 [ext_resource type="Script" uid="uid://be5ru5snax08s" path="res://scripts/ability/action/apply_status_action.gd" id="4_alycj"]
+[ext_resource type="Script" uid="uid://bihndepd0cudw" path="res://scripts/ability/action/static_damage_action.gd" id="4_j1b8l"]
 [ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="4_x2431"]
 [ext_resource type="Resource" uid="uid://q0hcx1ti141" path="res://resources/status_effects/staggered.tres" id="5_j1b8l"]
 
@@ -19,15 +20,15 @@ metadata/_graph_y = 100.0
 metadata/_graph_w = 390.0
 metadata/_graph_h = 238.0
 
-[sub_resource type="Resource" id="Resource_ahmp4"]
-script = ExtResource("2_k2374")
+[sub_resource type="Resource" id="Resource_empo8"]
+script = ExtResource("4_j1b8l")
+damage = 30
 can_miss = false
 override_target = true
-metadata/_custom_type_script = "uid://d0rap3gi3boj5"
-metadata/_graph_x = 1260.0
-metadata/_graph_y = 360.0
+metadata/_graph_x = 1220.0
+metadata/_graph_y = 440.0
 metadata/_graph_w = 527.0
-metadata/_graph_h = 292.0
+metadata/_graph_h = 244.0
 
 [sub_resource type="Resource" id="Resource_uar0t"]
 script = ExtResource("4_alycj")
@@ -50,9 +51,9 @@ metadata/_graph_h = 190.0
 
 [sub_resource type="Resource" id="Resource_fg2s0"]
 script = ExtResource("3_in3pi")
-actions = Array[ExtResource("1_m8nud")]([SubResource("Resource_usqrj"), SubResource("Resource_ahmp4"), SubResource("Resource_undnp")])
+actions = Array[ExtResource("1_m8nud")]([SubResource("Resource_usqrj"), SubResource("Resource_empo8"), SubResource("Resource_undnp")])
 metadata/_custom_type_script = "uid://da17dshmjafs6"
-metadata/_graph_x = 620.0
+metadata/_graph_x = 640.0
 metadata/_graph_y = 480.0
 metadata/_graph_w = 262.0
 metadata/_graph_h = 310.0
