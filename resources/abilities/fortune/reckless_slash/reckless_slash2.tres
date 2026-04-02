@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="1_a7cta"]
 [ext_resource type="Script" uid="uid://xwcbloqu4nwu" path="res://scripts/ability/action/abstracts/action.gd" id="1_joypm"]
+[ext_resource type="Script" uid="uid://cy60nwkkhatr8" path="res://scripts/ability/action/hit_chance_action.gd" id="1_wndsq"]
 [ext_resource type="Script" uid="uid://d0rap3gi3boj5" path="res://scripts/ability/action/damage_action.gd" id="2_wndsq"]
 [ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="3_ayrhi"]
 
@@ -11,21 +12,45 @@ damage_minimum = 80
 damage_maximum = 100
 can_miss = false
 metadata/_custom_type_script = "uid://d0rap3gi3boj5"
+metadata/_graph_x = 1180.0
+metadata/_graph_y = 80.0
+metadata/_graph_w = 390.0
+metadata/_graph_h = 238.0
 
 [sub_resource type="Resource" id="Resource_ahmp4"]
 script = ExtResource("2_wndsq")
 can_miss = false
 override_target = true
 metadata/_custom_type_script = "uid://d0rap3gi3boj5"
+metadata/_graph_x = 1200.0
+metadata/_graph_y = 380.0
+metadata/_graph_w = 527.0
+metadata/_graph_h = 292.0
 
 [sub_resource type="Resource" id="Resource_fg2s0"]
 script = ExtResource("3_ayrhi")
 actions = Array[ExtResource("1_joypm")]([SubResource("Resource_usqrj"), SubResource("Resource_ahmp4")])
 metadata/_custom_type_script = "uid://da17dshmjafs6"
+metadata/_graph_x = 760.0
+metadata/_graph_y = 100.0
+metadata/_graph_w = 262.0
+metadata/_graph_h = 256.0
+
+[sub_resource type="Resource" id="Resource_ayrhi"]
+script = ExtResource("1_wndsq")
+success_action = SubResource("Resource_fg2s0")
+metadata/_graph_x = 580.0
+metadata/_graph_y = 560.0
+metadata/_graph_w = 372.0
+metadata/_graph_h = 190.0
 
 [resource]
 script = ExtResource("1_a7cta")
 name = "Reckless Slash"
 description = "High Damage attack, Fortune takes damage too"
-action = SubResource("Resource_fg2s0")
+action = SubResource("Resource_ayrhi")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
+metadata/_graph_x = 20.0
+metadata/_graph_y = 160.0
+metadata/_graph_w = 574.0
+metadata/_graph_h = 272.0
