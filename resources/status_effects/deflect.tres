@@ -4,6 +4,31 @@
 [ext_resource type="Script" uid="uid://bfrfeh04xxg16" path="res://scripts/status_effects/damage_taken_based_status_effect.gd" id="2_rp0ri"]
 [ext_resource type="Script" uid="uid://d0uvf6jnorxpw" path="res://scripts/status_effects/status_effect_trigger.gd" id="3_o1wbo"]
 
+[sub_resource type="Resource" id="Resource_8r6gs"]
+script = ExtResource("1_8r6gs")
+modifier_field = 1
+modifier_type = 1
+modifier_amount = -0.009999999999990905
+metadata/_graph_x = 620.0
+metadata/_graph_y = 280.0
+metadata/_graph_w = 536.0
+metadata/_graph_h = 202.0
+
+[sub_resource type="Resource" id="Resource_rp0ri"]
+script = ExtResource("3_o1wbo")
+trigger_type = 2
+metadata/_graph_x = 640.0
+metadata/_graph_y = 540.0
+metadata/_graph_w = 378.0
+metadata/_graph_h = 148.0
+
 [resource]
 script = ExtResource("2_rp0ri")
+duration_turns = 1
+name = "deflect"
+effect_type = 0
 metadata/_custom_type_script = "uid://bfrfeh04xxg16"
+metadata/_graph_x = 80.0
+metadata/_graph_y = 180.0
+metadata/_graph_w = 422.0
+metadata/_graph_h = 562.0
