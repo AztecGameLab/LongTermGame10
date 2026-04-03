@@ -3,22 +3,33 @@
 [ext_resource type="Script" uid="uid://w6h7oqtjl61k" path="res://scripts/status_effects/status_effect_modifier.gd" id="1_8r6gs"]
 [ext_resource type="Script" uid="uid://bfrfeh04xxg16" path="res://scripts/status_effects/damage_taken_based_status_effect.gd" id="2_rp0ri"]
 [ext_resource type="Script" uid="uid://d0uvf6jnorxpw" path="res://scripts/status_effects/status_effect_trigger.gd" id="3_o1wbo"]
+[ext_resource type="Script" uid="uid://da04mqqqleenk" path="res://scripts/ability/action/damage_taken_based_attack_action.gd" id="4_rp0ri"]
 
 [sub_resource type="Resource" id="Resource_8r6gs"]
 script = ExtResource("1_8r6gs")
 modifier_field = 1
 modifier_type = 1
 modifier_amount = -0.009999999999990905
-metadata/_graph_x = 620.0
-metadata/_graph_y = 280.0
+metadata/_graph_x = 754.5
+metadata/_graph_y = 279.5
 metadata/_graph_w = 536.0
 metadata/_graph_h = 202.0
 
-[sub_resource type="Resource" id="Resource_rp0ri"]
+[sub_resource type="Resource" id="Resource_o1wbo"]
+script = ExtResource("4_rp0ri")
+override_target = true
+action_target = 2
+metadata/_graph_x = 1360.0
+metadata/_graph_y = 440.0
+metadata/_graph_w = 527.0
+metadata/_graph_h = 244.0
+
+[sub_resource type="Resource" id="Resource_ppiix"]
 script = ExtResource("3_o1wbo")
 trigger_type = 2
-metadata/_graph_x = 640.0
-metadata/_graph_y = 540.0
+action = SubResource("Resource_o1wbo")
+metadata/_graph_x = 816.5
+metadata/_graph_y = 594.5
 metadata/_graph_w = 378.0
 metadata/_graph_h = 148.0
 

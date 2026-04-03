@@ -64,6 +64,7 @@ static func _build_types() -> void:
 	_reg("DamageAction", "Damage", "uid://d0rap3gi3boj5", "Actions / Target")
 	_reg("StaticDamageAction", "Static Damage", "uid://bihndepd0cudw", "Actions / Target")
 	_reg("ScalingDamageAction", "Scaling Damage", "uid://ba2qm14bj1fq", "Actions / Target")
+	_reg("DamageTakenBasedAttackAction", "Damage Taken Based Attack", "uid://da04mqqqleenk", "Actions / Target")
 	_reg("HealAction", "Heal", "uid://c84i4tkx4t6au", "Actions / Target")
 	_reg("ApplyStatusAction", "Apply Status", "uid://be5ru5snax08s", "Actions / Target")
 	_reg("RemoveStatusAction", "Remove Status", "uid://4uj0ujy2m4of", "Actions / Target")

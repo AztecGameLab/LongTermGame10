@@ -21,11 +21,11 @@ func _setup_container(container: StatusEffectContainer) -> void:
 func on_damage_received(context: AttackContext, container: StatusEffectContainer) -> void:
 	# Records the final damage value from the attack context
 	if damage_type==DamageType.ORIGINAL_DAMAGE:
-		container.custom_state[DAMAGE_KEY] = context.original_damage
+		container.custom_state[DAMAGE_KEY] += context.original_damage
 	if damage_type==DamageType.TRUE_DAMAGE:
-		container.custom_state[DAMAGE_KEY] = context.true_damage
+		container.custom_state[DAMAGE_KEY] += context.true_damage
 	if damage_type==DamageType.FINAL_DAMAGE:
-		container.custom_state[DAMAGE_KEY] = context.damage
+		container.custom_state[DAMAGE_KEY] += context.damage
 
 func run_triggers(type: StatusEffectTrigger.Type, container: StatusEffectContainer) -> void:
 	# This allows the effect to fire actions (like StoredDamageAction)
