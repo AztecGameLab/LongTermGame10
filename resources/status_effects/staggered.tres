@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="StatusEffect" format=3 uid="uid://q0hcx1ti141"]
+
+[ext_resource type="Script" uid="uid://c4rwprj6d61c0" path="res://scripts/status_effects/status_effect.gd" id="1_scr0w"]
+[ext_resource type="Script" uid="uid://c2ci25gmhnb4w" path="res://scripts/status_effects/status_effect_stack.gd" id="2_dmr15"]
+[ext_resource type="Script" uid="uid://w6h7oqtjl61k" path="res://scripts/status_effects/status_effect_modifier.gd" id="3_5xyqx"]
+[ext_resource type="Script" uid="uid://d0uvf6jnorxpw" path="res://scripts/status_effects/status_effect_trigger.gd" id="4_6k7cs"]
+
+[sub_resource type="Resource" id="Resource_5xyqx"]
+script = ExtResource("3_5xyqx")
+modifier_field = 1
+modifier_type = 2
+modifier_amount = 1.2999999999999545
+metadata/_graph_x = 1080.0
+metadata/_graph_y = 220.0
+metadata/_graph_w = 536.0
+metadata/_graph_h = 202.0
+
+[sub_resource type="Resource" id="Resource_6k7cs"]
+script = ExtResource("3_5xyqx")
+modifier_field = 3
+modifier_type = 2
+modifier_amount = 1.2000000000000455
+metadata/_graph_x = 1080.0
+metadata/_graph_y = 480.0
+metadata/_graph_w = 536.0
+metadata/_graph_h = 202.0
+
+[sub_resource type="Resource" id="Resource_griht"]
+script = ExtResource("2_dmr15")
+description = "decrease def and dodge"
+modifiers = Array[ExtResource("3_5xyqx")]([SubResource("Resource_5xyqx"), SubResource("Resource_6k7cs")])
+metadata/_graph_x = 640.0
+metadata/_graph_y = 300.0
+metadata/_graph_w = 306.0
+metadata/_graph_h = 326.0
+
+[resource]
+script = ExtResource("1_scr0w")
+duration_turns = 2
+name = "Staggered"
+metadata/_custom_type_script = "uid://c4rwprj6d61c0"
+metadata/_graph_x = 180.0
+metadata/_graph_y = 200.0
+metadata/_graph_w = 352.0
+metadata/_graph_h = 346.0

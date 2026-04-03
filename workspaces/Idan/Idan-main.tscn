@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://jwahfpfk5nnw"]
+
+[ext_resource type="Script" uid="uid://cbi33r5foad57" path="res://scripts/battle_logic/battle_manager.gd" id="1_ajnnf"]
+[ext_resource type="Script" uid="uid://c2dcuh7wij0sh" path="res://scripts/battle_logic/battle_character.gd" id="2_uoasj"]
+[ext_resource type="Script" uid="uid://d1o5abfusku1j" path="res://scripts/ability/base_ability.gd" id="3_63muo"]
+[ext_resource type="Resource" uid="uid://c71y0pm2tt1g" path="res://resources/abilities/fortune/pierce/pierce_1.tres" id="4_u2gqj"]
+[ext_resource type="Resource" uid="uid://b6mlqpxywhb6g" path="res://resources/abilities/umi/heal.tres" id="5_0jrru"]
+[ext_resource type="Resource" uid="uid://bnv8ckim477pc" path="res://resources/abilities/fortune/strength.tres" id="6_bejjq"]
+[ext_resource type="Resource" uid="uid://y06qhqwsm5s3" path="res://resources/abilities/umi/burn.tres" id="7_6d5qe"]
+[ext_resource type="Script" uid="uid://doviul66xwvvb" path="res://workspaces/artemis/health_label.gd" id="8_ig0dn"]
+[ext_resource type="Script" uid="uid://b1qn3ek7b7ps4" path="res://workspaces/artemis/turn_label.gd" id="9_rgqam"]
+[ext_resource type="Resource" uid="uid://sg2oek573oja" path="res://resources/abilities/fortune/bleed.tres" id="10_qo8ax"]
+
+[node name="Node2D" type="Node2D" unique_id=217755439]
+script = ExtResource("1_ajnnf")
+
+[node name="Player" type="Node2D" parent="." unique_id=1941574995]
+position = Vector2(561, 471)
+script = ExtResource("2_uoasj")
+max_health = 500
+abilities = Array[ExtResource("3_63muo")]([ExtResource("4_u2gqj"), ExtResource("4_u2gqj"), ExtResource("4_u2gqj"), ExtResource("5_0jrru"), ExtResource("6_bejjq"), ExtResource("7_6d5qe")])
+metadata/_custom_type_script = "uid://c2dcuh7wij0sh"
+
+[node name="Health" type="Label" parent="Player" unique_id=1181677918]
+offset_left = -108.0
+offset_top = -49.0
+offset_right = -68.0
+offset_bottom = 24.0
+theme_override_font_sizes/font_size = 53
+script = ExtResource("8_ig0dn")
+
+[node name="Turn" type="Label" parent="Player" unique_id=2065990301]
+offset_left = -208.0
+offset_top = 53.0
+offset_right = -168.0
+offset_bottom = 126.0
+theme_override_font_sizes/font_size = 53
+script = ExtResource("9_rgqam")
+
+[node name="Boss" type="Node2D" parent="." unique_id=1270920420]
+position = Vector2(1240, 456)
+script = ExtResource("2_uoasj")
+max_health = 500
+abilities = Array[ExtResource("3_63muo")]([ExtResource("5_0jrru"), ExtResource("10_qo8ax")])
+metadata/_custom_type_script = "uid://c2dcuh7wij0sh"
+
+[node name="Health" type="Label" parent="Boss" unique_id=2042712014]
+offset_left = -141.0
+offset_top = -38.0
+offset_right = -101.0
+offset_bottom = -15.0
+theme_override_font_sizes/font_size = 53
+script = ExtResource("8_ig0dn")
+
+[node name="Turn" type="Label" parent="Boss" unique_id=887092402]
+offset_left = -208.0
+offset_top = 53.0
+offset_right = -168.0
+offset_bottom = 126.0
+theme_override_font_sizes/font_size = 53
+script = ExtResource("9_rgqam")
+
+[node name="Button" type="Button" parent="." unique_id=1737307383]
+offset_left = 576.0
+offset_top = 126.0
+offset_right = 1196.0
+offset_bottom = 249.0
+text = "Run Turn"
+
+[connection signal="game_ended" from="." to="Button" method="set_disabled" binds= [false]]
+[connection signal="round_ended" from="." to="Button" method="set_disabled" binds= [false]]
+[connection signal="round_started" from="." to="Button" method="set_disabled" binds= [true]]
+[connection signal="pressed" from="Button" to="." method="run_turn"]
