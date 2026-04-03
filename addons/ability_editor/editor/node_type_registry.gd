@@ -36,7 +36,7 @@ const _BASE_SCRIPT_PORT_TYPE_UIDS := {
 	"uid://c4rwprj6d61c0": PT.STATUS_EFFECT, # status_effect.gd
 	"uid://dot0bfh4ojuo7": PT.STATUS_EFFECT, # fading_status_effect.gd
 	"uid://bi1e7lb1ut2hj": PT.STATUS_EFFECT, # scaling_status_effect.gd
-	"uid://bfrfeh04xxg16": PT.STATUS_EFFECT, # damade_taken_based_status_effect.gd
+	"uid://bfrfeh04xxg16": PT.STATUS_EFFECT, # damage_taken_based_status_effect.gd
 	"uid://dasiej7totk8c": PT.CONCENTRATION_STATUS_EFFECT, # concentration_status_effect.gd
 	"uid://c2ci25gmhnb4w": PT.STACK,        # status_effect_stack.gd
 	"uid://w6h7oqtjl61k": PT.MODIFIER,      # status_effect_modifier.gd
@@ -78,7 +78,7 @@ static func _build_types() -> void:
 	_reg("StatusEffect", "Status Effect", "uid://c4rwprj6d61c0", "Status Effects")
 	_reg("FadingStatusEffect", "Fading Status Effect", "uid://dot0bfh4ojuo7", "Status Effects")
 	_reg("ScalingStatusEffect", "Scaling Status Effect", "uid://bi1e7lb1ut2hj", "Status Effects")
-	_reg("DamageTakenBasedStatusEffect", "Damade Taken Based Status Effect", "uid://bfrfeh04xxg16", "Status Effects")
+	_reg("DamageTakenBasedStatusEffect", "Damage Taken Based Status Effect", "uid://bfrfeh04xxg16", "Status Effects")
 	_reg("ConcentrationStatusEffect", "Concentration Status Effect", "uid://dasiej7totk8c", "Status Effects")
 
 	_reg("StatusEffectStack", "Stack", "uid://c2ci25gmhnb4w", "Components")
