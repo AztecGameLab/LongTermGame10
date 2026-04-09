@@ -9,18 +9,36 @@
 script = ExtResource("3_yvl41")
 modifier_field = 4
 modifier_type = 1
-modifier_amount = 0.10000000000002274
+modifier_amount = 0.049999999999954525
 metadata/_graph_x = 820.0
-metadata/_graph_y = -20.0
+metadata/_graph_y = -240.0
 metadata/_graph_w = 357.0
 metadata/_graph_h = 144.0
 
 [sub_resource type="Resource" id="Resource_8x5e2"]
 script = ExtResource("2_7jt8v")
-description = "Increase luck by 10%"
+description = "Increase luck by 5%"
 modifiers = Array[ExtResource("3_yvl41")]([SubResource("Resource_yvl41")])
 metadata/_graph_x = 340.0
-metadata/_graph_y = -40.0
+metadata/_graph_y = -260.0
+metadata/_graph_w = 380.0
+metadata/_graph_h = 220.0
+
+[sub_resource type="Resource" id="Resource_mh6xj"]
+script = ExtResource("3_yvl41")
+modifier_field = 4
+modifier_type = 1
+modifier_amount = 0.10000000000002274
+metadata/_graph_x = 800.0
+metadata/_graph_y = 40.0
+metadata/_graph_w = 357.0
+metadata/_graph_h = 144.0
+
+[sub_resource type="Resource" id="Resource_6lwx4"]
+script = ExtResource("2_7jt8v")
+description = "Increase luck by 10%"
+metadata/_graph_x = 340.0
+metadata/_graph_y = 0.0
 metadata/_graph_w = 380.0
 metadata/_graph_h = 220.0
 
@@ -60,7 +78,7 @@ Increase accuracy by 10%
 Increase dodge by 10%"
 modifiers = Array[ExtResource("3_yvl41")]([SubResource("Resource_vd7an"), SubResource("Resource_fx8iy"), SubResource("Resource_jv430")])
 metadata/_graph_x = 340.0
-metadata/_graph_y = 220.0
+metadata/_graph_y = 260.0
 metadata/_graph_w = 380.0
 metadata/_graph_h = 315.0
 
@@ -106,10 +124,10 @@ metadata/_graph_h = 315.0
 
 [resource]
 script = ExtResource("1_g18pq")
-stacks = Array[ExtResource("2_7jt8v")]([SubResource("Resource_8x5e2"), SubResource("Resource_qnfh1"), SubResource("Resource_ijvbu")])
+stacks = Array[ExtResource("2_7jt8v")]([SubResource("Resource_8x5e2"), SubResource("Resource_6lwx4"), SubResource("Resource_qnfh1"), SubResource("Resource_ijvbu")])
 name = "Lucky Charm"
 metadata/_custom_type_script = "uid://c4rwprj6d61c0"
 metadata/_graph_x = -20.0
 metadata/_graph_y = 20.0
 metadata/_graph_w = 235.0
-metadata/_graph_h = 317.0
+metadata/_graph_h = 387.0

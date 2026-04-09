@@ -9,9 +9,10 @@ script = ExtResource("1_8aaxy")
 applied_stacks = 4
 upgrade_stacks = 4
 status_effect = ExtResource("2_tohju")
+max_stacks = 4
 metadata/_graph_x = 580.0
 metadata/_graph_y = 40.0
-metadata/_graph_w = 243.00012
+metadata/_graph_w = 243.0
 metadata/_graph_h = 202.0
 
 [resource]
@@ -27,10 +28,10 @@ metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
 metadata/_graph_x = 50.0
 metadata/_graph_y = 50.0
 metadata/_graph_w = 420.0
-metadata/_graph_h = 300.00006
+metadata/_graph_h = 300.0
 metadata/_external_layouts = {
 "uid://cdouutpu8rmxs": {
-"h": 79.999985,
+"h": 80.0,
 "w": 256.0,
 "x": 940.0,
 "y": 120.0

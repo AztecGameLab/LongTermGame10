@@ -9,9 +9,10 @@ script = ExtResource("1_vucgn")
 applied_stacks = 3
 upgrade_stacks = 3
 status_effect = ExtResource("2_x5yb0")
+max_stacks = 3
 metadata/_graph_x = 580.0
 metadata/_graph_y = 40.0
-metadata/_graph_w = 243.00012
+metadata/_graph_w = 243.0
 metadata/_graph_h = 202.0
 
 [resource]
