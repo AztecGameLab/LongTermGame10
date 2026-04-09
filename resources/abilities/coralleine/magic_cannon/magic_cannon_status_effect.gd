@@ -25,12 +25,15 @@ func get_effect_name(_container: StatusEffectContainer) -> String:
 	return name
 
 func get_effect_description(_container: StatusEffectContainer) -> String:
-	return """
-	The Magic Cannon ability is charging.
-	"""
+	const description := "The Magic Cannon ability is charging."
+	return description
 
 func on_applied(container: StatusEffectContainer) -> void:
 	_set_state(container, 0)
+	
+func on_damage_received(context: AttackContext, container: StatusEffectContainer) -> void:
+	if RNG.chance(break_chance):
+		context.target.remove_status_effect_instance(container)
 
 func run_triggers(type: StatusEffectTrigger.Type, container: StatusEffectContainer) -> void:
 	if type == StatusEffectTrigger.Type.ON_TURN_END:
