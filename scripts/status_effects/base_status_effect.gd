@@ -13,6 +13,16 @@ signal updated
 ## The icon to show next to the character.
 @export var icon: Texture2D
 
+## Type of status effect
+enum EffectType {
+	POSITIVE,
+	NEGATIVE,
+	LOCKED
+}
+
+## Whether this effect is positive, negative, or locked (cannot be transferred).
+@export var effect_type: EffectType = EffectType.NEGATIVE
+
 # --- Virtual Methods ---
 # Override in subclasses to customize behavior.
 
@@ -23,6 +33,11 @@ func run_triggers(_type: StatusEffectTrigger.Type, _container: StatusEffectConta
 ## Modifies a value based on this effect's modifiers. Returns the value unchanged by default.
 func modify_value(_field: StatusEffectModifier.Field, value: float, _container: StatusEffectContainer) -> float:
 	return value
+
+## Called when the attached character is succesfully targeted by an attack.
+## By default, it runs any associated ON_ATTACKED triggers.
+func on_attacked(context: AttackContext, container: StatusEffectContainer) -> void:
+	run_triggers(StatusEffectTrigger.Type.ON_ATTACKED, container)
 
 ## Called when the attached character takes damage.
 func on_damage_received(_context: AttackContext, _container: StatusEffectContainer) -> void:

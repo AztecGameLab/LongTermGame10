@@ -182,6 +182,10 @@ func on_damage_received(attackContext: AttackContext):
 	if current_health <= 0:
 		die()
 
+func on_attacked(attackContext: AttackContext):
+	for instance in _status_effects:
+		instance.on_attacked(attackContext)
+
 # --- Internals ---
 
 func _remove_effect_instance(instance: StatusEffectContainer) -> void:
