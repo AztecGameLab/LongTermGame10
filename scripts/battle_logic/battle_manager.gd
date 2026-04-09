@@ -15,15 +15,18 @@ static func check_hit_success(source: BattleCharacter, target: BattleCharacter) 
 ## Applies damage from [param source] to [param target]. 
 ## Also triggers the appropriate signals on both characters.
 static func apply_damage(damage: int, source: BattleCharacter, target: BattleCharacter) -> void:
+	var original_damage = damage
 	if source:
 		damage = source.get_outgoing_damage(damage)
+	var true_damage = damage
 	damage = target.get_incoming_damage(damage)
 
-	var context := AttackContext.new(damage, source, target)
+	var context := AttackContext.new(damage, source, target, original_damage, true_damage)
 
 	if source:
 		source.on_damage_dealt(context)
 	target.on_damage_received(context)
+	target.on_attacked(context)
 
 static func apply_healing(healing: int, source: BattleCharacter, target: BattleCharacter) -> void:
 	if source:

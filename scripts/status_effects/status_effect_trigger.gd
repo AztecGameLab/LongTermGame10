@@ -9,7 +9,7 @@ enum Type {
 	## Runs after the attached character acts.
 	ON_TURN_END,
 	### Runs when the attached character is attacked.
-	#ON_ATTACKED,
+	ON_ATTACKED,
 	### Runs when an ally of the attached character is attacked.
 	#ON_ALLY_ATTACKED,
 }

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="LTG10 Eyes Below"
-run/main_scene="uid://jwahfpfk5nnw"
+run/main_scene="uid://du7edb51scryp"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://icon.svg"
 
