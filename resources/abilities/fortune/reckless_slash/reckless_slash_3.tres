@@ -1,0 +1,86 @@
+[gd_resource type="Resource" script_class="Ability" format=3 uid="uid://ce4daiuja61b4"]
+
+[ext_resource type="Script" uid="uid://cy60nwkkhatr8" path="res://scripts/ability/action/hit_chance_action.gd" id="1_k2374"]
+[ext_resource type="Script" uid="uid://xwcbloqu4nwu" path="res://scripts/ability/action/abstracts/action.gd" id="1_m8nud"]
+[ext_resource type="Script" uid="uid://d0rap3gi3boj5" path="res://scripts/ability/action/damage_action.gd" id="2_k2374"]
+[ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="3_in3pi"]
+[ext_resource type="Script" uid="uid://be5ru5snax08s" path="res://scripts/ability/action/apply_status_action.gd" id="4_alycj"]
+[ext_resource type="Script" uid="uid://bihndepd0cudw" path="res://scripts/ability/action/static_damage_action.gd" id="4_j1b8l"]
+[ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="4_x2431"]
+[ext_resource type="Resource" uid="uid://q0hcx1ti141" path="res://resources/status_effects/staggered.tres" id="5_j1b8l"]
+
+[sub_resource type="Resource" id="Resource_usqrj"]
+script = ExtResource("2_k2374")
+damage_minimum = 80
+damage_maximum = 100
+can_miss = false
+metadata/_custom_type_script = "uid://d0rap3gi3boj5"
+metadata/_graph_x = 1300.0
+metadata/_graph_y = 100.0
+metadata/_graph_w = 390.0
+metadata/_graph_h = 238.0
+
+[sub_resource type="Resource" id="Resource_empo8"]
+script = ExtResource("4_j1b8l")
+damage = 30
+can_miss = false
+override_target = true
+metadata/_graph_x = 1220.0
+metadata/_graph_y = 440.0
+metadata/_graph_w = 527.0
+metadata/_graph_h = 244.0
+
+[sub_resource type="Resource" id="Resource_uar0t"]
+script = ExtResource("4_alycj")
+upgrade_stacks = 0
+status_effect = ExtResource("5_j1b8l")
+max_stacks = 1
+metadata/_graph_x = 1480.0
+metadata/_graph_y = 680.0
+metadata/_graph_w = 365.0
+metadata/_graph_h = 286.0
+
+[sub_resource type="Resource" id="Resource_undnp"]
+script = ExtResource("1_k2374")
+success_chance = 0.3
+success_action = SubResource("Resource_uar0t")
+metadata/_graph_x = 1020.0
+metadata/_graph_y = 700.0
+metadata/_graph_w = 372.0
+metadata/_graph_h = 190.0
+
+[sub_resource type="Resource" id="Resource_fg2s0"]
+script = ExtResource("3_in3pi")
+actions = Array[ExtResource("1_m8nud")]([SubResource("Resource_usqrj"), SubResource("Resource_empo8"), SubResource("Resource_undnp")])
+metadata/_custom_type_script = "uid://da17dshmjafs6"
+metadata/_graph_x = 640.0
+metadata/_graph_y = 480.0
+metadata/_graph_w = 262.0
+metadata/_graph_h = 310.0
+
+[sub_resource type="Resource" id="Resource_ayrhi"]
+script = ExtResource("1_k2374")
+success_action = SubResource("Resource_fg2s0")
+metadata/_graph_x = 680.0
+metadata/_graph_y = 160.0
+metadata/_graph_w = 372.0
+metadata/_graph_h = 190.0
+
+[resource]
+script = ExtResource("4_x2431")
+name = "Reckless Slash"
+description = "High Damage attack, Fortune takes damage too"
+action = SubResource("Resource_ayrhi")
+metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
+metadata/_graph_x = 20.0
+metadata/_graph_y = 160.0
+metadata/_graph_w = 574.0
+metadata/_graph_h = 272.0
+metadata/_external_layouts = {
+"uid://q0hcx1ti141": {
+"h": 100.0,
+"w": 323.0,
+"x": 1951.0,
+"y": 857.5
+}
+}

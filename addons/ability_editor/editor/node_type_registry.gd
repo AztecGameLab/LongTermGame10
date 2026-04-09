@@ -68,6 +68,7 @@ static func _build_types() -> void:
 	_reg("HealAction", "Heal", "uid://c84i4tkx4t6au", "Actions / Target")
 	_reg("ApplyStatusAction", "Apply Status", "uid://be5ru5snax08s", "Actions / Target")
 	_reg("RemoveStatusAction", "Remove Status", "uid://4uj0ujy2m4of", "Actions / Target")
+	_reg("CheckForStatusAction", "Check For Status", "uid://bautp0yeecvro", "Actions / Target")
 	_reg("WaitAction", "Wait", "uid://bewmys3bnrfj4", "Actions / Target")
 
 	_reg("GroupAction", "Group", "uid://da17dshmjafs6", "Actions / Flow")
