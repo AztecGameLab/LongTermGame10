@@ -42,6 +42,7 @@ func on_reapplied(container: StatusEffectContainer, p_stacks: int, p_max_stacks:
 
 func _setup_container(container: StatusEffectContainer) -> void:
 	container.remaining_turns = duration_turns
+	print(triggers)
 
 func get_remaining_turns(container: StatusEffectContainer) -> int:
 	return container.remaining_turns

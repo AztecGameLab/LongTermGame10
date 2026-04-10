@@ -6,8 +6,9 @@ class_name DamageTakenBasedAttackAction
 @export var clear_damage_after_use: bool = true
 
 func run(context: ActionContext) -> void:
+	print("Action triggered")
 	# Retrieve the container from the context
-	var container = context.status_container
+	var container = context.container
 	
 	# Verify the container exists and has the expected damage key
 	if not container or not container.custom_state.has(DamageTakenBasedStatusEffect.DAMAGE_KEY):
@@ -19,10 +20,13 @@ func run(context: ActionContext) -> void:
 	var total_damage := (int)(stored_damage * reflection_multiplier_per_stack * stack_count)
 	
 	if total_damage <= 0:
+		print("negative damage: returning")
 		return
 
 	# Apply damage to all resolved targets
 	for target in resolve_targets(context):
+		print(target)
+		print(total_damage)
 		BattleManager.apply_damage(total_damage, context.source, target)
 	
 	# Clear the buffer after reflecting
