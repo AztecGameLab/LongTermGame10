@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="MagicCannon" format=3 uid="uid://bfh4vkt77fdbm"]
+
+[ext_resource type="Script" uid="uid://duv3y2fv5rpwl" path="res://resources/abilities/coralleine/magic_cannon/magic_cannon.gd" id="1_0r5xt"]
+[ext_resource type="Resource" uid="uid://yre4ichska3w" path="res://resources/abilities/coralleine/magic_cannon/magic_cannon_status_effect.tres" id="2_3lscp"]
+
+[resource]
+script = ExtResource("1_0r5xt")
+status_effect = ExtResource("2_3lscp")
+metadata/_custom_type_script = "uid://duv3y2fv5rpwl"
