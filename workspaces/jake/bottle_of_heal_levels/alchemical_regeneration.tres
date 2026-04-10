@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="StatusEffect" format=3 uid="uid://bwgjdhbcxwwij"]
+
+[ext_resource type="Script" uid="uid://c4rwprj6d61c0" path="res://scripts/status_effects/status_effect.gd" id="1_be6y3"]
+[ext_resource type="Script" uid="uid://c2ci25gmhnb4w" path="res://scripts/status_effects/status_effect_stack.gd" id="2_cvde4"]
+[ext_resource type="Script" uid="uid://w6h7oqtjl61k" path="res://scripts/status_effects/status_effect_modifier.gd" id="3_cjpwe"]
+[ext_resource type="Script" uid="uid://d0uvf6jnorxpw" path="res://scripts/status_effects/status_effect_trigger.gd" id="4_po8aq"]
+[ext_resource type="Script" uid="uid://c84i4tkx4t6au" path="res://scripts/ability/action/heal_action.gd" id="5_c5t1q"]
+
+[sub_resource type="Resource" id="Resource_hav57"]
+script = ExtResource("5_c5t1q")
+heal_amount = 5
+metadata/_custom_type_script = "uid://c84i4tkx4t6au"
+
+[sub_resource type="Resource" id="Resource_x2llh"]
+script = ExtResource("4_po8aq")
+action = SubResource("Resource_hav57")
+metadata/_custom_type_script = "uid://d0uvf6jnorxpw"
+
+[sub_resource type="Resource" id="Resource_4hn3f"]
+script = ExtResource("2_cvde4")
+description = "Heals HP over 3 turns."
+triggers = Array[ExtResource("4_po8aq")]([SubResource("Resource_x2llh")])
+metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
+
+[sub_resource type="Resource" id="Resource_rvq6j"]
+script = ExtResource("5_c5t1q")
+heal_amount = 10
+metadata/_custom_type_script = "uid://c84i4tkx4t6au"
+
+[sub_resource type="Resource" id="Resource_phaqx"]
+script = ExtResource("4_po8aq")
+action = SubResource("Resource_rvq6j")
+metadata/_custom_type_script = "uid://d0uvf6jnorxpw"
+
+[sub_resource type="Resource" id="Resource_gfrt2"]
+script = ExtResource("2_cvde4")
+description = "Heals more HP for 3 turns."
+triggers = Array[ExtResource("4_po8aq")]([SubResource("Resource_phaqx")])
+metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
+
+[resource]
+script = ExtResource("1_be6y3")
+stacks = Array[ExtResource("2_cvde4")]([SubResource("Resource_4hn3f"), SubResource("Resource_gfrt2")])
+name = "Alchemical Regeneration"
+metadata/_custom_type_script = "uid://c4rwprj6d61c0"
