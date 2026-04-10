@@ -55,6 +55,16 @@ static func get_targets(source: BattleCharacter, source_team: Array[BattleCharac
 		BaseAbility.TargetType.EVERYONE:
 			targets.append_array(source_team)
 			targets.append_array(target_team)
+			
+		## An attempt of making this targeting work in the simulation (untested/non-functional)
+		#BaseAbility.TargetType.ANYONE:
+			#var alive_enemies := target_team.filter(func(enemy): return enemy.alive)
+			#if alive_enemies.size() > 0:
+				#targets = [alive_enemies.pick_random()]
+			#var alive_allies := target_team.filter(func(ally): return ally.alive)
+				#if alive_allies.size() > 0:
+					#targets = [alive_allies.pick_random()]
+				
 	return targets.filter(func(target): return target and target.alive)
 
 static func get_actions(battle_context: BattleContext, source_team: Array[BattleCharacter], target_team: Array[BattleCharacter]) -> Array[QueuedAction]:
