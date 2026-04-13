@@ -36,8 +36,7 @@ func modify_value(_field: StatusEffectModifier.Field, value: float, _container: 
 
 ## Called when the attached character is succesfully targeted by an attack.
 ## By default, it runs any associated ON_ATTACKED triggers.
-func on_attacked(context: AttackContext, container: StatusEffectContainer) -> void:
-	print("running triggers (bse)")
+func on_attacked(_context: AttackContext, container: StatusEffectContainer) -> void:
 	await run_triggers(StatusEffectTrigger.Type.ON_ATTACKED, container)
 
 ## Called when the attached character takes damage.
