@@ -10,7 +10,6 @@ enum Stat {
 	LUCK,
 	DANGER
 }
-	
 
 # --- Signals ---
 
@@ -51,7 +50,13 @@ var last_attacker: BattleCharacter = null
 
 var battle: BattleContext
 
+var animatedSprite2D: AnimatedSprite2D
+
 func _ready() -> void:
+	animatedSprite2D = get_node_or_null("AnimatedSprite2D")
+	if animatedSprite2D:
+		# Return to the idle animation when any animation finishes (attack or status)
+		animatedSprite2D.animation_finished.connect(play_animation.bind("idle"))
 	current_health = max_health
 
 
@@ -194,6 +199,9 @@ func _remove_effect_instance(instance: StatusEffectContainer) -> void:
 	instance.on_removed()
 	status_effect_removed.emit(instance)
 
+func play_animation(animation: String) -> void:
+	if animatedSprite2D:
+		animatedSprite2D.play(animation)
 
 func die() -> void:
 	died.emit()
