@@ -104,6 +104,10 @@ func insert_next_action(actions: QueuedAction):
 
 func _run_actions():
 	round_started.emit()
+	for character in _player_battle_team.get_alive_characters():
+		await character.on_turn_started()
+	for character in _boss_battle_team.get_alive_characters():
+		await character.on_turn_started()
 	while (_queued_actions.size() > 0):
 		var action := _queued_actions[0]
 		_queued_actions.remove_at(0)
@@ -114,6 +118,10 @@ func _run_actions():
 		# This is here mainly since we have no animations yet.
 		await get_tree().create_timer(0.5).timeout
 	print("Turn Over")
+	for character in _player_battle_team.get_alive_characters():
+		await character.on_turn_ended()
+	for character in _boss_battle_team.get_alive_characters():
+		await character.on_turn_started()
 	round_ended.emit()
 
 func run_turn():

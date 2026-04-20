@@ -27,10 +27,7 @@ func _init(p_battle_context: BattleContext, p_action: Action, p_source: BattleCh
 
 func run():
 	if source and ability:
-		print(source.character_name + " using " + ability.get_label(source))
-		await source.on_turn_started()
+		print(source.character_name + " using " + ability.get_label(source) + " on " + (str(targets) if targets else "no one"))
 		source.used_ability.emit(ability, targets)
 	for target in targets:
 		await action.run(ActionContext.new(source, target, battle_context, source))
-	if source and ability:
-		await source.on_turn_ended()
