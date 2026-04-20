@@ -57,6 +57,8 @@ func _on_selection_phase_ended():
 	margin_container.visible = false
 	
 func _input(event: InputEvent) -> void:
+	if selectable_characters.size() <= 0:
+		return
 	if event.is_action_pressed(&"select_left"):
 		if not selecting_target:
 			selected_character.selected = false

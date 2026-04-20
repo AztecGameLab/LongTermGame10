@@ -121,7 +121,7 @@ func _run_actions():
 	for character in _player_battle_team.get_alive_characters():
 		await character.on_turn_ended()
 	for character in _boss_battle_team.get_alive_characters():
-		await character.on_turn_started()
+		await character.on_turn_ended()
 	round_ended.emit()
 
 func run_turn():

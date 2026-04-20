@@ -33,7 +33,7 @@ func get_action(source: BattleCharacter) -> Action:
 	
 	if container == null:
 		var status_animation := AnimationAction.new()
-		status_animation.animation_string = &"status"
+		status_animation.animation = AnimationAction.Anim.STATUS
 		group.actions.append(status_animation)
 		
 		var apply_status := ApplyStatusAction.new()
@@ -47,12 +47,18 @@ func get_action(source: BattleCharacter) -> Action:
 		damage += damage_per_cannon_charge * MagicCannonStatusEffect._get_state(container)
 	
 	var animation := AnimationAction.new()
-	animation.animation_string = &"attack"
+	animation.animation = AnimationAction.Anim.ATTACK
 	group.actions.append(animation)
 	
 	var action := StaticDamageAction.new()
 	action.damage = damage
 	group.actions.append(action)
+	
+	var remove_status := RemoveStatusAction.new()
+	remove_status.status_effect = status_effect
+	remove_status.override_target = true
+	remove_status.action_target = TargetType.SELF
+	group.actions.append(remove_status)
 	
 	return group
 

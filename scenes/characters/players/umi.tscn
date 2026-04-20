@@ -1,10 +1,19 @@
 [gd_scene format=3 uid="uid://cfbgyh6odoe03"]
 
 [ext_resource type="Script" uid="uid://bghgfkrqkbbee" path="res://scripts/battle_logic/characters/battle_umi.gd" id="1_3wpq2"]
+[ext_resource type="Shader" uid="uid://ctt5na6ppy7cj" path="res://scripts/shader/desaturate.gdshader" id="2_3yplr"]
 [ext_resource type="Texture2D" uid="uid://cfj2gxl37omsy" path="res://assets/sprites/umi/AttackUmiSheet.png" id="2_cyix1"]
 [ext_resource type="Texture2D" uid="uid://mf205n8gjgk7" path="res://assets/sprites/umi/IdleUmiSheet.png" id="2_tebkv"]
 [ext_resource type="Texture2D" uid="uid://bu8tcg4f0wd2k" path="res://assets/sprites/umi/StatusUmiSheet.png" id="4_p8s4g"]
 [ext_resource type="PackedScene" uid="uid://5b5nch8ier3n" path="res://scenes/ui/selected_indicator.tscn" id="5_vtmro"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3yplr"]
+shader = ExtResource("2_3yplr")
+shader_parameter/saturation = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vtmro"]
+shader = ExtResource("2_3yplr")
+shader_parameter/saturation = 1.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6c7s4"]
 atlas = ExtResource("2_cyix1")
@@ -445,12 +454,14 @@ animations = [{
 }]
 
 [node name="Umi" type="Node2D" unique_id=34133432]
+material = SubResource("ShaderMaterial_3yplr")
 scale = Vector2(0.75, 0.75)
 script = ExtResource("1_3wpq2")
 character_name = "Umi"
 metadata/_custom_type_script = "uid://bghgfkrqkbbee"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=50171373]
+material = SubResource("ShaderMaterial_vtmro")
 position = Vector2(-16, -154)
 sprite_frames = SubResource("SpriteFrames_3wpq2")
 animation = &"idle"

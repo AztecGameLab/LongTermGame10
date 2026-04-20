@@ -4,4 +4,5 @@
 
 [resource]
 script = ExtResource("1_yfyfp")
+name = "Magic Cannon Charging"
 metadata/_custom_type_script = "uid://ba8ypqy5sue4n"

@@ -9,7 +9,7 @@
 
 [sub_resource type="Resource" id="Resource_irgbo"]
 script = ExtResource("2_7nx4g")
-animation_string = "status"
+animation = 2
 metadata/_custom_type_script = "uid://dq0gts7suc1fg"
 
 [sub_resource type="Resource" id="Resource_j1id4"]

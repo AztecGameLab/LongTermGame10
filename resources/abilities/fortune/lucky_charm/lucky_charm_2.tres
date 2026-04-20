@@ -9,7 +9,7 @@
 
 [sub_resource type="Resource" id="Resource_2k2fr"]
 script = ExtResource("2_vv74b")
-animation_string = "status"
+animation = 2
 metadata/_graph_x = 780.0
 metadata/_graph_y = 40.0
 metadata/_graph_w = 229.0

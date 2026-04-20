@@ -69,7 +69,6 @@ func _ready() -> void:
 	if _animated_sprite:
 		# Return to the idle animation when any animation finishes (attack or status)
 		_animated_sprite.animation_finished.connect(play_animation.bind("idle"))
-		
 	_selection_box = get_node_or_null("SelectedIndicator")
 	if _selection_box:
 		selected = false
@@ -83,6 +82,13 @@ func play_animation(animation: String) -> void:
 		await _animated_sprite.animation_finished
 
 func die() -> void:
+	#visible = false
+	if _animated_sprite:
+		_animated_sprite.stop()
+		_animated_sprite.modulate = Color(0.35, 0.35, 0.35)
+		var shader_material := _animated_sprite.material
+		if shader_material and shader_material is ShaderMaterial:
+			shader_material.set_shader_parameter("saturation", 0.1)
 	died.emit()
 
 
