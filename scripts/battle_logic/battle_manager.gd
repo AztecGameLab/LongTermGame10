@@ -67,6 +67,8 @@ static func get_targets(source: BattleCharacter, source_team: Array[BattleCharac
 
 ## --- Main Class ---
 
+signal battle_ready
+
 signal round_started
 signal round_ended
 signal game_ended
@@ -78,22 +80,24 @@ var _queued_actions: Array[QueuedAction]
 
 var turn: int = 0
 
-var _battle_running: bool = true
+var battle_running: bool = true
 
-var _battle_context: BattleContext
+var battle_context: BattleContext
 
 var _player_battle_team: PlayerTeam
 var _boss_battle_team: BossTeam
 
 func _ready() -> void:
 	_queued_actions = []
-	_battle_context = BattleContext.new(player_team, boss_team)
+	battle_context = BattleContext.new(player_team, boss_team)
 	for character in player_team:
-		character.battle = _battle_context
+		character.battle = battle_context
 	for character in boss_team:
-		character.battle = _battle_context
-	_player_battle_team = PlayerTeam.new(player_team, _battle_context)
-	_boss_battle_team = BossTeam.new(boss_team, _battle_context)
+		character.battle = battle_context
+	_player_battle_team = PlayerTeam.new(player_team, battle_context)
+	_boss_battle_team = BossTeam.new(boss_team, battle_context)
+	battle_ready.emit()
+	run_turn()
 
 func insert_next_action(actions: QueuedAction):
 	_queued_actions.insert(0, actions)
@@ -109,21 +113,25 @@ func _run_actions():
 		# FIXME: Temporary timeout to wait after each turn.
 		# This is here mainly since we have no animations yet.
 		await get_tree().create_timer(0.5).timeout
+	print("Turn Over")
 	round_ended.emit()
 
 func run_turn():
-	if not _battle_running:
+	if not battle_running:
 		return
 	turn += 1
 	print("Turn " + str(turn))
 	_queued_actions.append_array(await _player_battle_team.pick_abilities())
 	_queued_actions.append_array(await _boss_battle_team.pick_abilities())
 	await _run_actions()
-	if not _player_battle_team.is_any_alive():
-		print("Boss Wins!")
-		_battle_running = false
-		game_ended.emit()
 	if not _boss_battle_team.is_any_alive():
 		print("Player Wins!")
-		_battle_running = false
+		battle_running = false
 		game_ended.emit()
+		return
+	if not _player_battle_team.is_any_alive():
+		print("Boss Wins!")
+		battle_running = false
+		game_ended.emit()
+		return
+	run_turn()

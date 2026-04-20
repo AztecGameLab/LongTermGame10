@@ -28,20 +28,33 @@ func get_target_type(source: BattleCharacter) -> BaseAbility.TargetType:
 
 func get_action(source: BattleCharacter) -> Action:
 	var container := source.get_status_effect(status_effect)
+	
+	var group := GroupAction.new()
+	
 	if container == null:
+		var status_animation := AnimationAction.new()
+		status_animation.animation_string = &"status"
+		group.actions.append(status_animation)
+		
 		var apply_status := ApplyStatusAction.new()
 		apply_status.status_effect = status_effect
-		return apply_status
+		group.actions.append(apply_status)
+		return group
 		
 	var damage := base_damage
 	
 	if has_extra_shots():
 		damage += damage_per_cannon_charge * MagicCannonStatusEffect._get_state(container)
 	
+	var animation := AnimationAction.new()
+	animation.animation_string = &"attack"
+	group.actions.append(animation)
+	
 	var action := StaticDamageAction.new()
 	action.damage = damage
+	group.actions.append(action)
 	
-	return action
+	return group
 
 func has_extra_shots() -> bool:
 	return level >= 3

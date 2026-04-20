@@ -1,17 +1,29 @@
 [gd_resource type="Resource" script_class="Ability" format=3 uid="uid://cp1djbgsqcqsx"]
 
+[ext_resource type="Script" uid="uid://xwcbloqu4nwu" path="res://scripts/ability/action/abstracts/action.gd" id="1_eeqex"]
 [ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="1_mnbr0"]
 [ext_resource type="Script" uid="uid://coagjoj2grxm7" path="res://scripts/ability/action/lifesteal_action.gd" id="1_ntos2"]
+[ext_resource type="Script" uid="uid://dq0gts7suc1fg" path="res://scripts/ability/action/animation_action.gd" id="2_ekmc7"]
+[ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="4_hqcri"]
 
-[sub_resource type="Resource" id="Resource_l5dib"]
+[sub_resource type="Resource" id="Resource_teabe"]
+script = ExtResource("2_ekmc7")
+metadata/_custom_type_script = "uid://dq0gts7suc1fg"
+
+[sub_resource type="Resource" id="Resource_tmjv5"]
 script = ExtResource("1_ntos2")
 damage_minimum = 10
 damage_maximum = 30
 metadata/_custom_type_script = "uid://coagjoj2grxm7"
 
+[sub_resource type="Resource" id="Resource_ih3ow"]
+script = ExtResource("4_hqcri")
+actions = Array[ExtResource("1_eeqex")]([SubResource("Resource_teabe"), SubResource("Resource_tmjv5")])
+metadata/_custom_type_script = "uid://da17dshmjafs6"
+
 [resource]
 script = ExtResource("1_mnbr0")
 name = "Lifesteal"
 description = "Steal a percentage of the damage dealt to the enemy as health."
-action = SubResource("Resource_l5dib")
+action = SubResource("Resource_ih3ow")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"

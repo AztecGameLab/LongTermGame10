@@ -29,12 +29,13 @@ func pick_abilities() -> Array[QueuedAction]:
 
 ## Called by the UI when the player has chosen an ability and target for a character.
 ## [br]The action order matches the order the player submits.
-func submit_action(p_character: BattleCharacter, p_ability: BaseAbility, p_targets: Array[BattleCharacter]) -> void:
+func submit_action(p_character: BattleCharacter, p_ability: BaseAbility, p_targets: Array[BattleCharacter]) -> Array[BattleCharacter]:
 	var action := QueuedAction.new(battle_context, p_ability.get_action(p_character), p_character, p_targets, p_ability)
 	_pending_actions.append(action)
 	_remaining_characters.erase(p_character)
 	if _remaining_characters.is_empty():
 		selection_phase_ended.emit()
+	return _remaining_characters
 
 # --- Target Helpers ---
 

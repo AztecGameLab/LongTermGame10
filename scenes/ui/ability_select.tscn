@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://cj4h68lkbbwkt"]
+
+[ext_resource type="Script" uid="uid://ipos1tsu6bfm" path="res://scenes/ui/ability_select.gd" id="1_bw0a7"]
+[ext_resource type="PackedScene" uid="uid://bxrdvjrrvpyfd" path="res://scenes/ui/paper_panel.tscn" id="2_0mh3k"]
+[ext_resource type="FontFile" uid="uid://b36l0tnkhtkdw" path="res://assets/ui/GenFont_Mansalva-Regular.ttf" id="2_bw0a7"]
+
+[node name="AbilitySelect" type="CanvasLayer" unique_id=844678139]
+script = ExtResource("1_bw0a7")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1974818722]
+unique_name_in_owner = true
+offset_right = 352.0
+offset_bottom = 1080.0
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1390958995]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="NamePanel" parent="MarginContainer/VBoxContainer" unique_id=695098869 instance=ExtResource("2_0mh3k")]
+layout_mode = 2
+
+[node name="Name" type="RichTextLabel" parent="MarginContainer/VBoxContainer/NamePanel" unique_id=953532248]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.29885206, 0.1870234, 0.09397287, 1)
+theme_override_fonts/normal_font = ExtResource("2_bw0a7")
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+text = "Umi"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BodyPanel" parent="MarginContainer/VBoxContainer" unique_id=283304286 instance=ExtResource("2_0mh3k")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/BodyPanel" unique_id=1914955346]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="MoveContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/BodyPanel/MarginContainer" unique_id=941431289]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ControlsBox" parent="MarginContainer/VBoxContainer" unique_id=1437454625 instance=ExtResource("2_0mh3k")]
+layout_mode = 2
+
+[node name="ControlsText" type="RichTextLabel" parent="MarginContainer/VBoxContainer/ControlsBox" unique_id=1816388706]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.29885206, 0.1870234, 0.09397287, 1)
+theme_override_fonts/normal_font = ExtResource("2_bw0a7")
+theme_override_font_sizes/normal_font_size = 34
+bbcode_enabled = true
+text = "Controls Here"
+horizontal_alignment = 1
+vertical_alignment = 1

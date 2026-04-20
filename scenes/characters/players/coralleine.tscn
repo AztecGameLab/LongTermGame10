@@ -4,16 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dodnrh4rd3dek" path="res://assets/sprites/coralleine/Coralleine_Attack_Animation.png" id="2_4m3f8"]
 [ext_resource type="Texture2D" uid="uid://bo2nfxb3yhmld" path="res://assets/sprites/coralleine/Coralleine_Idle_Animation.png" id="2_msra2"]
 [ext_resource type="Texture2D" uid="uid://dol5g8mt8b1i0" path="res://assets/sprites/coralleine/Coralleine_Status_Animation.png" id="4_eb0qj"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vagx6"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_msra2"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4m3f8"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eb0qj"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5phxv"]
+[ext_resource type="PackedScene" uid="uid://5b5nch8ier3n" path="res://scenes/ui/selected_indicator.tscn" id="5_g3wes"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ghgqo"]
 atlas = ExtResource("2_4m3f8")
@@ -334,24 +325,20 @@ animations = [{
 "speed": 12.0
 }]
 
-[node name="Corraleine" type="Node2D" unique_id=1190915457]
+[node name="Coralleine" type="Node2D" unique_id=1190915457]
+scale = Vector2(0.75, 0.75)
 script = ExtResource("1_vagx6")
+character_name = "Coralleine"
 metadata/_custom_type_script = "uid://csfpgu4388244"
-
-[node name="Button" type="Button" parent="." unique_id=347980399]
-offset_left = -7.0
-offset_top = -8.0
-offset_right = 7.0
-offset_bottom = 8.0
-theme_override_styles/normal = SubResource("StyleBoxEmpty_vagx6")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_msra2")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_4m3f8")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_eb0qj")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_5phxv")
-flat = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1150529436]
 position = Vector2(0, -177)
 sprite_frames = SubResource("SpriteFrames_vagx6")
 animation = &"idle"
 autoplay = "idle"
+
+[node name="SelectedIndicator" parent="." unique_id=2093613863 instance=ExtResource("5_g3wes")]
+offset_left = -174.66667
+offset_top = -421.33337
+offset_right = -151.37778
+offset_bottom = -388.2667

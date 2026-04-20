@@ -28,6 +28,8 @@ signal status_effect_removed(instance: StatusEffectContainer)
 
 # --- Exports ---
 
+@export var character_name: String = ""
+
 @export var max_health: int = 50
 
 @export var abilities: Array[BaseAbility]
@@ -50,14 +52,38 @@ var last_attacker: BattleCharacter = null
 
 var battle: BattleContext
 
-var animatedSprite2D: AnimatedSprite2D
+var selected: bool:
+	set(value):
+		if _selection_box:
+			_selection_box.visible = value
+		selected = value
 
+# --- Component Nodes ---
+var _animated_sprite: AnimatedSprite2D
+var _selection_box: NinePatchRect
+
+
+# --- Normal Functions ---
 func _ready() -> void:
-	animatedSprite2D = get_node_or_null("AnimatedSprite2D")
-	if animatedSprite2D:
+	_animated_sprite = get_node_or_null("AnimatedSprite2D")
+	if _animated_sprite:
 		# Return to the idle animation when any animation finishes (attack or status)
-		animatedSprite2D.animation_finished.connect(play_animation.bind("idle"))
+		_animated_sprite.animation_finished.connect(play_animation.bind("idle"))
+		
+	_selection_box = get_node_or_null("SelectedIndicator")
+	if _selection_box:
+		selected = false
+	
 	current_health = max_health
+
+## Returns true if an animation was started, false otherwise
+func play_animation(animation: String) -> void:
+	if _animated_sprite:
+		_animated_sprite.play(animation)
+		await _animated_sprite.animation_finished
+
+func die() -> void:
+	died.emit()
 
 
 # --- Stat Pipeline ---
@@ -198,10 +224,3 @@ func _remove_effect_instance(instance: StatusEffectContainer) -> void:
 	_status_effects.erase(instance)
 	instance.on_removed()
 	status_effect_removed.emit(instance)
-
-func play_animation(animation: String) -> void:
-	if animatedSprite2D:
-		animatedSprite2D.play(animation)
-
-func die() -> void:
-	died.emit()

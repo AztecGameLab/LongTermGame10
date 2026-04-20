@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://jy46jfu7c8pr" path="res://assets/sprites/fortune/status/Fortune_status_0017.png" id="21_78g2e"]
 [ext_resource type="Texture2D" uid="uid://c6o1rqj7fkvft" path="res://assets/sprites/fortune/status/Fortune_status_0018.png" id="22_dkqwv"]
 [ext_resource type="Texture2D" uid="uid://cd0bfl1d5cd67" path="res://assets/sprites/fortune/status/Fortune_status_0019.png" id="23_tc633"]
+[ext_resource type="PackedScene" uid="uid://5b5nch8ier3n" path="res://scenes/ui/selected_indicator.tscn" id="24_8svyu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0gcy4"]
 atlas = ExtResource("2_bvmeh")
@@ -243,7 +244,9 @@ animations = [{
 }]
 
 [node name="Fortune" type="Node2D" unique_id=724902013]
+scale = Vector2(0.75, 0.75)
 script = ExtResource("1_v4h78")
+character_name = "Fortune"
 metadata/_custom_type_script = "uid://hc4s42fbmmk8"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1795254859]
@@ -251,3 +254,9 @@ position = Vector2(0, -178)
 sprite_frames = SubResource("SpriteFrames_v4h78")
 animation = &"idle"
 autoplay = "idle"
+
+[node name="SelectedIndicator" parent="." unique_id=2093613863 instance=ExtResource("24_8svyu")]
+offset_left = -160.0
+offset_top = -424.0
+offset_right = -138.4
+offset_bottom = -391.73334
