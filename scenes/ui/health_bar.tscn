@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://rb6hbhelm4lq"]
+
+[ext_resource type="Script" uid="uid://q64xmrfvd1oa" path="res://scenes/ui/health_bar.gd" id="1_1vcc2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1vcc2"]
+bg_color = Color(0.055583842, 0.0745958, 0.060026668, 1)
+
+[node name="HealthBar" type="Panel" unique_id=1562969593]
+offset_right = 377.0
+offset_bottom = 47.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_1vcc2")
+script = ExtResource("1_1vcc2")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1158606300]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Health" type="ColorRect" parent="MarginContainer" unique_id=1601378538]
+unique_name_in_owner = true
+layout_mode = 2
+color = Color(0, 1, 0, 1)

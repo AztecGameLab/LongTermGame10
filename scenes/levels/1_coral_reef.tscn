@@ -10,6 +10,7 @@
 [ext_resource type="Resource" uid="uid://b6mlqpxywhb6g" path="res://resources/abilities/umi/heal.tres" id="6_3j42f"]
 [ext_resource type="PackedScene" uid="uid://bhot4510tfs43" path="res://scenes/characters/bosses/scorpion_fish.tscn" id="6_axod2"]
 [ext_resource type="Texture2D" uid="uid://bju1dmce0qj4" path="res://workspaces/artemis/Normal_Gameplay_(focused_On_Fortune_Only)-4.png" id="7_8wj54"]
+[ext_resource type="PackedScene" uid="uid://rb6hbhelm4lq" path="res://scenes/ui/health_bar.tscn" id="8_walo4"]
 [ext_resource type="Resource" uid="uid://bnv8ckim477pc" path="res://resources/abilities/fortune/strength.tres" id="9_dp7j0"]
 [ext_resource type="Resource" uid="uid://c71y0pm2tt1g" path="res://resources/abilities/fortune/pierce/pierce_1.tres" id="10_q5g08"]
 [ext_resource type="Resource" uid="uid://byvu2q77v5qva" path="res://resources/abilities/fortune/lucky_charm/lucky_charm_1.tres" id="11_5t5uu"]
@@ -17,7 +18,6 @@
 [ext_resource type="Resource" uid="uid://c1df4288n6sfd" path="res://resources/abilities/fortune/reckless_slash/reckless_slash_2.tres" id="13_jok4t"]
 [ext_resource type="Resource" uid="uid://cp1djbgsqcqsx" path="res://resources/abilities/coralleine/lifesteal_1.tres" id="15_hu8bf"]
 [ext_resource type="Resource" uid="uid://bfh4vkt77fdbm" path="res://resources/abilities/coralleine/magic_cannon/magic_cannon_1.tres" id="16_walo4"]
-[ext_resource type="Script" uid="uid://doviul66xwvvb" path="res://workspaces/artemis/health_label.gd" id="18_hu8bf"]
 
 [node name="CoralReef" type="Node2D" unique_id=1926475326 node_paths=PackedStringArray("player_team", "boss_team")]
 script = ExtResource("1_m8s2v")
@@ -35,52 +35,44 @@ position = Vector2(887.00006, 674)
 max_health = 75
 abilities = Array[ExtResource("4_cmpws")]([ExtResource("5_3j42f"), ExtResource("6_3j42f")])
 
-[node name="Health3" type="Label" parent="Umi" unique_id=72534048]
-offset_left = -38.666702
-offset_top = 82.66669
-offset_right = 1.3332977
-offset_bottom = 155.66669
-theme_override_font_sizes/font_size = 53
-script = ExtResource("18_hu8bf")
+[node name="HealthBar" parent="Umi" unique_id=1562969593 instance=ExtResource("8_walo4")]
+offset_left = -126.66675
+offset_top = -445.33334
+offset_right = 130.66663
+offset_bottom = -396.0
 
 [node name="Fortune" parent="." unique_id=724902013 instance=ExtResource("2_a4rq4")]
 position = Vector2(712.00006, 794.00006)
 max_health = 75
 abilities = Array[ExtResource("4_cmpws")]([ExtResource("9_dp7j0"), ExtResource("10_q5g08"), ExtResource("11_5t5uu"), ExtResource("12_uf7ed"), ExtResource("13_jok4t")])
 
-[node name="Health2" type="Label" parent="Fortune" unique_id=680215888]
-offset_left = -37.33339
-offset_top = 85.33331
-offset_right = 2.6666107
-offset_bottom = 158.33331
-theme_override_font_sizes/font_size = 53
-script = ExtResource("18_hu8bf")
+[node name="HealthBar" parent="Fortune" unique_id=593496078 instance=ExtResource("8_walo4")]
+offset_left = -126.66675
+offset_top = -478.66675
+offset_right = 130.66663
+offset_bottom = -429.3334
 
 [node name="Coralleine" parent="." unique_id=1190915457 instance=ExtResource("1_0umlr")]
 position = Vector2(542, 914.00006)
 max_health = 75
 abilities = Array[ExtResource("4_cmpws")]([ExtResource("15_hu8bf"), ExtResource("16_walo4")])
 
-[node name="Health" type="Label" parent="Coralleine" unique_id=656540105]
-offset_left = -86.666664
-offset_top = 86.666626
-offset_right = -46.666664
-offset_bottom = 159.66663
-theme_override_font_sizes/font_size = 53
-script = ExtResource("18_hu8bf")
+[node name="HealthBar" parent="Coralleine" unique_id=759737278 instance=ExtResource("8_walo4")]
+offset_left = -126.666664
+offset_top = -482.66672
+offset_right = 130.66672
+offset_bottom = -433.33337
 
 [node name="ScorpionFish" parent="." unique_id=1761068697 instance=ExtResource("6_axod2")]
 position = Vector2(1454, 767)
 max_health = 500
 abilities = Array[ExtResource("4_cmpws")]([ExtResource("10_q5g08")])
 
-[node name="Health4" type="Label" parent="ScorpionFish" unique_id=2069883860]
-offset_left = -213.33337
-offset_top = -697.3334
-offset_right = -173.33337
-offset_bottom = -624.3334
-theme_override_font_sizes/font_size = 53
-script = ExtResource("18_hu8bf")
+[node name="HealthBar" parent="ScorpionFish" unique_id=1784958776 instance=ExtResource("8_walo4")]
+offset_left = -430.66675
+offset_top = -700.0
+offset_right = 548.0
+offset_bottom = -650.6667
 
 [node name="AbilitySelect" parent="." unique_id=844678139 node_paths=PackedStringArray("battle_manager") instance=ExtResource("4_a4rq4")]
 battle_manager = NodePath("..")
