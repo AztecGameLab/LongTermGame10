@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://d0rap3gi3boj5" path="res://scripts/ability/action/damage_action.gd" id="2_7wwn1"]
 [ext_resource type="Script" uid="uid://be5ru5snax08s" path="res://scripts/ability/action/apply_status_action.gd" id="3_xhgr7"]
 [ext_resource type="Resource" uid="uid://b5uv4uthbh2j6" path="res://resources/status_effects/burn.tres" id="4_hbnbj"]
-[ext_resource type="Resource" uid="uid://dmntiiqx0pgb8" path="res://workspaces/bernard/reduce_enemy_accuracy.tres" id="5_7wwn1"]
+[ext_resource type="Resource" uid="uid://566yr04amve8" path="res://resources/status_effects/reduce_enemy_accuracy.tres" id="5_f61d5"]
 [ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="5_igtvb"]
 
 [sub_resource type="Resource" id="Resource_m0uxr"]
@@ -16,12 +16,14 @@ metadata/_custom_type_script = "uid://d0rap3gi3boj5"
 
 [sub_resource type="Resource" id="Resource_rc162"]
 script = ExtResource("3_xhgr7")
+applied_stacks = 3
+upgrade_stacks = 3
 status_effect = ExtResource("4_hbnbj")
 metadata/_custom_type_script = "uid://be5ru5snax08s"
 
 [sub_resource type="Resource" id="Resource_8ydkc"]
 script = ExtResource("3_xhgr7")
-status_effect = ExtResource("5_7wwn1")
+status_effect = ExtResource("5_f61d5")
 override_target = true
 action_target = 7
 metadata/_custom_type_script = "uid://be5ru5snax08s"
@@ -33,7 +35,9 @@ metadata/_custom_type_script = "uid://da17dshmjafs6"
 
 [resource]
 script = ExtResource("1_e5qeb")
+name = "Bottle of Splode Level 4"
 description = "Damage Increase!
+Heat Damage Increase!
 Create steam that reduces enemy accuracy!"
 action = SubResource("Resource_e2nbg")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
