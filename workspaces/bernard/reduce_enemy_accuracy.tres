@@ -25,6 +25,7 @@ metadata/_graph_h = 333.0
 
 [resource]
 script = ExtResource("1_pr25u")
+stacks = Array[ExtResource("2_qnnco")]([SubResource("Resource_hj7jl")])
 name = "Reduce enemy accuracy"
 metadata/_custom_type_script = "uid://c4rwprj6d61c0"
 metadata/_graph_x = 50.0
