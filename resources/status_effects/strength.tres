@@ -21,4 +21,5 @@ metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
 script = ExtResource("1_df2h8")
 stacks = Array[ExtResource("2_x4rp0")]([SubResource("Resource_uio3q")])
 name = "Strength"
+effect_type = 0
 metadata/_custom_type_script = "uid://c4rwprj6d61c0"

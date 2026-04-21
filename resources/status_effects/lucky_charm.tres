@@ -116,6 +116,7 @@ metadata/_graph_h = 315.0
 script = ExtResource("1_g18pq")
 stacks = Array[ExtResource("2_7jt8v")]([SubResource("Resource_8x5e2"), SubResource("Resource_6lwx4"), SubResource("Resource_qnfh1"), SubResource("Resource_ijvbu")])
 name = "Lucky Charm"
+effect_type = 0
 metadata/_custom_type_script = "uid://c4rwprj6d61c0"
 metadata/_graph_x = -20.0
 metadata/_graph_y = 20.0
