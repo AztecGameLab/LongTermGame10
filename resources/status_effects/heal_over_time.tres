@@ -6,16 +6,6 @@
 [ext_resource type="Script" uid="uid://d0uvf6jnorxpw" path="res://scripts/status_effects/status_effect_trigger.gd" id="3_a7ryv"]
 [ext_resource type="Script" uid="uid://c84i4tkx4t6au" path="res://scripts/ability/action/heal_action.gd" id="5_80fsd"]
 
-[sub_resource type="Resource" id="Resource_mh6xj"]
-script = ExtResource("1_0yoec")
-modifier_field = 4
-modifier_type = 1
-modifier_amount = 0.10000000000002274
-metadata/_graph_x = 800.0
-metadata/_graph_y = 40.0
-metadata/_graph_w = 357.0
-metadata/_graph_h = 144.0
-
 [sub_resource type="Resource" id="Resource_nr16a"]
 script = ExtResource("5_80fsd")
 heal_amount = 10

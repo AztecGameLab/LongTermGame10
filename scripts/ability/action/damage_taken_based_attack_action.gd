@@ -7,7 +7,7 @@ class_name DamageTakenBasedAttackAction
 
 func run(context: ActionContext) -> void:
 	# Retrieve the container from the context
-	var container = context.status_container
+	var container = context.container
 	
 	# Verify the container exists and has the expected damage key
 	if not container or not container.custom_state.has(DamageTakenBasedStatusEffect.DAMAGE_KEY):

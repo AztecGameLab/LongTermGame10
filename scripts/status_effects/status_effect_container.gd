@@ -29,7 +29,7 @@ func run_triggers(trigger: StatusEffectTrigger.Type) -> void:
 	return effect.run_triggers(trigger, self)
 
 func on_attacked(context: AttackContext) -> void:
-	effect.on_attacked(context, self)
+	await effect.on_attacked(context, self)
 
 func on_damage_received(context: AttackContext) -> void:
 	effect.on_damage_received(context, self)

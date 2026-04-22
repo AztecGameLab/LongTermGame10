@@ -44,7 +44,7 @@ static func get_targets(source: BattleCharacter, source_team: Array[BattleCharac
 		BaseAbility.TargetType.ALL_TEAMMATES_EXCLUDE_SELF:
 			targets = source_team.filter(func(teammate): return teammate != source)
 		BaseAbility.TargetType.ATTACKER:
-			if source.last_attacker and source.last_attacker.alive:
+			if source and source.last_attacker and source.last_attacker.alive:
 				targets = [source.last_attacker]
 		BaseAbility.TargetType.ENEMY:
 			var alive_enemies := target_team.filter(func(enemy): return enemy.alive)
