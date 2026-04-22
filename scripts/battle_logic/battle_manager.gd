@@ -34,6 +34,28 @@ static func apply_healing(healing: int, source: BattleCharacter, target: BattleC
 	healing = target.get_incoming_healing(healing)
 	target.heal(healing, source)
 
+static func pick_weighted_target(team: Array[BattleCharacter]) -> BattleCharacter:
+	var targets: Array[BattleCharacter] = team.filter(func(character): return character.alive)
+	var weights: Array[float] = []
+	for target in targets:
+		var weight := target.get_modified_field(StatusEffectModifier.Field.INCOMING_TARGET_CHANCE, 1.0)
+		weights.append(maxf(weight, 0.0))
+
+	# weighted random selection
+	var total: float = 0.0
+	for weight in weights:
+		total += weight
+	if total <= 0.0:
+		# If all characters have no weight, pick randomly.
+		return targets.pick_random()
+
+	var roll := randf() * total
+	for i in targets.size():
+		roll -= weights[i]
+		if roll <= 0.0:
+			return targets[i]
+	return targets[-1]
+
 static func get_targets(source: BattleCharacter, source_team: Array[BattleCharacter], target_team: Array[BattleCharacter], move_target_type: BaseAbility.TargetType) -> Array[BattleCharacter]:
 	var targets: Array[BattleCharacter] = []
 	match move_target_type:
@@ -44,12 +66,10 @@ static func get_targets(source: BattleCharacter, source_team: Array[BattleCharac
 		BaseAbility.TargetType.ALL_TEAMMATES_EXCLUDE_SELF:
 			targets = source_team.filter(func(teammate): return teammate != source)
 		BaseAbility.TargetType.ATTACKER:
-			if source.last_attacker and source.last_attacker.alive:
+			if source.last_attacker:
 				targets = [source.last_attacker]
 		BaseAbility.TargetType.ENEMY:
-			var alive_enemies := target_team.filter(func(enemy): return enemy.alive)
-			if alive_enemies.size() > 0:
-				targets = [alive_enemies.pick_random()]
+			targets = [pick_weighted_target(target_team)]
 		BaseAbility.TargetType.TEAMMATE:
 			var alive_teammates := source_team.filter(func(teammate): return teammate.alive)
 			if alive_teammates.size() > 0:
