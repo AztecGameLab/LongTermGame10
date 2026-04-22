@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="Ability" format=3 uid="uid://ct6luvxunm4ye"]
+
+[ext_resource type="Script" uid="uid://d0rap3gi3boj5" path="res://scripts/ability/action/damage_action.gd" id="1_6mqk5"]
+[ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="1_8jw48"]
+[ext_resource type="Script" uid="uid://3xfxcysmuqdm" path="res://scripts/ability/action/repeat_action.gd" id="2_agl6e"]
+
+[sub_resource type="Resource" id="Resource_bdo0w"]
+script = ExtResource("1_6mqk5")
+damage_minimum = 17
+damage_maximum = 23
+can_miss = false
+metadata/_graph_x = 1200.0
+metadata/_graph_y = 220.0
+metadata/_graph_w = 390.0
+metadata/_graph_h = 238.0
+
+[sub_resource type="Resource" id="Resource_427vy"]
+script = ExtResource("2_agl6e")
+times = 4
+hit_chance_decrease = 0.2
+stop_on_miss = true
+action = SubResource("Resource_bdo0w")
+metadata/_graph_x = 724.0
+metadata/_graph_y = 210.5
+metadata/_graph_w = 416.0
+metadata/_graph_h = 238.0
+
+[resource]
+script = ExtResource("1_8jw48")
+name = "Magic Darts"
+description = "Fire magic darts. 100% chance for first dart, 20% chance decrease for each dart"
+action = SubResource("Resource_427vy")
+metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
+metadata/_graph_x = 50.0
+metadata/_graph_y = 50.0
+metadata/_graph_w = 574.0
+metadata/_graph_h = 272.0

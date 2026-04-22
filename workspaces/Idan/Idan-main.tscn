@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://jwahfpfk5nnw"]
+[gd_scene format=3 uid="uid://du7edb51scryp"]
 
 [ext_resource type="Script" uid="uid://cbi33r5foad57" path="res://scripts/battle_logic/battle_manager.gd" id="1_ajnnf"]
 [ext_resource type="Script" uid="uid://c2dcuh7wij0sh" path="res://scripts/battle_logic/battle_character.gd" id="2_uoasj"]
