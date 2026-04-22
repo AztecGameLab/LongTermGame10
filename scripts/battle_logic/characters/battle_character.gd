@@ -222,7 +222,7 @@ func on_damage_received(attackContext: AttackContext):
 
 func on_attacked(attackContext: AttackContext):
 	for instance in _status_effects:
-		instance.on_attacked(attackContext)
+		await instance.on_attacked(attackContext)
 
 # --- Internals ---
 
