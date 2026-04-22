@@ -103,11 +103,6 @@ func insert_next_action(actions: QueuedAction):
 	_queued_actions.insert(0, actions)
 
 func _run_actions():
-	round_started.emit()
-	for character in _player_battle_team.get_alive_characters():
-		await character.on_turn_started()
-	for character in _boss_battle_team.get_alive_characters():
-		await character.on_turn_started()
 	while (_queued_actions.size() > 0):
 		var action := _queued_actions[0]
 		_queued_actions.remove_at(0)
@@ -115,21 +110,36 @@ func _run_actions():
 		if (not source) or source.alive:
 			await action.run()
 		await get_tree().create_timer(0.35).timeout
+
+func run_turn():
+	if not battle_running:
+		return
+	turn += 1
+	
+	# Player picks moves before turn starts
+	_queued_actions.append_array(await _player_battle_team.pick_abilities())
+	
+	print("Turn " + str(turn))
+	round_started.emit()
+	for character in _player_battle_team.get_alive_characters():
+		await character.on_turn_started()
+	for character in _boss_battle_team.get_alive_characters():
+		await character.on_turn_started()
+		
+	# Run all player actions
+	await _run_actions()
+	
+	# Boss picks moves *after* player actions run.
+	# This allows invisibility and others to take effect.
+	_queued_actions.append_array(await _boss_battle_team.pick_abilities())
+	# Run all boss actions
+	await _run_actions()
 	print("Turn Over")
 	for character in _player_battle_team.get_alive_characters():
 		await character.on_turn_ended()
 	for character in _boss_battle_team.get_alive_characters():
 		await character.on_turn_ended()
 	round_ended.emit()
-
-func run_turn():
-	if not battle_running:
-		return
-	turn += 1
-	print("Turn " + str(turn))
-	_queued_actions.append_array(await _player_battle_team.pick_abilities())
-	_queued_actions.append_array(await _boss_battle_team.pick_abilities())
-	await _run_actions()
 	if not _boss_battle_team.is_any_alive():
 		print("Player Wins!")
 		battle_running = false
