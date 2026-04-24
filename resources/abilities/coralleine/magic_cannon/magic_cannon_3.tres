@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MagicCannon" format=3 uid="uid://bc20pkqsgk0qs"]
+
+[ext_resource type="Script" uid="uid://duv3y2fv5rpwl" path="res://scripts/ability/magic_cannon.gd" id="1_o4xu8"]
+[ext_resource type="Resource" uid="uid://yre4ichska3w" path="res://resources/status_effects/magic_cannon_status_effect.tres" id="2_8y4o4"]
+
+[resource]
+script = ExtResource("1_o4xu8")
+status_effect = ExtResource("2_8y4o4")
+level = 3
+base_damage = 15
+metadata/_custom_type_script = "uid://duv3y2fv5rpwl"

@@ -14,9 +14,21 @@ class_name TargetAction
 func resolve_targets(context: ActionContext) -> Array[BattleCharacter]:
 	if not override_target:
 		return [context.target]
-	return BattleManager.get_targets(
-		context.source,
-		context.battle.get_allies(context.source),
-		context.battle.get_enemies(context.source),
-		action_target
-	)
+	if context.source != null:
+		return BattleManager.get_targets(
+			context.source,
+			context.battle.get_allies(context.source),
+			context.battle.get_enemies(context.source),
+			action_target
+		)
+	else:
+		# FIXME: I'm not sure what the actual best thing to do here.
+		# 
+		# This makes it so that status effect actions pick the target from the perspective 
+		# of the attached character, which makes them work for what we need.
+		return BattleManager.get_targets(
+			context.target,
+			context.battle.player_team,
+			context.battle.boss_team,
+			action_target
+		)

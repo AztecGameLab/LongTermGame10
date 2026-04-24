@@ -1,0 +1,50 @@
+[gd_resource type="Resource" script_class="Ability" format=3 uid="uid://d24qd6q4yfvkg"]
+
+[ext_resource type="Script" uid="uid://xwcbloqu4nwu" path="res://scripts/ability/action/abstracts/action.gd" id="1_o4avx"]
+[ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="1_xvarx"]
+[ext_resource type="Script" uid="uid://dq0gts7suc1fg" path="res://scripts/ability/action/animation_action.gd" id="2_34vod"]
+[ext_resource type="Script" uid="uid://be5ru5snax08s" path="res://scripts/ability/action/apply_status_action.gd" id="3_x0xs0"]
+[ext_resource type="Resource" uid="uid://cjltg32jad4ic" path="res://resources/status_effects/invisible.tres" id="4_34vod"]
+[ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="4_b5gtj"]
+
+[sub_resource type="Resource" id="Resource_ijstw"]
+script = ExtResource("2_34vod")
+animation = 2
+metadata/_custom_type_script = "uid://dq0gts7suc1fg"
+metadata/_graph_x = 0.0
+metadata/_graph_y = 0.0
+metadata/_graph_w = 220.0
+metadata/_graph_h = 55.0
+
+[sub_resource type="Resource" id="Resource_lmhse"]
+script = ExtResource("3_x0xs0")
+applied_stacks = 4
+upgrade_stacks = 4
+status_effect = ExtResource("4_34vod")
+metadata/_custom_type_script = "uid://be5ru5snax08s"
+metadata/_graph_x = 0.0
+metadata/_graph_y = 0.0
+metadata/_graph_w = 220.0
+metadata/_graph_h = 55.0
+
+[sub_resource type="Resource" id="Resource_kjwq0"]
+script = ExtResource("4_b5gtj")
+actions = Array[ExtResource("1_o4avx")]([SubResource("Resource_ijstw"), SubResource("Resource_lmhse")])
+metadata/_custom_type_script = "uid://da17dshmjafs6"
+metadata/_graph_x = 0.0
+metadata/_graph_y = 0.0
+metadata/_graph_w = 220.0
+metadata/_graph_h = 55.0
+
+[resource]
+script = ExtResource("1_xvarx")
+name = "Invisibility"
+description = "- 0% chance of being targeted, increasing until effect wears off.
+- Roll the highest damage attacks, but with a 50% chance of breaking the effect."
+move_target_type = 3
+action = SubResource("Resource_kjwq0")
+metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
+metadata/_graph_x = 50.0
+metadata/_graph_y = 50.0
+metadata/_graph_w = 220.0
+metadata/_graph_h = 55.0

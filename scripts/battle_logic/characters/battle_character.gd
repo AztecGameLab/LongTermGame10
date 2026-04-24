@@ -28,6 +28,8 @@ signal status_effect_removed(instance: StatusEffectContainer)
 
 # --- Exports ---
 
+@export var character_name: String = ""
+
 @export var max_health: int = 50
 
 @export var abilities: Array[BaseAbility]
@@ -50,8 +52,44 @@ var last_attacker: BattleCharacter = null
 
 var battle: BattleContext
 
+var selected: bool:
+	set(value):
+		if _selection_box:
+			_selection_box.visible = value
+		selected = value
+
+# --- Component Nodes ---
+var _animated_sprite: AnimatedSprite2D
+var _selection_box: NinePatchRect
+
+
+# --- Normal Functions ---
 func _ready() -> void:
+	_animated_sprite = get_node_or_null("AnimatedSprite2D")
+	if _animated_sprite:
+		# Return to the idle animation when any animation finishes (attack or status)
+		_animated_sprite.animation_finished.connect(play_animation.bind("idle"))
+	_selection_box = get_node_or_null("SelectedIndicator")
+	if _selection_box:
+		selected = false
+	
 	current_health = max_health
+
+## Returns true if an animation was started, false otherwise
+func play_animation(animation: String) -> void:
+	if _animated_sprite:
+		_animated_sprite.play(animation)
+		await _animated_sprite.animation_finished
+
+func die() -> void:
+	#visible = false
+	if _animated_sprite:
+		_animated_sprite.stop()
+		_animated_sprite.modulate = Color(0.35, 0.35, 0.35)
+		var shader_material := _animated_sprite.material
+		if shader_material and shader_material is ShaderMaterial:
+			shader_material.set_shader_parameter("saturation", 0.1)
+	died.emit()
 
 
 # --- Stat Pipeline ---
@@ -106,6 +144,10 @@ func heal(amount: int, source: BattleCharacter = null) -> void:
 
 ## Applies a status effect. If already active, delegates reapplication to the effect.
 func add_status_effect(effect: BaseStatusEffect, source: BattleCharacter, stacks: int = 1, max_stacks: int = -1) -> StatusEffectContainer:
+	for current_effect in _status_effects:
+		if not current_effect.effect.should_apply_effect(effect):
+			return
+	
 	var existing := get_status_effect(effect)
 
 	if existing:
@@ -121,10 +163,17 @@ func add_status_effect(effect: BaseStatusEffect, source: BattleCharacter, stacks
 func remove_status_effect(effect: BaseStatusEffect, stacks: int) -> void:
 	var instance := get_status_effect(effect)
 	if instance:
-		if stacks >= instance.stacks:
+		if stacks == -1 or stacks >= instance.stacks:
 			_remove_effect_instance(instance)
 		else:
 			instance.stacks -= stacks
+			
+func remove_all_effects(effect_type: BaseStatusEffect.EffectType):
+	var effects = _status_effects.duplicate()
+	if effect_type:
+		effects = effects.filter(func(e): return e.effect_type == effect_type)
+	for effect in effects:
+		remove_status_effect(effect, -1)
 
 func remove_status_effect_instance(instance: StatusEffectContainer) -> void:
 	if instance in _status_effects:
@@ -182,13 +231,13 @@ func on_damage_received(attackContext: AttackContext):
 	if current_health <= 0:
 		die()
 
+func on_attacked(attackContext: AttackContext):
+	for instance in _status_effects:
+		await instance.on_attacked(attackContext)
+
 # --- Internals ---
 
 func _remove_effect_instance(instance: StatusEffectContainer) -> void:
 	_status_effects.erase(instance)
 	instance.on_removed()
 	status_effect_removed.emit(instance)
-
-
-func die() -> void:
-	died.emit()

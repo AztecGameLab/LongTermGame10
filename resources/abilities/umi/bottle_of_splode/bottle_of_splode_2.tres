@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="Ability" format=3 uid="uid://7lm1l7ycybxs"]
+
+[ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="1_er3h7"]
+[ext_resource type="Script" uid="uid://xwcbloqu4nwu" path="res://scripts/ability/action/abstracts/action.gd" id="1_id8pp"]
+[ext_resource type="Script" uid="uid://dq0gts7suc1fg" path="res://scripts/ability/action/animation_action.gd" id="2_ekhvq"]
+[ext_resource type="Script" uid="uid://d0rap3gi3boj5" path="res://scripts/ability/action/damage_action.gd" id="2_v6q7v"]
+[ext_resource type="Script" uid="uid://be5ru5snax08s" path="res://scripts/ability/action/apply_status_action.gd" id="3_21o7u"]
+[ext_resource type="Resource" uid="uid://b5uv4uthbh2j6" path="res://resources/status_effects/burn.tres" id="4_v6q7v"]
+[ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="4_yuhrs"]
+
+[sub_resource type="Resource" id="Resource_fgqq4"]
+script = ExtResource("2_ekhvq")
+metadata/_custom_type_script = "uid://dq0gts7suc1fg"
+
+[sub_resource type="Resource" id="Resource_rw0be"]
+script = ExtResource("2_v6q7v")
+damage_minimum = 10
+damage_maximum = 30
+can_miss = false
+metadata/_custom_type_script = "uid://d0rap3gi3boj5"
+
+[sub_resource type="Resource" id="Resource_gf5cx"]
+script = ExtResource("3_21o7u")
+applied_stacks = 25
+upgrade_stacks = 5
+status_effect = ExtResource("4_v6q7v")
+max_stacks = 25
+metadata/_custom_type_script = "uid://be5ru5snax08s"
+
+[sub_resource type="Resource" id="Resource_8xj5m"]
+script = ExtResource("4_yuhrs")
+actions = Array[ExtResource("1_id8pp")]([SubResource("Resource_fgqq4"), SubResource("Resource_rw0be"), SubResource("Resource_gf5cx")])
+metadata/_custom_type_script = "uid://da17dshmjafs6"
+
+[resource]
+script = ExtResource("1_er3h7")
+name = "Bottle Of Splode"
+description = "Blow up the enemy and heat up the surrounding water to burn them!"
+action = SubResource("Resource_8xj5m")
+metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
