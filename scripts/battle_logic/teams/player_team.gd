@@ -16,6 +16,7 @@ signal selection_phase_ended
 
 var _pending_actions: Array[QueuedAction] = []
 var _remaining_characters: Array[BattleCharacter] = []
+var _original_order: Array[BattleCharacter] = []
 
 # --- Selection ---
 
@@ -23,6 +24,7 @@ var _remaining_characters: Array[BattleCharacter] = []
 func pick_abilities() -> Array[QueuedAction]:
 	_pending_actions = []
 	_remaining_characters = get_alive_characters()
+	_original_order = _remaining_characters.duplicate()
 	selection_phase_started.emit(_remaining_characters.duplicate())
 	await selection_phase_ended
 	return _pending_actions
@@ -36,16 +38,21 @@ func submit_action(p_character: BattleCharacter, p_ability: BaseAbility, p_targe
 	if _remaining_characters.is_empty():
 		selection_phase_ended.emit()
 	return _remaining_characters
+	
+func undo_last_pick() -> BattleCharacter:
+	if _pending_actions.is_empty():
+		return null
+	var character: BattleCharacter = _pending_actions.pop_back().source
+	var original_idx := _original_order.find(character)
+	var insert_idx := _remaining_characters.size()
+	for i in _remaining_characters.size():
+		if _original_order.find(_remaining_characters[i]) > original_idx:
+			insert_idx = i
+			break
+	_remaining_characters.insert(insert_idx, character)
+	return character
 
 # --- Target Helpers ---
-
-## Returns [code]true[/code] if the target type requires the player to manually pick a target.
-static func needs_manual_target(p_target_type: BaseAbility.TargetType) -> bool:
-	return p_target_type in [
-		BaseAbility.TargetType.ENEMY,
-		BaseAbility.TargetType.TEAMMATE,
-		BaseAbility.TargetType.TEAMMATE_EXCLUDE_SELF
-	]
 
 ## Returns valid targets for manual selection, filtered to alive characters.
 func get_valid_targets(p_character: BattleCharacter, p_target_type: BaseAbility.TargetType) -> Array[BattleCharacter]:

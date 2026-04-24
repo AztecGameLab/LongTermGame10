@@ -9,6 +9,7 @@ const MOVE_DISPLAY = preload("uid://8dt21l5flyv3")
 @export var battle_manager: BattleManager
 var player_team: PlayerTeam
 
+var original_order: Array[BattleCharacter] = []
 var selectable_characters: Array[BattleCharacter] = []
 var character_index: int = 0
 var selected_character: BattleCharacter:
@@ -16,6 +17,7 @@ var selected_character: BattleCharacter:
 		if selectable_characters.size() <= 0:
 			return null
 		return selectable_characters[character_index]
+
 
 var selectable_targets: Array[Array] = []
 var target_index: int = 0
@@ -50,6 +52,7 @@ func _setup_battle() -> void:
 
 func _on_selection_phase_started(characters: Array[BattleCharacter]):
 	margin_container.visible = true
+	original_order = characters.duplicate()
 	load_characters(characters)
 	select_character_for_abilities()
 	
@@ -118,6 +121,26 @@ func _input(event: InputEvent) -> void:
 			var remaining_characters := player_team.submit_action(selected_character, selected_move.ability, selected_targets)
 			load_characters(remaining_characters)
 			stop_selecting_targets()
+			
+	if event.is_action_pressed(&"select_back"):
+		if not selecting_target:
+			var character := player_team.undo_last_pick()
+			if character == null:
+				return
+			if selected_character:
+				selected_character.selected = false
+			var original_idx := original_order.find(character)
+			var insert_idx := selectable_characters.size()
+			for i in selectable_characters.size():
+				if original_order.find(selectable_characters[i]) > original_idx:
+					insert_idx = i
+					break
+			selectable_characters.insert(insert_idx, character)
+			character_index = insert_idx
+			select_character_for_abilities()
+		else:
+			stop_selecting_targets()
+			
 
 func _load_abilities(character: BattleCharacter):
 	for move in moves:
