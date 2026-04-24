@@ -36,8 +36,8 @@ func modify_value(_field: StatusEffectModifier.Field, value: float, _container: 
 
 ## Called when the attached character is succesfully targeted by an attack.
 ## By default, it runs any associated ON_ATTACKED triggers.
-func on_attacked(context: AttackContext, container: StatusEffectContainer) -> void:
-	run_triggers(StatusEffectTrigger.Type.ON_ATTACKED, container)
+func on_attacked(_context: AttackContext, container: StatusEffectContainer) -> void:
+	await run_triggers(StatusEffectTrigger.Type.ON_ATTACKED, container)
 
 ## Called when the attached character takes damage.
 func on_damage_received(_context: AttackContext, _container: StatusEffectContainer) -> void:
@@ -54,6 +54,11 @@ func on_applied(_container: StatusEffectContainer) -> void:
 ## Called when the effect is removed.
 func on_removed(_container: StatusEffectContainer) -> void:
 	pass
+	
+## Return false to *disallow* an effect from being applied to a character.
+## This might be used to filter out either positive or negative effects.
+func should_apply_effect(_status_effect: BaseStatusEffect) -> bool:
+	return true
 
 ## Ticks the effect each turn. Returns [code]true[/code] if the effect has expired.
 func tick(_container: StatusEffectContainer) -> bool:

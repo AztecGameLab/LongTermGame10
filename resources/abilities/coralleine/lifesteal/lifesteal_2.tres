@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="Ability" format=3 uid="uid://db3vxvsbuyf36"]
+
+[ext_resource type="Script" uid="uid://coagjoj2grxm7" path="res://scripts/ability/action/lifesteal_action.gd" id="1_7humo"]
+[ext_resource type="Script" uid="uid://xwcbloqu4nwu" path="res://scripts/ability/action/abstracts/action.gd" id="1_t06om"]
+[ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="2_aqbhc"]
+[ext_resource type="Script" uid="uid://dq0gts7suc1fg" path="res://scripts/ability/action/animation_action.gd" id="2_jf5nw"]
+[ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="4_q18fv"]
+
+[sub_resource type="Resource" id="Resource_vgrmj"]
+script = ExtResource("2_jf5nw")
+metadata/_custom_type_script = "uid://dq0gts7suc1fg"
+
+[sub_resource type="Resource" id="Resource_3wkr0"]
+script = ExtResource("1_7humo")
+damage_minimum = 20
+damage_maximum = 40
+metadata/_custom_type_script = "uid://coagjoj2grxm7"
+
+[sub_resource type="Resource" id="Resource_76ive"]
+script = ExtResource("4_q18fv")
+actions = Array[ExtResource("1_t06om")]([SubResource("Resource_vgrmj"), SubResource("Resource_3wkr0")])
+metadata/_custom_type_script = "uid://da17dshmjafs6"
+
+[resource]
+script = ExtResource("2_aqbhc")
+name = "Lifesteal Level 2"
+description = "Steal a percentage of the increased damage dealt to the enemy as health."
+action = SubResource("Resource_76ive")
+metadata/_custom_type_script = "uid://ny1mjfoo1mqc"

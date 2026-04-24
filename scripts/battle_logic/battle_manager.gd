@@ -34,6 +34,28 @@ static func apply_healing(healing: int, source: BattleCharacter, target: BattleC
 	healing = target.get_incoming_healing(healing)
 	target.heal(healing, source)
 
+static func pick_weighted_target(team: Array[BattleCharacter]) -> BattleCharacter:
+	var targets: Array[BattleCharacter] = team.filter(func(character): return character.alive)
+	var weights: Array[float] = []
+	for target in targets:
+		var weight := target.get_modified_field(StatusEffectModifier.Field.INCOMING_TARGET_CHANCE, 1.0)
+		weights.append(maxf(weight, 0.0))
+
+	# weighted random selection
+	var total: float = 0.0
+	for weight in weights:
+		total += weight
+	if total <= 0.0:
+		# If all characters have no weight, pick randomly.
+		return targets.pick_random()
+
+	var roll := randf() * total
+	for i in targets.size():
+		roll -= weights[i]
+		if roll <= 0.0:
+			return targets[i]
+	return targets[-1]
+
 static func get_targets(source: BattleCharacter, source_team: Array[BattleCharacter], target_team: Array[BattleCharacter], move_target_type: BaseAbility.TargetType) -> Array[BattleCharacter]:
 	var targets: Array[BattleCharacter] = []
 	match move_target_type:
@@ -44,12 +66,18 @@ static func get_targets(source: BattleCharacter, source_team: Array[BattleCharac
 		BaseAbility.TargetType.ALL_TEAMMATES_EXCLUDE_SELF:
 			targets = source_team.filter(func(teammate): return teammate != source)
 		BaseAbility.TargetType.ATTACKER:
-			if source.last_attacker and source.last_attacker.alive:
+			if source and source.last_attacker and source.last_attacker.alive:
 				targets = [source.last_attacker]
 		BaseAbility.TargetType.ENEMY:
-			var alive_enemies := target_team.filter(func(enemy): return enemy.alive)
-			if alive_enemies.size() > 0:
-				targets = [alive_enemies.pick_random()]
+			targets = [pick_weighted_target(target_team)]
+		BaseAbility.TargetType.TEAMMATE:
+			var alive_teammates := source_team.filter(func(teammate): return teammate.alive)
+			if alive_teammates.size() > 0:
+				targets = [alive_teammates.pick_random()]
+		BaseAbility.TargetType.TEAMMATE_EXCLUDE_SELF:
+			var alive_teammates_ex := source_team.filter(func(teammate): return teammate.alive and teammate != source)
+			if alive_teammates_ex.size() > 0:
+				targets = [alive_teammates_ex.pick_random()]
 		BaseAbility.TargetType.ALL_ENEMIES:
 			targets = target_team
 		BaseAbility.TargetType.EVERYONE:
@@ -67,24 +95,9 @@ static func get_targets(source: BattleCharacter, source_team: Array[BattleCharac
 				
 	return targets.filter(func(target): return target and target.alive)
 
-static func get_actions(battle_context: BattleContext, source_team: Array[BattleCharacter], target_team: Array[BattleCharacter]) -> Array[QueuedAction]:
-	var actions: Array[QueuedAction] = []
-	for character in source_team:
-		if not character.alive:
-			continue
-		var ability: BaseAbility = character.abilities.pick_random()
-		if not ability:
-			print(character.name + " has no abilities and will do nothing.")
-			continue
-		var targets := get_targets(character, source_team, target_team, ability.get_target_type(character))
-		if targets.size() == 0:
-			print(character.name + " has no valid targets and will do nothing.")
-			continue
-		var action := QueuedAction.new(battle_context, ability.get_action(character), character, targets, ability)
-		actions.append(action)
-	return actions
-
 ## --- Main Class ---
+
+signal battle_ready
 
 signal round_started
 signal round_ended
@@ -97,53 +110,74 @@ var _queued_actions: Array[QueuedAction]
 
 var turn: int = 0
 
-var _battle_running: bool = true
+var battle_running: bool = true
 
-var _battle_context: BattleContext
+var battle_context: BattleContext
+
+var _player_battle_team: PlayerTeam
+var _boss_battle_team: BossTeam
 
 func _ready() -> void:
 	_queued_actions = []
-	_battle_context = BattleContext.new(player_team, boss_team)
+	battle_context = BattleContext.new(player_team, boss_team)
 	for character in player_team:
-		character.battle = _battle_context
+		character.battle = battle_context
 	for character in boss_team:
-		character.battle = _battle_context
+		character.battle = battle_context
+	_player_battle_team = PlayerTeam.new(player_team, battle_context)
+	_boss_battle_team = BossTeam.new(boss_team, battle_context)
+	battle_ready.emit()
+	run_turn()
 
 func insert_next_action(actions: QueuedAction):
 	_queued_actions.insert(0, actions)
 
 func _run_actions():
-	round_started.emit()
 	while (_queued_actions.size() > 0):
 		var action := _queued_actions[0]
 		_queued_actions.remove_at(0)
 		var source := action.source
 		if (not source) or source.alive:
 			await action.run()
-		# FIXME: Temporary timeout to wait after each turn.
-		# This is here mainly since we have no animations yet.
-		await get_tree().create_timer(0.5).timeout
-	round_ended.emit()
-
-func check_team_alive(team: Array[BattleCharacter]) -> bool:
-	for character in team:
-		if not character.alive:
-			return false
-	return true
+		await get_tree().create_timer(0.35).timeout
 
 func run_turn():
-	if not _battle_running:
+	if not battle_running:
 		return
 	turn += 1
+	
+	# Player picks moves before turn starts
+	_queued_actions.append_array(await _player_battle_team.pick_abilities())
+	
 	print("Turn " + str(turn))
-	_queued_actions.append_array(get_actions(_battle_context, player_team, boss_team))
-	_queued_actions.append_array(get_actions(_battle_context, boss_team, player_team))
+	round_started.emit()
+	for character in _player_battle_team.get_alive_characters():
+		await character.on_turn_started()
+	for character in _boss_battle_team.get_alive_characters():
+		await character.on_turn_started()
+		
+	# Run all player actions
 	await _run_actions()
-	if (!check_team_alive(player_team)):
-		print("Boss Wins!")
-		_battle_running = false
-		game_ended.emit()
-	if (!check_team_alive(boss_team)):
+	
+	# Boss picks moves *after* player actions run.
+	# This allows invisibility and others to take effect.
+	_queued_actions.append_array(await _boss_battle_team.pick_abilities())
+	# Run all boss actions
+	await _run_actions()
+	print("Turn Over")
+	for character in _player_battle_team.get_alive_characters():
+		await character.on_turn_ended()
+	for character in _boss_battle_team.get_alive_characters():
+		await character.on_turn_ended()
+	round_ended.emit()
+	if not _boss_battle_team.is_any_alive():
 		print("Player Wins!")
-		_battle_running = false
+		battle_running = false
 		game_ended.emit()
+		return
+	if not _player_battle_team.is_any_alive():
+		print("Boss Wins!")
+		battle_running = false
+		game_ended.emit()
+		return
+	run_turn()

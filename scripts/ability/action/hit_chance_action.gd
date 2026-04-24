@@ -14,8 +14,8 @@ class_name HitChanceAction
 func run(context: ActionContext) -> void:
 	var calc_chance := success_chance
 	if context.source:
-		calc_chance = context.source.get_modified_field(StatusEffectModifier.Field.OUTGOING_ATTACK_HIT_CHANCE)
-	calc_chance = context.source.get_modified_field(StatusEffectModifier.Field.INCOMING_ATTACK_HIT_CHANCE)
+		calc_chance = context.source.get_outgoing_hit_chance(calc_chance)
+	calc_chance = context.target.get_incoming_hit_chance(calc_chance)
 	
 	var success: bool = RNG.chance(calc_chance)
 
