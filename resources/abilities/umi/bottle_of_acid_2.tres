@@ -10,6 +10,7 @@
 script = ExtResource("2_brfvi")
 applied_stacks = 2
 status_effect = ExtResource("3_o7xir")
+max_stacks = 2
 metadata/_graph_x = 1260.0
 metadata/_graph_y = 340.0
 metadata/_graph_w = 486.0

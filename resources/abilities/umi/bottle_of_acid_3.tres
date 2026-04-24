@@ -11,6 +11,7 @@
 script = ExtResource("2_0jaok")
 applied_stacks = 2
 status_effect = ExtResource("3_mdfqa")
+max_stacks = 2
 metadata/_graph_x = 1420.0
 metadata/_graph_y = 180.0
 metadata/_graph_w = 486.0
@@ -19,6 +20,7 @@ metadata/_graph_h = 362.0
 [sub_resource type="Resource" id="Resource_mdfqa"]
 script = ExtResource("2_0jaok")
 status_effect = ExtResource("4_0jaok")
+max_stacks = 1
 metadata/_graph_x = 1360.0
 metadata/_graph_y = 580.0
 metadata/_graph_w = 486.0

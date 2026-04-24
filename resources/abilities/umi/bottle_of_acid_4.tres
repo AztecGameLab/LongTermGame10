@@ -12,6 +12,7 @@
 script = ExtResource("2_0thhy")
 applied_stacks = 3
 status_effect = ExtResource("3_potqh")
+max_stacks = 3
 metadata/_graph_x = 1420.0
 metadata/_graph_y = 180.0
 metadata/_graph_w = 486.0
@@ -20,6 +21,7 @@ metadata/_graph_h = 362.0
 [sub_resource type="Resource" id="Resource_mdfqa"]
 script = ExtResource("2_0thhy")
 status_effect = ExtResource("4_e43fc")
+max_stacks = 1
 metadata/_graph_x = 1360.0
 metadata/_graph_y = 580.0
 metadata/_graph_w = 486.0
@@ -28,6 +30,7 @@ metadata/_graph_h = 362.0
 [sub_resource type="Resource" id="Resource_hehen"]
 script = ExtResource("2_0thhy")
 status_effect = ExtResource("5_0thhy")
+max_stacks = 1
 metadata/_graph_x = 1385.0
 metadata/_graph_y = 1099.0
 metadata/_graph_w = 486.0
