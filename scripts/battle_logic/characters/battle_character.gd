@@ -144,6 +144,10 @@ func heal(amount: int, source: BattleCharacter = null) -> void:
 
 ## Applies a status effect. If already active, delegates reapplication to the effect.
 func add_status_effect(effect: BaseStatusEffect, source: BattleCharacter, stacks: int = 1, max_stacks: int = -1) -> StatusEffectContainer:
+	for current_effect in _status_effects:
+		if not current_effect.effect.should_apply_effect(effect):
+			return
+	
 	var existing := get_status_effect(effect)
 
 	if existing:
@@ -159,10 +163,17 @@ func add_status_effect(effect: BaseStatusEffect, source: BattleCharacter, stacks
 func remove_status_effect(effect: BaseStatusEffect, stacks: int) -> void:
 	var instance := get_status_effect(effect)
 	if instance:
-		if stacks >= instance.stacks:
+		if stacks == -1 or stacks >= instance.stacks:
 			_remove_effect_instance(instance)
 		else:
 			instance.stacks -= stacks
+			
+func remove_all_effects(effect_type: BaseStatusEffect.EffectType):
+	var effects = _status_effects.duplicate()
+	if effect_type:
+		effects = effects.filter(func(e): return e.effect_type == effect_type)
+	for effect in effects:
+		remove_status_effect(effect, -1)
 
 func remove_status_effect_instance(instance: StatusEffectContainer) -> void:
 	if instance in _status_effects:

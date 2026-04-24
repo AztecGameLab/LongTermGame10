@@ -30,14 +30,21 @@ func on_damage_dealt(_context: AttackContext, container: StatusEffectContainer) 
 	if RNG.chance(break_chance):
 		container.target.remove_status_effect_instance(container)
 
+func stacks_to_alpha(stacks: int):
+	const min_alpha := 0.5
+	const max_alpha := 0.9
+	var alpha = max_alpha - (float(stacks) / max_stacks) * (max_alpha - min_alpha)
+	return alpha
+
 func on_applied(container: StatusEffectContainer) -> void:
-	container.target.modulate.a = 0.75
+	container.target.modulate.a = stacks_to_alpha(container.stacks)
 	
 func on_removed(container: StatusEffectContainer) -> void:
 	container.target.modulate.a = 1.0
 
 func tick(container: StatusEffectContainer) -> bool:
 	container.stacks -= 1
+	container.target.modulate.a = stacks_to_alpha(container.stacks)
 	return container.stacks <= 0
 
 func on_reapplied(container: StatusEffectContainer, stacks: int, p_max_stacks: int) -> void:
@@ -46,6 +53,7 @@ func on_reapplied(container: StatusEffectContainer, stacks: int, p_max_stacks: i
 	if p_max_stacks > 0:
 		new_stacks = mini(new_stacks, p_max_stacks)
 	container.stacks = new_stacks
+	container.target.modulate.a = stacks_to_alpha(container.stacks)
 
 func get_effect_description(_container: StatusEffectContainer) -> String:
 	return description

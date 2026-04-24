@@ -18,8 +18,9 @@
 [ext_resource type="Resource" uid="uid://byvu2q77v5qva" path="res://resources/abilities/fortune/lucky_charm/lucky_charm_1.tres" id="11_5t5uu"]
 [ext_resource type="Resource" uid="uid://bpbnmjs6onsjr" path="res://resources/abilities/fortune/deflect/deflect_4.tres" id="12_uf7ed"]
 [ext_resource type="Resource" uid="uid://c1df4288n6sfd" path="res://resources/abilities/fortune/reckless_slash/reckless_slash_2.tres" id="13_jok4t"]
-[ext_resource type="Resource" uid="uid://cp1djbgsqcqsx" path="res://resources/abilities/coralleine/lifesteal_1.tres" id="15_hu8bf"]
+[ext_resource type="Resource" uid="uid://cp1djbgsqcqsx" path="res://resources/abilities/coralleine/lifesteal/lifesteal_1.tres" id="15_hu8bf"]
 [ext_resource type="Resource" uid="uid://bfh4vkt77fdbm" path="res://resources/abilities/coralleine/magic_cannon/magic_cannon_1.tres" id="16_walo4"]
+[ext_resource type="Resource" uid="uid://db77qu1n6a6p1" path="res://resources/abilities/coralleine/guardian/guardian_4.tres" id="19_tc8rw"]
 [ext_resource type="Resource" uid="uid://bbk8voggsovuk" path="res://resources/abilities/scorpion_fish/bite.tres" id="19_ty1hb"]
 
 [node name="CoralReef" type="Node2D" unique_id=1926475326 node_paths=PackedStringArray("player_team", "boss_team")]
@@ -58,7 +59,7 @@ offset_bottom = -429.3334
 [node name="Coralleine" parent="." unique_id=1190915457 instance=ExtResource("1_0umlr")]
 position = Vector2(592, 914.00006)
 max_health = 75
-abilities = Array[ExtResource("4_cmpws")]([ExtResource("15_hu8bf"), ExtResource("16_walo4")])
+abilities = Array[ExtResource("4_cmpws")]([ExtResource("15_hu8bf"), ExtResource("16_walo4"), ExtResource("19_tc8rw")])
 
 [node name="HealthBar" parent="Coralleine" unique_id=759737278 instance=ExtResource("8_walo4")]
 offset_left = -126.666664

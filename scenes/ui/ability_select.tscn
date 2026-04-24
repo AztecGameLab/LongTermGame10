@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://bxrdvjrrvpyfd" path="res://scenes/ui/paper_panel.tscn" id="2_0mh3k"]
 [ext_resource type="FontFile" uid="uid://b36l0tnkhtkdw" path="res://assets/ui/GenFont_Mansalva-Regular.ttf" id="2_bw0a7"]
 [ext_resource type="Texture2D" uid="uid://0givt5uiw6ut" path="res://assets/ui/AbilitySelectUI.png" id="4_0mh3k"]
-[ext_resource type="FontFile" uid="uid://iq5jfqev2lp0" path="res://assets/ui/EmphasisFont_Knewave-Regular.ttf" id="5_d8uel"]
 
 [node name="AbilitySelect" type="CanvasLayer" unique_id=844678139]
 script = ExtResource("1_bw0a7")
@@ -59,13 +58,13 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 70
 theme_override_constants/margin_top = 140
-theme_override_constants/margin_right = 72
+theme_override_constants/margin_right = 83
 theme_override_constants/margin_bottom = 226
 
 [node name="MoveContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Body/MarginContainer" unique_id=941431289]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 21
 
 [node name="Labels" type="Control" parent="MarginContainer/VBoxContainer/Body/MarginContainer" unique_id=1972913511]
 layout_mode = 2
@@ -78,7 +77,7 @@ offset_right = 135.0
 offset_bottom = 720.0
 rotation = -0.114901155
 theme_override_colors/default_color = Color(0.41960785, 0.23137255, 0.09019608, 1)
-theme_override_fonts/normal_font = ExtResource("5_d8uel")
+theme_override_fonts/normal_font = ExtResource("2_bw0a7")
 theme_override_font_sizes/normal_font_size = 20
 text = "Character"
 horizontal_alignment = 1
@@ -86,12 +85,12 @@ vertical_alignment = 1
 
 [node name="Move" type="RichTextLabel" parent="MarginContainer/VBoxContainer/Body/MarginContainer/Labels" unique_id=2144780504]
 layout_mode = 0
-offset_left = 122.0
-offset_top = 648.0
-offset_right = 213.0
-offset_bottom = 700.0
+offset_left = 114.0
+offset_top = 647.0
+offset_right = 205.0
+offset_bottom = 699.0
 theme_override_colors/default_color = Color(0.41960785, 0.23137255, 0.09019608, 1)
-theme_override_fonts/normal_font = ExtResource("5_d8uel")
+theme_override_fonts/normal_font = ExtResource("2_bw0a7")
 theme_override_font_sizes/normal_font_size = 20
 text = "Move"
 horizontal_alignment = 1
@@ -105,7 +104,7 @@ offset_right = 306.0
 offset_bottom = 699.00006
 rotation = 0.15304668
 theme_override_colors/default_color = Color(0.41960785, 0.23137255, 0.09019608, 1)
-theme_override_fonts/normal_font = ExtResource("5_d8uel")
+theme_override_fonts/normal_font = ExtResource("2_bw0a7")
 theme_override_font_sizes/normal_font_size = 20
 text = "Confirm"
 horizontal_alignment = 1
