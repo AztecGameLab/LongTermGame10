@@ -3,7 +3,12 @@
 [ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="1_ert2h"]
 [ext_resource type="Script" uid="uid://xwcbloqu4nwu" path="res://scripts/ability/action/abstracts/action.gd" id="1_l1gv0"]
 [ext_resource type="Script" uid="uid://d0rap3gi3boj5" path="res://scripts/ability/action/damage_action.gd" id="2_2357e"]
+[ext_resource type="Script" uid="uid://dq0gts7suc1fg" path="res://scripts/ability/action/animation_action.gd" id="2_l1gv0"]
 [ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="4_xi3is"]
+
+[sub_resource type="Resource" id="Resource_2357e"]
+script = ExtResource("2_l1gv0")
+metadata/_custom_type_script = "uid://dq0gts7suc1fg"
 
 [sub_resource type="Resource" id="Resource_w7ttr"]
 script = ExtResource("2_2357e")
@@ -13,6 +18,15 @@ metadata/_graph_x = 2080.0
 metadata/_graph_y = -20.0
 metadata/_graph_w = 520.0
 metadata/_graph_h = 301.0
+
+[sub_resource type="Resource" id="Resource_874vg"]
+script = ExtResource("4_xi3is")
+actions = Array[ExtResource("1_l1gv0")]([SubResource("Resource_2357e"), SubResource("Resource_w7ttr")])
+metadata/_custom_type_script = "uid://da17dshmjafs6"
+
+[sub_resource type="Resource" id="Resource_xi3is"]
+script = ExtResource("2_l1gv0")
+metadata/_custom_type_script = "uid://dq0gts7suc1fg"
 
 [sub_resource type="Resource" id="Resource_l1gv0"]
 script = ExtResource("2_2357e")
@@ -25,10 +39,15 @@ metadata/_graph_y = 400.0
 metadata/_graph_w = 705.0
 metadata/_graph_h = 370.0
 
+[sub_resource type="Resource" id="Resource_seqmk"]
+script = ExtResource("4_xi3is")
+actions = Array[ExtResource("1_l1gv0")]([SubResource("Resource_xi3is"), SubResource("Resource_l1gv0")])
+metadata/_custom_type_script = "uid://da17dshmjafs6"
+
 [sub_resource type="Resource" id="Resource_bwkvv"]
 script = ExtResource("4_xi3is")
-actions = Array[ExtResource("1_l1gv0")]([SubResource("Resource_w7ttr"), SubResource("Resource_l1gv0")])
-delay = 1.0
+actions = Array[ExtResource("1_l1gv0")]([SubResource("Resource_874vg"), SubResource("Resource_seqmk")])
+delay = 0.3
 metadata/_graph_x = 1249.0
 metadata/_graph_y = 224.5
 metadata/_graph_w = 349.0

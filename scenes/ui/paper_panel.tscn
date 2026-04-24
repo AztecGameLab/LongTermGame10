@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bxrdvjrrvpyfd"]
+
+[ext_resource type="Texture2D" uid="uid://caq242tlgq1oc" path="res://assets/ui/Buttons.png" id="1_rbti7"]
+
+[node name="PaperPanel" type="NinePatchRect" unique_id=695098869]
+offset_right = 128.0
+offset_bottom = 128.0
+texture = ExtResource("1_rbti7")
+patch_margin_left = 64
+patch_margin_top = 64
+patch_margin_right = 64
+patch_margin_bottom = 64
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2

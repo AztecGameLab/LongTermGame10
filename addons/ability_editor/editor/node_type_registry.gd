@@ -76,6 +76,8 @@ static func _build_types() -> void:
 	_reg("LuckChanceAction", "Luck Chance", "uid://dkyoonc2qagl3", "Actions / Flow")
 	_reg("RepeatAction", "Repeat", "uid://3xfxcysmuqdm", "Actions / Flow")
 	_reg("RetargetAction", "Retarget", "uid://cm0yl4tfwdkhn", "Actions / Flow")
+	
+	_reg("AnimationAction", "Animation", "uid://dq0gts7suc1fg", "Actions / Flow")
 
 	_reg("StatusEffect", "Status Effect", "uid://c4rwprj6d61c0", "Status Effects")
 	_reg("FadingStatusEffect", "Fading Status Effect", "uid://dot0bfh4ojuo7", "Status Effects")

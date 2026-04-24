@@ -54,6 +54,11 @@ func on_applied(_container: StatusEffectContainer) -> void:
 ## Called when the effect is removed.
 func on_removed(_container: StatusEffectContainer) -> void:
 	pass
+	
+## Return false to *disallow* an effect from being applied to a character.
+## This might be used to filter out either positive or negative effects.
+func should_apply_effect(_status_effect: BaseStatusEffect) -> bool:
+	return true
 
 ## Ticks the effect each turn. Returns [code]true[/code] if the effect has expired.
 func tick(_container: StatusEffectContainer) -> bool:

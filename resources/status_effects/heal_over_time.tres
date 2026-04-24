@@ -19,6 +19,7 @@ metadata/_custom_type_script = "uid://d0uvf6jnorxpw"
 [sub_resource type="Resource" id="Resource_c1t11"]
 script = ExtResource("2_nrql3")
 description = "Heals you 10hp for the next 3 turns."
+modifiers = Array[ExtResource("1_0yoec")]([SubResource("Resource_nrql3")])
 triggers = Array[ExtResource("3_a7ryv")]([SubResource("Resource_kwfm3")])
 metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
 
@@ -26,4 +27,5 @@ metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
 script = ExtResource("1_njdor")
 stacks = Array[ExtResource("2_nrql3")]([SubResource("Resource_c1t11")])
 name = "Heal Over Time"
+effect_type = 0
 metadata/_custom_type_script = "uid://c4rwprj6d61c0"

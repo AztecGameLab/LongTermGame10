@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://5b5nch8ier3n"]
+
+[ext_resource type="Texture2D" uid="uid://dm775o0iyhd0u" path="res://assets/ui/selected.png" id="1_anh46"]
+
+[node name="SelectedIndicator" type="NinePatchRect" unique_id=2093613863]
+texture_filter = 1
+offset_right = 10.0
+offset_bottom = 10.0
+scale = Vector2(15, 15)
+texture = ExtResource("1_anh46")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
