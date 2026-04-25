@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="Ability" format=3 uid="uid://8qrnu2o4l1id"]
+
+[ext_resource type="Script" uid="uid://xwcbloqu4nwu" path="res://scripts/ability/action/abstracts/action.gd" id="1_8jyx4"]
+[ext_resource type="Script" uid="uid://be5ru5snax08s" path="res://scripts/ability/action/apply_status_action.gd" id="3_8cbti"]
+[ext_resource type="Resource" uid="uid://dclil2frb31o2" path="res://resources/status_effects/acid.tres" id="4_n4lre"]
+[ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="5_6fgpd"]
+[ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="6_h0hom"]
+
+[sub_resource type="Resource" id="Resource_h56ap"]
+script = ExtResource("3_8cbti")
+status_effect = ExtResource("4_n4lre")
+max_stacks = 1
+metadata/_graph_x = 1260.0
+metadata/_graph_y = 340.0
+metadata/_graph_w = 486.0
+metadata/_graph_h = 362.0
+
+[sub_resource type="Resource" id="Resource_u5cyh"]
+script = ExtResource("5_6fgpd")
+actions = Array[ExtResource("1_8jyx4")]([SubResource("Resource_h56ap")])
+metadata/_graph_x = 780.0
+metadata/_graph_y = 320.0
+metadata/_graph_w = 349.0
+metadata/_graph_h = 325.0
+
+[resource]
+script = ExtResource("6_h0hom")
+name = "Bottle of Acid"
+description = "Deals Damage and applies the Acid Debuff."
+action = SubResource("Resource_u5cyh")
+metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
+metadata/_graph_x = -140.0
+metadata/_graph_y = 260.0
+metadata/_graph_w = 766.0
+metadata/_graph_h = 337.0
+metadata/_external_layouts = {
+"uid://dclil2frb31o2": {
+"h": 126.0,
+"w": 343.0,
+"x": 1960.0,
+"y": 400.0
+}
+}

@@ -1,0 +1,76 @@
+[gd_resource type="Resource" script_class="Ability" format=3 uid="uid://r0uijawe6ust"]
+
+[ext_resource type="Script" uid="uid://xwcbloqu4nwu" path="res://scripts/ability/action/abstracts/action.gd" id="1_hehen"]
+[ext_resource type="Script" uid="uid://be5ru5snax08s" path="res://scripts/ability/action/apply_status_action.gd" id="2_0thhy"]
+[ext_resource type="Resource" uid="uid://dclil2frb31o2" path="res://resources/status_effects/acid.tres" id="3_potqh"]
+[ext_resource type="Resource" uid="uid://ccgl0mh7c10aa" path="res://resources/status_effects/boa_defense_reduction.tres" id="4_e43fc"]
+[ext_resource type="Resource" uid="uid://bsemusn2sc6hb" path="res://resources/status_effects/boa_prevent_healing.tres" id="5_0thhy"]
+[ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="5_658e5"]
+[ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="6_hg513"]
+
+[sub_resource type="Resource" id="Resource_h56ap"]
+script = ExtResource("2_0thhy")
+applied_stacks = 3
+status_effect = ExtResource("3_potqh")
+max_stacks = 3
+metadata/_graph_x = 1420.0
+metadata/_graph_y = 180.0
+metadata/_graph_w = 486.0
+metadata/_graph_h = 362.0
+
+[sub_resource type="Resource" id="Resource_mdfqa"]
+script = ExtResource("2_0thhy")
+status_effect = ExtResource("4_e43fc")
+max_stacks = 1
+metadata/_graph_x = 1360.0
+metadata/_graph_y = 580.0
+metadata/_graph_w = 486.0
+metadata/_graph_h = 362.0
+
+[sub_resource type="Resource" id="Resource_hehen"]
+script = ExtResource("2_0thhy")
+status_effect = ExtResource("5_0thhy")
+max_stacks = 1
+metadata/_graph_x = 1385.0
+metadata/_graph_y = 1099.0
+metadata/_graph_w = 486.0
+metadata/_graph_h = 362.0
+
+[sub_resource type="Resource" id="Resource_u5cyh"]
+script = ExtResource("5_658e5")
+actions = Array[ExtResource("1_hehen")]([SubResource("Resource_h56ap"), SubResource("Resource_mdfqa"), SubResource("Resource_hehen")])
+metadata/_graph_x = 780.0
+metadata/_graph_y = 320.0
+metadata/_graph_w = 349.0
+metadata/_graph_h = 394.0
+
+[resource]
+script = ExtResource("6_hg513")
+name = "Bottle of Acid"
+description = "Deals Damage and applies the Acid Debuff."
+action = SubResource("Resource_u5cyh")
+metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
+metadata/_graph_x = -140.0
+metadata/_graph_y = 260.0
+metadata/_graph_w = 766.0
+metadata/_graph_h = 337.0
+metadata/_external_layouts = {
+"uid://bsemusn2sc6hb": {
+"h": 126.0,
+"w": 562.0,
+"x": 2100.0,
+"y": 1160.0
+},
+"uid://ccgl0mh7c10aa": {
+"h": 126.0,
+"w": 596.0,
+"x": 1980.0,
+"y": 680.0
+},
+"uid://dclil2frb31o2": {
+"h": 126.0,
+"w": 343.0,
+"x": 1960.0,
+"y": 400.0
+}
+}
