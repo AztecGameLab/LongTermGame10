@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="RageStatusEffect" format=3 uid="uid://dv6tt3p3oh6bg"]
+
+[ext_resource type="Script" uid="uid://di75wydt10ijs" path="res://scripts/status_effects/custom/rage_status_effect.gd" id="1_el4pr"]
+
+[resource]
+script = ExtResource("1_el4pr")
+name = "Rage"
+effect_type = 2
+metadata/_custom_type_script = "uid://di75wydt10ijs"

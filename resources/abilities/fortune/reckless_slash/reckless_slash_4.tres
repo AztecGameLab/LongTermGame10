@@ -40,6 +40,7 @@ metadata/_graph_h = 244.0
 script = ExtResource("5_btms6")
 status_effect = ExtResource("5_qx67u")
 fail_action = SubResource("Resource_btms6")
+override_target = true
 metadata/_graph_x = 1040.0
 metadata/_graph_y = 540.0
 metadata/_graph_w = 269.0

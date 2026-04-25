@@ -2,11 +2,16 @@
 
 [ext_resource type="Script" uid="uid://hc4s42fbmmk8" path="res://scripts/battle_logic/characters/battle_fortune.gd" id="1_v4h78"]
 [ext_resource type="Shader" uid="uid://ctt5na6ppy7cj" path="res://scripts/shader/desaturate.gdshader" id="2_6d236"]
+[ext_resource type="Script" uid="uid://d1o5abfusku1j" path="res://scripts/ability/base_ability.gd" id="2_b8mix"]
 [ext_resource type="Texture2D" uid="uid://473mpbuw8dbb" path="res://assets/sprites/fortune/Forturne_attack_spritesheet.png" id="2_bvmeh"]
 [ext_resource type="Texture2D" uid="uid://c1jgr8e0vcba1" path="res://assets/sprites/fortune/Fortune_idle_spritesheet 3.png" id="2_yioxk"]
+[ext_resource type="Resource" uid="uid://bpbnmjs6onsjr" path="res://resources/abilities/fortune/deflect/deflect_4.tres" id="3_h6tje"]
+[ext_resource type="Resource" uid="uid://dte47cg4lrnk2" path="res://resources/abilities/fortune/lucky_charm/lucky_charm_4.tres" id="4_0p28b"]
 [ext_resource type="Texture2D" uid="uid://bt2r7aousoudn" path="res://assets/sprites/fortune/status/Fortune_status_0000.png" id="4_mp42y"]
 [ext_resource type="Texture2D" uid="uid://d33l7om70v8gu" path="res://assets/sprites/fortune/status/Fortune_status_0001.png" id="5_w4u8n"]
+[ext_resource type="Resource" uid="uid://w5ubyihph7x8" path="res://resources/abilities/fortune/pierce/pierce_4.tres" id="5_x4hre"]
 [ext_resource type="Texture2D" uid="uid://cjywkv0hoqi8f" path="res://assets/sprites/fortune/status/Fortune_status_0002.png" id="6_a6d1p"]
+[ext_resource type="Resource" uid="uid://bd1et3q8j0crh" path="res://resources/abilities/fortune/reckless_slash/reckless_slash_4.tres" id="6_e3q6w"]
 [ext_resource type="Texture2D" uid="uid://dcy82nvylmfnf" path="res://assets/sprites/fortune/status/Fortune_status_0003.png" id="7_qmd5o"]
 [ext_resource type="Texture2D" uid="uid://bxfexsr6rntii" path="res://assets/sprites/fortune/status/Fortune_status_0004.png" id="8_1mmj7"]
 [ext_resource type="Texture2D" uid="uid://dxyrya52vrxle" path="res://assets/sprites/fortune/status/Fortune_status_0005.png" id="9_nmc8w"]
@@ -252,6 +257,7 @@ animations = [{
 scale = Vector2(0.75, 0.75)
 script = ExtResource("1_v4h78")
 character_name = "Fortune"
+abilities = Array[ExtResource("2_b8mix")]([ExtResource("3_h6tje"), ExtResource("4_0p28b"), ExtResource("5_x4hre"), ExtResource("6_e3q6w")])
 metadata/_custom_type_script = "uid://hc4s42fbmmk8"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1795254859]

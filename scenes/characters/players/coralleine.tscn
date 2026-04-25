@@ -3,9 +3,13 @@
 [ext_resource type="Script" uid="uid://csfpgu4388244" path="res://scripts/battle_logic/characters/battle_corraleine.gd" id="1_vagx6"]
 [ext_resource type="Texture2D" uid="uid://dodnrh4rd3dek" path="res://assets/sprites/coralleine/Coralleine_Attack_Animation.png" id="2_4m3f8"]
 [ext_resource type="Shader" uid="uid://ctt5na6ppy7cj" path="res://scripts/shader/desaturate.gdshader" id="2_4nmft"]
+[ext_resource type="Script" uid="uid://d1o5abfusku1j" path="res://scripts/ability/base_ability.gd" id="2_j65q7"]
 [ext_resource type="Texture2D" uid="uid://bo2nfxb3yhmld" path="res://assets/sprites/coralleine/Coralleine_Idle_Animation.png" id="2_msra2"]
+[ext_resource type="Resource" uid="uid://db77qu1n6a6p1" path="res://resources/abilities/coralleine/guardian/guardian_4.tres" id="3_2nj27"]
 [ext_resource type="Texture2D" uid="uid://dol5g8mt8b1i0" path="res://assets/sprites/coralleine/Coralleine_Status_Animation.png" id="4_eb0qj"]
+[ext_resource type="Resource" uid="uid://cjl4tl2emlhod" path="res://resources/abilities/coralleine/lifesteal/lifesteal_4.tres" id="4_l1ybd"]
 [ext_resource type="PackedScene" uid="uid://5b5nch8ier3n" path="res://scenes/ui/selected_indicator.tscn" id="5_g3wes"]
+[ext_resource type="Resource" uid="uid://btt4hfmyenawq" path="res://resources/abilities/coralleine/magic_cannon/magic_cannon_4.tres" id="5_vdvcc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4nmft"]
 shader = ExtResource("2_4nmft")
@@ -334,6 +338,7 @@ animations = [{
 scale = Vector2(0.75, 0.75)
 script = ExtResource("1_vagx6")
 character_name = "Coralleine"
+abilities = Array[ExtResource("2_j65q7")]([ExtResource("3_2nj27"), ExtResource("4_l1ybd"), ExtResource("5_vdvcc")])
 metadata/_custom_type_script = "uid://csfpgu4388244"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1150529436]
