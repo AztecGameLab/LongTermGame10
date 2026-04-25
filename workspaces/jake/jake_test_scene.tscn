@@ -7,7 +7,7 @@
 [ext_resource type="Resource" uid="uid://y06qhqwsm5s3" path="res://resources/abilities/umi/burn.tres" id="5_1rtls"]
 [ext_resource type="Resource" uid="uid://d24qd6q4yfvkg" path="res://resources/abilities/umi/bottle_of_invisibility/bottle_of_invisibility_4.tres" id="6_tkfla"]
 [ext_resource type="Resource" uid="uid://ceagyylpk7l64" path="res://resources/abilities/umi/bottle_of_splode/bottle_of_splode_4.tres" id="7_faxcy"]
-[ext_resource type="Resource" uid="uid://boy7gg5bk727q" path="res://workspaces/jake/bottle_of_heal_levels/bottle_of_heal4.tres" id="8_wymiv"]
+[ext_resource type="Resource" uid="uid://boy7gg5bk727q" path="res://resources/abilities/umi/bottle_of_heal/bottle_of_heal_4.tres" id="8_wymiv"]
 [ext_resource type="PackedScene" uid="uid://rb6hbhelm4lq" path="res://scenes/ui/health_bar.tscn" id="9_jdqg4"]
 [ext_resource type="PackedScene" uid="uid://cg3tnggxog80a" path="res://scenes/characters/players/fortune.tscn" id="10_ng218"]
 [ext_resource type="Resource" uid="uid://bnv8ckim477pc" path="res://resources/abilities/fortune/strength.tres" id="11_e4k0r"]

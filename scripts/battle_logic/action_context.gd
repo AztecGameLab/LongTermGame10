@@ -15,9 +15,12 @@ var origin: BattleCharacter
 ## The status effect container this action was triggered from, if any.
 var container: StatusEffectContainer
 
-func _init(p_source: BattleCharacter = null, p_target: BattleCharacter = null, p_battle: BattleContext = null, p_origin: BattleCharacter = null, p_container: StatusEffectContainer = null) -> void:
-  source = p_source
-  target = p_target
-  battle = p_battle
-  origin = p_origin
-  container = p_container
+var is_first_target: bool
+
+func _init(p_source: BattleCharacter = null, p_target: BattleCharacter = null, p_battle: BattleContext = null, p_origin: BattleCharacter = null, p_container: StatusEffectContainer = null, p_first_target: bool = true) -> void:
+	source = p_source
+	target = p_target
+	battle = p_battle
+	origin = p_origin
+	container = p_container
+	is_first_target = p_first_target

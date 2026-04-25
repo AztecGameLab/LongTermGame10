@@ -7,11 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://cj4h68lkbbwkt" path="res://scenes/ui/ability_select.tscn" id="4_a4rq4"]
 [ext_resource type="Script" uid="uid://d1o5abfusku1j" path="res://scripts/ability/base_ability.gd" id="4_cmpws"]
 [ext_resource type="Resource" uid="uid://y06qhqwsm5s3" path="res://resources/abilities/umi/burn.tres" id="5_3j42f"]
-[ext_resource type="Resource" uid="uid://b6mlqpxywhb6g" path="res://resources/abilities/umi/heal.tres" id="6_3j42f"]
 [ext_resource type="PackedScene" uid="uid://bhot4510tfs43" path="res://scenes/characters/bosses/scorpion_fish.tscn" id="6_axod2"]
 [ext_resource type="Texture2D" uid="uid://bju1dmce0qj4" path="res://workspaces/artemis/Normal_Gameplay_(focused_On_Fortune_Only)-4.png" id="7_8wj54"]
 [ext_resource type="Resource" uid="uid://d24qd6q4yfvkg" path="res://resources/abilities/umi/bottle_of_invisibility/bottle_of_invisibility_4.tres" id="7_walo4"]
 [ext_resource type="Resource" uid="uid://ceagyylpk7l64" path="res://resources/abilities/umi/bottle_of_splode/bottle_of_splode_4.tres" id="8_kxhbx"]
+[ext_resource type="Resource" uid="uid://boy7gg5bk727q" path="res://resources/abilities/umi/bottle_of_heal/bottle_of_heal_4.tres" id="8_tc8rw"]
 [ext_resource type="PackedScene" uid="uid://rb6hbhelm4lq" path="res://scenes/ui/health_bar.tscn" id="8_walo4"]
 [ext_resource type="Resource" uid="uid://bnv8ckim477pc" path="res://resources/abilities/fortune/strength.tres" id="9_dp7j0"]
 [ext_resource type="Resource" uid="uid://c71y0pm2tt1g" path="res://resources/abilities/fortune/pierce/pierce_1.tres" id="10_q5g08"]
@@ -37,7 +37,7 @@ centered = false
 [node name="Umi" parent="." unique_id=34133432 instance=ExtResource("3_m8s2v")]
 position = Vector2(937.00006, 674)
 max_health = 75
-abilities = Array[ExtResource("4_cmpws")]([ExtResource("5_3j42f"), ExtResource("6_3j42f"), ExtResource("7_walo4"), ExtResource("8_kxhbx")])
+abilities = Array[ExtResource("4_cmpws")]([ExtResource("5_3j42f"), ExtResource("7_walo4"), ExtResource("8_kxhbx"), ExtResource("8_tc8rw")])
 
 [node name="HealthBar" parent="Umi" unique_id=1562969593 instance=ExtResource("8_walo4")]
 offset_left = -126.66675

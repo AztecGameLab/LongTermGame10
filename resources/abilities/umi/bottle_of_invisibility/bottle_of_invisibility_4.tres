@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://xwcbloqu4nwu" path="res://scripts/ability/action/abstracts/action.gd" id="1_o4avx"]
 [ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="1_xvarx"]
-[ext_resource type="Script" path="res://scripts/ability/action/animation_action.gd" id="2_34vod"]
+[ext_resource type="Script" uid="uid://dq0gts7suc1fg" path="res://scripts/ability/action/animation_action.gd" id="2_34vod"]
 [ext_resource type="Script" uid="uid://be5ru5snax08s" path="res://scripts/ability/action/apply_status_action.gd" id="3_x0xs0"]
 [ext_resource type="Resource" uid="uid://cjltg32jad4ic" path="res://resources/status_effects/invisible.tres" id="4_34vod"]
 [ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="4_b5gtj"]
