@@ -5,37 +5,29 @@
 [ext_resource type="Script" uid="uid://w6h7oqtjl61k" path="res://scripts/status_effects/status_effect_modifier.gd" id="3_5xyqx"]
 [ext_resource type="Script" uid="uid://d0uvf6jnorxpw" path="res://scripts/status_effects/status_effect_trigger.gd" id="4_6k7cs"]
 
-[sub_resource type="Resource" id="Resource_5xyqx"]
+[sub_resource type="Resource" id="Resource_6k7cs"]
 script = ExtResource("3_5xyqx")
 modifier_field = 1
 modifier_type = 2
-modifier_amount = 1.2999999999999545
-metadata/_graph_x = 980.0
-metadata/_graph_y = 200.0
-metadata/_graph_w = 357.0
-metadata/_graph_h = 140.0
+modifier_amount = 1.3
+metadata/_custom_type_script = "uid://w6h7oqtjl61k"
 
 [sub_resource type="Resource" id="Resource_griht"]
 script = ExtResource("3_5xyqx")
 modifier_field = 3
 modifier_type = 2
-modifier_amount = 1.2000000000000455
-metadata/_graph_x = 1004.0
-metadata/_graph_y = 405.0
-metadata/_graph_w = 357.0
-metadata/_graph_h = 140.0
+modifier_amount = 1.2
+metadata/_custom_type_script = "uid://w6h7oqtjl61k"
 
-[sub_resource type="Resource" id="Resource_6k7cs"]
+[sub_resource type="Resource" id="Resource_5xyqx"]
 script = ExtResource("2_dmr15")
 description = "decrease def and dodge"
-modifiers = Array[ExtResource("3_5xyqx")]([SubResource("Resource_5xyqx"), SubResource("Resource_griht")])
-metadata/_graph_x = 660.0
-metadata/_graph_y = 200.0
-metadata/_graph_w = 244.0
-metadata/_graph_h = 245.0
+modifiers = Array[ExtResource("3_5xyqx")]([SubResource("Resource_6k7cs"), SubResource("Resource_griht")])
+metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
 
 [resource]
 script = ExtResource("1_scr0w")
+stacks = Array[ExtResource("2_dmr15")]([SubResource("Resource_5xyqx")])
 duration_turns = 2
 name = "Staggered"
 metadata/_custom_type_script = "uid://c4rwprj6d61c0"

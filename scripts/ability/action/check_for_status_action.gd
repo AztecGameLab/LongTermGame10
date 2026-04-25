@@ -13,7 +13,7 @@ class_name CheckForStatusAction
 func run(context: ActionContext) -> void:
 	for target in resolve_targets(context):
 		## Selects action based on whether the status exists
-		var action: Action = success_action if status_effect else fail_action
+		var action: Action = success_action if target.get_status_effect(status_effect) else fail_action
 		## Calls the action
 		if action:
 			await action.run(context)

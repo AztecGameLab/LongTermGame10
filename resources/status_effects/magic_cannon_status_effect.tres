@@ -1,8 +1,9 @@
 [gd_resource type="Resource" script_class="MagicCannonStatusEffect" format=3 uid="uid://yre4ichska3w"]
 
-[ext_resource type="Script" uid="uid://ba8ypqy5sue4n" path="res://scripts/status_effects/magic_cannon_status_effect.gd" id="1_yfyfp"]
+[ext_resource type="Script" uid="uid://ba8ypqy5sue4n" path="res://scripts/status_effects/custom/magic_cannon_status_effect.gd" id="1_yho0d"]
 
 [resource]
-script = ExtResource("1_yfyfp")
+script = ExtResource("1_yho0d")
 name = "Magic Cannon Charging"
+effect_type = 2
 metadata/_custom_type_script = "uid://ba8ypqy5sue4n"
