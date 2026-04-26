@@ -27,6 +27,7 @@ metadata/_graph_h = 333.0
 
 [resource]
 script = ExtResource("1_erbcx")
+stacks = Array[ExtResource("2_2fj5t")]([SubResource("Resource_qiox4")])
 name = "Prevent Healing"
 metadata/_custom_type_script = "uid://c4rwprj6d61c0"
 metadata/_graph_x = 50.0

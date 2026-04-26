@@ -26,6 +26,7 @@ metadata/_graph_h = 333.0
 
 [resource]
 script = ExtResource("1_lgmgv")
+stacks = Array[ExtResource("2_8fsaq")]([SubResource("Resource_mp1ee")])
 name = "Defense Reduction"
 metadata/_custom_type_script = "uid://c4rwprj6d61c0"
 metadata/_graph_x = 50.0
