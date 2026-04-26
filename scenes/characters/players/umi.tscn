@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://mf205n8gjgk7" path="res://assets/sprites/umi/IdleUmiSheet.png" id="2_tebkv"]
 [ext_resource type="Script" uid="uid://d1o5abfusku1j" path="res://scripts/ability/base_ability.gd" id="3_kx5hu"]
 [ext_resource type="Texture2D" uid="uid://bu8tcg4f0wd2k" path="res://assets/sprites/umi/StatusUmiSheet.png" id="4_p8s4g"]
-[ext_resource type="Resource" uid="uid://r0uijawe6ust" path="res://resources/abilities/umi/bottle_of_acid_4.tres" id="4_y40pn"]
+[ext_resource type="Resource" uid="uid://r0uijawe6ust" path="res://resources/abilities/umi/bottle_of_acid/bottle_of_acid_4.tres" id="4_y40pn"]
 [ext_resource type="Resource" uid="uid://boy7gg5bk727q" path="res://resources/abilities/umi/bottle_of_heal/bottle_of_heal_4.tres" id="5_ufhk0"]
 [ext_resource type="PackedScene" uid="uid://5b5nch8ier3n" path="res://scenes/ui/selected_indicator.tscn" id="5_vtmro"]
 [ext_resource type="Resource" uid="uid://d24qd6q4yfvkg" path="res://resources/abilities/umi/bottle_of_invisibility/bottle_of_invisibility_4.tres" id="6_w55v4"]
