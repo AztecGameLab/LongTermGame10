@@ -10,7 +10,7 @@ func get_effect_name(_container: StatusEffectContainer) -> String:
 	return "Rage"
 
 func modify_value(field: StatusEffectModifier.Field, value: float, container: StatusEffectContainer) -> float:
-	if field == StatusEffectModifier.Field.INCOMING_DAMAGE:
+	if field == StatusEffectModifier.Field.OUTGOING_DAMAGE:
 		container.target.remove_status_effect_instance(container)
 		return value * next_attack_damage_multiplier
 		

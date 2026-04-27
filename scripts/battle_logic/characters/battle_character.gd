@@ -25,6 +25,7 @@ signal used_ability(ability: BaseAbility, targets: Array[BattleCharacter])
 
 signal status_effect_added(instance: StatusEffectContainer)
 signal status_effect_removed(instance: StatusEffectContainer)
+signal status_effects_updated()
 
 # --- Exports ---
 
@@ -152,12 +153,14 @@ func add_status_effect(effect: BaseStatusEffect, source: BattleCharacter, stacks
 
 	if existing:
 		existing.effect.on_reapplied(existing, stacks, max_stacks)
+		status_effects_updated.emit()
 		return existing
 
 	var instance := StatusEffectContainer.new(effect, source, self, battle, stacks)
 	_status_effects.append(instance)
 	instance.on_applied()
 	status_effect_added.emit(instance)
+	status_effects_updated.emit()
 	return instance
 
 func remove_status_effect(effect: BaseStatusEffect, stacks: int) -> void:
@@ -167,6 +170,7 @@ func remove_status_effect(effect: BaseStatusEffect, stacks: int) -> void:
 			_remove_effect_instance(instance)
 		else:
 			instance.stacks -= stacks
+		status_effects_updated.emit()
 			
 func remove_all_effects(effect_type: BaseStatusEffect.EffectType):
 	var effects = _status_effects.duplicate()
@@ -178,6 +182,7 @@ func remove_all_effects(effect_type: BaseStatusEffect.EffectType):
 func remove_status_effect_instance(instance: StatusEffectContainer) -> void:
 	if instance in _status_effects:
 		_remove_effect_instance(instance)
+		status_effects_updated.emit()
 
 func get_status_effect(effect: BaseStatusEffect) -> StatusEffectContainer:
 	for instance in _status_effects:
@@ -210,6 +215,8 @@ func on_turn_ended() -> void:
 
 	for instance in expired:
 		_remove_effect_instance(instance)
+		
+	status_effects_updated.emit()
 
 func on_damage_dealt(attackContext: AttackContext):
 	for instance in _status_effects:

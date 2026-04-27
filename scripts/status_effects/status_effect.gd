@@ -54,6 +54,10 @@ func _setup_container(container: StatusEffectContainer) -> void:
 func get_effect_description(container: StatusEffectContainer) -> String:
 	return stacks[container.stacks - 1].description
 
+func get_icon(container: StatusEffectContainer) -> Texture2D:
+	var icon_override := stacks[container.stacks - 1].icon_override
+	return icon_override if icon_override else icon
+
 func get_remaining_turns(container: StatusEffectContainer) -> int:
 	if not limited_duration:
 		return -1

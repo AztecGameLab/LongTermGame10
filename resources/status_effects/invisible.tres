@@ -1,9 +1,11 @@
 [gd_resource type="Resource" script_class="InvisibleStatusEffect" format=3 uid="uid://cjltg32jad4ic"]
 
+[ext_resource type="Texture2D" uid="uid://bnl6t8rp13jgx" path="res://assets/status_effects/Invisible.png" id="1_irdh8"]
 [ext_resource type="Script" uid="uid://6bqtnmknytyp" path="res://scripts/status_effects/custom/invisible_status_effect.gd" id="1_rlw8p"]
 
 [resource]
 script = ExtResource("1_rlw8p")
 name = "Invisible"
+icon = ExtResource("1_irdh8")
 effect_type = 0
 metadata/_custom_type_script = "uid://6bqtnmknytyp"
