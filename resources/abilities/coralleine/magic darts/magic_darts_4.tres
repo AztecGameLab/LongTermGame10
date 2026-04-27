@@ -1,0 +1,120 @@
+[gd_resource type="Resource" script_class="Ability" format=3 uid="uid://cwy5rolgk5id1"]
+
+[ext_resource type="Script" uid="uid://xwcbloqu4nwu" path="res://scripts/ability/action/abstracts/action.gd" id="1_r5kab"]
+[ext_resource type="Script" uid="uid://dq0gts7suc1fg" path="res://scripts/ability/action/animation_action.gd" id="2_fmi6l"]
+[ext_resource type="Script" uid="uid://d0rap3gi3boj5" path="res://scripts/ability/action/damage_action.gd" id="3_4bvoj"]
+[ext_resource type="Script" uid="uid://cy60nwkkhatr8" path="res://scripts/ability/action/hit_chance_action.gd" id="4_pbjiw"]
+[ext_resource type="Script" uid="uid://be5ru5snax08s" path="res://scripts/ability/action/apply_status_action.gd" id="5_3jmqc"]
+[ext_resource type="Resource" uid="uid://b5uv4uthbh2j6" path="res://resources/status_effects/burn.tres" id="6_42od5"]
+[ext_resource type="Script" uid="uid://bewmys3bnrfj4" path="res://scripts/ability/action/wait_action.gd" id="7_xs08k"]
+[ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="8_0eywa"]
+[ext_resource type="Script" uid="uid://3xfxcysmuqdm" path="res://scripts/ability/action/repeat_action.gd" id="9_dvfbh"]
+[ext_resource type="Resource" uid="uid://q0hcx1ti141" path="res://resources/status_effects/staggered.tres" id="10_fmi6l"]
+[ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="10_sg25h"]
+
+[sub_resource type="Resource" id="Resource_dv3ey"]
+script = ExtResource("2_fmi6l")
+metadata/_graph_x = 140.0
+metadata/_graph_y = 80.0
+metadata/_graph_w = 282.0
+metadata/_graph_h = 100.0
+
+[sub_resource type="Resource" id="Resource_bdo0w"]
+script = ExtResource("3_4bvoj")
+damage_minimum = 20
+damage_maximum = 25
+can_miss = false
+metadata/_graph_x = 1060.0
+metadata/_graph_y = 40.0
+metadata/_graph_w = 390.0
+metadata/_graph_h = 238.0
+
+[sub_resource type="Resource" id="Resource_am6pk"]
+script = ExtResource("5_3jmqc")
+applied_stacks = 10
+upgrade_stacks = 10
+status_effect = ExtResource("6_42od5")
+max_stacks = 50
+metadata/_graph_x = 1540.0
+metadata/_graph_y = 280.0
+metadata/_graph_w = 365.0
+metadata/_graph_h = 286.0
+
+[sub_resource type="Resource" id="Resource_pove0"]
+script = ExtResource("4_pbjiw")
+success_chance = 0.25
+success_action = SubResource("Resource_am6pk")
+metadata/_graph_x = 1020.0
+metadata/_graph_y = 360.0
+metadata/_graph_w = 372.0
+metadata/_graph_h = 190.0
+
+[sub_resource type="Resource" id="Resource_r2ffe"]
+script = ExtResource("7_xs08k")
+timeout = 0.1
+metadata/_graph_x = 1040.0
+metadata/_graph_y = 580.0
+metadata/_graph_w = 287.0
+metadata/_graph_h = 142.0
+
+[sub_resource type="Resource" id="Resource_a0qop"]
+script = ExtResource("8_0eywa")
+actions = Array[ExtResource("1_r5kab")]([SubResource("Resource_bdo0w"), SubResource("Resource_pove0"), SubResource("Resource_r2ffe")])
+metadata/_graph_x = 520.0
+metadata/_graph_y = 60.0
+metadata/_graph_w = 262.0
+metadata/_graph_h = 310.0
+
+[sub_resource type="Resource" id="Resource_4bvoj"]
+script = ExtResource("5_3jmqc")
+status_effect = ExtResource("10_fmi6l")
+max_stacks = 1
+metadata/_graph_x = 540.0
+metadata/_graph_y = 580.0
+metadata/_graph_w = 365.0
+metadata/_graph_h = 286.0
+
+[sub_resource type="Resource" id="Resource_427vy"]
+script = ExtResource("9_dvfbh")
+times = 5
+hit_chance_decrease = 0.1
+stop_on_miss = true
+action = SubResource("Resource_a0qop")
+sequence_complete_action = SubResource("Resource_4bvoj")
+metadata/_graph_x = 80.0
+metadata/_graph_y = 380.0
+metadata/_graph_w = 416.0
+metadata/_graph_h = 286.0
+
+[sub_resource type="Resource" id="Resource_xeac1"]
+script = ExtResource("8_0eywa")
+actions = Array[ExtResource("1_r5kab")]([SubResource("Resource_dv3ey"), SubResource("Resource_427vy")])
+metadata/_graph_x = -380.0
+metadata/_graph_y = 440.0
+metadata/_graph_w = 262.0
+metadata/_graph_h = 256.0
+
+[resource]
+script = ExtResource("10_sg25h")
+name = "Magic Darts"
+description = "Fire up to 5 magic darts. 100% chance for first dart, 10% chance decrease for each dart. Each dart has a 25% chance to burn 10. If all 5 darts hit, the target becomes staggered."
+action = SubResource("Resource_xeac1")
+metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
+metadata/_graph_x = -520.0
+metadata/_graph_y = 100.0
+metadata/_graph_w = 574.0
+metadata/_graph_h = 272.0
+metadata/_external_layouts = {
+"uid://b5uv4uthbh2j6": {
+"h": 100.0,
+"w": 340.0,
+"x": 1700.0,
+"y": 60.0
+},
+"uid://q0hcx1ti141": {
+"h": 100.0,
+"w": 323.0,
+"x": 998.0,
+"y": 772.0
+}
+}

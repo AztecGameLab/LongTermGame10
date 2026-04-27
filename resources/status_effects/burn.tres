@@ -20,6 +20,7 @@ metadata/_custom_type_script = "uid://d0uvf6jnorxpw"
 [resource]
 script = ExtResource("2_ati8t")
 max_stacks = 50
+stack_decrease = 10
 description = "Deals 1 damage for each stack. Stacks decrease by 1 per-turn."
 triggers = Array[ExtResource("3_koph0")]([SubResource("Resource_ba18c")])
 name = "Burn"

@@ -1,0 +1,72 @@
+[gd_resource type="Resource" script_class="Ability" format=3 uid="uid://ct6luvxunm4ye"]
+
+[ext_resource type="Script" uid="uid://d0rap3gi3boj5" path="res://scripts/ability/action/damage_action.gd" id="1_6mqk5"]
+[ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="1_8jw48"]
+[ext_resource type="Script" uid="uid://xwcbloqu4nwu" path="res://scripts/ability/action/abstracts/action.gd" id="1_427vy"]
+[ext_resource type="Script" uid="uid://3xfxcysmuqdm" path="res://scripts/ability/action/repeat_action.gd" id="2_agl6e"]
+[ext_resource type="Script" uid="uid://dq0gts7suc1fg" path="res://scripts/ability/action/animation_action.gd" id="2_x0nb1"]
+[ext_resource type="Script" uid="uid://bewmys3bnrfj4" path="res://scripts/ability/action/wait_action.gd" id="3_x0nb1"]
+[ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="4_7e67t"]
+
+[sub_resource type="Resource" id="Resource_7e67t"]
+script = ExtResource("2_x0nb1")
+metadata/_graph_x = 740.0
+metadata/_graph_y = 40.0
+metadata/_graph_w = 282.0
+metadata/_graph_h = 100.0
+
+[sub_resource type="Resource" id="Resource_bdo0w"]
+script = ExtResource("1_6mqk5")
+damage_minimum = 17
+damage_maximum = 23
+can_miss = false
+metadata/_graph_x = 1400.0
+metadata/_graph_y = 200.0
+metadata/_graph_w = 390.0
+metadata/_graph_h = 238.0
+
+[sub_resource type="Resource" id="Resource_aansb"]
+script = ExtResource("3_x0nb1")
+timeout = 0.1
+metadata/_graph_x = 1360.0
+metadata/_graph_y = 560.0
+metadata/_graph_w = 287.0
+metadata/_graph_h = 142.0
+
+[sub_resource type="Resource" id="Resource_xdlqi"]
+script = ExtResource("4_7e67t")
+actions = Array[ExtResource("1_427vy")]([SubResource("Resource_bdo0w"), SubResource("Resource_aansb")])
+metadata/_graph_x = 1020.0
+metadata/_graph_y = 500.0
+metadata/_graph_w = 262.0
+metadata/_graph_h = 256.0
+
+[sub_resource type="Resource" id="Resource_427vy"]
+script = ExtResource("2_agl6e")
+times = 4
+hit_chance_decrease = 0.2
+stop_on_miss = true
+action = SubResource("Resource_xdlqi")
+metadata/_graph_x = 740.0
+metadata/_graph_y = 200.0
+metadata/_graph_w = 416.0
+metadata/_graph_h = 286.0
+
+[sub_resource type="Resource" id="Resource_wdn4d"]
+script = ExtResource("4_7e67t")
+actions = Array[ExtResource("1_427vy")]([SubResource("Resource_7e67t"), SubResource("Resource_427vy")])
+metadata/_graph_x = 340.0
+metadata/_graph_y = 460.0
+metadata/_graph_w = 262.0
+metadata/_graph_h = 256.0
+
+[resource]
+script = ExtResource("1_8jw48")
+name = "Magic Darts"
+description = "Fires up to 4 magic darts. 100% chance for first dart, 20% chance decrease for each dart"
+action = SubResource("Resource_wdn4d")
+metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
+metadata/_graph_x = 50.0
+metadata/_graph_y = 50.0
+metadata/_graph_w = 574.0
+metadata/_graph_h = 272.0

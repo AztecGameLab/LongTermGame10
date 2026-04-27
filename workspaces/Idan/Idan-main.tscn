@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cbi33r5foad57" path="res://scripts/battle_logic/battle_manager.gd" id="1_ajnnf"]
 [ext_resource type="Script" uid="uid://c2dcuh7wij0sh" path="res://scripts/battle_logic/characters/battle_character.gd" id="2_uoasj"]
 [ext_resource type="Script" uid="uid://d1o5abfusku1j" path="res://scripts/ability/base_ability.gd" id="3_63muo"]
-[ext_resource type="Resource" uid="uid://bpbnmjs6onsjr" path="res://resources/abilities/fortune/deflect/deflect_4.tres" id="4_qkabn"]
+[ext_resource type="Resource" uid="uid://ct6luvxunm4ye" path="res://resources/abilities/coralleine/magic darts/magic_darts_1.tres" id="4_qkabn"]
 [ext_resource type="Resource" uid="uid://c71y0pm2tt1g" path="res://resources/abilities/fortune/pierce/pierce_1.tres" id="4_u2gqj"]
 [ext_resource type="Script" uid="uid://doviul66xwvvb" path="res://workspaces/artemis/health_label.gd" id="8_ig0dn"]
 [ext_resource type="Script" uid="uid://b1qn3ek7b7ps4" path="res://workspaces/artemis/turn_label.gd" id="9_rgqam"]
