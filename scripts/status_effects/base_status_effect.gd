@@ -75,6 +75,9 @@ func _setup_container(_container: StatusEffectContainer) -> void:
 ## Returns the display name for this effect.
 func get_effect_name(_container: StatusEffectContainer) -> String:
 	return name
+	
+func get_icon(_container: StatusEffectContainer) -> Texture2D:
+	return icon
 
 ## Returns the description for this effect.
 @abstract func get_effect_description(_container: StatusEffectContainer) -> String;

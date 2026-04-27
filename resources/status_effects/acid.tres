@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="StatusEffect" format=3 uid="uid://dclil2frb31o2"]
 
 [ext_resource type="Script" uid="uid://c4rwprj6d61c0" path="res://scripts/status_effects/status_effect.gd" id="1_7bgau"]
+[ext_resource type="Texture2D" uid="uid://c6u7fbn78sfam" path="res://assets/status_effects/Corrode.png" id="1_gmejd"]
 [ext_resource type="Script" uid="uid://c2ci25gmhnb4w" path="res://scripts/status_effects/status_effect_stack.gd" id="2_8obdp"]
 [ext_resource type="Script" uid="uid://w6h7oqtjl61k" path="res://scripts/status_effects/status_effect_modifier.gd" id="3_hklba"]
 [ext_resource type="Script" uid="uid://d0uvf6jnorxpw" path="res://scripts/status_effects/status_effect_trigger.gd" id="4_gmejd"]
@@ -94,6 +95,7 @@ metadata/_graph_h = 333.0
 script = ExtResource("1_7bgau")
 stacks = Array[ExtResource("2_8obdp")]([SubResource("Resource_e0mhw"), SubResource("Resource_2fjc6"), SubResource("Resource_i5d12")])
 name = "Acid"
+icon = ExtResource("1_gmejd")
 metadata/_custom_type_script = "uid://c4rwprj6d61c0"
 metadata/_graph_x = -760.0
 metadata/_graph_y = 80.0

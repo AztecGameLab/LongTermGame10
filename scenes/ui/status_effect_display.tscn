@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://bcnnbba8ajdx6"]
+
+[ext_resource type="Script" uid="uid://duvtrvdd8wdog" path="res://scenes/ui/status_effect_display.gd" id="1_ulryo"]
+[ext_resource type="Texture2D" uid="uid://cn58wfn37rpao" path="res://assets/status_effects/Bleed.png" id="2_lmsgr"]
+[ext_resource type="FontFile" uid="uid://iq5jfqev2lp0" path="res://assets/ui/EmphasisFont_Knewave-Regular.ttf" id="2_ulryo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4rf34"]
+
+[node name="StatusEffectDisplay" type="PanelContainer" unique_id=1307456615]
+use_parent_material = true
+theme_override_styles/panel = SubResource("StyleBoxEmpty_4rf34")
+script = ExtResource("1_ulryo")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1220380172]
+use_parent_material = true
+layout_mode = 2
+texture = ExtResource("2_lmsgr")
+expand_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=226560719]
+use_parent_material = true
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_ulryo")
+theme_override_font_sizes/normal_font_size = 28
+text = "50"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
