@@ -8,8 +8,8 @@
 [sub_resource type="Resource" id="Resource_ru53i"]
 script = ExtResource("3_gtlt1")
 modifier_field = 1
-modifier_type = 1
-modifier_amount = 20.0
+modifier_type = 2
+modifier_amount = 1.2000000000000455
 metadata/_graph_x = 1110.5
 metadata/_graph_y = 325.0
 metadata/_graph_w = 714.0
