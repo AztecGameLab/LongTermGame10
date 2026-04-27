@@ -2,16 +2,42 @@
 
 [ext_resource type="Script" uid="uid://d0rap3gi3boj5" path="res://scripts/ability/action/damage_action.gd" id="1_civ4y"]
 [ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="1_njr5m"]
+[ext_resource type="Script" uid="uid://xwcbloqu4nwu" path="res://scripts/ability/action/abstracts/action.gd" id="1_wrtoy"]
+[ext_resource type="Script" uid="uid://dq0gts7suc1fg" path="res://scripts/ability/action/animation_action.gd" id="2_xi8qh"]
+[ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="4_d23bl"]
+
+[sub_resource type="Resource" id="Resource_nakd6"]
+script = ExtResource("2_xi8qh")
+metadata/_graph_x = 820.0
+metadata/_graph_y = -20.0
+metadata/_graph_w = 229.0
+metadata/_graph_h = 66.0
 
 [sub_resource type="Resource" id="Resource_jra4p"]
 script = ExtResource("1_civ4y")
 damage_minimum = 10
 damage_maximum = 40
 metadata/_custom_type_script = "uid://d0rap3gi3boj5"
+metadata/_graph_x = 880.0
+metadata/_graph_y = 200.0
+metadata/_graph_w = 260.0
+metadata/_graph_h = 165.0
+
+[sub_resource type="Resource" id="Resource_f8mhi"]
+script = ExtResource("4_d23bl")
+actions = Array[ExtResource("1_wrtoy")]([SubResource("Resource_nakd6"), SubResource("Resource_jra4p")])
+metadata/_graph_x = 520.0
+metadata/_graph_y = 60.0
+metadata/_graph_w = 220.0
+metadata/_graph_h = 177.0
 
 [resource]
 script = ExtResource("1_njr5m")
 name = "Pierce"
 description = "Damage the enemy."
-action = SubResource("Resource_jra4p")
+action = SubResource("Resource_f8mhi")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
+metadata/_graph_x = 50.0
+metadata/_graph_y = 50.0
+metadata/_graph_w = 384.0
+metadata/_graph_h = 204.0

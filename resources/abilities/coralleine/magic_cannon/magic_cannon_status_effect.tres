@@ -1,7 +1,0 @@
-[gd_resource type="Resource" script_class="MagicCannonStatusEffect" format=3 uid="uid://yre4ichska3w"]
-
-[ext_resource type="Script" uid="uid://ba8ypqy5sue4n" path="res://resources/abilities/coralleine/magic_cannon/magic_cannon_status_effect.gd" id="1_yfyfp"]
-
-[resource]
-script = ExtResource("1_yfyfp")
-metadata/_custom_type_script = "uid://ba8ypqy5sue4n"

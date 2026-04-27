@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="Ability" format=3 uid="uid://bhxvyx51280q5"]
+
+[ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="1_06o57"]
+[ext_resource type="Script" uid="uid://be5ru5snax08s" path="res://scripts/ability/action/apply_status_action.gd" id="1_67rfw"]
+[ext_resource type="Script" uid="uid://w6h7oqtjl61k" path="res://scripts/status_effects/status_effect_modifier.gd" id="2_l48bx"]
+[ext_resource type="Script" uid="uid://dot0bfh4ojuo7" path="res://scripts/status_effects/fading_status_effect.gd" id="3_8hm4w"]
+[ext_resource type="Script" uid="uid://d0uvf6jnorxpw" path="res://scripts/status_effects/status_effect_trigger.gd" id="4_syejt"]
+
+[sub_resource type="Resource" id="Resource_vix4e"]
+script = ExtResource("2_l48bx")
+metadata/_custom_type_script = "uid://w6h7oqtjl61k"
+
+[sub_resource type="Resource" id="Resource_sebey"]
+script = ExtResource("3_8hm4w")
+max_stacks = -1
+modifiers = Array[ExtResource("2_l48bx")]([SubResource("Resource_vix4e")])
+metadata/_custom_type_script = "uid://dot0bfh4ojuo7"
+
+[sub_resource type="Resource" id="Resource_bucol"]
+script = ExtResource("1_67rfw")
+status_effect = SubResource("Resource_sebey")
+metadata/_custom_type_script = "uid://be5ru5snax08s"
+
+[resource]
+script = ExtResource("1_06o57")
+name = "test"
+action = SubResource("Resource_bucol")
+metadata/_custom_type_script = "uid://ny1mjfoo1mqc"

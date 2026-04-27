@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cy60nwkkhatr8" path="res://scripts/ability/action/hit_chance_action.gd" id="1_xu3qn"]
 [ext_resource type="Script" uid="uid://xwcbloqu4nwu" path="res://scripts/ability/action/abstracts/action.gd" id="2_5e8pi"]
+[ext_resource type="Script" uid="uid://dq0gts7suc1fg" path="res://scripts/ability/action/animation_action.gd" id="2_j1wj7"]
 [ext_resource type="Script" uid="uid://d0rap3gi3boj5" path="res://scripts/ability/action/damage_action.gd" id="3_btms6"]
 [ext_resource type="Script" uid="uid://bihndepd0cudw" path="res://scripts/ability/action/static_damage_action.gd" id="4_5e8pi"]
 [ext_resource type="Script" uid="uid://be5ru5snax08s" path="res://scripts/ability/action/apply_status_action.gd" id="4_j1wj7"]
@@ -9,6 +10,10 @@
 [ext_resource type="Resource" uid="uid://q0hcx1ti141" path="res://resources/status_effects/staggered.tres" id="5_qx67u"]
 [ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="6_u3rxh"]
 [ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="7_hv7cx"]
+
+[sub_resource type="Resource" id="Resource_qx67u"]
+script = ExtResource("2_j1wj7")
+metadata/_custom_type_script = "uid://dq0gts7suc1fg"
 
 [sub_resource type="Resource" id="Resource_usqrj"]
 script = ExtResource("3_btms6")
@@ -35,6 +40,7 @@ metadata/_graph_h = 244.0
 script = ExtResource("5_btms6")
 status_effect = ExtResource("5_qx67u")
 fail_action = SubResource("Resource_btms6")
+override_target = true
 metadata/_graph_x = 1040.0
 metadata/_graph_y = 540.0
 metadata/_graph_w = 269.0
@@ -68,7 +74,7 @@ metadata/_graph_y = 480.0
 metadata/_graph_w = 262.0
 metadata/_graph_h = 310.0
 
-[sub_resource type="Resource" id="Resource_ayrhi"]
+[sub_resource type="Resource" id="Resource_u3rxh"]
 script = ExtResource("1_xu3qn")
 success_action = SubResource("Resource_fg2s0")
 metadata/_graph_x = 680.0
@@ -76,11 +82,16 @@ metadata/_graph_y = 160.0
 metadata/_graph_w = 372.0
 metadata/_graph_h = 190.0
 
+[sub_resource type="Resource" id="Resource_hv7cx"]
+script = ExtResource("6_u3rxh")
+actions = Array[ExtResource("2_5e8pi")]([SubResource("Resource_qx67u"), SubResource("Resource_u3rxh")])
+metadata/_custom_type_script = "uid://da17dshmjafs6"
+
 [resource]
 script = ExtResource("7_hv7cx")
 name = "Reckless Slash"
 description = "High Damage attack, Fortune takes damage too"
-action = SubResource("Resource_ayrhi")
+action = SubResource("Resource_hv7cx")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
 metadata/_graph_x = 20.0
 metadata/_graph_y = 160.0

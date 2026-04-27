@@ -30,7 +30,11 @@ enum Field {
 	INCOMING_HEALING,
 	
 	## Modifies the raw amount of healing done by any actions towards this character.
-	OUTGOING_HEALING
+	OUTGOING_HEALING,
+	
+	## Modifies the weight of this character when picking targets.
+	## All characters have a weight of 1.0 by default.
+	INCOMING_TARGET_CHANCE,
 }
 
 enum Type {

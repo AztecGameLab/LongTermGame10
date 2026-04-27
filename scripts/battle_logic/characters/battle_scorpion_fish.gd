@@ -1,0 +1,2 @@
+extends BattleCharacter
+class_name BattleScorpionFish

@@ -8,7 +8,9 @@ class_name ScalingDamageAction
 @export var can_miss: bool = true
 
 func run(context: ActionContext) -> void:
-	for target in resolve_targets(context):
+	var targets := resolve_targets(context)
+	for target in targets:
+		
 		if can_miss and not BattleManager.check_hit_success(context.source, target):
 			return
 

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="MagicCannon" format=3 uid="uid://btt4hfmyenawq"]
 
-[ext_resource type="Script" uid="uid://duv3y2fv5rpwl" path="res://resources/abilities/coralleine/magic_cannon/magic_cannon.gd" id="1_mx3dk"]
-[ext_resource type="Resource" uid="uid://yre4ichska3w" path="res://resources/abilities/coralleine/magic_cannon/magic_cannon_status_effect.tres" id="2_mdej5"]
+[ext_resource type="Script" uid="uid://duv3y2fv5rpwl" path="res://scripts/ability/magic_cannon.gd" id="1_mx3dk"]
+[ext_resource type="Resource" uid="uid://yre4ichska3w" path="res://resources/status_effects/magic_cannon_status_effect.tres" id="2_mdej5"]
 
 [resource]
 script = ExtResource("1_mx3dk")
