@@ -15,8 +15,12 @@ class_name RepeatAction
 ## For multiple actions you may use a [GroupAction]
 @export var action: Action
 
+## An action that happens if the full sequence completes (meaning everything hits)
+@export var sequence_complete_action: Action
+
 func run(context: ActionContext) -> void:
 	if action:
+		var action_successful := true 
 		var hit_chance := 1.0
 		for i in range(times):
 			var calc_chance := hit_chance
@@ -27,9 +31,18 @@ func run(context: ActionContext) -> void:
 			var success: bool = RNG.chance(calc_chance)
 			
 			if (not success):
+				print("dart miss")
+				action_successful = false
 				if stop_on_miss:
+					print("stopping...")
 					return
 				continue
 			
+			print("dart hit!")
 			await action.run(context)
 			hit_chance -= hit_chance_decrease
+		
+		# if the sequence fully completes, run sequence_complete_action
+		if action_successful and sequence_complete_action:
+			print("activating successful sequence action")
+			await sequence_complete_action.run(context)
