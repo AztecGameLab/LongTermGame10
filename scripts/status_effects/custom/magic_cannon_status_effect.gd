@@ -38,3 +38,6 @@ func on_damage_received(context: AttackContext, container: StatusEffectContainer
 func run_triggers(type: StatusEffectTrigger.Type, container: StatusEffectContainer) -> void:
 	if type == StatusEffectTrigger.Type.ON_TURN_END:
 		_iterate_state(container)
+		
+func get_remaining_turns(container: StatusEffectContainer) -> int:
+	return _get_state(container)
