@@ -7,7 +7,7 @@ func pick_abilities() -> Array[QueuedAction]:
 	var allies := characters
 	var enemies := battle_context.get_enemies(characters[0]).filter(func(c): return c.alive)
 	for character in get_alive_characters():
-		var ability: BaseAbility = character.abilities.pick_random()
+		var ability: BaseAbility = character.pick_ability(battle_context) if character.has_method(&"pick_ability") else character.abilities.pick_random()
 		if not ability:
 			continue
 			
