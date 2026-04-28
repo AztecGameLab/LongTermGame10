@@ -1,0 +1,57 @@
+[gd_resource type="Resource" script_class="StatusEffect" format=3 uid="uid://c027tbdjo4sh6"]
+
+[ext_resource type="Texture2D" uid="uid://c50u43yrto437" path="res://assets/status_effects/Poison.png" id="1_82j4v"]
+[ext_resource type="Script" uid="uid://c4rwprj6d61c0" path="res://scripts/status_effects/status_effect.gd" id="2_etb38"]
+[ext_resource type="Script" uid="uid://c2ci25gmhnb4w" path="res://scripts/status_effects/status_effect_stack.gd" id="3_h2apg"]
+[ext_resource type="Script" uid="uid://w6h7oqtjl61k" path="res://scripts/status_effects/status_effect_modifier.gd" id="4_ae3u7"]
+[ext_resource type="Script" uid="uid://d0uvf6jnorxpw" path="res://scripts/status_effects/status_effect_trigger.gd" id="5_3odem"]
+[ext_resource type="Script" uid="uid://bihndepd0cudw" path="res://scripts/ability/action/static_damage_action.gd" id="6_xy7bs"]
+
+[sub_resource type="Resource" id="Resource_82j4v"]
+script = ExtResource("6_xy7bs")
+damage = 10
+can_miss = false
+metadata/_custom_type_script = "uid://bihndepd0cudw"
+metadata/_graph_x = 0.0
+metadata/_graph_y = 0.0
+metadata/_graph_w = 384.0
+metadata/_graph_h = 240.0
+
+[sub_resource type="Resource" id="Resource_etb38"]
+script = ExtResource("5_3odem")
+trigger_type = 1
+action = SubResource("Resource_82j4v")
+metadata/_custom_type_script = "uid://d0uvf6jnorxpw"
+metadata/_graph_x = 0.0
+metadata/_graph_y = 0.0
+metadata/_graph_w = 505.0
+metadata/_graph_h = 187.0
+
+[sub_resource type="Resource" id="Resource_h2apg"]
+script = ExtResource("3_h2apg")
+description = "Deals 10 damage"
+triggers = Array[ExtResource("5_3odem")]([SubResource("Resource_etb38")])
+metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
+metadata/_graph_x = 0.0
+metadata/_graph_y = 0.0
+metadata/_graph_w = 367.0
+metadata/_graph_h = 394.0
+
+[resource]
+script = ExtResource("2_etb38")
+stacks = Array[ExtResource("3_h2apg")]([SubResource("Resource_h2apg")])
+name = "Venomous Poison"
+icon = ExtResource("1_82j4v")
+metadata/_custom_type_script = "uid://c4rwprj6d61c0"
+metadata/_graph_x = 50.0
+metadata/_graph_y = 50.0
+metadata/_graph_w = 468.0
+metadata/_graph_h = 508.0
+metadata/_external_layouts = {
+"uid://c50u43yrto437": {
+"h": 125.0,
+"w": 309.0,
+"x": 812.0,
+"y": 118.5
+}
+}

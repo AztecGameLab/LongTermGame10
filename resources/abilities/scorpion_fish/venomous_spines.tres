@@ -1,0 +1,62 @@
+[gd_resource type="Resource" script_class="Ability" format=3 uid="uid://c0it6depr50y3"]
+
+[ext_resource type="Script" uid="uid://xwcbloqu4nwu" path="res://scripts/ability/action/abstracts/action.gd" id="1_gueu0"]
+[ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="1_xn8n0"]
+[ext_resource type="Script" uid="uid://dq0gts7suc1fg" path="res://scripts/ability/action/animation_action.gd" id="2_immvh"]
+[ext_resource type="Script" uid="uid://d0rap3gi3boj5" path="res://scripts/ability/action/damage_action.gd" id="3_erkb2"]
+[ext_resource type="Script" uid="uid://be5ru5snax08s" path="res://scripts/ability/action/apply_status_action.gd" id="4_r6xqy"]
+[ext_resource type="Resource" uid="uid://c027tbdjo4sh6" path="res://resources/status_effects/scorpion_fish/venomous_spines_poison.tres" id="5_immvh"]
+[ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="5_tpth2"]
+
+[sub_resource type="Resource" id="Resource_2hi2t"]
+script = ExtResource("2_immvh")
+metadata/_graph_x = 1830.5
+metadata/_graph_y = 154.0
+metadata/_graph_w = 376.0
+metadata/_graph_h = 126.0
+
+[sub_resource type="Resource" id="Resource_sf75s"]
+script = ExtResource("3_erkb2")
+damage_minimum = 20
+damage_maximum = 20
+metadata/_graph_x = 1860.0
+metadata/_graph_y = 400.0
+metadata/_graph_w = 520.0
+metadata/_graph_h = 301.0
+
+[sub_resource type="Resource" id="Resource_klx6t"]
+script = ExtResource("4_r6xqy")
+status_effect = ExtResource("5_immvh")
+max_stacks = 1
+metadata/_graph_x = 1849.0
+metadata/_graph_y = 829.0
+metadata/_graph_w = 486.0
+metadata/_graph_h = 362.0
+
+[sub_resource type="Resource" id="Resource_obuuk"]
+script = ExtResource("5_tpth2")
+actions = Array[ExtResource("1_gueu0")]([SubResource("Resource_2hi2t"), SubResource("Resource_sf75s"), SubResource("Resource_klx6t")])
+delay = 0.3
+metadata/_graph_x = 1119.5
+metadata/_graph_y = 330.0
+metadata/_graph_w = 349.0
+metadata/_graph_h = 394.0
+
+[resource]
+script = ExtResource("1_xn8n0")
+name = "Venomous Spines"
+description = "Deals 20 damage, applys a poison that deals 10 damage each turn"
+action = SubResource("Resource_obuuk")
+metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
+metadata/_graph_x = 50.0
+metadata/_graph_y = 50.0
+metadata/_graph_w = 766.0
+metadata/_graph_h = 337.0
+metadata/_external_layouts = {
+"uid://c027tbdjo4sh6": {
+"h": 126.0,
+"w": 626.0,
+"x": 2476.0,
+"y": 1055.5
+}
+}
