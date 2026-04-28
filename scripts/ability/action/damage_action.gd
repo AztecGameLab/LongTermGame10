@@ -19,4 +19,4 @@ func run(context: ActionContext) -> void:
 			damage_bias = context.source.get_modified_field(StatusEffectModifier.Field.OUTGOING_DAMAGE_RNG_BIAS)
 		var damage := RNG.curve_with_bias(damage_minimum, damage_maximum, damage_bias)
 
-		BattleManager.apply_damage(damage, context.source, target)
+		await BattleManager.apply_damage(damage, context.source, target)

@@ -25,8 +25,8 @@ static func apply_damage(damage: int, source: BattleCharacter, target: BattleCha
 
 	if source:
 		source.on_damage_dealt(context)
-	target.on_damage_received(context)
-	target.on_attacked(context)
+	await target.on_damage_received(context)
+	await target.on_attacked(context)
 
 static func apply_healing(healing: int, source: BattleCharacter, target: BattleCharacter) -> void:
 	if source:

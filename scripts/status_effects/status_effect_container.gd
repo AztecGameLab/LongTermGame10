@@ -26,7 +26,7 @@ func modify_value(field: StatusEffectModifier.Field, value: float) -> float:
 	return effect.modify_value(field, value, self)
 
 func run_triggers(trigger: StatusEffectTrigger.Type) -> void:
-	return effect.run_triggers(trigger, self)
+	await effect.run_triggers(trigger, self)
 	
 func get_remaining_turns() -> int:
 	return effect.get_remaining_turns(self)
