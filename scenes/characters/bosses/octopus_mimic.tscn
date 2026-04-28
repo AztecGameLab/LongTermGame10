@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://djn3ehpg2h4n4" path="res://scripts/battle_logic/characters/battle_mimic.gd" id="1_ybpql"]
 [ext_resource type="Script" uid="uid://d1o5abfusku1j" path="res://scripts/ability/base_ability.gd" id="2_ybpql"]
 [ext_resource type="Resource" uid="uid://d2t1cx1cloogc" path="res://resources/abilities/mimic/tentacle_multi_attack.tres" id="3_go14q"]
+[ext_resource type="Resource" uid="uid://caavhd6elo4fg" path="res://resources/abilities/mimic/mimicking_deflect.tres" id="4_ybpql"]
+[ext_resource type="Resource" uid="uid://c3dyqi2y6p8ee" path="res://resources/abilities/mimic/mimicking_magic_darts.tres" id="5_gsagc"]
 [ext_resource type="Shader" uid="uid://ctt5na6ppy7cj" path="res://scripts/shader/desaturate.gdshader" id="5_u6qu7"]
 [ext_resource type="Texture2D" uid="uid://82tbpfhgynbf" path="res://assets/sprites/octopus_mimic/attack octo sprite.png" id="6_go14q"]
 [ext_resource type="Texture2D" uid="uid://duonu4gb0haaw" path="res://assets/sprites/octopus_mimic/idle octo final.png" id="6_lo1md"]
@@ -367,7 +369,7 @@ animations = [{
 scale = Vector2(0.75, 0.75)
 script = ExtResource("1_ybpql")
 character_name = "The Mimic"
-abilities = Array[ExtResource("2_ybpql")]([ExtResource("3_go14q")])
+abilities = Array[ExtResource("2_ybpql")]([ExtResource("3_go14q"), ExtResource("4_ybpql"), ExtResource("5_gsagc")])
 metadata/_custom_type_script = "uid://djn3ehpg2h4n4"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=204606312]
