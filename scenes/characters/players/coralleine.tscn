@@ -339,6 +339,7 @@ animations = [{
 scale = Vector2(0.75, 0.75)
 script = ExtResource("1_vagx6")
 character_name = "Coralleine"
+max_health = 100
 abilities = Array[ExtResource("2_j65q7")]([ExtResource("3_2nj27"), ExtResource("4_l1ybd"), ExtResource("5_vdvcc"), ExtResource("6_2nj27")])
 metadata/_custom_type_script = "uid://csfpgu4388244"
 
