@@ -1,0 +1,50 @@
+[gd_resource type="Resource" script_class="Ability" format=3 uid="uid://by15ayc1hyli2"]
+
+[ext_resource type="Script" uid="uid://xwcbloqu4nwu" path="res://scripts/ability/action/abstracts/action.gd" id="1_3ywaq"]
+[ext_resource type="Script" uid="uid://dq0gts7suc1fg" path="res://scripts/ability/action/animation_action.gd" id="2_3yk76"]
+[ext_resource type="Script" uid="uid://be5ru5snax08s" path="res://scripts/ability/action/apply_status_action.gd" id="3_4g6n2"]
+[ext_resource type="Resource" uid="uid://c5vl6t7y3qqlx" path="res://resources/status_effects/invisible/invisible_2.tres" id="4_3ywaq"]
+[ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="5_aplhm"]
+[ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="6_ptvpi"]
+
+[sub_resource type="Resource" id="Resource_ijstw"]
+script = ExtResource("2_3yk76")
+animation = 2
+metadata/_custom_type_script = "uid://dq0gts7suc1fg"
+metadata/_graph_x = 0.0
+metadata/_graph_y = 0.0
+metadata/_graph_w = 220.0
+metadata/_graph_h = 55.0
+
+[sub_resource type="Resource" id="Resource_lmhse"]
+script = ExtResource("3_4g6n2")
+applied_stacks = 2
+upgrade_stacks = 2
+status_effect = ExtResource("4_3ywaq")
+metadata/_custom_type_script = "uid://be5ru5snax08s"
+metadata/_graph_x = 0.0
+metadata/_graph_y = 0.0
+metadata/_graph_w = 220.0
+metadata/_graph_h = 55.0
+
+[sub_resource type="Resource" id="Resource_kjwq0"]
+script = ExtResource("5_aplhm")
+actions = Array[ExtResource("1_3ywaq")]([SubResource("Resource_ijstw"), SubResource("Resource_lmhse")])
+metadata/_custom_type_script = "uid://da17dshmjafs6"
+metadata/_graph_x = 0.0
+metadata/_graph_y = 0.0
+metadata/_graph_w = 220.0
+metadata/_graph_h = 55.0
+
+[resource]
+script = ExtResource("6_ptvpi")
+name = "Invisibility"
+description = "- Low chance of being targeted, more likely as the effect wears off.
+- Stronger attacks, but they might break the effect."
+move_target_type = 3
+action = SubResource("Resource_kjwq0")
+metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
+metadata/_graph_x = 50.0
+metadata/_graph_y = 50.0
+metadata/_graph_w = 220.0
+metadata/_graph_h = 55.0

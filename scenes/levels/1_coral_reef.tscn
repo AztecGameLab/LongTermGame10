@@ -22,7 +22,6 @@ centered = false
 
 [node name="Umi" parent="." unique_id=34133432 instance=ExtResource("3_m8s2v")]
 position = Vector2(937.00006, 674)
-max_health = 75
 
 [node name="HealthBar" parent="Umi" unique_id=1562969593 instance=ExtResource("8_walo4")]
 offset_left = -126.66675
@@ -32,7 +31,6 @@ offset_bottom = -396.0
 
 [node name="Fortune" parent="." unique_id=724902013 instance=ExtResource("2_a4rq4")]
 position = Vector2(762.00006, 794.00006)
-max_health = 75
 
 [node name="HealthBar" parent="Fortune" unique_id=593496078 instance=ExtResource("8_walo4")]
 offset_left = -126.66675
@@ -42,7 +40,6 @@ offset_bottom = -429.3334
 
 [node name="Coralleine" parent="." unique_id=1190915457 instance=ExtResource("1_0umlr")]
 position = Vector2(592, 914.00006)
-max_health = 75
 
 [node name="HealthBar" parent="Coralleine" unique_id=759737278 instance=ExtResource("8_walo4")]
 offset_left = -126.666664

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="InvisibleStatusEffect" format=3 uid="uid://cibdelumw76op"]
+
+[ext_resource type="Texture2D" uid="uid://bnl6t8rp13jgx" path="res://assets/status_effects/Invisible.png" id="1_xxo5w"]
+[ext_resource type="Script" uid="uid://6bqtnmknytyp" path="res://scripts/status_effects/custom/invisible_status_effect.gd" id="2_gdomc"]
+
+[resource]
+script = ExtResource("2_gdomc")
+max_stacks = 3
+bonus_damage_percentage = 0.5
+blocks_damage = true
+name = "Invisible"
+icon = ExtResource("1_xxo5w")
+effect_type = 0
+metadata/_custom_type_script = "uid://6bqtnmknytyp"
