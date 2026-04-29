@@ -1,0 +1,59 @@
+[gd_resource type="Resource" script_class="DamageTakenBasedStatusEffect" format=3 uid="uid://dha1r73qn70k7"]
+
+[ext_resource type="Script" uid="uid://w6h7oqtjl61k" path="res://scripts/status_effects/status_effect_modifier.gd" id="1_qyagd"]
+[ext_resource type="Texture2D" uid="uid://d2pcv17lpmlcp" path="res://assets/status_effects/Decoy.png" id="2_7q27p"]
+[ext_resource type="Script" uid="uid://bfrfeh04xxg16" path="res://scripts/status_effects/damage_taken_based_status_effect.gd" id="3_w40hg"]
+[ext_resource type="Script" uid="uid://be5ru5snax08s" path="res://scripts/ability/action/apply_status_action.gd" id="4_8s8mk"]
+[ext_resource type="Script" uid="uid://d0uvf6jnorxpw" path="res://scripts/status_effects/status_effect_trigger.gd" id="4_pjfgw"]
+[ext_resource type="Resource" uid="uid://ddha1ldel8l71" path="res://resources/status_effects/gilmora/poison.tres" id="5_7q27p"]
+
+[sub_resource type="Resource" id="Resource_uliur"]
+script = ExtResource("4_8s8mk")
+applied_stacks = 3
+upgrade_stacks = 0
+status_effect = ExtResource("5_7q27p")
+max_stacks = 10
+override_target = true
+action_target = 2
+metadata/_graph_x = 1623.0
+metadata/_graph_y = 551.0
+metadata/_graph_w = 705.0
+metadata/_graph_h = 431.0
+
+[sub_resource type="Resource" id="Resource_h07em"]
+script = ExtResource("4_pjfgw")
+trigger_type = 2
+action = SubResource("Resource_uliur")
+metadata/_graph_x = 800.0
+metadata/_graph_y = 400.0
+metadata/_graph_w = 680.0
+metadata/_graph_h = 187.0
+
+[resource]
+script = ExtResource("3_w40hg")
+damage_type = 0
+triggers = Array[ExtResource("4_pjfgw")]([SubResource("Resource_h07em")])
+max_stacks = 1
+duration_turns = 2
+name = "Toxic Spikes"
+icon = ExtResource("2_7q27p")
+effect_type = 0
+metadata/_custom_type_script = "uid://bfrfeh04xxg16"
+metadata/_graph_x = -80.0
+metadata/_graph_y = 100.0
+metadata/_graph_w = 563.0
+metadata/_graph_h = 715.0
+metadata/_external_layouts = {
+"uid://d2pcv17lpmlcp": {
+"h": 125.0,
+"w": 304.0,
+"x": 879.5,
+"y": 211.5
+},
+"uid://ddha1ldel8l71": {
+"h": 126.0,
+"w": 376.0,
+"x": 2469.0,
+"y": 777.5
+}
+}

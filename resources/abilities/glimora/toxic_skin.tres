@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="Ability" format=3 uid="uid://dhd55qyta6sie"]
+
+[ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="1_dhy5r"]
+[ext_resource type="Script" uid="uid://be5ru5snax08s" path="res://scripts/ability/action/apply_status_action.gd" id="1_k0siq"]
+[ext_resource type="Resource" uid="uid://dha1r73qn70k7" path="res://resources/status_effects/gilmora/toxic_spikes.tres" id="2_h6uah"]
+
+[sub_resource type="Resource" id="Resource_i8ckn"]
+script = ExtResource("1_k0siq")
+status_effect = ExtResource("2_h6uah")
+max_stacks = 1
+metadata/_graph_x = -42.0
+metadata/_graph_y = 379.0
+metadata/_graph_w = 486.0
+metadata/_graph_h = 362.0
+
+[resource]
+script = ExtResource("1_dhy5r")
+name = "Toxic Skin"
+description = "Gains status that poisons attackers for 1 turn."
+move_target_type = 0
+action = SubResource("Resource_i8ckn")
+metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
+metadata/_graph_x = -1100.0
+metadata/_graph_y = 120.0
+metadata/_graph_w = 766.0
+metadata/_graph_h = 337.0
+metadata/_external_layouts = {
+"uid://dha1r73qn70k7": {
+"h": 126.0,
+"w": 743.0,
+"x": 714.5,
+"y": 614.0
+}
+}
