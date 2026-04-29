@@ -17,4 +17,4 @@ func run(context: ActionContext) -> void:
 		var stack_count := context.container.stacks if context.container else 1
 		var total_damage := damage_per_stack * stack_count
 
-		BattleManager.apply_damage(total_damage, context.source, target)
+		await BattleManager.apply_damage(total_damage, context.source, target)
