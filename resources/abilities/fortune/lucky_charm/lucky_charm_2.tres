@@ -1,18 +1,38 @@
 [gd_resource type="Resource" script_class="Ability" format=3 uid="uid://08pycirc107h"]
 
 [ext_resource type="Script" uid="uid://be5ru5snax08s" path="res://scripts/ability/action/apply_status_action.gd" id="1_2gde0"]
+[ext_resource type="Script" uid="uid://xwcbloqu4nwu" path="res://scripts/ability/action/abstracts/action.gd" id="1_gdw2p"]
 [ext_resource type="Resource" uid="uid://cdouutpu8rmxs" path="res://resources/status_effects/lucky_charm.tres" id="2_2e3ws"]
+[ext_resource type="Script" uid="uid://dq0gts7suc1fg" path="res://scripts/ability/action/animation_action.gd" id="2_vv74b"]
 [ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="3_tdq5d"]
+[ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="5_w03tc"]
+
+[sub_resource type="Resource" id="Resource_2k2fr"]
+script = ExtResource("2_vv74b")
+animation = 2
+metadata/_graph_x = 780.0
+metadata/_graph_y = 40.0
+metadata/_graph_w = 229.0
+metadata/_graph_h = 66.0
 
 [sub_resource type="Resource" id="Resource_jlf7w"]
 script = ExtResource("1_2gde0")
 applied_stacks = 2
 upgrade_stacks = 2
 status_effect = ExtResource("2_2e3ws")
-metadata/_graph_x = 580.0
-metadata/_graph_y = 40.0
+max_stacks = 2
+metadata/_graph_x = 760.0
+metadata/_graph_y = 160.0
 metadata/_graph_w = 243.0
-metadata/_graph_h = 201.99991
+metadata/_graph_h = 202.0
+
+[sub_resource type="Resource" id="Resource_rucsd"]
+script = ExtResource("5_w03tc")
+actions = Array[ExtResource("1_gdw2p")]([SubResource("Resource_2k2fr"), SubResource("Resource_jlf7w")])
+metadata/_graph_x = 500.0
+metadata/_graph_y = 60.0
+metadata/_graph_w = 220.0
+metadata/_graph_h = 177.0
 
 [resource]
 script = ExtResource("3_tdq5d")
@@ -20,17 +40,17 @@ name = "Lucky Charm"
 description = "For the next 3 turns, you have:
 - Increased luck by 10%"
 move_target_type = 3
-action = SubResource("Resource_jlf7w")
+action = SubResource("Resource_rucsd")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
 metadata/_graph_x = 50.0
 metadata/_graph_y = 50.0
-metadata/_graph_w = 384.00018
-metadata/_graph_h = 252.00005
+metadata/_graph_w = 384.0
+metadata/_graph_h = 252.0
 metadata/_external_layouts = {
 "uid://cdouutpu8rmxs": {
-"h": 80.000046,
-"w": 259.99976,
-"x": 940.0,
-"y": 120.0
+"h": 80.0,
+"w": 260.0,
+"x": 1180.0,
+"y": 160.0
 }
 }

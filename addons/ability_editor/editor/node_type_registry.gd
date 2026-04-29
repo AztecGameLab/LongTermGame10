@@ -16,6 +16,7 @@ const CLASS_PORT_TYPES := {
 	"Action": PT.ACTION,
 	"TargetAction": PT.ACTION,
 	"BaseStatusEffect": PT.STATUS_EFFECT,
+	"ConcentrationStatusEffect": PT.CONCENTRATION_STATUS_EFFECT,
 	"StatusEffectStack": PT.STACK,
 	"StatusEffectModifier": PT.MODIFIER,
 	"StatusEffectTrigger": PT.TRIGGER,
@@ -34,7 +35,9 @@ const _BASE_SCRIPT_PORT_TYPE_UIDS := {
 	"uid://dwogyp2cbh5l1": PT.STATUS_EFFECT, # base_status_effect.gd
 	"uid://c4rwprj6d61c0": PT.STATUS_EFFECT, # status_effect.gd
 	"uid://dot0bfh4ojuo7": PT.STATUS_EFFECT, # fading_status_effect.gd
-	"uid://dasiej7totk8c": PT.STATUS_EFFECT, # concentration_status_effect.gd
+	"uid://bi1e7lb1ut2hj": PT.STATUS_EFFECT, # scaling_status_effect.gd
+	"uid://bfrfeh04xxg16": PT.STATUS_EFFECT, # damage_taken_based_status_effect.gd
+	"uid://dasiej7totk8c": PT.CONCENTRATION_STATUS_EFFECT, # concentration_status_effect.gd
 	"uid://c2ci25gmhnb4w": PT.STACK,        # status_effect_stack.gd
 	"uid://w6h7oqtjl61k": PT.MODIFIER,      # status_effect_modifier.gd
 	"uid://d0uvf6jnorxpw": PT.TRIGGER,      # status_effect_trigger.gd
@@ -56,13 +59,16 @@ static func _build_types() -> void:
 			_BASE_SCRIPT_PORT_TYPES[script.resource_path] = _BASE_SCRIPT_PORT_TYPE_UIDS[uid]
 
 	_reg("Ability", "Ability", "uid://ny1mjfoo1mqc", "Root")
+	_reg("ConcentrationAbility", "Concentration Ability", "uid://fe5c3bvlmltj", "Root")
 
 	_reg("DamageAction", "Damage", "uid://d0rap3gi3boj5", "Actions / Target")
 	_reg("StaticDamageAction", "Static Damage", "uid://bihndepd0cudw", "Actions / Target")
 	_reg("ScalingDamageAction", "Scaling Damage", "uid://ba2qm14bj1fq", "Actions / Target")
+	_reg("DamageTakenBasedAttackAction", "Damage Taken Based Attack", "uid://da04mqqqleenk", "Actions / Target")
 	_reg("HealAction", "Heal", "uid://c84i4tkx4t6au", "Actions / Target")
 	_reg("ApplyStatusAction", "Apply Status", "uid://be5ru5snax08s", "Actions / Target")
 	_reg("RemoveStatusAction", "Remove Status", "uid://4uj0ujy2m4of", "Actions / Target")
+	_reg("CheckForStatusAction", "Check For Status", "uid://bautp0yeecvro", "Actions / Target")
 	_reg("WaitAction", "Wait", "uid://bewmys3bnrfj4", "Actions / Target")
 
 	_reg("GroupAction", "Group", "uid://da17dshmjafs6", "Actions / Flow")
@@ -70,9 +76,13 @@ static func _build_types() -> void:
 	_reg("LuckChanceAction", "Luck Chance", "uid://dkyoonc2qagl3", "Actions / Flow")
 	_reg("RepeatAction", "Repeat", "uid://3xfxcysmuqdm", "Actions / Flow")
 	_reg("RetargetAction", "Retarget", "uid://cm0yl4tfwdkhn", "Actions / Flow")
+	
+	_reg("AnimationAction", "Animation", "uid://dq0gts7suc1fg", "Actions / Flow")
 
 	_reg("StatusEffect", "Status Effect", "uid://c4rwprj6d61c0", "Status Effects")
 	_reg("FadingStatusEffect", "Fading Status Effect", "uid://dot0bfh4ojuo7", "Status Effects")
+	_reg("ScalingStatusEffect", "Scaling Status Effect", "uid://bi1e7lb1ut2hj", "Status Effects")
+	_reg("DamageTakenBasedStatusEffect", "Damage Taken Based Status Effect", "uid://bfrfeh04xxg16", "Status Effects")
 	_reg("ConcentrationStatusEffect", "Concentration Status Effect", "uid://dasiej7totk8c", "Status Effects")
 
 	_reg("StatusEffectStack", "Stack", "uid://c2ci25gmhnb4w", "Components")
@@ -171,7 +181,7 @@ static func get_types_for_port_type(port_type: int) -> Array:
 
 
 # Port types that should always reference external .tres files (never inline).
-const ALWAYS_EXTERNAL_PORT_TYPES := [PT.STATUS_EFFECT, PT.TEXTURE]
+const ALWAYS_EXTERNAL_PORT_TYPES := [PT.STATUS_EFFECT, PT.CONCENTRATION_STATUS_EFFECT, PT.TEXTURE]
 
 
 # ── Property introspection utilities (shared with factory + serializer) ──

@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://cj4h68lkbbwkt"]
+
+[ext_resource type="Script" uid="uid://ipos1tsu6bfm" path="res://scenes/ui/ability_select.gd" id="1_bw0a7"]
+[ext_resource type="PackedScene" uid="uid://bxrdvjrrvpyfd" path="res://scenes/ui/paper_panel.tscn" id="2_0mh3k"]
+[ext_resource type="FontFile" uid="uid://b36l0tnkhtkdw" path="res://assets/ui/GenFont_Mansalva-Regular.ttf" id="2_bw0a7"]
+[ext_resource type="Texture2D" uid="uid://0givt5uiw6ut" path="res://assets/ui/AbilitySelectUI.png" id="4_0mh3k"]
+
+[node name="AbilitySelect" type="CanvasLayer" unique_id=844678139]
+script = ExtResource("1_bw0a7")
+metadata/_edit_vertical_guides_ = [425.0]
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1974818722]
+unique_name_in_owner = true
+offset_left = -16.0
+offset_right = 462.0
+offset_bottom = 1080.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1390958995]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=1230082691]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 50
+
+[node name="NamePanel" parent="MarginContainer/VBoxContainer/MarginContainer" unique_id=695098869 instance=ExtResource("2_0mh3k")]
+layout_mode = 2
+
+[node name="Name" type="RichTextLabel" parent="MarginContainer/VBoxContainer/MarginContainer/NamePanel" unique_id=953532248]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.29885206, 0.1870234, 0.09397287, 1)
+theme_override_fonts/normal_font = ExtResource("2_bw0a7")
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+text = "Coralleine"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Body" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=103304652]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("4_0mh3k")
+stretch_mode = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Body" unique_id=1914955346]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 70
+theme_override_constants/margin_top = 140
+theme_override_constants/margin_right = 83
+theme_override_constants/margin_bottom = 226
+
+[node name="MoveContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Body/MarginContainer" unique_id=941431289]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 21
+
+[node name="Labels" type="Control" parent="MarginContainer/VBoxContainer/Body/MarginContainer" unique_id=1972913511]
+layout_mode = 2
+
+[node name="Character" type="RichTextLabel" parent="MarginContainer/VBoxContainer/Body/MarginContainer/Labels" unique_id=325585947]
+layout_mode = 0
+offset_left = 32.999992
+offset_top = 678.0
+offset_right = 135.0
+offset_bottom = 720.0
+rotation = -0.114901155
+theme_override_colors/default_color = Color(0.41960785, 0.23137255, 0.09019608, 1)
+theme_override_fonts/normal_font = ExtResource("2_bw0a7")
+theme_override_font_sizes/normal_font_size = 20
+text = "Character"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Move" type="RichTextLabel" parent="MarginContainer/VBoxContainer/Body/MarginContainer/Labels" unique_id=2144780504]
+layout_mode = 0
+offset_left = 114.0
+offset_top = 647.0
+offset_right = 205.0
+offset_bottom = 699.0
+theme_override_colors/default_color = Color(0.41960785, 0.23137255, 0.09019608, 1)
+theme_override_fonts/normal_font = ExtResource("2_bw0a7")
+theme_override_font_sizes/normal_font_size = 20
+text = "Move"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Confirm" type="RichTextLabel" parent="MarginContainer/VBoxContainer/Body/MarginContainer/Labels" unique_id=2104627943]
+layout_mode = 0
+offset_left = 195.00002
+offset_top = 653.00006
+offset_right = 306.0
+offset_bottom = 699.00006
+rotation = 0.15304668
+theme_override_colors/default_color = Color(0.41960785, 0.23137255, 0.09019608, 1)
+theme_override_fonts/normal_font = ExtResource("2_bw0a7")
+theme_override_font_sizes/normal_font_size = 20
+text = "Confirm"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://rb6hbhelm4lq"]
+
+[ext_resource type="Script" uid="uid://q64xmrfvd1oa" path="res://scenes/ui/health_bar.gd" id="1_1vcc2"]
+[ext_resource type="Shader" uid="uid://dy2mivo3btmpt" path="res://scripts/shader/ignore_transparent.gdshader" id="1_qi2ti"]
+[ext_resource type="PackedScene" uid="uid://bcnnbba8ajdx6" path="res://scenes/ui/status_effect_display.tscn" id="3_sr7kk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qi2ti"]
+shader = ExtResource("1_qi2ti")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1vcc2"]
+bg_color = Color(0.052500002, 0.07, 0.056583334, 1)
+
+[node name="HealthBar" type="Panel" unique_id=1562969593]
+material = SubResource("ShaderMaterial_qi2ti")
+offset_right = 377.0
+offset_bottom = 47.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_1vcc2")
+script = ExtResource("1_1vcc2")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1158606300]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Health" type="ColorRect" parent="MarginContainer" unique_id=1601378538]
+unique_name_in_owner = true
+use_parent_material = true
+layout_mode = 2
+color = Color(0, 1, 0, 1)
+
+[node name="Control" type="Control" parent="." unique_id=34102057]
+use_parent_material = true
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="StatusEffectContainer" type="HBoxContainer" parent="Control" unique_id=921661293]
+unique_name_in_owner = true
+use_parent_material = true
+layout_mode = 0
+offset_top = -61.0
+offset_right = 377.0
+
+[node name="StatusEffectDisplay" parent="Control/StatusEffectContainer" unique_id=1307456615 instance=ExtResource("3_sr7kk")]
+layout_mode = 2
+
+[node name="StatusEffectDisplay2" parent="Control/StatusEffectContainer" unique_id=810865326 instance=ExtResource("3_sr7kk")]
+layout_mode = 2
+
+[node name="StatusEffectDisplay3" parent="Control/StatusEffectContainer" unique_id=1945879813 instance=ExtResource("3_sr7kk")]
+layout_mode = 2

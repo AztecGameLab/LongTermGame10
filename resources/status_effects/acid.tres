@@ -1,0 +1,103 @@
+[gd_resource type="Resource" script_class="StatusEffect" format=3 uid="uid://dclil2frb31o2"]
+
+[ext_resource type="Script" uid="uid://c4rwprj6d61c0" path="res://scripts/status_effects/status_effect.gd" id="1_7bgau"]
+[ext_resource type="Texture2D" uid="uid://c6u7fbn78sfam" path="res://assets/status_effects/Corrode.png" id="1_gmejd"]
+[ext_resource type="Script" uid="uid://c2ci25gmhnb4w" path="res://scripts/status_effects/status_effect_stack.gd" id="2_8obdp"]
+[ext_resource type="Script" uid="uid://w6h7oqtjl61k" path="res://scripts/status_effects/status_effect_modifier.gd" id="3_hklba"]
+[ext_resource type="Script" uid="uid://d0uvf6jnorxpw" path="res://scripts/status_effects/status_effect_trigger.gd" id="4_gmejd"]
+[ext_resource type="Script" uid="uid://bihndepd0cudw" path="res://scripts/ability/action/static_damage_action.gd" id="5_2fjc6"]
+
+[sub_resource type="Resource" id="Resource_bnbul"]
+script = ExtResource("5_2fjc6")
+damage = 20
+can_miss = false
+metadata/_custom_type_script = "uid://bihndepd0cudw"
+metadata/_graph_x = 1460.0
+metadata/_graph_y = 80.0
+metadata/_graph_w = 384.0
+metadata/_graph_h = 240.0
+
+[sub_resource type="Resource" id="Resource_lme4l"]
+script = ExtResource("4_gmejd")
+trigger_type = 1
+action = SubResource("Resource_bnbul")
+metadata/_custom_type_script = "uid://d0uvf6jnorxpw"
+metadata/_graph_x = 640.0
+metadata/_graph_y = 40.0
+metadata/_graph_w = 505.0
+metadata/_graph_h = 187.0
+
+[sub_resource type="Resource" id="Resource_e0mhw"]
+script = ExtResource("2_8obdp")
+description = "Deal 20 Damage each turn"
+triggers = Array[ExtResource("4_gmejd")]([SubResource("Resource_lme4l")])
+metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
+metadata/_graph_x = -140.0
+metadata/_graph_y = -280.0
+metadata/_graph_w = 660.0
+metadata/_graph_h = 440.0
+
+[sub_resource type="Resource" id="Resource_hklba"]
+script = ExtResource("5_2fjc6")
+damage = 30
+can_miss = false
+metadata/_graph_x = 1420.0
+metadata/_graph_y = 661.0
+metadata/_graph_w = 384.0
+metadata/_graph_h = 240.0
+
+[sub_resource type="Resource" id="Resource_gmejd"]
+script = ExtResource("4_gmejd")
+trigger_type = 1
+action = SubResource("Resource_hklba")
+metadata/_graph_x = 640.0
+metadata/_graph_y = 560.0
+metadata/_graph_w = 520.0
+metadata/_graph_h = 187.0
+
+[sub_resource type="Resource" id="Resource_2fjc6"]
+script = ExtResource("2_8obdp")
+description = "Deals 30 Damage each turn"
+triggers = Array[ExtResource("4_gmejd")]([SubResource("Resource_gmejd")])
+metadata/_graph_x = 9.0
+metadata/_graph_y = 428.0
+metadata/_graph_w = 700.0
+metadata/_graph_h = 540.0
+
+[sub_resource type="Resource" id="Resource_83aot"]
+script = ExtResource("5_2fjc6")
+damage = 40
+can_miss = false
+metadata/_graph_x = 1780.0
+metadata/_graph_y = 1100.0
+metadata/_graph_w = 384.0
+metadata/_graph_h = 240.0
+
+[sub_resource type="Resource" id="Resource_ddy2q"]
+script = ExtResource("4_gmejd")
+trigger_type = 1
+action = SubResource("Resource_83aot")
+metadata/_graph_x = 1180.0
+metadata/_graph_y = 1100.0
+metadata/_graph_w = 505.0
+metadata/_graph_h = 187.0
+
+[sub_resource type="Resource" id="Resource_i5d12"]
+script = ExtResource("2_8obdp")
+description = "DEal 40 each turn "
+triggers = Array[ExtResource("4_gmejd")]([SubResource("Resource_ddy2q")])
+metadata/_graph_x = 220.0
+metadata/_graph_y = 980.0
+metadata/_graph_w = 367.0
+metadata/_graph_h = 333.0
+
+[resource]
+script = ExtResource("1_7bgau")
+stacks = Array[ExtResource("2_8obdp")]([SubResource("Resource_e0mhw"), SubResource("Resource_2fjc6"), SubResource("Resource_i5d12")])
+name = "Acid"
+icon = ExtResource("1_gmejd")
+metadata/_custom_type_script = "uid://c4rwprj6d61c0"
+metadata/_graph_x = -760.0
+metadata/_graph_y = 80.0
+metadata/_graph_w = 468.0
+metadata/_graph_h = 577.0

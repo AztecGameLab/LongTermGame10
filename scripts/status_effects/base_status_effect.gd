@@ -5,11 +5,23 @@ class_name BaseStatusEffect
 ## Base class for all status effect types.
 ## Subclasses override only the methods relevant to their behavior.
 
+signal updated
+
 ## The name shown in the hover tooltip.
 @export var name: String
 
 ## The icon to show next to the character.
 @export var icon: Texture2D
+
+## Type of status effect
+enum EffectType {
+	POSITIVE,
+	NEGATIVE,
+	LOCKED
+}
+
+## Whether this effect is positive, negative, or locked (cannot be transferred).
+@export var effect_type: EffectType = EffectType.NEGATIVE
 
 # --- Virtual Methods ---
 # Override in subclasses to customize behavior.
@@ -21,6 +33,12 @@ func run_triggers(_type: StatusEffectTrigger.Type, _container: StatusEffectConta
 ## Modifies a value based on this effect's modifiers. Returns the value unchanged by default.
 func modify_value(_field: StatusEffectModifier.Field, value: float, _container: StatusEffectContainer) -> float:
 	return value
+
+## Called when the attached character is succesfully targeted by an attack.
+## By default, it runs any associated ON_ATTACKED triggers.
+func on_attacked(context: AttackContext, container: StatusEffectContainer) -> void:
+	if context.source: # Only run ON_ATTACKED if it comes from a character, not a status effect.
+		await run_triggers(StatusEffectTrigger.Type.ON_ATTACKED, container)
 
 ## Called when the attached character takes damage.
 func on_damage_received(_context: AttackContext, _container: StatusEffectContainer) -> void:
@@ -37,6 +55,11 @@ func on_applied(_container: StatusEffectContainer) -> void:
 ## Called when the effect is removed.
 func on_removed(_container: StatusEffectContainer) -> void:
 	pass
+	
+## Return false to *disallow* an effect from being applied to a character.
+## This might be used to filter out either positive or negative effects.
+func should_apply_effect(_status_effect: BaseStatusEffect) -> bool:
+	return true
 
 ## Ticks the effect each turn. Returns [code]true[/code] if the effect has expired.
 func tick(_container: StatusEffectContainer) -> bool:
@@ -53,6 +76,9 @@ func _setup_container(_container: StatusEffectContainer) -> void:
 ## Returns the display name for this effect.
 func get_effect_name(_container: StatusEffectContainer) -> String:
 	return name
+	
+func get_icon(_container: StatusEffectContainer) -> Texture2D:
+	return icon
 
 ## Returns the description for this effect.
 @abstract func get_effect_description(_container: StatusEffectContainer) -> String;

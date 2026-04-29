@@ -9,6 +9,7 @@ enum PortType {
 	MODIFIER = 3,
 	TRIGGER = 4,
 	TEXTURE = 5,
+	CONCENTRATION_STATUS_EFFECT = 6,
 }
 
 const PORT_COLORS := {
@@ -18,6 +19,7 @@ const PORT_COLORS := {
 	PortType.MODIFIER: Color(1.0, 0.9, 0.3),
 	PortType.TRIGGER: Color(0.7, 0.4, 1.0),
 	PortType.TEXTURE: Color(0.8, 0.5, 0.5),
+	PortType.CONCENTRATION_STATUS_EFFECT: Color(1.0, 0.6, 0.2)
 }
 
 

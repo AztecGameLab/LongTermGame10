@@ -3,84 +3,66 @@
 [ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="1_fs1un"]
 [ext_resource type="Script" uid="uid://xwcbloqu4nwu" path="res://scripts/ability/action/abstracts/action.gd" id="1_g16nt"]
 [ext_resource type="Script" uid="uid://d0rap3gi3boj5" path="res://scripts/ability/action/damage_action.gd" id="2_4xo20"]
+[ext_resource type="Script" uid="uid://dq0gts7suc1fg" path="res://scripts/ability/action/animation_action.gd" id="2_76lt6"]
 [ext_resource type="Script" uid="uid://be5ru5snax08s" path="res://scripts/ability/action/apply_status_action.gd" id="3_mwtfa"]
-[ext_resource type="Script" uid="uid://c4rwprj6d61c0" path="res://scripts/status_effects/status_effect.gd" id="4_v4a5p"]
-[ext_resource type="Script" uid="uid://c2ci25gmhnb4w" path="res://scripts/status_effects/status_effect_stack.gd" id="5_18w3q"]
-[ext_resource type="Script" uid="uid://w6h7oqtjl61k" path="res://scripts/status_effects/status_effect_modifier.gd" id="6_npl40"]
-[ext_resource type="Script" uid="uid://d0uvf6jnorxpw" path="res://scripts/status_effects/status_effect_trigger.gd" id="7_qaglk"]
-[ext_resource type="Script" uid="uid://bihndepd0cudw" path="res://scripts/ability/action/static_damage_action.gd" id="8_1a2ig"]
+[ext_resource type="Resource" uid="uid://dpscjkruqnc5j" path="res://resources/status_effects/bleed.tres" id="4_ovjho"]
 [ext_resource type="Script" uid="uid://cy60nwkkhatr8" path="res://scripts/ability/action/hit_chance_action.gd" id="9_i033t"]
 [ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="10_c5t8i"]
+
+[sub_resource type="Resource" id="Resource_r6tsj"]
+script = ExtResource("2_76lt6")
+metadata/_graph_x = 860.0
+metadata/_graph_y = -140.0
+metadata/_graph_w = 229.0
+metadata/_graph_h = 66.0
 
 [sub_resource type="Resource" id="Resource_dwgw3"]
 script = ExtResource("2_4xo20")
 damage_minimum = 30
 damage_maximum = 80
 metadata/_custom_type_script = "uid://d0rap3gi3boj5"
-
-[sub_resource type="Resource" id="Resource_pncom"]
-script = ExtResource("8_1a2ig")
-damage = 10
-can_miss = false
-metadata/_custom_type_script = "uid://bihndepd0cudw"
-
-[sub_resource type="Resource" id="Resource_wycta"]
-script = ExtResource("7_qaglk")
-trigger_type = 1
-action = SubResource("Resource_pncom")
-metadata/_custom_type_script = "uid://d0uvf6jnorxpw"
-
-[sub_resource type="Resource" id="Resource_sktrb"]
-script = ExtResource("5_18w3q")
-description = "Lowers HP by 10 each turn."
-triggers = Array[ExtResource("7_qaglk")]([SubResource("Resource_wycta")])
-metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
-
-[sub_resource type="Resource" id="Resource_vtkqb"]
-script = ExtResource("8_1a2ig")
-damage = 20
-can_miss = false
-metadata/_custom_type_script = "uid://bihndepd0cudw"
-
-[sub_resource type="Resource" id="Resource_205e0"]
-script = ExtResource("7_qaglk")
-trigger_type = 1
-action = SubResource("Resource_vtkqb")
-metadata/_custom_type_script = "uid://d0uvf6jnorxpw"
-
-[sub_resource type="Resource" id="Resource_3xw03"]
-script = ExtResource("5_18w3q")
-description = "Lowers HP by 20 each turn."
-triggers = Array[ExtResource("7_qaglk")]([SubResource("Resource_205e0")])
-metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
-
-[sub_resource type="Resource" id="Resource_2jogv"]
-script = ExtResource("4_v4a5p")
-stacks = Array[ExtResource("5_18w3q")]([SubResource("Resource_sktrb"), SubResource("Resource_3xw03")])
-name = "Bleed"
-metadata/_custom_type_script = "uid://c4rwprj6d61c0"
+metadata/_graph_x = 840.0
+metadata/_graph_y = 60.0
+metadata/_graph_w = 260.0
+metadata/_graph_h = 165.0
 
 [sub_resource type="Resource" id="Resource_dwo4e"]
 script = ExtResource("3_mwtfa")
-status_effect = SubResource("Resource_2jogv")
+status_effect = ExtResource("4_ovjho")
 metadata/_custom_type_script = "uid://be5ru5snax08s"
+metadata/_graph_x = 840.0
+metadata/_graph_y = 300.0
+metadata/_graph_w = 243.0
+metadata/_graph_h = 198.0
 
 [sub_resource type="Resource" id="Resource_g16nt"]
 script = ExtResource("2_4xo20")
 damage_minimum = 30
 damage_maximum = 80
 metadata/_custom_type_script = "uid://d0rap3gi3boj5"
+metadata/_graph_x = 1180.0
+metadata/_graph_y = 380.0
+metadata/_graph_w = 260.0
+metadata/_graph_h = 165.0
 
 [sub_resource type="Resource" id="Resource_lj2ny"]
 script = ExtResource("9_i033t")
 success_chance = 0.5
 success_action = SubResource("Resource_g16nt")
 metadata/_custom_type_script = "uid://cy60nwkkhatr8"
+metadata/_graph_x = 840.0
+metadata/_graph_y = 560.0
+metadata/_graph_w = 248.0
+metadata/_graph_h = 132.0
 
 [sub_resource type="Resource" id="Resource_8m4ft"]
 script = ExtResource("10_c5t8i")
-actions = Array[ExtResource("1_g16nt")]([SubResource("Resource_dwgw3"), SubResource("Resource_dwo4e"), SubResource("Resource_lj2ny")])
+actions = Array[ExtResource("1_g16nt")]([SubResource("Resource_r6tsj"), SubResource("Resource_dwgw3"), SubResource("Resource_dwo4e"), SubResource("Resource_lj2ny")])
 metadata/_custom_type_script = "uid://da17dshmjafs6"
+metadata/_graph_x = 480.0
+metadata/_graph_y = 40.0
+metadata/_graph_w = 220.0
+metadata/_graph_h = 251.0
 
 [resource]
 script = ExtResource("1_fs1un")
@@ -88,3 +70,15 @@ name = "Pierce Level 4"
 description = "Damage increase and chance to attack again"
 action = SubResource("Resource_8m4ft")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
+metadata/_graph_x = 50.0
+metadata/_graph_y = 50.0
+metadata/_graph_w = 384.0
+metadata/_graph_h = 204.0
+metadata/_external_layouts = {
+"uid://dpscjkruqnc5j": {
+"h": 70.0,
+"w": 220.0,
+"x": 1180.0,
+"y": 220.0
+}
+}

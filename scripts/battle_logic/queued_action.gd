@@ -16,9 +16,9 @@ var source: BattleCharacter = null
 
 ## The ability these actions come from, if it is a character's direct turn.
 ## This will be null if it is a reactive action, for instance a revenge when getting hit.
-var ability: Ability = null
+var ability: BaseAbility = null
 
-func _init(p_battle_context: BattleContext, p_action: Action, p_source: BattleCharacter, p_target: Array[BattleCharacter], p_ability: Ability) -> void:
+func _init(p_battle_context: BattleContext, p_action: Action, p_source: BattleCharacter, p_target: Array[BattleCharacter], p_ability: BaseAbility) -> void:
 	battle_context = p_battle_context
 	action = p_action
 	targets = p_target
@@ -27,10 +27,9 @@ func _init(p_battle_context: BattleContext, p_action: Action, p_source: BattleCh
 
 func run():
 	if source and ability:
-		print(source.name + " using " + ability.name)
-		await source.on_turn_started()
+		print(source.character_name + " using " + ability.get_label(source) + " on " + (str(targets) if targets else "no one"))
 		source.used_ability.emit(ability, targets)
+	var first_target := true
 	for target in targets:
-		await action.run(ActionContext.new(source, target, battle_context, source))
-	if source and ability:
-		await source.on_turn_ended()
+		await action.run(ActionContext.new(source, target, battle_context, source, null, first_target))
+		first_target = false

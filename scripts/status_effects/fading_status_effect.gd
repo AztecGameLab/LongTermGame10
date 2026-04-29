@@ -5,6 +5,8 @@ class_name FadingStatusEffect
 
 @export var max_stacks: int
 
+@export var stack_decrease: int = 1
+
 ## The description for the hover tooltip.
 @export_multiline var description: String
 
@@ -37,7 +39,7 @@ func run_triggers(type: StatusEffectTrigger.Type, container: StatusEffectContain
 
 func tick(container: StatusEffectContainer) -> bool:
 	# Use the stacks to determine duration.
-	container.stacks -= 1
+	container.stacks -= stack_decrease
 	return container.stacks <= 0
 
 func on_reapplied(container: StatusEffectContainer, stacks: int, p_max_stacks: int) -> void:

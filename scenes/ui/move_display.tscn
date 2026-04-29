@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://8dt21l5flyv3"]
+
+[ext_resource type="FontFile" uid="uid://b36l0tnkhtkdw" path="res://assets/ui/GenFont_Mansalva-Regular.ttf" id="1_02wmo"]
+[ext_resource type="Script" uid="uid://ca8lpbhicpojv" path="res://scenes/ui/move_display.gd" id="1_cpkp8"]
+[ext_resource type="PackedScene" uid="uid://b1hwixuoghjou" path="res://scenes/ui/selected_ability_indicator.tscn" id="2_cpkp8"]
+[ext_resource type="PackedScene" uid="uid://bxrdvjrrvpyfd" path="res://scenes/ui/paper_panel.tscn" id="3_gbwbf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0mh3k"]
+
+[node name="MoveDisplay" type="PanelContainer" unique_id=144760610 node_paths=PackedStringArray("move_name", "move_description", "select_indicator", "description_panel")]
+theme_override_styles/panel = SubResource("StyleBoxEmpty_0mh3k")
+script = ExtResource("1_cpkp8")
+move_name = NodePath("MarginContainer/MoveName")
+move_description = NodePath("DescriptionPanel/PaperPanel/Control/ScrollContainer/MoveDescription")
+select_indicator = NodePath("SelectIndicator")
+description_panel = NodePath("DescriptionPanel")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1377639166]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="MoveName" type="RichTextLabel" parent="MarginContainer" unique_id=1116653990]
+clip_contents = false
+layout_mode = 2
+theme_override_colors/default_color = Color(0.29885206, 0.1870234, 0.09397287, 1)
+theme_override_fonts/normal_font = ExtResource("1_02wmo")
+theme_override_font_sizes/normal_font_size = 42
+bbcode_enabled = true
+text = "Burn"
+fit_content = true
+vertical_alignment = 1
+
+[node name="SelectIndicator" parent="." unique_id=2093613863 instance=ExtResource("2_cpkp8")]
+layout_mode = 2
+
+[node name="DescriptionPanel" type="Control" parent="." unique_id=2048002019]
+layout_mode = 2
+
+[node name="PaperPanel" parent="DescriptionPanel" unique_id=695098869 instance=ExtResource("3_gbwbf")]
+layout_mode = 0
+offset_left = 376.0
+offset_top = -61.0
+offset_right = 896.0
+offset_bottom = 139.0
+size_flags_horizontal = 3
+
+[node name="Control" type="MarginContainer" parent="DescriptionPanel/PaperPanel" unique_id=575030026]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="ScrollContainer" type="ScrollContainer" parent="DescriptionPanel/PaperPanel/Control" unique_id=1569931394]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="MoveDescription" type="RichTextLabel" parent="DescriptionPanel/PaperPanel/Control/ScrollContainer" unique_id=1936687910]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.29885206, 0.1870234, 0.09397287, 1)
+theme_override_fonts/normal_font = ExtResource("1_02wmo")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "Applies a burn effect to the target."

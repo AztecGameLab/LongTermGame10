@@ -1,17 +1,43 @@
 [gd_resource type="Resource" script_class="Ability" format=3 uid="uid://o1bswl3proq7"]
 
 [ext_resource type="Script" uid="uid://d0rap3gi3boj5" path="res://scripts/ability/action/damage_action.gd" id="1_atmg6"]
+[ext_resource type="Script" uid="uid://xwcbloqu4nwu" path="res://scripts/ability/action/abstracts/action.gd" id="1_o52ju"]
 [ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="1_x5i48"]
+[ext_resource type="Script" uid="uid://dq0gts7suc1fg" path="res://scripts/ability/action/animation_action.gd" id="2_0fmba"]
+[ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="4_5hnie"]
+
+[sub_resource type="Resource" id="Resource_gxj5l"]
+script = ExtResource("2_0fmba")
+metadata/_graph_x = 820.0
+metadata/_graph_y = -20.0
+metadata/_graph_w = 229.0
+metadata/_graph_h = 66.0
 
 [sub_resource type="Resource" id="Resource_n52ha"]
 script = ExtResource("1_atmg6")
 damage_minimum = 20
 damage_maximum = 60
 metadata/_custom_type_script = "uid://d0rap3gi3boj5"
+metadata/_graph_x = 980.0
+metadata/_graph_y = 80.0
+metadata/_graph_w = 260.0
+metadata/_graph_h = 165.0
+
+[sub_resource type="Resource" id="Resource_j0skc"]
+script = ExtResource("4_5hnie")
+actions = Array[ExtResource("1_o52ju")]([SubResource("Resource_gxj5l"), SubResource("Resource_n52ha")])
+metadata/_graph_x = 540.0
+metadata/_graph_y = 40.0
+metadata/_graph_w = 220.0
+metadata/_graph_h = 177.0
 
 [resource]
 script = ExtResource("1_x5i48")
 name = "Pierce Level 2"
 description = "Does a little bit more damage"
-action = SubResource("Resource_n52ha")
+action = SubResource("Resource_j0skc")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
+metadata/_graph_x = 50.0
+metadata/_graph_y = 50.0
+metadata/_graph_w = 384.0
+metadata/_graph_h = 204.0
