@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ConcentrationAbility" format=3 uid="uid://bx2mnromk5oc8"]
+
+[ext_resource type="Script" uid="uid://fe5c3bvlmltj" path="res://scripts/ability/concentration_ability.gd" id="1_3gq0f"]
+[ext_resource type="Resource" uid="uid://sgjqj6wdvxki" path="res://resources/abilities/coralleine/decoy/decoy_status_3.tres" id="1_sl3o4"]
+
+[resource]
+script = ExtResource("1_3gq0f")
+name = "Decoy"
+description = "Create two decoys. Each decoy reduces the chances of being hit by 30%. After a successful hit, each decoy returns a magic attack."
+concentration_effect = ExtResource("1_sl3o4")
+metadata/_custom_type_script = "uid://fe5c3bvlmltj"
+metadata/_graph_x = 50.0
+metadata/_graph_y = 50.0
+metadata/_graph_w = 306.0
+metadata/_graph_h = 218.0
+metadata/_external_layouts = {
+"uid://sgjqj6wdvxki": {
+"h": 100.0,
+"w": 521.0,
+"x": 563.5,
+"y": 183.0
+}
+}

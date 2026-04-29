@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://d0uvf6jnorxpw" path="res://scripts/status_effects/status_effect_trigger.gd" id="4_2gru0"]
 [ext_resource type="Script" uid="uid://c84i4tkx4t6au" path="res://scripts/ability/action/heal_action.gd" id="5_o2d0y"]
 [ext_resource type="Script" uid="uid://dkyoonc2qagl3" path="res://scripts/ability/action/luck_chance_action.gd" id="6_v6n5j"]
-[ext_resource type="Script" path="res://scripts/ability/action/remove_status_type_action.gd" id="7_sqsqw"]
+[ext_resource type="Script" uid="uid://ddno1xa7f8u6" path="res://scripts/ability/action/remove_status_type_action.gd" id="7_sqsqw"]
 
 [sub_resource type="Resource" id="Resource_nr16a"]
 script = ExtResource("5_o2d0y")
