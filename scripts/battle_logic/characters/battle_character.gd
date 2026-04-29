@@ -35,6 +35,8 @@ signal status_effects_updated()
 
 @export var abilities: Array[BaseAbility]
 
+@export var initial_status_effects: Array[ApplyStatusAction]
+
 # --- Runtime State ---
 
 var current_health: int = 0:
@@ -75,6 +77,9 @@ func _ready() -> void:
 		selected = false
 	
 	current_health = max_health
+	
+	for apply_status_action in initial_status_effects:
+		add_status_effect(apply_status_action.status_effect, self, apply_status_action.applied_stacks, apply_status_action.max_stacks)
 
 ## Returns true if an animation was started, false otherwise
 func play_animation(animation: String) -> void:
