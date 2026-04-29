@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bdykas68ga1qg"]
 
 [ext_resource type="Texture2D" uid="uid://wr3fxn7l8870" path="res://Eyes below title screen.png" id="1_721jg"]
+[ext_resource type="Script" uid="uid://ctks3w5k7r8bb" path="res://scenes/levels/main_menu.gd" id="1_geflf"]
 [ext_resource type="PackedScene" uid="uid://bxrdvjrrvpyfd" path="res://scenes/ui/paper_panel.tscn" id="2_geflf"]
 [ext_resource type="FontFile" uid="uid://iq5jfqev2lp0" path="res://assets/ui/EmphasisFont_Knewave-Regular.ttf" id="3_fkd6t"]
 
@@ -12,6 +13,7 @@ font_size = 100
 font_color = Color(0, 0, 0, 1)
 
 [node name="MainMenu" type="Node2D" unique_id=1080275958]
+script = ExtResource("1_geflf")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1272132436]
 
@@ -81,3 +83,7 @@ text = "Settings"
 label_settings = SubResource("LabelSettings_crctu")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="pressed" from="EyesBelowTitleScreen/PaperPanel/Button" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="EyesBelowTitleScreen/PaperPanel2/Button" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="EyesBelowTitleScreen/PaperPanel3/Button" to="." method="_on_settings_pressed"]
