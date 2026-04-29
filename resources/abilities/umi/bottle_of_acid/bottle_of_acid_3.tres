@@ -7,10 +7,15 @@
 [ext_resource type="Resource" uid="uid://ccgl0mh7c10aa" path="res://resources/status_effects/boa_defense_reduction.tres" id="4_0jaok"]
 [ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="4_q5kb3"]
 [ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="5_becwm"]
+[ext_resource type="Script" uid="uid://bihndepd0cudw" path="res://scripts/ability/action/static_damage_action.gd" id="6_20fhj"]
 
 [sub_resource type="Resource" id="Resource_20fhj"]
 script = ExtResource("2_mr7dk")
 metadata/_custom_type_script = "uid://dq0gts7suc1fg"
+metadata/_graph_x = 0.0
+metadata/_graph_y = 0.0
+metadata/_graph_w = 376.0
+metadata/_graph_h = 126.0
 
 [sub_resource type="Resource" id="Resource_h56ap"]
 script = ExtResource("2_0jaok")
@@ -31,13 +36,21 @@ metadata/_graph_y = 580.0
 metadata/_graph_w = 486.0
 metadata/_graph_h = 362.0
 
+[sub_resource type="Resource" id="Resource_qlbsc"]
+script = ExtResource("6_20fhj")
+damage = 30
+metadata/_graph_x = 1216.0
+metadata/_graph_y = 1063.0
+metadata/_graph_w = 384.0
+metadata/_graph_h = 240.0
+
 [sub_resource type="Resource" id="Resource_u5cyh"]
 script = ExtResource("4_q5kb3")
-actions = Array[ExtResource("1_y8vbx")]([SubResource("Resource_20fhj"), SubResource("Resource_h56ap"), SubResource("Resource_mdfqa")])
-metadata/_graph_x = 780.0
-metadata/_graph_y = 320.0
+actions = Array[ExtResource("1_y8vbx")]([SubResource("Resource_20fhj"), SubResource("Resource_h56ap"), SubResource("Resource_mdfqa"), SubResource("Resource_qlbsc")])
+metadata/_graph_x = 380.0
+metadata/_graph_y = 460.0
 metadata/_graph_w = 349.0
-metadata/_graph_h = 325.0
+metadata/_graph_h = 463.0
 
 [resource]
 script = ExtResource("5_becwm")
@@ -45,8 +58,8 @@ name = "Bottle of Acid"
 description = "Deals Damage and applies the Acid Debuff."
 action = SubResource("Resource_u5cyh")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
-metadata/_graph_x = -140.0
-metadata/_graph_y = 260.0
+metadata/_graph_x = -740.0
+metadata/_graph_y = 280.0
 metadata/_graph_w = 766.0
 metadata/_graph_h = 337.0
 metadata/_external_layouts = {
