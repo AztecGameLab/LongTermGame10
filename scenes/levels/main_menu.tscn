@@ -9,22 +9,25 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_crctu"]
 font = ExtResource("3_fkd6t")
+font_size = 78
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_geflf"]
+font = ExtResource("3_fkd6t")
 font_size = 100
 font_color = Color(0, 0, 0, 1)
 
 [node name="MainMenu" type="Node2D" unique_id=1080275958]
 script = ExtResource("1_geflf")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1272132436]
-
 [node name="EyesBelowTitleScreen" type="Sprite2D" parent="." unique_id=1626514033]
 position = Vector2(963, 540)
 texture = ExtResource("1_721jg")
 
 [node name="PaperPanel" parent="EyesBelowTitleScreen" unique_id=695098869 instance=ExtResource("2_geflf")]
-offset_left = -865.0
+offset_left = -883.0
 offset_top = 303.0
-offset_right = -328.0
+offset_right = -346.0
 offset_bottom = 464.0
 
 [node name="Button" type="Button" parent="EyesBelowTitleScreen/PaperPanel" unique_id=791088488]
@@ -37,7 +40,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_keln3")
 layout_mode = 0
 offset_right = 537.0
 offset_bottom = 161.0
-text = "Start"
+text = "Credits"
 label_settings = SubResource("LabelSettings_crctu")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -58,15 +61,15 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_keln3")
 layout_mode = 0
 offset_right = 537.0
 offset_bottom = 161.0
-text = "Continue"
-label_settings = SubResource("LabelSettings_crctu")
+text = "START"
+label_settings = SubResource("LabelSettings_geflf")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="PaperPanel3" parent="EyesBelowTitleScreen" unique_id=1683876228 instance=ExtResource("2_geflf")]
-offset_left = 365.0
+offset_left = 347.0
 offset_top = 303.0
-offset_right = 902.0
+offset_right = 884.0
 offset_bottom = 464.0
 
 [node name="Button" type="Button" parent="EyesBelowTitleScreen/PaperPanel3" unique_id=1250285518]
@@ -79,11 +82,12 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_keln3")
 layout_mode = 0
 offset_right = 537.0
 offset_bottom = 161.0
-text = "Settings"
+theme_override_font_sizes/font_size = 16
+text = "Other Games"
 label_settings = SubResource("LabelSettings_crctu")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="EyesBelowTitleScreen/PaperPanel/Button" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="EyesBelowTitleScreen/PaperPanel2/Button" to="." method="_on_continue_pressed"]
-[connection signal="pressed" from="EyesBelowTitleScreen/PaperPanel3/Button" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="EyesBelowTitleScreen/PaperPanel/Button" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="EyesBelowTitleScreen/PaperPanel2/Button" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="EyesBelowTitleScreen/PaperPanel3/Button" to="." method="_on_games_pressed"]
