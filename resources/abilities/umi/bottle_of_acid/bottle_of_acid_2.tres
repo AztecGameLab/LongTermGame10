@@ -6,10 +6,23 @@
 [ext_resource type="Resource" uid="uid://dclil2frb31o2" path="res://resources/status_effects/acid.tres" id="3_o7xir"]
 [ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="4_b4snk"]
 [ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="5_a0sm0"]
+[ext_resource type="Script" uid="uid://bihndepd0cudw" path="res://scripts/ability/action/static_damage_action.gd" id="5_ywm75"]
 
 [sub_resource type="Resource" id="Resource_ywm75"]
 script = ExtResource("2_7wxx1")
 metadata/_custom_type_script = "uid://dq0gts7suc1fg"
+metadata/_graph_x = 960.0
+metadata/_graph_y = -100.0
+metadata/_graph_w = 376.0
+metadata/_graph_h = 126.0
+
+[sub_resource type="Resource" id="Resource_lqdo6"]
+script = ExtResource("5_ywm75")
+damage = 30
+metadata/_graph_x = 898.5
+metadata/_graph_y = 1065.0
+metadata/_graph_w = 384.0
+metadata/_graph_h = 240.0
 
 [sub_resource type="Resource" id="Resource_h56ap"]
 script = ExtResource("2_brfvi")
@@ -23,11 +36,11 @@ metadata/_graph_h = 362.0
 
 [sub_resource type="Resource" id="Resource_u5cyh"]
 script = ExtResource("4_b4snk")
-actions = Array[ExtResource("1_a7j5k")]([SubResource("Resource_ywm75"), SubResource("Resource_h56ap")])
-metadata/_graph_x = 780.0
-metadata/_graph_y = 320.0
+actions = Array[ExtResource("1_a7j5k")]([SubResource("Resource_ywm75"), SubResource("Resource_lqdo6"), SubResource("Resource_h56ap")])
+metadata/_graph_x = 120.0
+metadata/_graph_y = 400.0
 metadata/_graph_w = 349.0
-metadata/_graph_h = 325.0
+metadata/_graph_h = 394.0
 
 [resource]
 script = ExtResource("5_a0sm0")
@@ -35,8 +48,8 @@ name = "Bottle of Acid"
 description = "Deals Damage and applies the Acid Debuff."
 action = SubResource("Resource_u5cyh")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
-metadata/_graph_x = -140.0
-metadata/_graph_y = 260.0
+metadata/_graph_x = -1000.0
+metadata/_graph_y = 140.0
 metadata/_graph_w = 766.0
 metadata/_graph_h = 337.0
 metadata/_external_layouts = {

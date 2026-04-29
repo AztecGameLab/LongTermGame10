@@ -8,10 +8,23 @@
 [ext_resource type="Resource" uid="uid://bsemusn2sc6hb" path="res://resources/status_effects/boa_prevent_healing.tres" id="5_ldnrt"]
 [ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="6_8vpq8"]
 [ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="7_fkklh"]
+[ext_resource type="Script" uid="uid://bihndepd0cudw" path="res://scripts/ability/action/static_damage_action.gd" id="7_yy74p"]
 
 [sub_resource type="Resource" id="Resource_lgolk"]
 script = ExtResource("2_yy74p")
 metadata/_custom_type_script = "uid://dq0gts7suc1fg"
+metadata/_graph_x = 0.0
+metadata/_graph_y = 0.0
+metadata/_graph_w = 376.0
+metadata/_graph_h = 126.0
+
+[sub_resource type="Resource" id="Resource_ldnrt"]
+script = ExtResource("7_yy74p")
+damage = 40
+metadata/_graph_x = 1401.5
+metadata/_graph_y = 1788.0
+metadata/_graph_w = 384.0
+metadata/_graph_h = 240.0
 
 [sub_resource type="Resource" id="Resource_h56ap"]
 script = ExtResource("2_qtdww")
@@ -43,11 +56,11 @@ metadata/_graph_h = 362.0
 
 [sub_resource type="Resource" id="Resource_u5cyh"]
 script = ExtResource("6_8vpq8")
-actions = Array[ExtResource("1_tuq75")]([SubResource("Resource_lgolk"), SubResource("Resource_h56ap"), SubResource("Resource_mdfqa"), SubResource("Resource_hehen")])
+actions = Array[ExtResource("1_tuq75")]([SubResource("Resource_lgolk"), SubResource("Resource_ldnrt"), SubResource("Resource_h56ap"), SubResource("Resource_mdfqa"), SubResource("Resource_hehen")])
 metadata/_graph_x = 780.0
 metadata/_graph_y = 320.0
 metadata/_graph_w = 349.0
-metadata/_graph_h = 394.0
+metadata/_graph_h = 532.0
 
 [resource]
 script = ExtResource("7_fkklh")
