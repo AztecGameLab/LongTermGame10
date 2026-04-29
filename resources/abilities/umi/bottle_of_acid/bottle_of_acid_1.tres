@@ -16,6 +16,14 @@ metadata/_graph_y = -120.0
 metadata/_graph_w = 376.0
 metadata/_graph_h = 126.0
 
+[sub_resource type="Resource" id="Resource_1p0ol"]
+script = ExtResource("5_b3c7d")
+damage = 20
+metadata/_graph_x = 943.5
+metadata/_graph_y = 1018.5
+metadata/_graph_w = 384.0
+metadata/_graph_h = 240.0
+
 [sub_resource type="Resource" id="Resource_h56ap"]
 script = ExtResource("3_1p0ol")
 status_effect = ExtResource("4_obmq2")
@@ -25,17 +33,9 @@ metadata/_graph_y = 460.0
 metadata/_graph_w = 486.0
 metadata/_graph_h = 362.0
 
-[sub_resource type="Resource" id="Resource_1p0ol"]
-script = ExtResource("5_b3c7d")
-damage = 20
-metadata/_graph_x = 943.5
-metadata/_graph_y = 1018.5
-metadata/_graph_w = 384.0
-metadata/_graph_h = 240.0
-
 [sub_resource type="Resource" id="Resource_u5cyh"]
 script = ExtResource("5_vpcua")
-actions = Array[ExtResource("1_iqcj6")]([SubResource("Resource_4usbn"), SubResource("Resource_h56ap"), SubResource("Resource_1p0ol")])
+actions = Array[ExtResource("1_iqcj6")]([SubResource("Resource_4usbn"), SubResource("Resource_1p0ol"), SubResource("Resource_h56ap")])
 metadata/_graph_x = 0.0
 metadata/_graph_y = 420.0
 metadata/_graph_w = 349.0

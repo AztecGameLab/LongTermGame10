@@ -18,6 +18,14 @@ metadata/_graph_y = 0.0
 metadata/_graph_w = 376.0
 metadata/_graph_h = 126.0
 
+[sub_resource type="Resource" id="Resource_ldnrt"]
+script = ExtResource("7_yy74p")
+damage = 40
+metadata/_graph_x = 1401.5
+metadata/_graph_y = 1788.0
+metadata/_graph_w = 384.0
+metadata/_graph_h = 240.0
+
 [sub_resource type="Resource" id="Resource_h56ap"]
 script = ExtResource("2_qtdww")
 applied_stacks = 3
@@ -46,17 +54,9 @@ metadata/_graph_y = 1099.0
 metadata/_graph_w = 486.0
 metadata/_graph_h = 362.0
 
-[sub_resource type="Resource" id="Resource_ldnrt"]
-script = ExtResource("7_yy74p")
-damage = 40
-metadata/_graph_x = 1401.5
-metadata/_graph_y = 1788.0
-metadata/_graph_w = 384.0
-metadata/_graph_h = 240.0
-
 [sub_resource type="Resource" id="Resource_u5cyh"]
 script = ExtResource("6_8vpq8")
-actions = Array[ExtResource("1_tuq75")]([SubResource("Resource_lgolk"), SubResource("Resource_h56ap"), SubResource("Resource_mdfqa"), SubResource("Resource_hehen"), SubResource("Resource_ldnrt")])
+actions = Array[ExtResource("1_tuq75")]([SubResource("Resource_lgolk"), SubResource("Resource_ldnrt"), SubResource("Resource_h56ap"), SubResource("Resource_mdfqa"), SubResource("Resource_hehen")])
 metadata/_graph_x = 780.0
 metadata/_graph_y = 320.0
 metadata/_graph_w = 349.0
