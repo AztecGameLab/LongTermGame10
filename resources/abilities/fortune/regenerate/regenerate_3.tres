@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://d0uvf6jnorxpw" path="res://scripts/status_effects/status_effect_trigger.gd" id="4_2f3ui"]
 [ext_resource type="Script" uid="uid://c84i4tkx4t6au" path="res://scripts/ability/action/heal_action.gd" id="5_hmm2u"]
 [ext_resource type="Script" uid="uid://dkyoonc2qagl3" path="res://scripts/ability/action/luck_chance_action.gd" id="6_lchance"]
-[ext_resource type="Script" uid="uid://4uj0ujy2m4of" path="res://scripts/ability/action/remove_status_action.gd" id="7_rmstat"]
+[ext_resource type="Script" uid="uid://ddno1xa7f8u6" path="res://scripts/ability/action/remove_status_type_action.gd" id="7_wsmau"]
 
 [sub_resource type="Resource" id="Resource_nr16a"]
 script = ExtResource("5_hmm2u")
@@ -18,14 +18,14 @@ script = ExtResource("4_2f3ui")
 action = SubResource("Resource_nr16a")
 metadata/_custom_type_script = "uid://d0uvf6jnorxpw"
 
-[sub_resource type="Resource" id="Resource_rmv01"]
-script = ExtResource("7_rmstat")
+[sub_resource type="Resource" id="Resource_2f3ui"]
+script = ExtResource("7_wsmau")
 remove_stacks = 99
-metadata/_custom_type_script = "uid://4uj0ujy2m4of"
+metadata/_custom_type_script = "uid://ddno1xa7f8u6"
 
 [sub_resource type="Resource" id="Resource_luck01"]
 script = ExtResource("6_lchance")
-success_action = SubResource("Resource_rmv01")
+success_action = SubResource("Resource_2f3ui")
 metadata/_custom_type_script = "uid://dkyoonc2qagl3"
 
 [sub_resource type="Resource" id="Resource_cure01"]
