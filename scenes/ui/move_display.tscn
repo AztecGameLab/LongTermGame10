@@ -99,7 +99,7 @@ animations = [{
 theme_override_styles/panel = SubResource("StyleBoxEmpty_0mh3k")
 script = ExtResource("1_cpkp8")
 move_name = NodePath("MarginContainer/MoveName")
-move_description = NodePath("DescriptionPanel/PanelContainer/Control/ScrollContainer/MoveDescription")
+move_description = NodePath("DescriptionPanel/PanelContainer/MarginContainer/ScrollContainer/MoveDescription")
 select_indicator = NodePath("SelectIndicator")
 description_panel = NodePath("DescriptionPanel")
 description_sprite = NodePath("DescriptionPanel/AnimatedSprite2D")
@@ -129,35 +129,35 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DescriptionPanel" unique_id=1406802867]
-position = Vector2(619, 39)
+z_index = -1
+position = Vector2(532, 39)
 scale = Vector2(1.35, 1.35)
 sprite_frames = SubResource("SpriteFrames_d8ovo")
 frame = 10
-frame_progress = 1.0
 
 [node name="PanelContainer" type="PanelContainer" parent="DescriptionPanel" unique_id=89365465]
 layout_mode = 0
-offset_left = 376.0
+offset_left = 289.0
 offset_top = -97.0
-offset_right = 861.0
+offset_right = 773.0
 offset_bottom = 174.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_gbwbf")
 
-[node name="Control" type="MarginContainer" parent="DescriptionPanel/PanelContainer" unique_id=575030026]
+[node name="MarginContainer" type="MarginContainer" parent="DescriptionPanel/PanelContainer" unique_id=575030026]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/margin_left = 25
-theme_override_constants/margin_top = 30
-theme_override_constants/margin_right = 15
-theme_override_constants/margin_bottom = 15
+theme_override_constants/margin_left = 86
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 13
+theme_override_constants/margin_bottom = 14
 
-[node name="ScrollContainer" type="ScrollContainer" parent="DescriptionPanel/PanelContainer/Control" unique_id=1569931394]
+[node name="ScrollContainer" type="ScrollContainer" parent="DescriptionPanel/PanelContainer/MarginContainer" unique_id=1569931394]
 layout_mode = 2
 horizontal_scroll_mode = 0
 
-[node name="MoveDescription" type="Label" parent="DescriptionPanel/PanelContainer/Control/ScrollContainer" unique_id=1109929052]
-custom_minimum_size = Vector2(445, 226)
+[node name="MoveDescription" type="Label" parent="DescriptionPanel/PanelContainer/MarginContainer/ScrollContainer" unique_id=1109929052]
+custom_minimum_size = Vector2(385, 237)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3

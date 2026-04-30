@@ -26,11 +26,12 @@ var selected: bool:
 		selected = value
 		select_indicator.visible = selected
 		if not value:
-			description_panel.visible = selected
+			description_panel.visible = false
 		else:
+			description_sprite.stop()
 			description_sprite.play()
 			move_description.visible = false
-			description_panel.visible = selected
+			description_panel.visible = true
 
 func _ready() -> void:
 	selected = false
