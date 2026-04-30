@@ -10,6 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://cj4h68lkbbwkt" path="res://scenes/ui/ability_select.tscn" id="8_8beof"]
 [ext_resource type="Script" uid="uid://d1o5abfusku1j" path="res://scripts/ability/base_ability.gd" id="8_ah7ph"]
 [ext_resource type="Resource" uid="uid://dlme1kmfiqyai" path="res://resources/abilities/eyes/biiiig_chomp.tres" id="9_8kyxk"]
+[ext_resource type="Resource" uid="uid://c6ceka7yvxi4" path="res://resources/abilities/eyes/chilling_gaze.tres" id="10_rebtg"]
+[ext_resource type="Resource" uid="uid://fbtwj6e3t3aa" path="res://resources/abilities/eyes/coil_up.tres" id="11_t871m"]
+[ext_resource type="Resource" uid="uid://djie3akhwaspl" path="res://resources/abilities/eyes/recover.tres" id="12_il4l7"]
 
 [node name="CoralReef" type="Node2D" unique_id=1926475326 node_paths=PackedStringArray("player_team", "boss_team")]
 script = ExtResource("1_rjim6")
@@ -52,7 +55,7 @@ offset_bottom = -433.33337
 [node name="Jelly" parent="." unique_id=641243926 instance=ExtResource("7_83tpv")]
 position = Vector2(1388, 749)
 max_health = 500
-abilities = Array[ExtResource("8_ah7ph")]([ExtResource("9_8kyxk")])
+abilities = Array[ExtResource("8_ah7ph")]([ExtResource("9_8kyxk"), ExtResource("10_rebtg"), ExtResource("11_t871m"), ExtResource("12_il4l7")])
 
 [node name="HealthBar" parent="Jelly" unique_id=1784958776 instance=ExtResource("4_18mhl")]
 offset_left = -318.66663
