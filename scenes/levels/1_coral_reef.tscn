@@ -8,6 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://bhot4510tfs43" path="res://scenes/characters/bosses/scorpion_fish.tscn" id="6_axod2"]
 [ext_resource type="Texture2D" uid="uid://bju1dmce0qj4" path="res://workspaces/artemis/Normal_Gameplay_(focused_On_Fortune_Only)-4.png" id="7_8wj54"]
 [ext_resource type="PackedScene" uid="uid://rb6hbhelm4lq" path="res://scenes/ui/health_bar.tscn" id="8_walo4"]
+[ext_resource type="PackedScene" uid="uid://csbhyubbu6bo6" path="res://scenes/ui/fade.tscn" id="9_cmpws"]
+[ext_resource type="AudioStream" uid="uid://yndkk2w8804l" path="res://assets/audio/music/ScorpionFish.wav" id="10_3j42f"]
+[ext_resource type="Script" uid="uid://3xr6yasbqo77" path="res://scenes/levels/fade_control.gd" id="10_7mltf"]
 
 [node name="CoralReef" type="Node2D" unique_id=1926475326 node_paths=PackedStringArray("player_team", "boss_team")]
 script = ExtResource("1_m8s2v")
@@ -59,3 +62,14 @@ offset_bottom = -650.6667
 
 [node name="AbilitySelect" parent="." unique_id=844678139 node_paths=PackedStringArray("battle_manager") instance=ExtResource("4_a4rq4")]
 battle_manager = NodePath("..")
+
+[node name="Fade" parent="." unique_id=872351749 node_paths=PackedStringArray("audio") instance=ExtResource("9_cmpws")]
+visible = false
+audio = NodePath("../AudioStreamPlayer")
+
+[node name="Node" type="Node" parent="Fade" unique_id=640958935]
+script = ExtResource("10_7mltf")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1241557864]
+stream = ExtResource("10_3j42f")
+volume_db = -6.0

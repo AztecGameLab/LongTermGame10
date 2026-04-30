@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://ctks3w5k7r8bb" path="res://scenes/levels/main_menu.gd" id="1_geflf"]
 [ext_resource type="PackedScene" uid="uid://bxrdvjrrvpyfd" path="res://scenes/ui/paper_panel.tscn" id="2_geflf"]
 [ext_resource type="FontFile" uid="uid://iq5jfqev2lp0" path="res://assets/ui/EmphasisFont_Knewave-Regular.ttf" id="3_fkd6t"]
+[ext_resource type="AudioStream" uid="uid://bkfgwe03dm5oh" path="res://assets/audio/music/MainTheme.mp3" id="5_fkd6t"]
+[ext_resource type="PackedScene" uid="uid://csbhyubbu6bo6" path="res://scenes/ui/fade.tscn" id="6_keln3"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_keln3"]
 
@@ -21,7 +23,7 @@ font_color = Color(0, 0, 0, 1)
 script = ExtResource("1_geflf")
 
 [node name="EyesBelowTitleScreen" type="Sprite2D" parent="." unique_id=1626514033]
-position = Vector2(963, 540)
+position = Vector2(960, 540)
 texture = ExtResource("1_721jg")
 
 [node name="PaperPanel" parent="EyesBelowTitleScreen" unique_id=695098869 instance=ExtResource("2_geflf")]
@@ -83,11 +85,19 @@ layout_mode = 0
 offset_right = 537.0
 offset_bottom = 161.0
 theme_override_font_sizes/font_size = 16
-text = "Other Games"
+text = "Quit"
 label_settings = SubResource("LabelSettings_crctu")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1200809823]
+stream = ExtResource("5_fkd6t")
+autoplay = true
+
+[node name="Fade" parent="." unique_id=872351749 node_paths=PackedStringArray("audio") instance=ExtResource("6_keln3")]
+visible = false
+audio = NodePath("../AudioStreamPlayer")
+
 [connection signal="pressed" from="EyesBelowTitleScreen/PaperPanel/Button" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="EyesBelowTitleScreen/PaperPanel2/Button" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="EyesBelowTitleScreen/PaperPanel3/Button" to="." method="_on_games_pressed"]
+[connection signal="pressed" from="EyesBelowTitleScreen/PaperPanel3/Button" to="." method="_on_quit_pressed"]
