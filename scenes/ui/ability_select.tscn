@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://cj4h68lkbbwkt"]
 
 [ext_resource type="Script" uid="uid://ipos1tsu6bfm" path="res://scenes/ui/ability_select.gd" id="1_bw0a7"]
-[ext_resource type="PackedScene" uid="uid://bxrdvjrrvpyfd" path="res://scenes/ui/paper_panel.tscn" id="2_0mh3k"]
+[ext_resource type="Texture2D" uid="uid://hktm23vmjj1d" path="res://assets/ui/Name.png" id="2_0mh3k"]
 [ext_resource type="FontFile" uid="uid://b36l0tnkhtkdw" path="res://assets/ui/GenFont_Mansalva-Regular.ttf" id="2_bw0a7"]
 [ext_resource type="Texture2D" uid="uid://0givt5uiw6ut" path="res://assets/ui/AbilitySelectUI.png" id="4_0mh3k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0mh3k"]
 
 [node name="AbilitySelect" type="CanvasLayer" unique_id=844678139]
 script = ExtResource("1_bw0a7")
@@ -19,23 +21,31 @@ offset_bottom = 1080.0
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=1230082691]
+custom_minimum_size = Vector2(478, 138)
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 50
 
-[node name="NamePanel" parent="MarginContainer/VBoxContainer/MarginContainer" unique_id=695098869 instance=ExtResource("2_0mh3k")]
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/MarginContainer" unique_id=1433714791]
 layout_mode = 2
 
-[node name="Name" type="RichTextLabel" parent="MarginContainer/VBoxContainer/MarginContainer/NamePanel" unique_id=953532248]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer/Control" unique_id=1024994149]
+layout_mode = 0
+offset_left = -14.0
+offset_top = -44.0
+offset_right = 416.0
+offset_bottom = 171.0
+texture = ExtResource("2_0mh3k")
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/MarginContainer" unique_id=1144489522]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_0mh3k")
+
+[node name="Name" type="RichTextLabel" parent="MarginContainer/VBoxContainer/MarginContainer/PanelContainer" unique_id=953532248]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/default_color = Color(0.29885206, 0.1870234, 0.09397287, 1)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.41960785, 0.23137255, 0.09019608, 1)
 theme_override_fonts/normal_font = ExtResource("2_bw0a7")
 theme_override_font_sizes/normal_font_size = 64
 bbcode_enabled = true
