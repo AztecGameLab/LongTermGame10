@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://bh8ipn2dy8ivj"]
 
+[ext_resource type="AudioStream" uid="uid://dm766vkhlubh6" path="res://assets/audio/music/Eyes Below Credits Theme.wav" id="1_kxfi0"]
+
 [node name="Credits" type="Node2D" unique_id=1093290226]
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1482242213]
@@ -7,3 +9,7 @@ offset_right = 1234.0
 offset_bottom = 181.0
 theme_override_font_sizes/normal_font_size = 92
 text = "Ayo its the credits"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1519990145]
+stream = ExtResource("1_kxfi0")
+autoplay = true

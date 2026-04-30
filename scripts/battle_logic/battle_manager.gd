@@ -123,7 +123,7 @@ func insert_next_action(actions: QueuedAction):
 	_queued_actions.insert(0, actions)
 
 func _run_actions(after_each_action: Callable):
-	while (_queued_actions.size() > 0):
+	while _queued_actions.size() > 0 and battle_running:
 		var action := _queued_actions[0]
 		_queued_actions.remove_at(0)
 		var source := action.source

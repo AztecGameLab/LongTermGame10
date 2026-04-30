@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://ckhid6hp3xwej" path="res://assets/ui/shop/Map Marker Sprite Sheet.png" id="3_l0wp4"]
 [ext_resource type="Texture2D" uid="uid://el2akqub1lgt" path="res://assets/ui/shop/fortune.png" id="3_rykso"]
 [ext_resource type="Texture2D" uid="uid://1op2rnxfclc8" path="res://assets/ui/shop/umi.png" id="4_27pq4"]
+[ext_resource type="PackedScene" uid="uid://csbhyubbu6bo6" path="res://scenes/ui/fade.tscn" id="7_wducc"]
+[ext_resource type="Script" uid="uid://3xr6yasbqo77" path="res://scenes/levels/fade_control.gd" id="8_lma4g"]
+[ext_resource type="AudioStream" uid="uid://ebuea3tg3fdv" path="res://assets/audio/music/Eyes Below New Shop Theme (No Tide Can Haunt You Down Here).wav" id="9_ly47m"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xf5gg"]
 
@@ -557,3 +560,18 @@ sprite_frames = SubResource("SpriteFrames_8ejsp")
 animation = &"4"
 frame = 4
 frame_progress = 1.0
+
+[node name="Fade" parent="." unique_id=29959157 node_paths=PackedStringArray("audio") instance=ExtResource("7_wducc")]
+visible = false
+audio = NodePath("../AudioStreamPlayer")
+
+[node name="FadeControl" type="Node" parent="Fade" unique_id=994511596]
+script = ExtResource("8_lma4g")
+music_after_fade = false
+music_in_db = -18.0
+metadata/_custom_type_script = "uid://3xr6yasbqo77"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=230099326]
+stream = ExtResource("9_ly47m")
+volume_db = -12.0
+autoplay = true

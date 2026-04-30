@@ -9,12 +9,12 @@ signal finished
 
 @export var audio: AudioStreamPlayer
 
-func fadein(fade_audio: bool = true):
+func fadein(fade_audio: bool = true, audio_db: float = 0.0):
 	visible = true
 	var tween := create_tween()
 	tween.tween_method(set_alpha, 1.0, 0.0, secs)
 	if audio and fade_audio:
-		tween.parallel().tween_property(audio, "volume_linear", 1.0, secs + 1.0)
+		tween.parallel().tween_property(audio, "volume_db", audio_db, secs + 1.0)
 	await tween.finished
 	visible = false
 	finished.emit()
