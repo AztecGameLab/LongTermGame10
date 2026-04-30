@@ -12,25 +12,13 @@
 atlas = ExtResource("5_gbwbf")
 region = Rect2(0, 0, 400, 400)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ivdp4"]
-atlas = ExtResource("5_gbwbf")
-region = Rect2(400, 0, 400, 400)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_0hael"]
 atlas = ExtResource("5_gbwbf")
 region = Rect2(800, 0, 400, 400)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_d0g3j"]
-atlas = ExtResource("5_gbwbf")
-region = Rect2(1200, 0, 400, 400)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_5xxny"]
 atlas = ExtResource("5_gbwbf")
 region = Rect2(0, 400, 400, 400)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1gkeg"]
-atlas = ExtResource("5_gbwbf")
-region = Rect2(400, 400, 400, 400)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0ltf4"]
 atlas = ExtResource("5_gbwbf")
@@ -52,8 +40,49 @@ region = Rect2(400, 800, 400, 400)
 atlas = ExtResource("5_gbwbf")
 region = Rect2(800, 800, 400, 400)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivdp4"]
+atlas = ExtResource("5_gbwbf")
+region = Rect2(400, 0, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d0g3j"]
+atlas = ExtResource("5_gbwbf")
+region = Rect2(1200, 0, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1gkeg"]
+atlas = ExtResource("5_gbwbf")
+region = Rect2(400, 400, 400, 400)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_d8ovo"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mr3lx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0hael")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5xxny")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ltf4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kiut8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xrkj7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1tkaa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ul68")
+}],
+"loop": false,
+"name": &"default",
+"speed": 16.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mr3lx")
@@ -89,7 +118,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_8ul68")
 }],
 "loop": false,
-"name": &"default",
+"name": &"full",
 "speed": 32.0
 }]
 
@@ -133,7 +162,8 @@ z_index = -1
 position = Vector2(532, 39)
 scale = Vector2(1.35, 1.35)
 sprite_frames = SubResource("SpriteFrames_d8ovo")
-frame = 10
+frame = 7
+frame_progress = 1.0
 
 [node name="PanelContainer" type="PanelContainer" parent="DescriptionPanel" unique_id=89365465]
 layout_mode = 0
