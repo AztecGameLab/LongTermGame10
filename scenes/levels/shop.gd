@@ -4,7 +4,7 @@ class_name ShopController
 ##
 ## Player picks 1 of 2 ability options for each of 3 characters.
 ## Carry-over: unpicked option carries to next shop alongside that shop's intro ability.
-## Disabled options (Decoy, Antidote — not built) are visible but unselectable.
+## Disabled options (Antidote — not built) are visible but unselectable.
 
 @export_range(1, 3) var shop_number: int = 1
 @export var next_scene: PackedScene
@@ -18,7 +18,7 @@ class_name ShopController
 const SHOP_OPTIONS := {
 	1: {
 		"fortune": [{"key": "reckless_slash"}, {"key": "deflect"}],
-		"coralleine": [{"key": "lifesteal"}, {"key": "decoy", "disabled": true}],
+		"coralleine": [{"key": "lifesteal"}, {"key": "decoy"}],
 		"umi": [{"key": "bottle_of_acid"}, {"key": "bottle_of_invisibility"}],
 	},
 	2: {

@@ -80,7 +80,6 @@ offset_bottom = -433.33337
 [node name="Eyes" parent="." unique_id=843097491 node_paths=PackedStringArray("audio_player") instance=ExtResource("13_kucsa")]
 position = Vector2(1494, 725)
 audio_player = NodePath("../AudioStreamPlayer")
-max_health = 1
 
 [node name="HealthBar" parent="Eyes" unique_id=1784958776 instance=ExtResource("4_18mhl")]
 offset_left = -501.33325

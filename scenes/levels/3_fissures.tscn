@@ -84,7 +84,6 @@ offset_bottom = -433.33337
 
 [node name="Jelly" parent="." unique_id=641243926 instance=ExtResource("9_ccrnb")]
 position = Vector2(1388, 749)
-max_health = 1
 
 [node name="HealthBar" parent="Jelly" unique_id=1784958776 instance=ExtResource("4_yw4x4")]
 offset_left = -318.66663

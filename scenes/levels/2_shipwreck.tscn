@@ -82,7 +82,6 @@ offset_bottom = -433.33337
 
 [node name="Mimic" parent="." unique_id=1968671649 instance=ExtResource("9_pf1g0")]
 position = Vector2(1353, 765)
-max_health = 1
 
 [node name="HealthBar" parent="Mimic" unique_id=1784958776 instance=ExtResource("4_wj0pf")]
 offset_left = -290.66675

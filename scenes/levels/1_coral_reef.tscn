@@ -77,7 +77,6 @@ offset_bottom = -433.33337
 
 [node name="ScorpionFish" parent="." unique_id=1761068697 instance=ExtResource("6_axod2")]
 position = Vector2(1454, 767)
-max_health = 1
 
 [node name="HealthBar" parent="ScorpionFish" unique_id=1784958776 instance=ExtResource("8_walo4")]
 offset_left = -430.66675

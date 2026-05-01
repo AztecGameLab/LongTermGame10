@@ -97,6 +97,11 @@ func _build_registry() -> void:
 		"guardian": {
 			4: load("res://resources/abilities/coralleine/guardian/guardian_4.tres"),
 		},
+		"decoy": {
+			2: load("res://resources/abilities/coralleine/decoy/decoy_2.tres"),
+			3: load("res://resources/abilities/coralleine/decoy/decoy_3.tres"),
+			4: load("res://resources/abilities/coralleine/decoy/decoy_4.tres"),
+		},
 		# Umi starters
 		"bottle_of_heal": {
 			1: load("res://resources/abilities/umi/bottle_of_heal/bottle_of_heal_1.tres"),
@@ -125,7 +130,7 @@ func _build_registry() -> void:
 		"bottle_of_haste": {
 			4: load("res://resources/abilities/umi/bottle_of_haste/bottle_of_haste_4.tres"),
 		},
-		# Decoy and Antidote not implemented; intentionally absent
+		# Antidote not implemented; intentionally absent
 	}
 
 func is_initialized() -> bool:

@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_qnkwo")
 name = "Decoy"
-description = "Create two decoys. Each decoy reduces the chances of being hit by 35%. After a successful hit, each decoy returns a magic attack. Additionally, when hit, coralleine takes 20% less damage for each decoy. Lastly, coralleine has a 20% chance to remain concentrated after being hit."
+description = "Create 2 decoys. Each reduces hit chance by 35%, counterattacks when hit, and grants 20% damage reduction. 20% chance to keep concentration on hit."
 concentration_effect = ExtResource("1_ol34n")
 metadata/_custom_type_script = "uid://fe5c3bvlmltj"
 metadata/_graph_x = 50.0
