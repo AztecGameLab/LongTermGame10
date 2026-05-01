@@ -12,8 +12,8 @@ metadata/_custom_type_script = "uid://dq0gts7suc1fg"
 
 [sub_resource type="Resource" id="Resource_d8jo7"]
 script = ExtResource("3_mojx8")
-damage_minimum = 20
-damage_maximum = 30
+damage_minimum = 40
+damage_maximum = 65
 metadata/_custom_type_script = "uid://d0rap3gi3boj5"
 
 [sub_resource type="Resource" id="Resource_xnaho"]

@@ -5,14 +5,30 @@
 [ext_resource type="PackedScene" uid="uid://cfbgyh6odoe03" path="res://scenes/characters/players/umi.tscn" id="3_8bomq"]
 [ext_resource type="PackedScene" uid="uid://rb6hbhelm4lq" path="res://scenes/ui/health_bar.tscn" id="4_yw4x4"]
 [ext_resource type="PackedScene" uid="uid://cg3tnggxog80a" path="res://scenes/characters/players/fortune.tscn" id="5_nndlu"]
+[ext_resource type="Resource" uid="uid://c5fvajruvaa2q" path="res://resources/abilities/umi/bottle_of_heal/bottle_of_heal_3.tres" id="5_swy3s"]
+[ext_resource type="Resource" uid="uid://872c1ypdo5l5" path="res://resources/abilities/umi/bottle_of_splode/bottle_of_splode_3.tres" id="6_7xlnq"]
 [ext_resource type="PackedScene" uid="uid://bai7shmnqcg3f" path="res://scenes/characters/players/coralleine.tscn" id="6_cd3gx"]
+[ext_resource type="Resource" uid="uid://df0vucdgx0yvk" path="res://resources/abilities/umi/bottle_of_acid/bottle_of_acid_3.tres" id="7_l0dv6"]
+[ext_resource type="Resource" uid="uid://bp3puv1uvdeor" path="res://resources/abilities/fortune/pierce/pierce_3.tres" id="7_nndlu"]
+[ext_resource type="Script" uid="uid://be5ru5snax08s" path="res://scripts/ability/action/apply_status_action.gd" id="7_yw4x4"]
 [ext_resource type="Script" uid="uid://d1o5abfusku1j" path="res://scripts/ability/base_ability.gd" id="8_cd3gx"]
 [ext_resource type="PackedScene" uid="uid://cj4h68lkbbwkt" path="res://scenes/ui/ability_select.tscn" id="8_cwaqo"]
+[ext_resource type="Resource" uid="uid://dn7wcl0g207v0" path="res://resources/abilities/umi/bottle_of_invisibility/bottle_of_invisibility_3.tres" id="8_iijgu"]
+[ext_resource type="Resource" uid="uid://beqwfdr24afn5" path="res://resources/abilities/fortune/regenerate/regenerate_3.tres" id="8_nndlu"]
+[ext_resource type="Resource" uid="uid://dh2e4jgo3fh0j" path="res://resources/abilities/fortune/lucky_charm/lucky_charm_3.tres" id="8_noy0c"]
 [ext_resource type="PackedScene" uid="uid://dhe3fu8fgev0" path="res://scenes/characters/bosses/jelly.tscn" id="9_ccrnb"]
-[ext_resource type="Resource" uid="uid://bbk8voggsovuk" path="res://resources/abilities/scorpion_fish/bite.tres" id="9_noy0c"]
-[ext_resource type="Resource" uid="uid://8b7mh30psvls" path="res://resources/abilities/scorpion_fish/rage.tres" id="10_cwaqo"]
-[ext_resource type="Resource" uid="uid://ddln8xm4jelqy" path="res://resources/abilities/glimora/barbed_sting.tres" id="11_05u3w"]
-[ext_resource type="Resource" uid="uid://druy3hvlfbkur" path="res://resources/abilities/glimora/self-heal.tres" id="12_s4uq2"]
+[ext_resource type="Resource" uid="uid://ce4daiuja61b4" path="res://resources/abilities/fortune/reckless_slash/reckless_slash_3.tres" id="9_noy0c"]
+[ext_resource type="Resource" uid="uid://coi7uxh8iaphi" path="res://resources/abilities/fortune/deflect/deflect_3.tres" id="10_cwaqo"]
+[ext_resource type="Resource" uid="uid://bnv8ckim477pc" path="res://resources/abilities/fortune/strengthen/strengthen_3.tres" id="11_05u3w"]
+[ext_resource type="Resource" uid="uid://pwlowac2wvrh" path="res://resources/abilities/coralleine/magic darts/magic_darts_3.tres" id="15_s4uq2"]
+[ext_resource type="Resource" uid="uid://bc20pkqsgk0qs" path="res://resources/abilities/coralleine/magic_cannon/magic_cannon_3.tres" id="16_8mwti"]
+[ext_resource type="Resource" uid="uid://7fj07lgcsb2a" path="res://resources/abilities/coralleine/lifesteal/lifesteal_3.tres" id="17_7ic2q"]
+[ext_resource type="Resource" uid="uid://c3g82ty4kye1n" path="res://resources/abilities/coralleine/rally/rally_3.tres" id="18_bst2m"]
+
+[sub_resource type="Resource" id="Resource_cd3gx"]
+script = ExtResource("7_yw4x4")
+status_effect = ExtResource("8_nndlu")
+metadata/_custom_type_script = "uid://be5ru5snax08s"
 
 [node name="CoralReef" type="Node2D" unique_id=1926475326 node_paths=PackedStringArray("player_team", "boss_team")]
 script = ExtResource("1_s586h")
@@ -27,6 +43,7 @@ centered = false
 
 [node name="Umi" parent="." unique_id=34133432 instance=ExtResource("3_8bomq")]
 position = Vector2(937.00006, 674)
+abilities = Array[ExtResource("8_cd3gx")]([ExtResource("5_swy3s"), ExtResource("6_7xlnq"), ExtResource("7_l0dv6"), ExtResource("8_iijgu")])
 
 [node name="HealthBar" parent="Umi" unique_id=1562969593 instance=ExtResource("4_yw4x4")]
 offset_left = -126.66675
@@ -36,6 +53,8 @@ offset_bottom = -396.0
 
 [node name="Fortune" parent="." unique_id=724902013 instance=ExtResource("5_nndlu")]
 position = Vector2(762.00006, 794.00006)
+abilities = Array[ExtResource("8_cd3gx")]([ExtResource("7_nndlu"), ExtResource("8_noy0c"), ExtResource("9_noy0c"), ExtResource("10_cwaqo"), ExtResource("11_05u3w")])
+initial_status_effects = Array[ExtResource("7_yw4x4")]([SubResource("Resource_cd3gx")])
 
 [node name="HealthBar" parent="Fortune" unique_id=593496078 instance=ExtResource("4_yw4x4")]
 offset_left = -126.66675
@@ -45,6 +64,7 @@ offset_bottom = -429.3334
 
 [node name="Coralleine" parent="." unique_id=1190915457 instance=ExtResource("6_cd3gx")]
 position = Vector2(592, 914.00006)
+abilities = Array[ExtResource("8_cd3gx")]([ExtResource("15_s4uq2"), ExtResource("16_8mwti"), ExtResource("17_7ic2q"), ExtResource("18_bst2m")])
 
 [node name="HealthBar" parent="Coralleine" unique_id=759737278 instance=ExtResource("4_yw4x4")]
 offset_left = -126.666664
@@ -54,8 +74,6 @@ offset_bottom = -433.33337
 
 [node name="Jelly" parent="." unique_id=641243926 instance=ExtResource("9_ccrnb")]
 position = Vector2(1388, 749)
-max_health = 500
-abilities = Array[ExtResource("8_cd3gx")]([ExtResource("9_noy0c"), ExtResource("10_cwaqo"), ExtResource("11_05u3w"), ExtResource("12_s4uq2")])
 
 [node name="HealthBar" parent="Jelly" unique_id=1784958776 instance=ExtResource("4_yw4x4")]
 offset_left = -318.66663

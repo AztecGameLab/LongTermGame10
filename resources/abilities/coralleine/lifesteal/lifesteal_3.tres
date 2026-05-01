@@ -14,8 +14,8 @@ metadata/_custom_type_script = "uid://dq0gts7suc1fg"
 
 [sub_resource type="Resource" id="Resource_qh8t0"]
 script = ExtResource("1_yvopc")
-damage_minimum = 20
-damage_maximum = 40
+damage_minimum = 25
+damage_maximum = 45
 metadata/_custom_type_script = "uid://coagjoj2grxm7"
 
 [sub_resource type="Resource" id="Resource_r4dnt"]
@@ -34,7 +34,7 @@ metadata/_custom_type_script = "uid://da17dshmjafs6"
 
 [resource]
 script = ExtResource("2_rj37m")
-name = "Lifesteal Level 3"
+name = "Lifesteal"
 description = "Steal a percentage of the increased damage dealt to the enemy as health and there is a chance to steal a positive status effect from the enemy. "
 action = SubResource("Resource_ly7en")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"

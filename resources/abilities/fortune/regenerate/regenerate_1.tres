@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="StatusEffect" format=3 uid="uid://dnx5kk4jemlol"]
 
 [ext_resource type="Script" uid="uid://c4rwprj6d61c0" path="res://scripts/status_effects/status_effect.gd" id="1_3lxtv"]
+[ext_resource type="Texture2D" uid="uid://d4a6n5wgbh10u" path="res://assets/status_effects/Regeneration.png" id="1_tvn0h"]
 [ext_resource type="Script" uid="uid://c2ci25gmhnb4w" path="res://scripts/status_effects/status_effect_stack.gd" id="2_seamv"]
 [ext_resource type="Script" uid="uid://w6h7oqtjl61k" path="res://scripts/status_effects/status_effect_modifier.gd" id="3_qvorr"]
 [ext_resource type="Script" uid="uid://d0uvf6jnorxpw" path="res://scripts/status_effects/status_effect_trigger.gd" id="4_663xp"]
@@ -8,7 +9,7 @@
 
 [sub_resource type="Resource" id="Resource_nr16a"]
 script = ExtResource("5_u1w0k")
-heal_amount = 10
+heal_amount = 5
 metadata/_custom_type_script = "uid://c84i4tkx4t6au"
 
 [sub_resource type="Resource" id="Resource_kwfm3"]
@@ -18,7 +19,7 @@ metadata/_custom_type_script = "uid://d0uvf6jnorxpw"
 
 [sub_resource type="Resource" id="Resource_c1t11"]
 script = ExtResource("2_seamv")
-description = "Heals you 10hp each turn."
+description = "Heals you 5hp each turn."
 triggers = Array[ExtResource("4_663xp")]([SubResource("Resource_kwfm3")])
 metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
 
@@ -27,4 +28,5 @@ script = ExtResource("1_3lxtv")
 stacks = Array[ExtResource("2_seamv")]([SubResource("Resource_c1t11")])
 limited_duration = false
 name = "Regenerate"
+icon = ExtResource("1_tvn0h")
 metadata/_custom_type_script = "uid://c4rwprj6d61c0"

@@ -28,7 +28,7 @@ metadata/_graph_h = 238.0
 
 [sub_resource type="Resource" id="Resource_btms6"]
 script = ExtResource("4_5e8pi")
-damage = 20
+damage = 30
 can_miss = false
 override_target = true
 metadata/_graph_x = 1380.0

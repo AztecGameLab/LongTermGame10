@@ -23,7 +23,7 @@ metadata/_custom_type_script = "uid://da17dshmjafs6"
 
 [resource]
 script = ExtResource("2_aqbhc")
-name = "Lifesteal Level 2"
+name = "Lifesteal"
 description = "Steal a percentage of the increased damage dealt to the enemy as health."
 action = SubResource("Resource_76ive")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"

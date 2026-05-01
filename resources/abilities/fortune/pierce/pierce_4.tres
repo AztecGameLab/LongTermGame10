@@ -66,8 +66,9 @@ metadata/_graph_h = 251.0
 
 [resource]
 script = ExtResource("1_fs1un")
-name = "Pierce Level 4"
-description = "Damage increase and chance to attack again"
+name = "Pierce"
+description = "Damage the enemy and apply bleed.
+Has a chance to attack twice."
 action = SubResource("Resource_8m4ft")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
 metadata/_graph_x = 50.0
