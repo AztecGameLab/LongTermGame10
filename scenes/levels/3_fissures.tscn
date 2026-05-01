@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://csbhyubbu6bo6" path="res://scenes/ui/fade.tscn" id="9_8bomq"]
 [ext_resource type="PackedScene" uid="uid://dhe3fu8fgev0" path="res://scenes/characters/bosses/jelly.tscn" id="9_ccrnb"]
 [ext_resource type="Script" uid="uid://3xr6yasbqo77" path="res://scenes/levels/fade_control.gd" id="10_yw4x4"]
-[ext_resource type="AudioStream" uid="uid://br01c1tei4uo0" path="res://assets/audio/music/Glimmer.wav" id="11_yw4x4"]
+[ext_resource type="AudioStream" uid="uid://bq06xn6thxy1m" path="res://assets/audio/music/Glimmer.mp3" id="11_yw4x4"]
 
 [node name="CoralReef" type="Node2D" unique_id=1926475326 node_paths=PackedStringArray("player_team", "boss_team")]
 script = ExtResource("1_s586h")
