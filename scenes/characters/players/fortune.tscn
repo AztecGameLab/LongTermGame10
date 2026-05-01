@@ -12,8 +12,11 @@
 [ext_resource type="Resource" uid="uid://w5ubyihph7x8" path="res://resources/abilities/fortune/pierce/pierce_4.tres" id="5_x4hre"]
 [ext_resource type="Texture2D" uid="uid://cjywkv0hoqi8f" path="res://assets/sprites/fortune/status/Fortune_status_0002.png" id="6_a6d1p"]
 [ext_resource type="Resource" uid="uid://bd1et3q8j0crh" path="res://resources/abilities/fortune/reckless_slash/reckless_slash_4.tres" id="6_e3q6w"]
+[ext_resource type="Script" uid="uid://be5ru5snax08s" path="res://scripts/ability/action/apply_status_action.gd" id="7_0p28b"]
 [ext_resource type="Texture2D" uid="uid://dcy82nvylmfnf" path="res://assets/sprites/fortune/status/Fortune_status_0003.png" id="7_qmd5o"]
+[ext_resource type="Resource" uid="uid://ddvltehnds3yy" path="res://resources/abilities/fortune/strengthen/strengthen_4.tres" id="7_x4hre"]
 [ext_resource type="Texture2D" uid="uid://bxfexsr6rntii" path="res://assets/sprites/fortune/status/Fortune_status_0004.png" id="8_1mmj7"]
+[ext_resource type="Resource" uid="uid://r64xcaj0mr4c" path="res://resources/abilities/fortune/regenerate/regenerate_4.tres" id="8_x4hre"]
 [ext_resource type="Texture2D" uid="uid://dxyrya52vrxle" path="res://assets/sprites/fortune/status/Fortune_status_0005.png" id="9_nmc8w"]
 [ext_resource type="Texture2D" uid="uid://cpsu7nrel5ara" path="res://assets/sprites/fortune/status/Fortune_status_0006.png" id="10_lumjw"]
 [ext_resource type="Texture2D" uid="uid://7wniy5ohnfaj" path="res://assets/sprites/fortune/status/Fortune_status_0007.png" id="11_d4bxt"]
@@ -30,6 +33,11 @@
 [ext_resource type="Texture2D" uid="uid://c6o1rqj7fkvft" path="res://assets/sprites/fortune/status/Fortune_status_0018.png" id="22_dkqwv"]
 [ext_resource type="Texture2D" uid="uid://cd0bfl1d5cd67" path="res://assets/sprites/fortune/status/Fortune_status_0019.png" id="23_tc633"]
 [ext_resource type="PackedScene" uid="uid://5b5nch8ier3n" path="res://scenes/ui/selected_indicator.tscn" id="24_8svyu"]
+
+[sub_resource type="Resource" id="Resource_e3q6w"]
+script = ExtResource("7_0p28b")
+status_effect = ExtResource("8_x4hre")
+metadata/_custom_type_script = "uid://be5ru5snax08s"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6d236"]
 shader = ExtResource("2_6d236")
@@ -257,7 +265,9 @@ animations = [{
 scale = Vector2(0.75, 0.75)
 script = ExtResource("1_v4h78")
 character_name = "Fortune"
-abilities = Array[ExtResource("2_b8mix")]([ExtResource("3_h6tje"), ExtResource("4_0p28b"), ExtResource("5_x4hre"), ExtResource("6_e3q6w")])
+max_health = 100
+abilities = Array[ExtResource("2_b8mix")]([ExtResource("3_h6tje"), ExtResource("4_0p28b"), ExtResource("5_x4hre"), ExtResource("6_e3q6w"), ExtResource("7_x4hre")])
+initial_status_effects = Array[ExtResource("7_0p28b")]([SubResource("Resource_e3q6w")])
 metadata/_custom_type_script = "uid://hc4s42fbmmk8"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1795254859]

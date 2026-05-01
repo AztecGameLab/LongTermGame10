@@ -10,6 +10,7 @@
 [ext_resource type="Resource" uid="uid://cjl4tl2emlhod" path="res://resources/abilities/coralleine/lifesteal/lifesteal_4.tres" id="4_l1ybd"]
 [ext_resource type="PackedScene" uid="uid://5b5nch8ier3n" path="res://scenes/ui/selected_indicator.tscn" id="5_g3wes"]
 [ext_resource type="Resource" uid="uid://btt4hfmyenawq" path="res://resources/abilities/coralleine/magic_cannon/magic_cannon_4.tres" id="5_vdvcc"]
+[ext_resource type="Resource" uid="uid://cwy5rolgk5id1" path="res://resources/abilities/coralleine/magic darts/magic_darts_4.tres" id="6_2nj27"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4nmft"]
 shader = ExtResource("2_4nmft")
@@ -338,7 +339,8 @@ animations = [{
 scale = Vector2(0.75, 0.75)
 script = ExtResource("1_vagx6")
 character_name = "Coralleine"
-abilities = Array[ExtResource("2_j65q7")]([ExtResource("3_2nj27"), ExtResource("4_l1ybd"), ExtResource("5_vdvcc")])
+max_health = 100
+abilities = Array[ExtResource("2_j65q7")]([ExtResource("3_2nj27"), ExtResource("4_l1ybd"), ExtResource("5_vdvcc"), ExtResource("6_2nj27")])
 metadata/_custom_type_script = "uid://csfpgu4388244"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1150529436]

@@ -25,8 +25,8 @@ static func apply_damage(damage: int, source: BattleCharacter, target: BattleCha
 
 	if source:
 		source.on_damage_dealt(context)
-	target.on_damage_received(context)
-	target.on_attacked(context)
+	await target.on_damage_received(context)
+	await target.on_attacked(context)
 
 static func apply_healing(healing: int, source: BattleCharacter, target: BattleCharacter) -> void:
 	if source:
@@ -91,7 +91,7 @@ signal battle_ready
 
 signal round_started
 signal round_ended
-signal game_ended
+signal game_ended(did_player_win: bool)
 
 @export var player_team: Array[BattleCharacter]
 @export var boss_team: Array[BattleCharacter]
@@ -122,14 +122,27 @@ func _ready() -> void:
 func insert_next_action(actions: QueuedAction):
 	_queued_actions.insert(0, actions)
 
-func _run_actions():
+func _run_actions(after_each_action: Callable):
 	while (_queued_actions.size() > 0):
 		var action := _queued_actions[0]
 		_queued_actions.remove_at(0)
 		var source := action.source
 		if (not source) or source.alive:
 			await action.run()
+		after_each_action.call()
 		await get_tree().create_timer(0.35).timeout
+
+func check_player_win():
+	if not _boss_battle_team.is_any_alive():
+		print("Player Wins!")
+		battle_running = false
+		game_ended.emit(true)
+		
+func check_boss_win():
+	if not _player_battle_team.is_any_alive():
+		print("Boss Wins!")
+		battle_running = false
+		game_ended.emit(false)
 
 func run_turn():
 	if not battle_running:
@@ -147,27 +160,26 @@ func run_turn():
 		await character.on_turn_started()
 		
 	# Run all player actions
-	await _run_actions()
-	
+	await _run_actions(check_player_win)
+	if not battle_running:
+		return
+		
 	# Boss picks moves *after* player actions run.
 	# This allows invisibility and others to take effect.
-	_queued_actions.append_array(await _boss_battle_team.pick_abilities())
+	_queued_actions.append_array(_boss_battle_team.pick_abilities())
 	# Run all boss actions
-	await _run_actions()
+	await _run_actions(check_boss_win)
+	if not battle_running:
+		return
+		
 	print("Turn Over")
 	for character in _player_battle_team.get_alive_characters():
 		await character.on_turn_ended()
 	for character in _boss_battle_team.get_alive_characters():
 		await character.on_turn_ended()
 	round_ended.emit()
-	if not _boss_battle_team.is_any_alive():
-		print("Player Wins!")
-		battle_running = false
-		game_ended.emit()
-		return
-	if not _player_battle_team.is_any_alive():
-		print("Boss Wins!")
-		battle_running = false
-		game_ended.emit()
+	check_player_win()
+	check_boss_win()
+	if not battle_running:
 		return
 	run_turn()

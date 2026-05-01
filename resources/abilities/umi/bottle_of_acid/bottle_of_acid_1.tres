@@ -4,29 +4,42 @@
 [ext_resource type="Script" uid="uid://dq0gts7suc1fg" path="res://scripts/ability/action/animation_action.gd" id="2_b3c7d"]
 [ext_resource type="Script" uid="uid://be5ru5snax08s" path="res://scripts/ability/action/apply_status_action.gd" id="3_1p0ol"]
 [ext_resource type="Resource" uid="uid://dclil2frb31o2" path="res://resources/status_effects/acid.tres" id="4_obmq2"]
+[ext_resource type="Script" uid="uid://bihndepd0cudw" path="res://scripts/ability/action/static_damage_action.gd" id="5_b3c7d"]
 [ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="5_vpcua"]
 [ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="6_8u0h7"]
 
 [sub_resource type="Resource" id="Resource_4usbn"]
 script = ExtResource("2_b3c7d")
 metadata/_custom_type_script = "uid://dq0gts7suc1fg"
+metadata/_graph_x = 940.0
+metadata/_graph_y = -120.0
+metadata/_graph_w = 376.0
+metadata/_graph_h = 126.0
+
+[sub_resource type="Resource" id="Resource_1p0ol"]
+script = ExtResource("5_b3c7d")
+damage = 20
+metadata/_graph_x = 943.5
+metadata/_graph_y = 1018.5
+metadata/_graph_w = 384.0
+metadata/_graph_h = 240.0
 
 [sub_resource type="Resource" id="Resource_h56ap"]
 script = ExtResource("3_1p0ol")
 status_effect = ExtResource("4_obmq2")
 max_stacks = 1
-metadata/_graph_x = 1260.0
-metadata/_graph_y = 340.0
+metadata/_graph_x = 1240.0
+metadata/_graph_y = 460.0
 metadata/_graph_w = 486.0
 metadata/_graph_h = 362.0
 
 [sub_resource type="Resource" id="Resource_u5cyh"]
 script = ExtResource("5_vpcua")
-actions = Array[ExtResource("1_iqcj6")]([SubResource("Resource_4usbn"), SubResource("Resource_h56ap")])
-metadata/_graph_x = 780.0
-metadata/_graph_y = 320.0
+actions = Array[ExtResource("1_iqcj6")]([SubResource("Resource_4usbn"), SubResource("Resource_1p0ol"), SubResource("Resource_h56ap")])
+metadata/_graph_x = 0.0
+metadata/_graph_y = 420.0
 metadata/_graph_w = 349.0
-metadata/_graph_h = 325.0
+metadata/_graph_h = 394.0
 
 [resource]
 script = ExtResource("6_8u0h7")
@@ -34,8 +47,8 @@ name = "Bottle of Acid"
 description = "Deals Damage and applies the Acid Debuff."
 action = SubResource("Resource_u5cyh")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
-metadata/_graph_x = -140.0
-metadata/_graph_y = 260.0
+metadata/_graph_x = -1100.0
+metadata/_graph_y = 80.0
 metadata/_graph_w = 766.0
 metadata/_graph_h = 337.0
 metadata/_external_layouts = {
