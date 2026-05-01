@@ -142,7 +142,7 @@ func get_incoming_healing(value: int) -> int:
 
 ## Restores health, capped at max_health.
 func heal(amount: int, source: BattleCharacter = null) -> void:
-	var actual := mini(amount, max_health - current_health)
+	var actual := mini(maxi(0, amount), max_health - current_health)
 	current_health += actual
 	healed.emit(actual, source)
 

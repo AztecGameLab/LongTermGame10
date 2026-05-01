@@ -17,6 +17,9 @@
 [ext_resource type="Resource" uid="uid://dnx5kk4jemlol" path="res://resources/abilities/fortune/regenerate/regenerate_1.tres" id="12_jok4t"]
 [ext_resource type="Resource" uid="uid://ct6luvxunm4ye" path="res://resources/abilities/coralleine/magic darts/magic_darts_1.tres" id="14_jok4t"]
 [ext_resource type="Resource" uid="uid://bfh4vkt77fdbm" path="res://resources/abilities/coralleine/magic_cannon/magic_cannon_1.tres" id="15_f1sko"]
+[ext_resource type="PackedScene" uid="uid://csbhyubbu6bo6" path="res://scenes/ui/fade.tscn" id="18_walo4"]
+[ext_resource type="Script" uid="uid://3xr6yasbqo77" path="res://scenes/levels/fade_control.gd" id="19_ty1hb"]
+[ext_resource type="AudioStream" uid="uid://yndkk2w8804l" path="res://assets/audio/music/ScorpionFish.wav" id="20_ty1hb"]
 
 [sub_resource type="Resource" id="Resource_f1sko"]
 script = ExtResource("11_uf7ed")
@@ -76,3 +79,15 @@ offset_bottom = -650.6667
 
 [node name="AbilitySelect" parent="." unique_id=844678139 node_paths=PackedStringArray("battle_manager") instance=ExtResource("4_a4rq4")]
 battle_manager = NodePath("..")
+
+[node name="Fade" parent="." unique_id=29959157 node_paths=PackedStringArray("audio") instance=ExtResource("18_walo4")]
+visible = false
+audio = NodePath("../AudioStreamPlayer")
+
+[node name="FadeControl" type="Node" parent="Fade" unique_id=1003302384]
+script = ExtResource("19_ty1hb")
+metadata/_custom_type_script = "uid://3xr6yasbqo77"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1548842949]
+stream = ExtResource("20_ty1hb")
+volume_db = -12.0

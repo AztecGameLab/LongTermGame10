@@ -12,5 +12,5 @@ func _ready() -> void:
 
 func start():
 	await parent.fadein(!music_after_fade, music_in_db)
-	if music_after_fade:
+	if music_after_fade and parent.audio:
 		parent.audio.play()

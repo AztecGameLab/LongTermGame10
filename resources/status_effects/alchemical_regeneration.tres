@@ -44,4 +44,5 @@ script = ExtResource("1_h5hq7")
 stacks = Array[ExtResource("2_53t5n")]([SubResource("Resource_4hn3f"), SubResource("Resource_gfrt2")])
 name = "Alchemical Regeneration"
 icon = ExtResource("1_53t5n")
+effect_type = 0
 metadata/_custom_type_script = "uid://c4rwprj6d61c0"

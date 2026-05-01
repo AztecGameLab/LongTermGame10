@@ -22,6 +22,9 @@
 [ext_resource type="Resource" uid="uid://ekd5eexxkduw" path="res://resources/abilities/coralleine/magic darts/magic_darts_2.tres" id="16_muu6h"]
 [ext_resource type="Resource" uid="uid://crljou6mtmq0h" path="res://resources/abilities/coralleine/magic_cannon/magic_cannon_2.tres" id="17_dwioa"]
 [ext_resource type="Resource" uid="uid://db3vxvsbuyf36" path="res://resources/abilities/coralleine/lifesteal/lifesteal_2.tres" id="18_8uqba"]
+[ext_resource type="PackedScene" uid="uid://csbhyubbu6bo6" path="res://scenes/ui/fade.tscn" id="23_yuf3x"]
+[ext_resource type="Script" uid="uid://3xr6yasbqo77" path="res://scenes/levels/fade_control.gd" id="24_rjwpj"]
+[ext_resource type="AudioStream" uid="uid://dfe065d4r30vm" path="res://assets/audio/music/Mimksnap DEMO.mp3" id="25_rjwpj"]
 
 [sub_resource type="Resource" id="Resource_yuf3x"]
 script = ExtResource("15_odcq4")
@@ -82,3 +85,15 @@ offset_bottom = -665.3334
 
 [node name="AbilitySelect" parent="." unique_id=844678139 node_paths=PackedStringArray("battle_manager") instance=ExtResource("8_f1qd7")]
 battle_manager = NodePath("..")
+
+[node name="Fade" parent="." unique_id=29959157 node_paths=PackedStringArray("audio") instance=ExtResource("23_yuf3x")]
+visible = false
+audio = NodePath("../AudioStreamPlayer")
+
+[node name="FadeControl" type="Node" parent="Fade" unique_id=1050382912]
+script = ExtResource("24_rjwpj")
+metadata/_custom_type_script = "uid://3xr6yasbqo77"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1916575304]
+stream = ExtResource("25_rjwpj")
+volume_db = -12.0

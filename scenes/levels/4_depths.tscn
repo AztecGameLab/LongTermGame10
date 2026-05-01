@@ -25,8 +25,11 @@
 [ext_resource type="Resource" uid="uid://cjl4tl2emlhod" path="res://resources/abilities/coralleine/lifesteal/lifesteal_4.tres" id="21_qajmi"]
 [ext_resource type="Resource" uid="uid://db77qu1n6a6p1" path="res://resources/abilities/coralleine/guardian/guardian_4.tres" id="22_8uing"]
 [ext_resource type="Resource" uid="uid://dsamfn48c83rg" path="res://resources/abilities/coralleine/rally/rally_4.tres" id="23_5kcb0"]
+[ext_resource type="PackedScene" uid="uid://csbhyubbu6bo6" path="res://scenes/ui/fade.tscn" id="26_qajmi"]
+[ext_resource type="Script" uid="uid://3xr6yasbqo77" path="res://scenes/levels/fade_control.gd" id="27_8uing"]
+[ext_resource type="AudioStream" uid="uid://bsr046adejqai" path="res://assets/audio/music/TheEyesBeginning.wav" id="28_u6w0s"]
 
-[node name="CoralReef" type="Node2D" unique_id=1926475326 node_paths=PackedStringArray("player_team", "boss_team")]
+[node name="Depths" type="Node2D" unique_id=1926475326 node_paths=PackedStringArray("player_team", "boss_team")]
 script = ExtResource("1_rjim6")
 player_team = [NodePath("Umi"), NodePath("Fortune"), NodePath("Coralleine")]
 boss_team = [NodePath("Eyes")]
@@ -67,8 +70,9 @@ offset_top = -482.66672
 offset_right = 130.66672
 offset_bottom = -433.33337
 
-[node name="Eyes" parent="." unique_id=843097491 instance=ExtResource("13_kucsa")]
+[node name="Eyes" parent="." unique_id=843097491 node_paths=PackedStringArray("audio_player") instance=ExtResource("13_kucsa")]
 position = Vector2(1494, 725)
+audio_player = NodePath("../AudioStreamPlayer")
 
 [node name="HealthBar" parent="Eyes" unique_id=1784958776 instance=ExtResource("4_18mhl")]
 offset_left = -501.33325
@@ -78,3 +82,14 @@ offset_bottom = -717.3333
 
 [node name="AbilitySelect" parent="." unique_id=844678139 node_paths=PackedStringArray("battle_manager") instance=ExtResource("8_8beof")]
 battle_manager = NodePath("..")
+
+[node name="Fade" parent="." unique_id=29959157 node_paths=PackedStringArray("audio") instance=ExtResource("26_qajmi")]
+visible = false
+audio = NodePath("../AudioStreamPlayer")
+
+[node name="FadeControl" type="Node" parent="Fade" unique_id=1086402446]
+script = ExtResource("27_8uing")
+metadata/_custom_type_script = "uid://3xr6yasbqo77"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=750711317]
+stream = ExtResource("28_u6w0s")
