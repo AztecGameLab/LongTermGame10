@@ -8,7 +8,7 @@
 
 [sub_resource type="Resource" id="Resource_nr16a"]
 script = ExtResource("5_u1w0k")
-heal_amount = 10
+heal_amount = 5
 metadata/_custom_type_script = "uid://c84i4tkx4t6au"
 
 [sub_resource type="Resource" id="Resource_kwfm3"]
@@ -18,7 +18,7 @@ metadata/_custom_type_script = "uid://d0uvf6jnorxpw"
 
 [sub_resource type="Resource" id="Resource_c1t11"]
 script = ExtResource("2_seamv")
-description = "Heals you 10hp each turn."
+description = "Heals you 5hp each turn."
 triggers = Array[ExtResource("4_663xp")]([SubResource("Resource_kwfm3")])
 metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
 

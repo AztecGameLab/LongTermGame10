@@ -9,7 +9,6 @@
 [sub_resource type="Resource" id="Resource_yvl41"]
 script = ExtResource("3_yvl41")
 modifier_field = 4
-modifier_type = 1
 modifier_amount = 0.04999999999995452
 metadata/_graph_x = 820.0
 metadata/_graph_y = -240.0
@@ -36,7 +35,6 @@ metadata/_graph_h = 220.0
 [sub_resource type="Resource" id="Resource_vd7an"]
 script = ExtResource("3_yvl41")
 modifier_field = 4
-modifier_type = 1
 modifier_amount = 0.10000000000002274
 metadata/_graph_x = 820.0
 metadata/_graph_y = 260.0
@@ -76,7 +74,6 @@ metadata/_graph_h = 315.0
 [sub_resource type="Resource" id="Resource_c66xc"]
 script = ExtResource("3_yvl41")
 modifier_field = 4
-modifier_type = 1
 modifier_amount = 0.20000000000004547
 metadata/_graph_x = 820.0
 metadata/_graph_y = 840.0

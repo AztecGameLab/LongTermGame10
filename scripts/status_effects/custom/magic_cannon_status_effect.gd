@@ -40,4 +40,6 @@ func run_triggers(type: StatusEffectTrigger.Type, container: StatusEffectContain
 		_iterate_state(container)
 		
 func get_remaining_turns(container: StatusEffectContainer) -> int:
-	return _get_state(container)
+	if container.stacks >= 3:
+		return _get_state(container)
+	return -1

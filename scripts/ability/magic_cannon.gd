@@ -38,6 +38,7 @@ func get_action(source: BattleCharacter) -> Action:
 		
 		var apply_status := ApplyStatusAction.new()
 		apply_status.status_effect = status_effect
+		apply_status.applied_stacks = level
 		group.actions.append(apply_status)
 		return group
 		
@@ -58,6 +59,7 @@ func get_action(source: BattleCharacter) -> Action:
 	remove_status.status_effect = status_effect
 	remove_status.override_target = true
 	remove_status.action_target = TargetType.SELF
+	remove_status.remove_stacks = -1
 	group.actions.append(remove_status)
 	
 	return group

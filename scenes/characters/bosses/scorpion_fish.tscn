@@ -275,6 +275,7 @@ animations = [{
 scale = Vector2(0.75, 0.75)
 script = ExtResource("1_kml5a")
 character_name = "Scorpion Fish"
+max_health = 350
 abilities = Array[ExtResource("2_kj128")]([ExtResource("3_dtb7u"), ExtResource("4_ym7ni"), ExtResource("5_dtb7u"), ExtResource("6_ym7ni"), ExtResource("6_ym7ni")])
 metadata/_custom_type_script = "uid://ptnidpejecye"
 

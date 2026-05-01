@@ -1,6 +1,8 @@
 extends Action
 class_name RepeatAction
 
+const LUCK_TO_CHANCE_SCALE := 0.5
+
 ## The maximum number of times this should run.
 @export_range(1, 20) var times: int = 1
 
@@ -10,6 +12,9 @@ class_name RepeatAction
 
 ## If true, the sequence will stop if any of the actions miss. If false, it will run all [code]times[/code] regardless of hit success.
 @export var stop_on_miss: bool
+
+## If true, the source's [code]OUTGOING_LUCK[/code] is added to each iteration's hit chance.
+@export var use_luck: bool = false
 
 ## The action to repeat.[br]
 ## For multiple actions you may use a [GroupAction]
@@ -26,6 +31,8 @@ func run(context: ActionContext) -> void:
 			var calc_chance := hit_chance
 			if context.source:
 				calc_chance = context.source.get_outgoing_hit_chance(calc_chance)
+				if use_luck:
+					calc_chance += context.source.get_modified_field(StatusEffectModifier.Field.OUTGOING_LUCK) * LUCK_TO_CHANCE_SCALE
 			calc_chance = context.target.get_incoming_hit_chance(calc_chance)
 
 			var success: bool = RNG.chance(calc_chance)

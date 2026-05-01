@@ -79,6 +79,7 @@ script = ExtResource("9_dvfbh")
 times = 5
 hit_chance_decrease = 0.1
 stop_on_miss = true
+use_luck = true
 action = SubResource("Resource_a0qop")
 sequence_complete_action = SubResource("Resource_4bvoj")
 metadata/_graph_x = 80.0
