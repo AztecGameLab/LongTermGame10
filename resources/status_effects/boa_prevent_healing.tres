@@ -9,7 +9,7 @@
 script = ExtResource("3_3ur3n")
 modifier_field = 6
 modifier_type = 1
-modifier_amount = -50.0
+modifier_amount = -0.5
 metadata/_graph_x = 1160.0
 metadata/_graph_y = 160.0
 metadata/_graph_w = 714.0

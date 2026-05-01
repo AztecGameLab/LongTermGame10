@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ebuea3tg3fdv"
+path="res://.godot/imported/Eyes Below New Shop Theme (No Tide Can Haunt You Down Here).wav-a1f594de80cc3890e36e49aac24af5e0.sample"
+
+[deps]
+
+source_file="res://assets/audio/music/Eyes Below New Shop Theme (No Tide Can Haunt You Down Here).wav"
+dest_files=["res://.godot/imported/Eyes Below New Shop Theme (No Tide Can Haunt You Down Here).wav-a1f594de80cc3890e36e49aac24af5e0.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=769545
+edit/loop_end=1539575
+compress/mode=2

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dm766vkhlubh6"
+path="res://.godot/imported/Eyes Below Credits Theme.wav-112c456e6eabf762cfdf627ed9475f7b.sample"
+
+[deps]
+
+source_file="res://assets/audio/music/Eyes Below Credits Theme.wav"
+dest_files=["res://.godot/imported/Eyes Below Credits Theme.wav-112c456e6eabf762cfdf627ed9475f7b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
