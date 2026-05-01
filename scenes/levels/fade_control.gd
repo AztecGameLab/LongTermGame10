@@ -8,6 +8,7 @@ class_name FadeControl
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	parent.visible = true
 	call_deferred("start")
 
 func start():

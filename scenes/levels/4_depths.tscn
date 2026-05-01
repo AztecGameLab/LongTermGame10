@@ -43,6 +43,7 @@ centered = false
 [node name="Umi" parent="." unique_id=34133432 instance=ExtResource("3_yfc2s")]
 position = Vector2(937.00006, 674)
 abilities = Array[ExtResource("8_ah7ph")]([ExtResource("5_t871m"), ExtResource("6_il4l7"), ExtResource("7_lfa6g"), ExtResource("8_ryc71"), ExtResource("9_j38gl")])
+battle_level = 4
 
 [node name="HealthBar" parent="Umi" unique_id=1562969593 instance=ExtResource("4_18mhl")]
 offset_left = -126.66675
@@ -53,6 +54,7 @@ offset_bottom = -396.0
 [node name="Fortune" parent="." unique_id=724902013 instance=ExtResource("5_60ghh")]
 position = Vector2(762.00006, 794.00006)
 abilities = Array[ExtResource("8_ah7ph")]([ExtResource("12_ae6lp"), ExtResource("13_toobq"), ExtResource("14_dh8d8"), ExtResource("15_su4nq"), ExtResource("16_mp6uq"), ExtResource("17_5kcb0")])
+battle_level = 4
 
 [node name="HealthBar" parent="Fortune" unique_id=593496078 instance=ExtResource("4_18mhl")]
 offset_left = -126.66675
@@ -63,6 +65,7 @@ offset_bottom = -429.3334
 [node name="Coralleine" parent="." unique_id=1190915457 instance=ExtResource("6_w51aq")]
 position = Vector2(592, 914.00006)
 abilities = Array[ExtResource("8_ah7ph")]([ExtResource("19_mp6uq"), ExtResource("20_5kcb0"), ExtResource("21_qajmi"), ExtResource("23_5kcb0"), ExtResource("22_8uing")])
+battle_level = 4
 
 [node name="HealthBar" parent="Coralleine" unique_id=759737278 instance=ExtResource("4_18mhl")]
 offset_left = -126.666664

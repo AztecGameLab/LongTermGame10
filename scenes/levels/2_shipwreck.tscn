@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://csbhyubbu6bo6" path="res://scenes/ui/fade.tscn" id="23_yuf3x"]
 [ext_resource type="Script" uid="uid://3xr6yasbqo77" path="res://scenes/levels/fade_control.gd" id="24_rjwpj"]
 [ext_resource type="AudioStream" uid="uid://dfe065d4r30vm" path="res://assets/audio/music/Mimksnap DEMO.mp3" id="25_rjwpj"]
+[ext_resource type="PackedScene" uid="uid://c2shop2lqsktxw" path="res://scenes/levels/shop_2.tscn" id="26_shopnext"]
 
 [sub_resource type="Resource" id="Resource_yuf3x"]
 script = ExtResource("15_odcq4")
@@ -35,6 +36,7 @@ metadata/_custom_type_script = "uid://be5ru5snax08s"
 script = ExtResource("1_u30le")
 player_team = [NodePath("Umi"), NodePath("Fortune"), NodePath("Coralleine")]
 boss_team = [NodePath("Mimic")]
+next_scene_on_win = ExtResource("26_shopnext")
 metadata/_custom_type_script = "uid://cbi33r5foad57"
 
 [node name="NormalGameplay(focusedOnFortuneOnly)4" type="Sprite2D" parent="." unique_id=641535787]
@@ -45,6 +47,7 @@ centered = false
 [node name="Umi" parent="." unique_id=34133432 instance=ExtResource("3_yi6pd")]
 position = Vector2(937.00006, 674)
 abilities = Array[ExtResource("4_yi6pd")]([ExtResource("5_yi6pd"), ExtResource("6_wj0pf"), ExtResource("7_2usji"), ExtResource("8_bsqvu")])
+battle_level = 2
 
 [node name="HealthBar" parent="Umi" unique_id=1562969593 instance=ExtResource("4_wj0pf")]
 offset_left = -126.66675
@@ -56,6 +59,7 @@ offset_bottom = -396.0
 position = Vector2(762.00006, 794.00006)
 abilities = Array[ExtResource("4_yi6pd")]([ExtResource("5_wj0pf"), ExtResource("12_by2pp"), ExtResource("13_muu6h"), ExtResource("14_dwioa")])
 initial_status_effects = Array[ExtResource("15_odcq4")]([SubResource("Resource_yuf3x")])
+battle_level = 2
 
 [node name="HealthBar" parent="Fortune" unique_id=593496078 instance=ExtResource("4_wj0pf")]
 offset_left = -126.66675
@@ -66,6 +70,7 @@ offset_bottom = -429.3334
 [node name="Coralleine" parent="." unique_id=1190915457 instance=ExtResource("6_bsqvu")]
 position = Vector2(592, 914.00006)
 abilities = Array[ExtResource("4_yi6pd")]([ExtResource("16_muu6h"), ExtResource("17_dwioa"), ExtResource("18_8uqba")])
+battle_level = 2
 
 [node name="HealthBar" parent="Coralleine" unique_id=759737278 instance=ExtResource("4_wj0pf")]
 offset_left = -126.666664
