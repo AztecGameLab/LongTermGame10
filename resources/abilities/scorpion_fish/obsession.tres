@@ -1,0 +1,52 @@
+[gd_resource type="Resource" script_class="Ability" format=3 uid="uid://crrdd0sksf7sc"]
+
+[ext_resource type="Script" uid="uid://xwcbloqu4nwu" path="res://scripts/ability/action/abstracts/action.gd" id="1_1vb47"]
+[ext_resource type="Script" uid="uid://be5ru5snax08s" path="res://scripts/ability/action/apply_status_action.gd" id="1_4a0mf"]
+[ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="1_p1neq"]
+[ext_resource type="Resource" uid="uid://dxc0t8yyfcofy" path="res://resources/status_effects/scorpion_fish/obsession_status.tres" id="2_0o4oc"]
+[ext_resource type="Script" uid="uid://dq0gts7suc1fg" path="res://scripts/ability/action/animation_action.gd" id="2_htwuw"]
+[ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="5_07san"]
+
+[sub_resource type="Resource" id="Resource_135fw"]
+script = ExtResource("2_htwuw")
+metadata/_graph_x = 1197.0
+metadata/_graph_y = 159.0
+metadata/_graph_w = 376.0
+metadata/_graph_h = 126.0
+
+[sub_resource type="Resource" id="Resource_u18w0"]
+script = ExtResource("1_4a0mf")
+status_effect = ExtResource("2_0o4oc")
+max_stacks = 1
+metadata/_graph_x = 1160.0
+metadata/_graph_y = 340.0
+metadata/_graph_w = 486.0
+metadata/_graph_h = 362.0
+
+[sub_resource type="Resource" id="Resource_flkc5"]
+script = ExtResource("5_07san")
+actions = Array[ExtResource("1_1vb47")]([SubResource("Resource_135fw"), SubResource("Resource_u18w0")])
+delay = 0.3
+metadata/_graph_x = 480.0
+metadata/_graph_y = 80.0
+metadata/_graph_w = 349.0
+metadata/_graph_h = 325.0
+
+[resource]
+script = ExtResource("1_p1neq")
+name = "Obsession"
+description = "Increases the chance to target specific enemy."
+action = SubResource("Resource_flkc5")
+metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
+metadata/_graph_x = -520.0
+metadata/_graph_y = 40.0
+metadata/_graph_w = 766.0
+metadata/_graph_h = 337.0
+metadata/_external_layouts = {
+"uid://dxc0t8yyfcofy": {
+"h": 126.0,
+"w": 515.0,
+"x": 1713.0,
+"y": 540.0
+}
+}

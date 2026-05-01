@@ -15,6 +15,10 @@ run/main_scene="uid://bdykas68ga1qg"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameState="*res://scripts/game_state/game_state.gd"
+
 [display]
 
 window/size/viewport_width=1920
@@ -81,3 +85,4 @@ select_back={
 
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true

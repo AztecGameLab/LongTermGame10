@@ -1,0 +1,123 @@
+[gd_resource type="Resource" script_class="ConcentrationStatusEffect" format=3 uid="uid://d2sln4xpkgcu5"]
+
+[ext_resource type="Script" uid="uid://w6h7oqtjl61k" path="res://scripts/status_effects/status_effect_modifier.gd" id="1_wilox"]
+[ext_resource type="Script" uid="uid://c2ci25gmhnb4w" path="res://scripts/status_effects/status_effect_stack.gd" id="2_q3soh"]
+[ext_resource type="Script" uid="uid://d0uvf6jnorxpw" path="res://scripts/status_effects/status_effect_trigger.gd" id="3_ges6c"]
+[ext_resource type="Script" uid="uid://d0rap3gi3boj5" path="res://scripts/ability/action/damage_action.gd" id="4_mdjt4"]
+[ext_resource type="Script" uid="uid://dasiej7totk8c" path="res://scripts/status_effects/concentration/concentration_status_effect.gd" id="5_5xvv6"]
+
+[sub_resource type="Resource" id="Resource_2axnw"]
+script = ExtResource("1_wilox")
+modifier_field = 3
+modifier_type = 2
+modifier_amount = 0.2999999999999545
+metadata/_graph_x = 600.0
+metadata/_graph_y = -60.0
+metadata/_graph_w = 536.0
+metadata/_graph_h = 202.0
+
+[sub_resource type="Resource" id="Resource_wilox"]
+script = ExtResource("1_wilox")
+modifier_field = 1
+modifier_type = 2
+modifier_amount = 0.6000000000000227
+metadata/_graph_x = 531.0
+metadata/_graph_y = 185.0
+metadata/_graph_w = 536.0
+metadata/_graph_h = 202.0
+
+[sub_resource type="Resource" id="Resource_6skk2"]
+script = ExtResource("4_mdjt4")
+damage_minimum = 55
+damage_maximum = 65
+override_target = true
+action_target = 2
+metadata/_graph_x = 960.0
+metadata/_graph_y = 200.0
+metadata/_graph_w = 527.0
+metadata/_graph_h = 292.0
+
+[sub_resource type="Resource" id="Resource_8ye2q"]
+script = ExtResource("3_ges6c")
+trigger_type = 2
+action = SubResource("Resource_6skk2")
+metadata/_custom_type_script = "uid://d0uvf6jnorxpw"
+metadata/_graph_x = 520.0
+metadata/_graph_y = 280.0
+metadata/_graph_w = 378.0
+metadata/_graph_h = 148.0
+
+[sub_resource type="Resource" id="Resource_34xnb"]
+script = ExtResource("2_q3soh")
+description = "2 decoys"
+modifiers = Array[ExtResource("1_wilox")]([SubResource("Resource_2axnw"), SubResource("Resource_wilox")])
+triggers = Array[ExtResource("3_ges6c")]([SubResource("Resource_8ye2q")])
+metadata/_graph_x = 180.0
+metadata/_graph_y = -40.0
+metadata/_graph_w = 306.0
+metadata/_graph_h = 482.0
+
+[sub_resource type="Resource" id="Resource_sfwmm"]
+script = ExtResource("1_wilox")
+modifier_field = 3
+modifier_type = 2
+modifier_amount = 0.65
+metadata/_graph_x = 540.0
+metadata/_graph_y = 480.0
+metadata/_graph_w = 536.0
+metadata/_graph_h = 202.0
+
+[sub_resource type="Resource" id="Resource_q3soh"]
+script = ExtResource("1_wilox")
+modifier_field = 1
+modifier_type = 2
+modifier_amount = 0.7999999999999545
+metadata/_graph_x = 509.0
+metadata/_graph_y = 749.0
+metadata/_graph_w = 536.0
+metadata/_graph_h = 202.0
+
+[sub_resource type="Resource" id="Resource_35sfi"]
+script = ExtResource("4_mdjt4")
+damage_minimum = 28
+damage_maximum = 32
+override_target = true
+action_target = 2
+metadata/_custom_type_script = "uid://d0rap3gi3boj5"
+metadata/_graph_x = 1040.0
+metadata/_graph_y = 680.0
+metadata/_graph_w = 527.0
+metadata/_graph_h = 292.0
+
+[sub_resource type="Resource" id="Resource_4g1eb"]
+script = ExtResource("3_ges6c")
+trigger_type = 2
+action = SubResource("Resource_35sfi")
+metadata/_custom_type_script = "uid://d0uvf6jnorxpw"
+metadata/_graph_x = 500.0
+metadata/_graph_y = 880.0
+metadata/_graph_w = 378.0
+metadata/_graph_h = 148.0
+
+[sub_resource type="Resource" id="Resource_2i1i1"]
+script = ExtResource("2_q3soh")
+description = "1 decoy"
+modifiers = Array[ExtResource("1_wilox")]([SubResource("Resource_sfwmm"), SubResource("Resource_q3soh")])
+triggers = Array[ExtResource("3_ges6c")]([SubResource("Resource_4g1eb")])
+metadata/_graph_x = 120.0
+metadata/_graph_y = 420.0
+metadata/_graph_w = 306.0
+metadata/_graph_h = 482.0
+
+[resource]
+script = ExtResource("5_5xvv6")
+full_capacity_stack = SubResource("Resource_34xnb")
+half_capacity_stack = SubResource("Resource_2i1i1")
+break_chance = 0.8
+name = "Decoy"
+effect_type = 0
+metadata/_custom_type_script = "uid://dasiej7totk8c"
+metadata/_graph_x = -280.0
+metadata/_graph_y = 60.0
+metadata/_graph_w = 345.0
+metadata/_graph_h = 340.0

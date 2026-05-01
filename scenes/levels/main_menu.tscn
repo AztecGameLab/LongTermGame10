@@ -1,5 +1,103 @@
 [gd_scene format=3 uid="uid://bdykas68ga1qg"]
 
-[node name="MainMenu" type="Node2D" unique_id=1080275958]
+[ext_resource type="Texture2D" uid="uid://wr3fxn7l8870" path="res://assets/ui/Eyes below title screen.png" id="1_721jg"]
+[ext_resource type="Script" uid="uid://ctks3w5k7r8bb" path="res://scenes/levels/main_menu.gd" id="1_geflf"]
+[ext_resource type="PackedScene" uid="uid://bxrdvjrrvpyfd" path="res://scenes/ui/paper_panel.tscn" id="2_geflf"]
+[ext_resource type="FontFile" uid="uid://iq5jfqev2lp0" path="res://assets/ui/EmphasisFont_Knewave-Regular.ttf" id="3_fkd6t"]
+[ext_resource type="AudioStream" uid="uid://bkfgwe03dm5oh" path="res://assets/audio/music/MainTheme.mp3" id="5_fkd6t"]
+[ext_resource type="PackedScene" uid="uid://csbhyubbu6bo6" path="res://scenes/ui/fade.tscn" id="6_keln3"]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1272132436]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_keln3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_crctu"]
+font = ExtResource("3_fkd6t")
+font_size = 78
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_geflf"]
+font = ExtResource("3_fkd6t")
+font_size = 100
+font_color = Color(0, 0, 0, 1)
+
+[node name="MainMenu" type="Node2D" unique_id=1080275958]
+script = ExtResource("1_geflf")
+
+[node name="EyesBelowTitleScreen" type="Sprite2D" parent="." unique_id=1626514033]
+position = Vector2(960, 540)
+texture = ExtResource("1_721jg")
+
+[node name="PaperPanel" parent="EyesBelowTitleScreen" unique_id=695098869 instance=ExtResource("2_geflf")]
+offset_left = -883.0
+offset_top = 303.0
+offset_right = -346.0
+offset_bottom = 464.0
+
+[node name="Button" type="Button" parent="EyesBelowTitleScreen/PaperPanel" unique_id=791088488]
+layout_mode = 0
+offset_right = 537.0
+offset_bottom = 161.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_keln3")
+
+[node name="Label" type="Label" parent="EyesBelowTitleScreen/PaperPanel" unique_id=957250053]
+layout_mode = 0
+offset_right = 537.0
+offset_bottom = 161.0
+text = "Credits"
+label_settings = SubResource("LabelSettings_crctu")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PaperPanel2" parent="EyesBelowTitleScreen" unique_id=1753021117 instance=ExtResource("2_geflf")]
+offset_left = -265.0
+offset_top = 303.0
+offset_right = 272.0
+offset_bottom = 464.0
+
+[node name="Button" type="Button" parent="EyesBelowTitleScreen/PaperPanel2" unique_id=14117529]
+layout_mode = 0
+offset_right = 537.0
+offset_bottom = 161.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_keln3")
+
+[node name="Label" type="Label" parent="EyesBelowTitleScreen/PaperPanel2" unique_id=1162467560]
+layout_mode = 0
+offset_right = 537.0
+offset_bottom = 161.0
+text = "START"
+label_settings = SubResource("LabelSettings_geflf")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PaperPanel3" parent="EyesBelowTitleScreen" unique_id=1683876228 instance=ExtResource("2_geflf")]
+offset_left = 347.0
+offset_top = 303.0
+offset_right = 884.0
+offset_bottom = 464.0
+
+[node name="Button" type="Button" parent="EyesBelowTitleScreen/PaperPanel3" unique_id=1250285518]
+layout_mode = 0
+offset_right = 537.0
+offset_bottom = 161.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_keln3")
+
+[node name="Label" type="Label" parent="EyesBelowTitleScreen/PaperPanel3" unique_id=1030867416]
+layout_mode = 0
+offset_right = 537.0
+offset_bottom = 161.0
+theme_override_font_sizes/font_size = 16
+text = "Quit"
+label_settings = SubResource("LabelSettings_crctu")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1200809823]
+stream = ExtResource("5_fkd6t")
+autoplay = true
+
+[node name="Fade" parent="." unique_id=872351749 node_paths=PackedStringArray("audio") instance=ExtResource("6_keln3")]
+visible = false
+audio = NodePath("../AudioStreamPlayer")
+
+[connection signal="pressed" from="EyesBelowTitleScreen/PaperPanel/Button" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="EyesBelowTitleScreen/PaperPanel2/Button" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="EyesBelowTitleScreen/PaperPanel3/Button" to="." method="_on_quit_pressed"]

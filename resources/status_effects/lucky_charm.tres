@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="StatusEffect" format=3 uid="uid://cdouutpu8rmxs"]
 
+[ext_resource type="Texture2D" uid="uid://dxk73rghld8hu" path="res://assets/status_effects/LuckyCharm.png" id="1_8x5e2"]
 [ext_resource type="Script" uid="uid://c4rwprj6d61c0" path="res://scripts/status_effects/status_effect.gd" id="1_g18pq"]
 [ext_resource type="Script" uid="uid://c2ci25gmhnb4w" path="res://scripts/status_effects/status_effect_stack.gd" id="2_7jt8v"]
 [ext_resource type="Script" uid="uid://w6h7oqtjl61k" path="res://scripts/status_effects/status_effect_modifier.gd" id="3_yvl41"]
@@ -8,7 +9,6 @@
 [sub_resource type="Resource" id="Resource_yvl41"]
 script = ExtResource("3_yvl41")
 modifier_field = 4
-modifier_type = 1
 modifier_amount = 0.04999999999995452
 metadata/_graph_x = 820.0
 metadata/_graph_y = -240.0
@@ -24,9 +24,16 @@ metadata/_graph_y = -260.0
 metadata/_graph_w = 380.0
 metadata/_graph_h = 220.0
 
+[sub_resource type="Resource" id="Resource_mh6xj"]
+script = ExtResource("3_yvl41")
+modifier_field = 4
+modifier_amount = 0.1
+metadata/_custom_type_script = "uid://w6h7oqtjl61k"
+
 [sub_resource type="Resource" id="Resource_6lwx4"]
 script = ExtResource("2_7jt8v")
 description = "Increase luck by 10%"
+modifiers = Array[ExtResource("3_yvl41")]([SubResource("Resource_mh6xj")])
 metadata/_graph_x = 340.0
 metadata/_graph_y = 0.0
 metadata/_graph_w = 380.0
@@ -35,7 +42,6 @@ metadata/_graph_h = 220.0
 [sub_resource type="Resource" id="Resource_vd7an"]
 script = ExtResource("3_yvl41")
 modifier_field = 4
-modifier_type = 1
 modifier_amount = 0.10000000000002274
 metadata/_graph_x = 820.0
 metadata/_graph_y = 260.0
@@ -75,7 +81,6 @@ metadata/_graph_h = 315.0
 [sub_resource type="Resource" id="Resource_c66xc"]
 script = ExtResource("3_yvl41")
 modifier_field = 4
-modifier_type = 1
 modifier_amount = 0.20000000000004547
 metadata/_graph_x = 820.0
 metadata/_graph_y = 840.0
@@ -116,6 +121,7 @@ metadata/_graph_h = 315.0
 script = ExtResource("1_g18pq")
 stacks = Array[ExtResource("2_7jt8v")]([SubResource("Resource_8x5e2"), SubResource("Resource_6lwx4"), SubResource("Resource_qnfh1"), SubResource("Resource_ijvbu")])
 name = "Lucky Charm"
+icon = ExtResource("1_8x5e2")
 effect_type = 0
 metadata/_custom_type_script = "uid://c4rwprj6d61c0"
 metadata/_graph_x = -20.0

@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bh8ipn2dy8ivj"]
+
+[ext_resource type="AudioStream" uid="uid://dm766vkhlubh6" path="res://assets/audio/music/Eyes Below Credits Theme.wav" id="1_kxfi0"]
+[ext_resource type="Script" path="res://scenes/levels/credits.gd" id="2_creditsscript"]
+[ext_resource type="PackedScene" uid="uid://csbhyubbu6bo6" path="res://scenes/ui/fade.tscn" id="3_fade"]
+[ext_resource type="Script" uid="uid://3xr6yasbqo77" path="res://scenes/levels/fade_control.gd" id="4_fadectrl"]
+[ext_resource type="PackedScene" uid="uid://bdykas68ga1qg" path="res://scenes/levels/main_menu.tscn" id="5_mainmenu"]
+
+[node name="Credits" type="Node2D" unique_id=1093290226 node_paths=PackedStringArray("fade")]
+script = ExtResource("2_creditsscript")
+next_scene = ExtResource("5_mainmenu")
+fade = NodePath("Fade")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1482242213]
+offset_right = 1234.0
+offset_bottom = 181.0
+theme_override_font_sizes/normal_font_size = 92
+text = "Ayo its the credits"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1519990145]
+stream = ExtResource("1_kxfi0")
+autoplay = true
+
+[node name="Fade" parent="." unique_id=1900001 instance=ExtResource("3_fade")]
+visible = false
+
+[node name="FadeControl" type="Node" parent="Fade" unique_id=1900002]
+script = ExtResource("4_fadectrl")
+metadata/_custom_type_script = "uid://3xr6yasbqo77"

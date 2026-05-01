@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="Ability" format=3 uid="uid://djie3akhwaspl"]
+
+[ext_resource type="Script" uid="uid://xwcbloqu4nwu" path="res://scripts/ability/action/abstracts/action.gd" id="1_7ile3"]
+[ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="1_c4xvj"]
+[ext_resource type="Script" uid="uid://dq0gts7suc1fg" path="res://scripts/ability/action/animation_action.gd" id="2_k8han"]
+[ext_resource type="Script" uid="uid://c84i4tkx4t6au" path="res://scripts/ability/action/heal_action.gd" id="3_ugtxk"]
+[ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="4_pmsrj"]
+
+[sub_resource type="Resource" id="Resource_4l4m6"]
+script = ExtResource("2_k8han")
+animation = 2
+metadata/_custom_type_script = "uid://dq0gts7suc1fg"
+
+[sub_resource type="Resource" id="Resource_q0aex"]
+script = ExtResource("3_ugtxk")
+heal_amount = 60
+metadata/_custom_type_script = "uid://c84i4tkx4t6au"
+
+[sub_resource type="Resource" id="Resource_habhk"]
+script = ExtResource("4_pmsrj")
+actions = Array[ExtResource("1_7ile3")]([SubResource("Resource_4l4m6"), SubResource("Resource_q0aex")])
+metadata/_custom_type_script = "uid://da17dshmjafs6"
+
+[resource]
+script = ExtResource("1_c4xvj")
+name = "Recover"
+description = "Boss can take a turn to heal"
+move_target_type = 0
+action = SubResource("Resource_habhk")
+metadata/_custom_type_script = "uid://ny1mjfoo1mqc"

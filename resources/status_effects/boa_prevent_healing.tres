@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="StatusEffect" format=3 uid="uid://bsemusn2sc6hb"]
+
+[ext_resource type="Script" uid="uid://c4rwprj6d61c0" path="res://scripts/status_effects/status_effect.gd" id="1_erbcx"]
+[ext_resource type="Script" uid="uid://c2ci25gmhnb4w" path="res://scripts/status_effects/status_effect_stack.gd" id="2_2fj5t"]
+[ext_resource type="Script" uid="uid://w6h7oqtjl61k" path="res://scripts/status_effects/status_effect_modifier.gd" id="3_3ur3n"]
+[ext_resource type="Script" uid="uid://d0uvf6jnorxpw" path="res://scripts/status_effects/status_effect_trigger.gd" id="4_fa705"]
+
+[sub_resource type="Resource" id="Resource_36o25"]
+script = ExtResource("3_3ur3n")
+modifier_field = 6
+modifier_type = 1
+modifier_amount = -0.5
+metadata/_graph_x = 1160.0
+metadata/_graph_y = 160.0
+metadata/_graph_w = 714.0
+metadata/_graph_h = 256.0
+
+[sub_resource type="Resource" id="Resource_qiox4"]
+script = ExtResource("2_2fj5t")
+description = "Prevents 50% of healing
+"
+modifiers = Array[ExtResource("3_3ur3n")]([SubResource("Resource_36o25")])
+metadata/_graph_x = 640.0
+metadata/_graph_y = 160.0
+metadata/_graph_w = 367.0
+metadata/_graph_h = 333.0
+
+[resource]
+script = ExtResource("1_erbcx")
+stacks = Array[ExtResource("2_2fj5t")]([SubResource("Resource_qiox4")])
+name = "Prevent Healing"
+metadata/_custom_type_script = "uid://c4rwprj6d61c0"
+metadata/_graph_x = 50.0
+metadata/_graph_y = 50.0
+metadata/_graph_w = 468.0
+metadata/_graph_h = 439.0

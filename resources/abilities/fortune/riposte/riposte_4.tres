@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="Ability" format=3 uid="uid://djx68a7b8x12o"]
+
+[ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="1_8yv4f"]
+[ext_resource type="Script" uid="uid://xwcbloqu4nwu" path="res://scripts/ability/action/abstracts/action.gd" id="1_dj5j4"]
+[ext_resource type="Script" uid="uid://dq0gts7suc1fg" path="res://scripts/ability/action/animation_action.gd" id="2_sms5n"]
+[ext_resource type="Script" uid="uid://be5ru5snax08s" path="res://scripts/ability/action/apply_status_action.gd" id="3_t22ht"]
+[ext_resource type="Resource" uid="uid://8inxsylqt1fc" path="res://resources/status_effects/riposte_4.1.tres" id="4_f7ttm"]
+[ext_resource type="Resource" uid="uid://vmnkqffx60xw" path="res://resources/status_effects/riposte_4.2.tres" id="5_lch8y"]
+[ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="6_2nge7"]
+
+[sub_resource type="Resource" id="Resource_vsn4t"]
+script = ExtResource("2_sms5n")
+animation = 2
+metadata/_custom_type_script = "uid://dq0gts7suc1fg"
+
+[sub_resource type="Resource" id="Resource_au2f5"]
+script = ExtResource("3_t22ht")
+status_effect = ExtResource("4_f7ttm")
+metadata/_custom_type_script = "uid://be5ru5snax08s"
+
+[sub_resource type="Resource" id="Resource_ju0bi"]
+script = ExtResource("3_t22ht")
+status_effect = ExtResource("5_lch8y")
+override_target = true
+action_target = 5
+metadata/_custom_type_script = "uid://be5ru5snax08s"
+
+[sub_resource type="Resource" id="Resource_eh2g8"]
+script = ExtResource("6_2nge7")
+actions = Array[ExtResource("1_dj5j4")]([SubResource("Resource_vsn4t"), SubResource("Resource_au2f5"), SubResource("Resource_ju0bi")])
+metadata/_custom_type_script = "uid://da17dshmjafs6"
+
+[resource]
+script = ExtResource("1_8yv4f")
+name = "Riposte"
+description = "Taunts the enemy and weakens its attacks on another player"
+move_target_type = 0
+action = SubResource("Resource_eh2g8")
+metadata/_custom_type_script = "uid://ny1mjfoo1mqc"

@@ -4,8 +4,13 @@
 [ext_resource type="Shader" uid="uid://ctt5na6ppy7cj" path="res://scripts/shader/desaturate.gdshader" id="2_3yplr"]
 [ext_resource type="Texture2D" uid="uid://cfj2gxl37omsy" path="res://assets/sprites/umi/AttackUmiSheet.png" id="2_cyix1"]
 [ext_resource type="Texture2D" uid="uid://mf205n8gjgk7" path="res://assets/sprites/umi/IdleUmiSheet.png" id="2_tebkv"]
+[ext_resource type="Script" uid="uid://d1o5abfusku1j" path="res://scripts/ability/base_ability.gd" id="3_kx5hu"]
 [ext_resource type="Texture2D" uid="uid://bu8tcg4f0wd2k" path="res://assets/sprites/umi/StatusUmiSheet.png" id="4_p8s4g"]
+[ext_resource type="Resource" uid="uid://r0uijawe6ust" path="res://resources/abilities/umi/bottle_of_acid/bottle_of_acid_4.tres" id="4_y40pn"]
+[ext_resource type="Resource" uid="uid://boy7gg5bk727q" path="res://resources/abilities/umi/bottle_of_heal/bottle_of_heal_4.tres" id="5_ufhk0"]
 [ext_resource type="PackedScene" uid="uid://5b5nch8ier3n" path="res://scenes/ui/selected_indicator.tscn" id="5_vtmro"]
+[ext_resource type="Resource" uid="uid://d24qd6q4yfvkg" path="res://resources/abilities/umi/bottle_of_invisibility/bottle_of_invisibility_4.tres" id="6_w55v4"]
+[ext_resource type="Resource" uid="uid://ceagyylpk7l64" path="res://resources/abilities/umi/bottle_of_splode/bottle_of_splode_4.tres" id="7_uh06h"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3yplr"]
 shader = ExtResource("2_3yplr")
@@ -458,6 +463,8 @@ material = SubResource("ShaderMaterial_3yplr")
 scale = Vector2(0.75, 0.75)
 script = ExtResource("1_3wpq2")
 character_name = "Umi"
+max_health = 100
+abilities = Array[ExtResource("3_kx5hu")]([ExtResource("4_y40pn"), ExtResource("5_ufhk0"), ExtResource("6_w55v4"), ExtResource("7_uh06h")])
 metadata/_custom_type_script = "uid://bghgfkrqkbbee"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=50171373]

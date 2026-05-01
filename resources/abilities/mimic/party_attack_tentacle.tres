@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="Ability" format=3 uid="uid://dlcy0i6otx6qb"]
+
+[ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="1_h4bhi"]
+[ext_resource type="Script" uid="uid://xwcbloqu4nwu" path="res://scripts/ability/action/abstracts/action.gd" id="1_hlc6w"]
+[ext_resource type="Script" uid="uid://dq0gts7suc1fg" path="res://scripts/ability/action/animation_action.gd" id="2_0f5y3"]
+[ext_resource type="Script" uid="uid://d0rap3gi3boj5" path="res://scripts/ability/action/damage_action.gd" id="3_2ravq"]
+[ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="4_vbryx"]
+
+[sub_resource type="Resource" id="Resource_vcccx"]
+script = ExtResource("2_0f5y3")
+metadata/_custom_type_script = "uid://dq0gts7suc1fg"
+
+[sub_resource type="Resource" id="Resource_q1053"]
+script = ExtResource("3_2ravq")
+damage_minimum = 12
+damage_maximum = 22
+override_target = true
+action_target = 8
+metadata/_custom_type_script = "uid://d0rap3gi3boj5"
+
+[sub_resource type="Resource" id="Resource_5vykm"]
+script = ExtResource("4_vbryx")
+actions = Array[ExtResource("1_hlc6w")]([SubResource("Resource_vcccx"), SubResource("Resource_q1053")])
+metadata/_custom_type_script = "uid://da17dshmjafs6"
+
+[resource]
+script = ExtResource("1_h4bhi")
+name = "Party Attack Tentacle"
+description = "Hits the party for 15 damage."
+action = SubResource("Resource_5vykm")
+metadata/_custom_type_script = "uid://ny1mjfoo1mqc"

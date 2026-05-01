@@ -1,0 +1,63 @@
+[gd_resource type="Resource" script_class="StatusEffect" format=3 uid="uid://da0cwew7ga8jw"]
+
+[ext_resource type="Script" uid="uid://w6h7oqtjl61k" path="res://scripts/status_effects/status_effect_modifier.gd" id="1_qyagd"]
+[ext_resource type="Texture2D" uid="uid://bhpfenr16koor" path="res://assets/status_effects/Guarded.png" id="1_uliur"]
+[ext_resource type="Script" uid="uid://c4rwprj6d61c0" path="res://scripts/status_effects/status_effect.gd" id="1_vl14b"]
+[ext_resource type="Script" uid="uid://c2ci25gmhnb4w" path="res://scripts/status_effects/status_effect_stack.gd" id="2_qc7lu"]
+[ext_resource type="Script" uid="uid://be5ru5snax08s" path="res://scripts/ability/action/apply_status_action.gd" id="4_8s8mk"]
+[ext_resource type="Script" uid="uid://d0uvf6jnorxpw" path="res://scripts/status_effects/status_effect_trigger.gd" id="4_pjfgw"]
+[ext_resource type="Resource" uid="uid://buejretylyngo" path="res://resources/status_effects/gilmora/poison_fading.tres" id="7_uliur"]
+
+[sub_resource type="Resource" id="Resource_7q27p"]
+script = ExtResource("4_8s8mk")
+applied_stacks = 2
+status_effect = ExtResource("7_uliur")
+max_stacks = 15
+override_target = true
+action_target = 2
+metadata/_custom_type_script = "uid://be5ru5snax08s"
+metadata/_graph_x = 0.0
+metadata/_graph_y = 0.0
+metadata/_graph_w = 220.0
+metadata/_graph_h = 61.0
+
+[sub_resource type="Resource" id="Resource_uliur"]
+script = ExtResource("4_pjfgw")
+trigger_type = 2
+action = SubResource("Resource_7q27p")
+metadata/_custom_type_script = "uid://d0uvf6jnorxpw"
+metadata/_graph_x = 0.0
+metadata/_graph_y = 0.0
+metadata/_graph_w = 220.0
+metadata/_graph_h = 61.0
+
+[sub_resource type="Resource" id="Resource_61t6j"]
+script = ExtResource("2_qc7lu")
+description = "Apply poison to attacker."
+triggers = Array[ExtResource("4_pjfgw")]([SubResource("Resource_uliur")])
+metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
+metadata/_graph_x = 0.0
+metadata/_graph_y = 0.0
+metadata/_graph_w = 220.0
+metadata/_graph_h = 61.0
+
+[resource]
+script = ExtResource("1_vl14b")
+stacks = Array[ExtResource("2_qc7lu")]([SubResource("Resource_61t6j")])
+limited_duration = false
+name = "Toxic Spines"
+icon = ExtResource("1_uliur")
+effect_type = 2
+metadata/_custom_type_script = "uid://c4rwprj6d61c0"
+metadata/_graph_x = 50.0
+metadata/_graph_y = 50.0
+metadata/_graph_w = 220.0
+metadata/_graph_h = 61.0
+metadata/_external_layouts = {
+"uid://ddha1ldel8l71": {
+"h": 991.0,
+"w": 468.0,
+"x": 50.0,
+"y": 50.0
+}
+}

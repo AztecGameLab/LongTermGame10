@@ -25,6 +25,7 @@ signal used_ability(ability: BaseAbility, targets: Array[BattleCharacter])
 
 signal status_effect_added(instance: StatusEffectContainer)
 signal status_effect_removed(instance: StatusEffectContainer)
+signal status_effects_updated()
 
 # --- Exports ---
 
@@ -33,6 +34,8 @@ signal status_effect_removed(instance: StatusEffectContainer)
 @export var max_health: int = 50
 
 @export var abilities: Array[BaseAbility]
+
+@export var initial_status_effects: Array[ApplyStatusAction]
 
 # --- Runtime State ---
 
@@ -62,6 +65,11 @@ var selected: bool:
 var _animated_sprite: AnimatedSprite2D
 var _selection_box: NinePatchRect
 
+## If set on the scene's character node, abilities will be loaded from GameState
+## at this level when GameState is initialized. Falls back to scene-defined abilities
+## when GameState is empty (direct-launch testing).
+@export var battle_level: int = 0
+
 
 # --- Normal Functions ---
 func _ready() -> void:
@@ -69,11 +77,36 @@ func _ready() -> void:
 	if _animated_sprite:
 		# Return to the idle animation when any animation finishes (attack or status)
 		_animated_sprite.animation_finished.connect(play_animation.bind("idle"))
+		# Reset visual state in case shader/modulate was mutated by a prior battle's die().
+		# ShaderMaterial may be a shared resource that retains parameter changes across scenes.
+		_animated_sprite.modulate = Color.WHITE
+		var sm := _animated_sprite.material
+		if sm and sm is ShaderMaterial:
+			sm.set_shader_parameter("saturation", 1.0)
 	_selection_box = get_node_or_null("SelectedIndicator")
 	if _selection_box:
 		selected = false
-	
+
+	_load_abilities_from_state()
 	current_health = max_health
+
+## Override scene-defined abilities with GameState's progression if available.
+func _load_abilities_from_state() -> void:
+	if battle_level <= 0:
+		return
+	var gs := get_node_or_null(^"/root/GameState")
+	if gs == null or not gs.is_initialized():
+		return
+	var character_id: String = gs.character_id_from_name(character_name)
+	if character_id.is_empty():
+		return
+	var resolved: Array[BaseAbility] = gs.get_abilities_at_level(character_id, battle_level)
+	if resolved.size() > 0:
+		abilities = resolved
+
+func battle_init() -> void:
+	for apply_status_action in initial_status_effects:
+		add_status_effect(apply_status_action.status_effect, self, apply_status_action.applied_stacks, apply_status_action.max_stacks)
 
 ## Returns true if an animation was started, false otherwise
 func play_animation(animation: String) -> void:
@@ -135,7 +168,7 @@ func get_incoming_healing(value: int) -> int:
 
 ## Restores health, capped at max_health.
 func heal(amount: int, source: BattleCharacter = null) -> void:
-	var actual := mini(amount, max_health - current_health)
+	var actual := mini(maxi(0, amount), max_health - current_health)
 	current_health += actual
 	healed.emit(actual, source)
 
@@ -152,12 +185,14 @@ func add_status_effect(effect: BaseStatusEffect, source: BattleCharacter, stacks
 
 	if existing:
 		existing.effect.on_reapplied(existing, stacks, max_stacks)
+		status_effects_updated.emit()
 		return existing
 
 	var instance := StatusEffectContainer.new(effect, source, self, battle, stacks)
 	_status_effects.append(instance)
 	instance.on_applied()
 	status_effect_added.emit(instance)
+	status_effects_updated.emit()
 	return instance
 
 func remove_status_effect(effect: BaseStatusEffect, stacks: int) -> void:
@@ -167,6 +202,7 @@ func remove_status_effect(effect: BaseStatusEffect, stacks: int) -> void:
 			_remove_effect_instance(instance)
 		else:
 			instance.stacks -= stacks
+		status_effects_updated.emit()
 			
 func remove_all_effects(effect_type: BaseStatusEffect.EffectType):
 	var effects = _status_effects.duplicate()
@@ -178,6 +214,7 @@ func remove_all_effects(effect_type: BaseStatusEffect.EffectType):
 func remove_status_effect_instance(instance: StatusEffectContainer) -> void:
 	if instance in _status_effects:
 		_remove_effect_instance(instance)
+		status_effects_updated.emit()
 
 func get_status_effect(effect: BaseStatusEffect) -> StatusEffectContainer:
 	for instance in _status_effects:
@@ -210,6 +247,8 @@ func on_turn_ended() -> void:
 
 	for instance in expired:
 		_remove_effect_instance(instance)
+		
+	status_effects_updated.emit()
 
 func on_damage_dealt(attackContext: AttackContext):
 	for instance in _status_effects:

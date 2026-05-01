@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="StatusEffect" format=3 uid="uid://8inxsylqt1fc"]
+
+[ext_resource type="Texture2D" uid="uid://c64ouj076i5le" path="res://assets/status_effects/Targetted.png" id="1_4dyx2"]
+[ext_resource type="Script" uid="uid://c4rwprj6d61c0" path="res://scripts/status_effects/status_effect.gd" id="2_c4ncu"]
+[ext_resource type="Script" uid="uid://c2ci25gmhnb4w" path="res://scripts/status_effects/status_effect_stack.gd" id="3_68gxq"]
+[ext_resource type="Script" uid="uid://w6h7oqtjl61k" path="res://scripts/status_effects/status_effect_modifier.gd" id="4_0dwcf"]
+[ext_resource type="Script" uid="uid://d0uvf6jnorxpw" path="res://scripts/status_effects/status_effect_trigger.gd" id="5_s48md"]
+
+[sub_resource type="Resource" id="Resource_s0sij"]
+script = ExtResource("4_0dwcf")
+modifier_field = 8
+modifier_type = 2
+modifier_amount = 20.0
+metadata/_custom_type_script = "uid://w6h7oqtjl61k"
+
+[sub_resource type="Resource" id="Resource_fia62"]
+script = ExtResource("3_68gxq")
+modifiers = Array[ExtResource("4_0dwcf")]([SubResource("Resource_s0sij")])
+metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
+
+[resource]
+script = ExtResource("2_c4ncu")
+stacks = Array[ExtResource("3_68gxq")]([SubResource("Resource_fia62")])
+duration_turns = 1
+name = "Riposte_4.1"
+icon = ExtResource("1_4dyx2")
+effect_type = 2
+metadata/_custom_type_script = "uid://c4rwprj6d61c0"

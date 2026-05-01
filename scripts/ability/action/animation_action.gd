@@ -16,6 +16,8 @@ static func animToString(value: AnimationAction.Anim) -> String:
 @export var animation: AnimationAction.Anim = AnimationAction.Anim.ATTACK
 
 func run(context: ActionContext) -> void:
+	if not context.is_first_target:
+		return
 	var animation_string: String = animToString(animation)
 	if context.source and context.source._animated_sprite.animation != animation_string:
 		await context.source.play_animation(animation_string)

@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="1_xvarx"]
 [ext_resource type="Script" uid="uid://dq0gts7suc1fg" path="res://scripts/ability/action/animation_action.gd" id="2_34vod"]
 [ext_resource type="Script" uid="uid://be5ru5snax08s" path="res://scripts/ability/action/apply_status_action.gd" id="3_x0xs0"]
-[ext_resource type="Resource" uid="uid://cjltg32jad4ic" path="res://resources/status_effects/invisible.tres" id="4_34vod"]
+[ext_resource type="Resource" uid="uid://cjltg32jad4ic" path="res://resources/status_effects/invisible/invisible_4.tres" id="4_34vod"]
 [ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="4_b5gtj"]
 
 [sub_resource type="Resource" id="Resource_ijstw"]
@@ -38,9 +38,10 @@ metadata/_graph_h = 55.0
 
 [resource]
 script = ExtResource("1_xvarx")
-name = "Invisibility"
-description = "- 0% chance of being targeted, increasing until effect wears off.
-- Roll the highest damage attacks, but with a 50% chance of breaking the effect."
+name = "Bottle of Invis"
+description = "- No chance of being targeted, more likely as the effect wears off.
+- Stronger attacks, but might break the effect.
+- No incoming damage, but will break the effect."
 move_target_type = 3
 action = SubResource("Resource_kjwq0")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"

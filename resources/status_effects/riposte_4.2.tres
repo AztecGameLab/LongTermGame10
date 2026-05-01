@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="StatusEffect" format=3 uid="uid://vmnkqffx60xw"]
+
+[ext_resource type="Texture2D" uid="uid://caic4qkqiqbt6" path="res://assets/status_effects/Avenged.png" id="1_pfn3u"]
+[ext_resource type="Script" uid="uid://c4rwprj6d61c0" path="res://scripts/status_effects/status_effect.gd" id="2_7scok"]
+[ext_resource type="Script" uid="uid://c2ci25gmhnb4w" path="res://scripts/status_effects/status_effect_stack.gd" id="3_jd3tn"]
+[ext_resource type="Script" uid="uid://w6h7oqtjl61k" path="res://scripts/status_effects/status_effect_modifier.gd" id="4_lgeob"]
+[ext_resource type="Script" uid="uid://d0uvf6jnorxpw" path="res://scripts/status_effects/status_effect_trigger.gd" id="5_k243o"]
+
+[sub_resource type="Resource" id="Resource_lwlag"]
+script = ExtResource("4_lgeob")
+modifier_field = 1
+modifier_type = 2
+modifier_amount = 0.5
+metadata/_custom_type_script = "uid://w6h7oqtjl61k"
+
+[sub_resource type="Resource" id="Resource_pfn3u"]
+script = ExtResource("3_jd3tn")
+modifiers = Array[ExtResource("4_lgeob")]([SubResource("Resource_lwlag")])
+metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
+
+[resource]
+script = ExtResource("2_7scok")
+stacks = Array[ExtResource("3_jd3tn")]([SubResource("Resource_pfn3u")])
+duration_turns = 1
+name = "Riposte_4.2"
+icon = ExtResource("1_pfn3u")
+effect_type = 2
+metadata/_custom_type_script = "uid://c4rwprj6d61c0"
+metadata/_graph_x = 50.0
+metadata/_graph_y = 50.0
+metadata/_graph_w = 468.0
+metadata/_graph_h = 439.0

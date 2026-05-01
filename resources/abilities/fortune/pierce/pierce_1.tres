@@ -15,8 +15,8 @@ metadata/_graph_h = 66.0
 
 [sub_resource type="Resource" id="Resource_jra4p"]
 script = ExtResource("1_civ4y")
-damage_minimum = 10
-damage_maximum = 40
+damage_minimum = 15
+damage_maximum = 35
 metadata/_custom_type_script = "uid://d0rap3gi3boj5"
 metadata/_graph_x = 880.0
 metadata/_graph_y = 200.0

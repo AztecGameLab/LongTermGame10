@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://d0wg8df2hl8cn"]
+
+[ext_resource type="Script" uid="uid://cbi33r5foad57" path="res://scripts/battle_logic/battle_manager.gd" id="1_rjim6"]
+[ext_resource type="Texture2D" uid="uid://bju1dmce0qj4" path="res://workspaces/artemis/Normal_Gameplay_(focused_On_Fortune_Only)-4.png" id="2_3e11k"]
+[ext_resource type="PackedScene" uid="uid://cfbgyh6odoe03" path="res://scenes/characters/players/umi.tscn" id="3_yfc2s"]
+[ext_resource type="PackedScene" uid="uid://rb6hbhelm4lq" path="res://scenes/ui/health_bar.tscn" id="4_18mhl"]
+[ext_resource type="PackedScene" uid="uid://cg3tnggxog80a" path="res://scenes/characters/players/fortune.tscn" id="5_60ghh"]
+[ext_resource type="Resource" uid="uid://boy7gg5bk727q" path="res://resources/abilities/umi/bottle_of_heal/bottle_of_heal_4.tres" id="5_t871m"]
+[ext_resource type="Resource" uid="uid://ceagyylpk7l64" path="res://resources/abilities/umi/bottle_of_splode/bottle_of_splode_4.tres" id="6_il4l7"]
+[ext_resource type="PackedScene" uid="uid://bai7shmnqcg3f" path="res://scenes/characters/players/coralleine.tscn" id="6_w51aq"]
+[ext_resource type="Resource" uid="uid://r0uijawe6ust" path="res://resources/abilities/umi/bottle_of_acid/bottle_of_acid_4.tres" id="7_lfa6g"]
+[ext_resource type="PackedScene" uid="uid://cj4h68lkbbwkt" path="res://scenes/ui/ability_select.tscn" id="8_8beof"]
+[ext_resource type="Script" uid="uid://d1o5abfusku1j" path="res://scripts/ability/base_ability.gd" id="8_ah7ph"]
+[ext_resource type="Resource" uid="uid://d24qd6q4yfvkg" path="res://resources/abilities/umi/bottle_of_invisibility/bottle_of_invisibility_4.tres" id="8_ryc71"]
+[ext_resource type="Resource" uid="uid://cbiert6eya0oe" path="res://resources/abilities/umi/bottle_of_haste/bottle_of_haste_4.tres" id="9_j38gl"]
+[ext_resource type="Resource" uid="uid://w5ubyihph7x8" path="res://resources/abilities/fortune/pierce/pierce_4.tres" id="12_ae6lp"]
+[ext_resource type="PackedScene" uid="uid://pua2ophatdll" path="res://scenes/characters/bosses/eyes.tscn" id="13_kucsa"]
+[ext_resource type="Resource" uid="uid://dte47cg4lrnk2" path="res://resources/abilities/fortune/lucky_charm/lucky_charm_4.tres" id="13_toobq"]
+[ext_resource type="Resource" uid="uid://bd1et3q8j0crh" path="res://resources/abilities/fortune/reckless_slash/reckless_slash_4.tres" id="14_dh8d8"]
+[ext_resource type="Resource" uid="uid://bpbnmjs6onsjr" path="res://resources/abilities/fortune/deflect/deflect_4.tres" id="15_su4nq"]
+[ext_resource type="Resource" uid="uid://ddvltehnds3yy" path="res://resources/abilities/fortune/strengthen/strengthen_4.tres" id="16_mp6uq"]
+[ext_resource type="Resource" uid="uid://djx68a7b8x12o" path="res://resources/abilities/fortune/riposte/riposte_4.tres" id="17_5kcb0"]
+[ext_resource type="Resource" uid="uid://cwy5rolgk5id1" path="res://resources/abilities/coralleine/magic darts/magic_darts_4.tres" id="19_mp6uq"]
+[ext_resource type="Resource" uid="uid://btt4hfmyenawq" path="res://resources/abilities/coralleine/magic_cannon/magic_cannon_4.tres" id="20_5kcb0"]
+[ext_resource type="Resource" uid="uid://cjl4tl2emlhod" path="res://resources/abilities/coralleine/lifesteal/lifesteal_4.tres" id="21_qajmi"]
+[ext_resource type="Resource" uid="uid://db77qu1n6a6p1" path="res://resources/abilities/coralleine/guardian/guardian_4.tres" id="22_8uing"]
+[ext_resource type="Resource" uid="uid://dsamfn48c83rg" path="res://resources/abilities/coralleine/rally/rally_4.tres" id="23_5kcb0"]
+[ext_resource type="PackedScene" uid="uid://csbhyubbu6bo6" path="res://scenes/ui/fade.tscn" id="26_qajmi"]
+[ext_resource type="Script" uid="uid://3xr6yasbqo77" path="res://scenes/levels/fade_control.gd" id="27_8uing"]
+[ext_resource type="AudioStream" uid="uid://bsr046adejqai" path="res://assets/audio/music/TheEyesBeginning.wav" id="28_u6w0s"]
+[ext_resource type="PackedScene" uid="uid://b5winscrnxy01" path="res://scenes/levels/win_screen.tscn" id="29_winscn"]
+[ext_resource type="PackedScene" uid="uid://c6losescrxy01" path="res://scenes/levels/lose_screen.tscn" id="30_losescn"]
+
+[node name="Depths" type="Node2D" unique_id=1926475326 node_paths=PackedStringArray("player_team", "boss_team")]
+script = ExtResource("1_rjim6")
+player_team = [NodePath("Umi"), NodePath("Fortune"), NodePath("Coralleine")]
+boss_team = [NodePath("Eyes")]
+next_scene_on_win = ExtResource("29_winscn")
+next_scene_on_loss = ExtResource("30_losescn")
+metadata/_custom_type_script = "uid://cbi33r5foad57"
+
+[node name="NormalGameplay(focusedOnFortuneOnly)4" type="Sprite2D" parent="." unique_id=641535787]
+visible = false
+texture = ExtResource("2_3e11k")
+centered = false
+
+[node name="Umi" parent="." unique_id=34133432 instance=ExtResource("3_yfc2s")]
+position = Vector2(937.00006, 674)
+abilities = Array[ExtResource("8_ah7ph")]([ExtResource("5_t871m"), ExtResource("6_il4l7"), ExtResource("7_lfa6g"), ExtResource("8_ryc71"), ExtResource("9_j38gl")])
+battle_level = 4
+
+[node name="HealthBar" parent="Umi" unique_id=1562969593 instance=ExtResource("4_18mhl")]
+offset_left = -126.66675
+offset_top = -445.33334
+offset_right = 130.66663
+offset_bottom = -396.0
+
+[node name="Fortune" parent="." unique_id=724902013 instance=ExtResource("5_60ghh")]
+position = Vector2(762.00006, 794.00006)
+abilities = Array[ExtResource("8_ah7ph")]([ExtResource("12_ae6lp"), ExtResource("13_toobq"), ExtResource("14_dh8d8"), ExtResource("15_su4nq"), ExtResource("16_mp6uq"), ExtResource("17_5kcb0")])
+battle_level = 4
+
+[node name="HealthBar" parent="Fortune" unique_id=593496078 instance=ExtResource("4_18mhl")]
+offset_left = -126.66675
+offset_top = -478.66675
+offset_right = 130.66663
+offset_bottom = -429.3334
+
+[node name="Coralleine" parent="." unique_id=1190915457 instance=ExtResource("6_w51aq")]
+position = Vector2(592, 914.00006)
+abilities = Array[ExtResource("8_ah7ph")]([ExtResource("19_mp6uq"), ExtResource("20_5kcb0"), ExtResource("21_qajmi"), ExtResource("23_5kcb0"), ExtResource("22_8uing")])
+battle_level = 4
+
+[node name="HealthBar" parent="Coralleine" unique_id=759737278 instance=ExtResource("4_18mhl")]
+offset_left = -126.666664
+offset_top = -482.66672
+offset_right = 130.66672
+offset_bottom = -433.33337
+
+[node name="Eyes" parent="." unique_id=843097491 node_paths=PackedStringArray("audio_player") instance=ExtResource("13_kucsa")]
+position = Vector2(1494, 725)
+audio_player = NodePath("../AudioStreamPlayer")
+
+[node name="HealthBar" parent="Eyes" unique_id=1784958776 instance=ExtResource("4_18mhl")]
+offset_left = -501.33325
+offset_top = -766.6666
+offset_right = 542.6666
+offset_bottom = -717.3333
+
+[node name="AbilitySelect" parent="." unique_id=844678139 node_paths=PackedStringArray("battle_manager") instance=ExtResource("8_8beof")]
+battle_manager = NodePath("..")
+
+[node name="Fade" parent="." unique_id=29959157 node_paths=PackedStringArray("audio") instance=ExtResource("26_qajmi")]
+visible = false
+audio = NodePath("../AudioStreamPlayer")
+
+[node name="FadeControl" type="Node" parent="Fade" unique_id=1086402446]
+script = ExtResource("27_8uing")
+metadata/_custom_type_script = "uid://3xr6yasbqo77"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=750711317]
+stream = ExtResource("28_u6w0s")

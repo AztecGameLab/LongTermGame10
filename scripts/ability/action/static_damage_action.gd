@@ -13,4 +13,4 @@ func run(context: ActionContext) -> void:
 		if can_miss and not BattleManager.check_hit_success(context.source, target):
 			return
 
-		BattleManager.apply_damage(damage, context.source, target)
+		await BattleManager.apply_damage(damage, context.source, target)

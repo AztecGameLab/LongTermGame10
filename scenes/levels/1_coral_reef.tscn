@@ -6,27 +6,34 @@
 [ext_resource type="PackedScene" uid="uid://cfbgyh6odoe03" path="res://scenes/characters/players/umi.tscn" id="3_m8s2v"]
 [ext_resource type="PackedScene" uid="uid://cj4h68lkbbwkt" path="res://scenes/ui/ability_select.tscn" id="4_a4rq4"]
 [ext_resource type="Script" uid="uid://d1o5abfusku1j" path="res://scripts/ability/base_ability.gd" id="4_cmpws"]
-[ext_resource type="Resource" uid="uid://y06qhqwsm5s3" path="res://resources/abilities/umi/burn.tres" id="5_3j42f"]
-[ext_resource type="Resource" uid="uid://b6mlqpxywhb6g" path="res://resources/abilities/umi/heal.tres" id="6_3j42f"]
+[ext_resource type="Resource" uid="uid://q0vaumedltl4" path="res://resources/abilities/umi/bottle_of_heal/bottle_of_heal_1.tres" id="5_3j42f"]
+[ext_resource type="Resource" uid="uid://dc32yg3yahssj" path="res://resources/abilities/umi/bottle_of_splode/bottle_of_splode_1.tres" id="6_7mltf"]
 [ext_resource type="PackedScene" uid="uid://bhot4510tfs43" path="res://scenes/characters/bosses/scorpion_fish.tscn" id="6_axod2"]
 [ext_resource type="Texture2D" uid="uid://bju1dmce0qj4" path="res://workspaces/artemis/Normal_Gameplay_(focused_On_Fortune_Only)-4.png" id="7_8wj54"]
-[ext_resource type="Resource" uid="uid://d24qd6q4yfvkg" path="res://resources/abilities/umi/bottle_of_invisibility/bottle_of_invisibility_4.tres" id="7_walo4"]
-[ext_resource type="Resource" uid="uid://ceagyylpk7l64" path="res://resources/abilities/umi/bottle_of_splode/bottle_of_splode_4.tres" id="8_kxhbx"]
 [ext_resource type="PackedScene" uid="uid://rb6hbhelm4lq" path="res://scenes/ui/health_bar.tscn" id="8_walo4"]
-[ext_resource type="Resource" uid="uid://bnv8ckim477pc" path="res://resources/abilities/fortune/strength.tres" id="9_dp7j0"]
-[ext_resource type="Resource" uid="uid://c71y0pm2tt1g" path="res://resources/abilities/fortune/pierce/pierce_1.tres" id="10_q5g08"]
-[ext_resource type="Resource" uid="uid://byvu2q77v5qva" path="res://resources/abilities/fortune/lucky_charm/lucky_charm_1.tres" id="11_5t5uu"]
-[ext_resource type="Resource" uid="uid://bpbnmjs6onsjr" path="res://resources/abilities/fortune/deflect/deflect_4.tres" id="12_uf7ed"]
-[ext_resource type="Resource" uid="uid://c1df4288n6sfd" path="res://resources/abilities/fortune/reckless_slash/reckless_slash_2.tres" id="13_jok4t"]
-[ext_resource type="Resource" uid="uid://cp1djbgsqcqsx" path="res://resources/abilities/coralleine/lifesteal/lifesteal_1.tres" id="15_hu8bf"]
-[ext_resource type="Resource" uid="uid://bfh4vkt77fdbm" path="res://resources/abilities/coralleine/magic_cannon/magic_cannon_1.tres" id="16_walo4"]
-[ext_resource type="Resource" uid="uid://db77qu1n6a6p1" path="res://resources/abilities/coralleine/guardian/guardian_4.tres" id="19_tc8rw"]
-[ext_resource type="Resource" uid="uid://bbk8voggsovuk" path="res://resources/abilities/scorpion_fish/bite.tres" id="19_ty1hb"]
+[ext_resource type="Resource" uid="uid://c71y0pm2tt1g" path="res://resources/abilities/fortune/pierce/pierce_1.tres" id="9_dp7j0"]
+[ext_resource type="Resource" uid="uid://byvu2q77v5qva" path="res://resources/abilities/fortune/lucky_charm/lucky_charm_1.tres" id="10_q5g08"]
+[ext_resource type="Script" uid="uid://be5ru5snax08s" path="res://scripts/ability/action/apply_status_action.gd" id="11_uf7ed"]
+[ext_resource type="Resource" uid="uid://dnx5kk4jemlol" path="res://resources/abilities/fortune/regenerate/regenerate_1.tres" id="12_jok4t"]
+[ext_resource type="Resource" uid="uid://ct6luvxunm4ye" path="res://resources/abilities/coralleine/magic darts/magic_darts_1.tres" id="14_jok4t"]
+[ext_resource type="Resource" uid="uid://bfh4vkt77fdbm" path="res://resources/abilities/coralleine/magic_cannon/magic_cannon_1.tres" id="15_f1sko"]
+[ext_resource type="PackedScene" uid="uid://csbhyubbu6bo6" path="res://scenes/ui/fade.tscn" id="18_walo4"]
+[ext_resource type="Script" uid="uid://3xr6yasbqo77" path="res://scenes/levels/fade_control.gd" id="19_ty1hb"]
+[ext_resource type="AudioStream" uid="uid://yndkk2w8804l" path="res://assets/audio/music/ScorpionFish.wav" id="20_ty1hb"]
+[ext_resource type="PackedScene" uid="uid://ctdmu6xr5qfnf" path="res://scenes/levels/shop_1.tscn" id="21_shopnext"]
+[ext_resource type="PackedScene" uid="uid://c6losescrxy01" path="res://scenes/levels/lose_screen.tscn" id="22_losescn"]
+
+[sub_resource type="Resource" id="Resource_f1sko"]
+script = ExtResource("11_uf7ed")
+status_effect = ExtResource("12_jok4t")
+metadata/_custom_type_script = "uid://be5ru5snax08s"
 
 [node name="CoralReef" type="Node2D" unique_id=1926475326 node_paths=PackedStringArray("player_team", "boss_team")]
 script = ExtResource("1_m8s2v")
 player_team = [NodePath("Umi"), NodePath("Fortune"), NodePath("Coralleine")]
 boss_team = [NodePath("ScorpionFish")]
+next_scene_on_win = ExtResource("21_shopnext")
+next_scene_on_loss = ExtResource("22_losescn")
 metadata/_custom_type_script = "uid://cbi33r5foad57"
 
 [node name="NormalGameplay(focusedOnFortuneOnly)4" type="Sprite2D" parent="." unique_id=641535787]
@@ -36,8 +43,8 @@ centered = false
 
 [node name="Umi" parent="." unique_id=34133432 instance=ExtResource("3_m8s2v")]
 position = Vector2(937.00006, 674)
-max_health = 75
-abilities = Array[ExtResource("4_cmpws")]([ExtResource("5_3j42f"), ExtResource("6_3j42f"), ExtResource("7_walo4"), ExtResource("8_kxhbx")])
+abilities = Array[ExtResource("4_cmpws")]([ExtResource("5_3j42f"), ExtResource("6_7mltf")])
+battle_level = 1
 
 [node name="HealthBar" parent="Umi" unique_id=1562969593 instance=ExtResource("8_walo4")]
 offset_left = -126.66675
@@ -47,8 +54,9 @@ offset_bottom = -396.0
 
 [node name="Fortune" parent="." unique_id=724902013 instance=ExtResource("2_a4rq4")]
 position = Vector2(762.00006, 794.00006)
-max_health = 75
-abilities = Array[ExtResource("4_cmpws")]([ExtResource("9_dp7j0"), ExtResource("10_q5g08"), ExtResource("11_5t5uu"), ExtResource("12_uf7ed"), ExtResource("13_jok4t")])
+abilities = Array[ExtResource("4_cmpws")]([ExtResource("9_dp7j0"), ExtResource("10_q5g08")])
+initial_status_effects = Array[ExtResource("11_uf7ed")]([SubResource("Resource_f1sko")])
+battle_level = 1
 
 [node name="HealthBar" parent="Fortune" unique_id=593496078 instance=ExtResource("8_walo4")]
 offset_left = -126.66675
@@ -58,8 +66,8 @@ offset_bottom = -429.3334
 
 [node name="Coralleine" parent="." unique_id=1190915457 instance=ExtResource("1_0umlr")]
 position = Vector2(592, 914.00006)
-max_health = 75
-abilities = Array[ExtResource("4_cmpws")]([ExtResource("15_hu8bf"), ExtResource("16_walo4"), ExtResource("19_tc8rw")])
+abilities = Array[ExtResource("4_cmpws")]([ExtResource("14_jok4t"), ExtResource("15_f1sko")])
+battle_level = 1
 
 [node name="HealthBar" parent="Coralleine" unique_id=759737278 instance=ExtResource("8_walo4")]
 offset_left = -126.666664
@@ -69,8 +77,6 @@ offset_bottom = -433.33337
 
 [node name="ScorpionFish" parent="." unique_id=1761068697 instance=ExtResource("6_axod2")]
 position = Vector2(1454, 767)
-max_health = 500
-abilities = Array[ExtResource("4_cmpws")]([ExtResource("19_ty1hb")])
 
 [node name="HealthBar" parent="ScorpionFish" unique_id=1784958776 instance=ExtResource("8_walo4")]
 offset_left = -430.66675
@@ -80,3 +86,15 @@ offset_bottom = -650.6667
 
 [node name="AbilitySelect" parent="." unique_id=844678139 node_paths=PackedStringArray("battle_manager") instance=ExtResource("4_a4rq4")]
 battle_manager = NodePath("..")
+
+[node name="Fade" parent="." unique_id=29959157 node_paths=PackedStringArray("audio") instance=ExtResource("18_walo4")]
+visible = false
+audio = NodePath("../AudioStreamPlayer")
+
+[node name="FadeControl" type="Node" parent="Fade" unique_id=1003302384]
+script = ExtResource("19_ty1hb")
+metadata/_custom_type_script = "uid://3xr6yasbqo77"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1548842949]
+stream = ExtResource("20_ty1hb")
+volume_db = -12.0

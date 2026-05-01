@@ -65,6 +65,8 @@ func run_triggers(type: StatusEffectTrigger.Type, container: StatusEffectContain
 			state._was_used = false
 		updated.emit()
 
-func on_damage_received(_context: AttackContext, container: StatusEffectContainer) -> void:
+func on_attacked(context: AttackContext, container: StatusEffectContainer) -> void:
+	if context.source:
+		await run_triggers(StatusEffectTrigger.Type.ON_ATTACKED, container)
 	if RNG.chance(break_chance):
-		_context.target.remove_status_effect_instance(container)
+		context.target.remove_status_effect_instance(container)

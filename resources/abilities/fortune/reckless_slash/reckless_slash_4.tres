@@ -28,7 +28,7 @@ metadata/_graph_h = 238.0
 
 [sub_resource type="Resource" id="Resource_btms6"]
 script = ExtResource("4_5e8pi")
-damage = 20
+damage = 30
 can_miss = false
 override_target = true
 metadata/_graph_x = 1380.0
@@ -40,6 +40,7 @@ metadata/_graph_h = 244.0
 script = ExtResource("5_btms6")
 status_effect = ExtResource("5_qx67u")
 fail_action = SubResource("Resource_btms6")
+override_target = true
 metadata/_graph_x = 1040.0
 metadata/_graph_y = 540.0
 metadata/_graph_w = 269.0
@@ -66,7 +67,6 @@ metadata/_graph_h = 190.0
 [sub_resource type="Resource" id="Resource_fg2s0"]
 script = ExtResource("6_u3rxh")
 actions = Array[ExtResource("2_5e8pi")]([SubResource("Resource_usqrj"), SubResource("Resource_j1wj7"), SubResource("Resource_undnp")])
-delay = 0.1
 metadata/_custom_type_script = "uid://da17dshmjafs6"
 metadata/_graph_x = 620.0
 metadata/_graph_y = 480.0
