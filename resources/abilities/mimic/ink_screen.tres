@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="Ability" format=3 uid="uid://blt4haubgrwwo"]
+
+[ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="1_57b0w"]
+[ext_resource type="Script" uid="uid://xwcbloqu4nwu" path="res://scripts/ability/action/abstracts/action.gd" id="1_f7ef4"]
+[ext_resource type="Script" uid="uid://dq0gts7suc1fg" path="res://scripts/ability/action/animation_action.gd" id="2_88uqc"]
+[ext_resource type="Script" uid="uid://be5ru5snax08s" path="res://scripts/ability/action/apply_status_action.gd" id="3_88uqc"]
+[ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="3_t5eil"]
+[ext_resource type="Resource" uid="uid://dc13jn0ypwquq" path="res://resources/status_effects/mimic/ink_screen_status.tres" id="4_t5eil"]
+
+[sub_resource type="Resource" id="Resource_y3hdv"]
+script = ExtResource("2_88uqc")
+animation = 2
+metadata/_custom_type_script = "uid://dq0gts7suc1fg"
+
+[sub_resource type="Resource" id="Resource_t5eil"]
+script = ExtResource("3_88uqc")
+status_effect = ExtResource("4_t5eil")
+max_stacks = 1
+metadata/_custom_type_script = "uid://be5ru5snax08s"
+
+[sub_resource type="Resource" id="Resource_l35k1"]
+script = ExtResource("3_t5eil")
+actions = Array[ExtResource("1_f7ef4")]([SubResource("Resource_y3hdv"), SubResource("Resource_t5eil")])
+metadata/_custom_type_script = "uid://da17dshmjafs6"
+
+[resource]
+script = ExtResource("1_57b0w")
+name = "Ink Screen"
+move_target_type = 8
+action = SubResource("Resource_l35k1")
+metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
