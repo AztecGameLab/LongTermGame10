@@ -1,0 +1,49 @@
+[gd_resource type="Resource" script_class="Ability" format=3 uid="uid://hxu8jeubgu8b"]
+
+[ext_resource type="Script" uid="uid://xwcbloqu4nwu" path="res://scripts/ability/action/abstracts/action.gd" id="1_s2hl8"]
+[ext_resource type="Script" uid="uid://dq0gts7suc1fg" path="res://scripts/ability/action/animation_action.gd" id="2_5sdr6"]
+[ext_resource type="Script" uid="uid://be5ru5snax08s" path="res://scripts/ability/action/apply_status_action.gd" id="3_1c3pc"]
+[ext_resource type="Resource" uid="uid://dgf5v27ok6j4y" path="res://resources/status_effects/deflect.tres" id="4_fqon1"]
+[ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="5_ws51y"]
+[ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="6_0n8v7"]
+
+[sub_resource type="Resource" id="Resource_irgbo"]
+script = ExtResource("2_5sdr6")
+animation = 2
+metadata/_custom_type_script = "uid://dq0gts7suc1fg"
+
+[sub_resource type="Resource" id="Resource_j1id4"]
+script = ExtResource("3_1c3pc")
+applied_stacks = 75
+upgrade_stacks = 75
+status_effect = ExtResource("4_fqon1")
+max_stacks = 75
+metadata/_graph_x = 844.0
+metadata/_graph_y = 290.5
+metadata/_graph_w = 365.0
+metadata/_graph_h = 286.0
+
+[sub_resource type="Resource" id="Resource_iqkw1"]
+script = ExtResource("5_ws51y")
+actions = Array[ExtResource("1_s2hl8")]([SubResource("Resource_irgbo"), SubResource("Resource_j1id4")])
+metadata/_custom_type_script = "uid://da17dshmjafs6"
+
+[resource]
+script = ExtResource("6_0n8v7")
+name = "Deflect"
+description = "Blocks 75% of the damage taken this turn. Returns that damage back to the attacker."
+move_target_type = 0
+action = SubResource("Resource_iqkw1")
+metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
+metadata/_graph_x = 50.0
+metadata/_graph_y = 50.0
+metadata/_graph_w = 574.0
+metadata/_graph_h = 272.0
+metadata/_external_layouts = {
+"uid://dgf5v27ok6j4y": {
+"h": 100.0,
+"w": 511.0,
+"x": 1413.5,
+"y": 456.0
+}
+}
