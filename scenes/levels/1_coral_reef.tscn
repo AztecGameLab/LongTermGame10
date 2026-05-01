@@ -20,6 +20,8 @@
 [ext_resource type="PackedScene" uid="uid://csbhyubbu6bo6" path="res://scenes/ui/fade.tscn" id="18_walo4"]
 [ext_resource type="Script" uid="uid://3xr6yasbqo77" path="res://scenes/levels/fade_control.gd" id="19_ty1hb"]
 [ext_resource type="AudioStream" uid="uid://yndkk2w8804l" path="res://assets/audio/music/ScorpionFish.wav" id="20_ty1hb"]
+[ext_resource type="PackedScene" uid="uid://ctdmu6xr5qfnf" path="res://scenes/levels/shop_1.tscn" id="21_shopnext"]
+[ext_resource type="PackedScene" uid="uid://c6losescrxy01" path="res://scenes/levels/lose_screen.tscn" id="22_losescn"]
 
 [sub_resource type="Resource" id="Resource_f1sko"]
 script = ExtResource("11_uf7ed")
@@ -30,6 +32,8 @@ metadata/_custom_type_script = "uid://be5ru5snax08s"
 script = ExtResource("1_m8s2v")
 player_team = [NodePath("Umi"), NodePath("Fortune"), NodePath("Coralleine")]
 boss_team = [NodePath("ScorpionFish")]
+next_scene_on_win = ExtResource("21_shopnext")
+next_scene_on_loss = ExtResource("22_losescn")
 metadata/_custom_type_script = "uid://cbi33r5foad57"
 
 [node name="NormalGameplay(focusedOnFortuneOnly)4" type="Sprite2D" parent="." unique_id=641535787]
@@ -40,6 +44,7 @@ centered = false
 [node name="Umi" parent="." unique_id=34133432 instance=ExtResource("3_m8s2v")]
 position = Vector2(937.00006, 674)
 abilities = Array[ExtResource("4_cmpws")]([ExtResource("5_3j42f"), ExtResource("6_7mltf")])
+battle_level = 1
 
 [node name="HealthBar" parent="Umi" unique_id=1562969593 instance=ExtResource("8_walo4")]
 offset_left = -126.66675
@@ -51,6 +56,7 @@ offset_bottom = -396.0
 position = Vector2(762.00006, 794.00006)
 abilities = Array[ExtResource("4_cmpws")]([ExtResource("9_dp7j0"), ExtResource("10_q5g08")])
 initial_status_effects = Array[ExtResource("11_uf7ed")]([SubResource("Resource_f1sko")])
+battle_level = 1
 
 [node name="HealthBar" parent="Fortune" unique_id=593496078 instance=ExtResource("8_walo4")]
 offset_left = -126.66675
@@ -61,6 +67,7 @@ offset_bottom = -429.3334
 [node name="Coralleine" parent="." unique_id=1190915457 instance=ExtResource("1_0umlr")]
 position = Vector2(592, 914.00006)
 abilities = Array[ExtResource("4_cmpws")]([ExtResource("14_jok4t"), ExtResource("15_f1sko")])
+battle_level = 1
 
 [node name="HealthBar" parent="Coralleine" unique_id=759737278 instance=ExtResource("8_walo4")]
 offset_left = -126.666664
@@ -70,6 +77,7 @@ offset_bottom = -433.33337
 
 [node name="ScorpionFish" parent="." unique_id=1761068697 instance=ExtResource("6_axod2")]
 position = Vector2(1454, 767)
+max_health = 1
 
 [node name="HealthBar" parent="ScorpionFish" unique_id=1784958776 instance=ExtResource("8_walo4")]
 offset_left = -430.66675

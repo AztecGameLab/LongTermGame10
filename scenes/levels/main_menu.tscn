@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bdykas68ga1qg"]
 
-[ext_resource type="Texture2D" uid="uid://wr3fxn7l8870" path="res://Eyes below title screen.png" id="1_721jg"]
+[ext_resource type="Texture2D" uid="uid://wr3fxn7l8870" path="res://assets/ui/Eyes below title screen.png" id="1_721jg"]
 [ext_resource type="Script" uid="uid://ctks3w5k7r8bb" path="res://scenes/levels/main_menu.gd" id="1_geflf"]
 [ext_resource type="PackedScene" uid="uid://bxrdvjrrvpyfd" path="res://scenes/ui/paper_panel.tscn" id="2_geflf"]
 [ext_resource type="FontFile" uid="uid://iq5jfqev2lp0" path="res://assets/ui/EmphasisFont_Knewave-Regular.ttf" id="3_fkd6t"]

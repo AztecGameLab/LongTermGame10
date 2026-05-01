@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://d3shop3mqorls"]
+
+[ext_resource type="PackedScene" uid="uid://d36pty2fyqa5x" path="res://scenes/levels/shop.tscn" id="1_shop"]
+[ext_resource type="PackedScene" uid="uid://d0wg8df2hl8cn" path="res://scenes/levels/4_depths.tscn" id="2_next"]
+
+[node name="Shop" unique_id=952309119 instance=ExtResource("1_shop")]
+shop_number = 3
+next_scene = ExtResource("2_next")
+completion_animation = "4"
+
+[node name="AnimatedSprite2D" parent="." index="3" unique_id=295639353]
+frame = 0
+frame_progress = 0.0

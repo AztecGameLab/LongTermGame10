@@ -1,16 +1,22 @@
 [gd_scene format=3 uid="uid://d36pty2fyqa5x"]
 
+[ext_resource type="Script" uid="uid://cotforbpb6pye" path="res://scenes/levels/shop.gd" id="0_shop_script"]
 [ext_resource type="Texture2D" uid="uid://bkisidh38qeyq" path="res://assets/ui/shop/Move Menu Background.png" id="1_jwwn2"]
 [ext_resource type="FontFile" uid="uid://iq5jfqev2lp0" path="res://assets/ui/EmphasisFont_Knewave-Regular.ttf" id="2_f1n2c"]
 [ext_resource type="Texture2D" uid="uid://ch6x5b76cpawo" path="res://assets/ui/shop/coralleine.png" id="2_xf5gg"]
 [ext_resource type="Texture2D" uid="uid://ckhid6hp3xwej" path="res://assets/ui/shop/Map Marker Sprite Sheet.png" id="3_l0wp4"]
 [ext_resource type="Texture2D" uid="uid://el2akqub1lgt" path="res://assets/ui/shop/fortune.png" id="3_rykso"]
 [ext_resource type="Texture2D" uid="uid://1op2rnxfclc8" path="res://assets/ui/shop/umi.png" id="4_27pq4"]
+[ext_resource type="PackedScene" uid="uid://b1hwixuoghjou" path="res://scenes/ui/selected_ability_indicator.tscn" id="4_htxc8"]
 [ext_resource type="PackedScene" uid="uid://csbhyubbu6bo6" path="res://scenes/ui/fade.tscn" id="7_wducc"]
 [ext_resource type="Script" uid="uid://3xr6yasbqo77" path="res://scenes/levels/fade_control.gd" id="8_lma4g"]
 [ext_resource type="AudioStream" uid="uid://ebuea3tg3fdv" path="res://assets/audio/music/Eyes Below New Shop Theme (No Tide Can Haunt You Down Here).wav" id="9_ly47m"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xf5gg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_htxc8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vlndb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l0wp4"]
 atlas = ExtResource("3_l0wp4")
@@ -450,6 +456,7 @@ animations = [{
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_jwwn2")
+script = ExtResource("0_shop_script")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=454928943]
 layout_mode = 0
@@ -469,16 +476,24 @@ theme_override_constants/margin_bottom = 4
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer" unique_id=326206534]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/HBoxContainer" unique_id=2007626763]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/margin_top = 28
-
-[node name="Coralleine" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/MarginContainer" unique_id=940134835]
+[node name="Coralleine" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer" unique_id=940134835]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/HBoxContainer/MarginContainer/Coralleine" unique_id=1404253259]
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/HBoxContainer/Coralleine" unique_id=1772946652]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_htxc8")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/HBoxContainer/Coralleine/PanelContainer" unique_id=1549443795]
+layout_mode = 2
+theme_override_constants/margin_left = 65
+theme_override_constants/margin_right = 65
+
+[node name="SelectedAbilityIndicator" parent="PanelContainer/MarginContainer/HBoxContainer/Coralleine/PanelContainer/MarginContainer" unique_id=2093613863 instance=ExtResource("4_htxc8")]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/HBoxContainer/Coralleine/PanelContainer" unique_id=1404253259]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 3
@@ -486,7 +501,20 @@ texture = ExtResource("2_xf5gg")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TextureRect2" type="TextureRect" parent="PanelContainer/MarginContainer/HBoxContainer/MarginContainer/Coralleine" unique_id=665742156]
+[node name="PanelContainer2" type="PanelContainer" parent="PanelContainer/MarginContainer/HBoxContainer/Coralleine" unique_id=1735415276]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_htxc8")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/HBoxContainer/Coralleine/PanelContainer2" unique_id=335310974]
+layout_mode = 2
+theme_override_constants/margin_left = 65
+theme_override_constants/margin_right = 65
+
+[node name="SelectedAbilityIndicator" parent="PanelContainer/MarginContainer/HBoxContainer/Coralleine/PanelContainer2/MarginContainer" unique_id=1147300476 instance=ExtResource("4_htxc8")]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/HBoxContainer/Coralleine/PanelContainer2" unique_id=1987591284]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 3
@@ -498,7 +526,20 @@ stretch_mode = 5
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TextureRect2" type="TextureRect" parent="PanelContainer/MarginContainer/HBoxContainer/Fortune" unique_id=1303678788]
+[node name="PanelContainer2" type="PanelContainer" parent="PanelContainer/MarginContainer/HBoxContainer/Fortune" unique_id=1991950524]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_htxc8")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/HBoxContainer/Fortune/PanelContainer2" unique_id=325479669]
+layout_mode = 2
+theme_override_constants/margin_left = 65
+theme_override_constants/margin_right = 65
+
+[node name="SelectedAbilityIndicator" parent="PanelContainer/MarginContainer/HBoxContainer/Fortune/PanelContainer2/MarginContainer" unique_id=116975677 instance=ExtResource("4_htxc8")]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/HBoxContainer/Fortune/PanelContainer2" unique_id=1303637096]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 3
@@ -506,7 +547,20 @@ texture = ExtResource("3_rykso")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TextureRect3" type="TextureRect" parent="PanelContainer/MarginContainer/HBoxContainer/Fortune" unique_id=1247247460]
+[node name="PanelContainer3" type="PanelContainer" parent="PanelContainer/MarginContainer/HBoxContainer/Fortune" unique_id=2069186955]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_htxc8")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/HBoxContainer/Fortune/PanelContainer3" unique_id=959797009]
+layout_mode = 2
+theme_override_constants/margin_left = 65
+theme_override_constants/margin_right = 65
+
+[node name="SelectedAbilityIndicator" parent="PanelContainer/MarginContainer/HBoxContainer/Fortune/PanelContainer3/MarginContainer" unique_id=1503075056 instance=ExtResource("4_htxc8")]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/HBoxContainer/Fortune/PanelContainer3" unique_id=636142492]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 3
@@ -518,7 +572,20 @@ stretch_mode = 5
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TextureRect2" type="TextureRect" parent="PanelContainer/MarginContainer/HBoxContainer/Umi" unique_id=749211636]
+[node name="PanelContainer3" type="PanelContainer" parent="PanelContainer/MarginContainer/HBoxContainer/Umi" unique_id=1412066621]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_htxc8")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/HBoxContainer/Umi/PanelContainer3" unique_id=126438421]
+layout_mode = 2
+theme_override_constants/margin_left = 65
+theme_override_constants/margin_right = 65
+
+[node name="SelectedAbilityIndicator" parent="PanelContainer/MarginContainer/HBoxContainer/Umi/PanelContainer3/MarginContainer" unique_id=260421531 instance=ExtResource("4_htxc8")]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/HBoxContainer/Umi/PanelContainer3" unique_id=1909088242]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 3
@@ -526,7 +593,20 @@ texture = ExtResource("4_27pq4")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TextureRect3" type="TextureRect" parent="PanelContainer/MarginContainer/HBoxContainer/Umi" unique_id=1079661866]
+[node name="PanelContainer4" type="PanelContainer" parent="PanelContainer/MarginContainer/HBoxContainer/Umi" unique_id=1339647467]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_htxc8")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/HBoxContainer/Umi/PanelContainer4" unique_id=83166888]
+layout_mode = 2
+theme_override_constants/margin_left = 65
+theme_override_constants/margin_right = 65
+
+[node name="SelectedAbilityIndicator" parent="PanelContainer/MarginContainer/HBoxContainer/Umi/PanelContainer4/MarginContainer" unique_id=863635997 instance=ExtResource("4_htxc8")]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/HBoxContainer/Umi/PanelContainer4" unique_id=1841874121]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 3
@@ -540,6 +620,7 @@ offset_left = 856.0
 offset_top = 700.0
 offset_right = 1435.0
 offset_bottom = 1016.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_vlndb")
 
 [node name="Label" type="Label" parent="." unique_id=698391436]
 layout_mode = 0
