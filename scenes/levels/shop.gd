@@ -47,7 +47,7 @@ var locked_in: bool = false
 # Scene refs (resolved in _ready)
 var animated_sprite: AnimatedSprite2D
 var move_name_label: RichTextLabel
-var description_label: RichTextLabel
+var description_label: Label
 var fade: Fade
 
 func _ready() -> void:
@@ -123,15 +123,19 @@ func _resolve_scene_refs() -> void:
 			move_name_label.add_theme_font_size_override("normal_font_size", 42)
 			move_name_label.add_theme_color_override("default_color", Color(0.30, 0.19, 0.09))
 			vbox.add_child(move_name_label)
-		description_label = vbox.get_node_or_null(^"Description") as RichTextLabel
+		description_label = vbox.get_node_or_null(^"Description") as Label
 		if description_label == null:
-			description_label = RichTextLabel.new()
+			description_label = Label.new()
 			description_label.name = "Description"
-			description_label.fit_content = true
-			description_label.bbcode_enabled = true
-			if gen_font: description_label.add_theme_font_override("normal_font", gen_font)
-			description_label.add_theme_font_size_override("normal_font_size", 28)
-			description_label.add_theme_color_override("default_color", Color(0.42, 0.23, 0.09))
+			description_label.set_script(load("res://scenes/ui/move_description.gd"))
+			description_label.set("minimum_size", 14)
+			description_label.set("maximum_size", 32)
+			description_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+			description_label.clip_text = true
+			if gen_font: description_label.add_theme_font_override("font", gen_font)
+			description_label.add_theme_font_size_override("font_size", 32)
+			description_label.add_theme_color_override("font_color", Color(0.30, 0.19, 0.09))
+			description_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 			description_label.size_flags_vertical = Control.SIZE_EXPAND_FILL
 			vbox.add_child(description_label)
 

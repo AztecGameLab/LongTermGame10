@@ -28,6 +28,7 @@
 [ext_resource type="Script" uid="uid://3xr6yasbqo77" path="res://scenes/levels/fade_control.gd" id="26_myvc7"]
 [ext_resource type="AudioStream" uid="uid://bq06xn6thxy1m" path="res://assets/audio/music/Glimmer.mp3" id="27_uy2m1"]
 [ext_resource type="PackedScene" uid="uid://d3shop3mqorls" path="res://scenes/levels/shop_3.tscn" id="28_shopnext"]
+[ext_resource type="PackedScene" uid="uid://c6losescrxy01" path="res://scenes/levels/lose_screen.tscn" id="29_losescn"]
 
 [sub_resource type="Resource" id="Resource_cd3gx"]
 script = ExtResource("7_yw4x4")
@@ -39,6 +40,7 @@ script = ExtResource("1_s586h")
 player_team = [NodePath("Umi"), NodePath("Fortune"), NodePath("Coralleine")]
 boss_team = [NodePath("Jelly")]
 next_scene_on_win = ExtResource("28_shopnext")
+next_scene_on_loss = ExtResource("29_losescn")
 metadata/_custom_type_script = "uid://cbi33r5foad57"
 
 [node name="NormalGameplay(focusedOnFortuneOnly)4" type="Sprite2D" parent="." unique_id=641535787]
@@ -82,6 +84,7 @@ offset_bottom = -433.33337
 
 [node name="Jelly" parent="." unique_id=641243926 instance=ExtResource("9_ccrnb")]
 position = Vector2(1388, 749)
+max_health = 1
 
 [node name="HealthBar" parent="Jelly" unique_id=1784958776 instance=ExtResource("4_yw4x4")]
 offset_left = -318.66663

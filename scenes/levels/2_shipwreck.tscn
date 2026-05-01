@@ -25,7 +25,8 @@
 [ext_resource type="PackedScene" uid="uid://csbhyubbu6bo6" path="res://scenes/ui/fade.tscn" id="23_yuf3x"]
 [ext_resource type="Script" uid="uid://3xr6yasbqo77" path="res://scenes/levels/fade_control.gd" id="24_rjwpj"]
 [ext_resource type="AudioStream" uid="uid://dfe065d4r30vm" path="res://assets/audio/music/Mimksnap DEMO.mp3" id="25_rjwpj"]
-[ext_resource type="PackedScene" uid="uid://c2shop2lqsktxw" path="res://scenes/levels/shop_2.tscn" id="26_shopnext"]
+[ext_resource type="PackedScene" uid="uid://c1oskpjo8ptrk" path="res://scenes/levels/shop_2.tscn" id="26_shopnext"]
+[ext_resource type="PackedScene" uid="uid://c6losescrxy01" path="res://scenes/levels/lose_screen.tscn" id="27_losescn"]
 
 [sub_resource type="Resource" id="Resource_yuf3x"]
 script = ExtResource("15_odcq4")
@@ -37,6 +38,7 @@ script = ExtResource("1_u30le")
 player_team = [NodePath("Umi"), NodePath("Fortune"), NodePath("Coralleine")]
 boss_team = [NodePath("Mimic")]
 next_scene_on_win = ExtResource("26_shopnext")
+next_scene_on_loss = ExtResource("27_losescn")
 metadata/_custom_type_script = "uid://cbi33r5foad57"
 
 [node name="NormalGameplay(focusedOnFortuneOnly)4" type="Sprite2D" parent="." unique_id=641535787]
@@ -80,7 +82,7 @@ offset_bottom = -433.33337
 
 [node name="Mimic" parent="." unique_id=1968671649 instance=ExtResource("9_pf1g0")]
 position = Vector2(1353, 765)
-max_health = 500
+max_health = 1
 
 [node name="HealthBar" parent="Mimic" unique_id=1784958776 instance=ExtResource("4_wj0pf")]
 offset_left = -290.66675

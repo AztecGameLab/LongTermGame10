@@ -97,8 +97,12 @@ signal game_ended(did_player_win: bool)
 @export var boss_team: Array[BattleCharacter]
 
 ## Optional: scene to load when the player wins this battle. Leave null
-## (e.g., for the final boss) to skip auto-transition.
+## to skip auto-transition.
 @export var next_scene_on_win: PackedScene
+
+## Optional: scene to load when the player loses this battle.
+## Typically points at lose_screen.tscn.
+@export var next_scene_on_loss: PackedScene
 
 var _queued_actions: Array[QueuedAction]
 
@@ -127,16 +131,15 @@ func _ready() -> void:
 	run_turn()
 
 func _on_game_ended(did_player_win: bool) -> void:
-	if not did_player_win:
+	var target: PackedScene = next_scene_on_win if did_player_win else next_scene_on_loss
+	if target == null:
 		return
-	if next_scene_on_win == null:
-		return
-	# Brief victory pause, then fade and transition to the next scene (shop or final).
+	# Brief result pause, then fade and transition.
 	await get_tree().create_timer(1.5).timeout
 	var fade := get_node_or_null(^"Fade") as Fade
 	if fade:
 		await fade.fadeout()
-	get_tree().change_scene_to_packed(next_scene_on_win)
+	get_tree().change_scene_to_packed(target)
 
 func insert_next_action(actions: QueuedAction):
 	_queued_actions.insert(0, actions)

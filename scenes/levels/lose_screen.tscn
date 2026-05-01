@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://c6losescrxy01"]
+
+[ext_resource type="Script" uid="uid://743mm3vife26" path="res://scripts/end_screen.gd" id="1_endscript"]
+[ext_resource type="Texture2D" uid="uid://bpw0vuc4r6gu1" path="res://assets/ui/lose_screen.png" id="2_loseimg"]
+[ext_resource type="PackedScene" uid="uid://csbhyubbu6bo6" path="res://scenes/ui/fade.tscn" id="3_fade"]
+[ext_resource type="Script" uid="uid://3xr6yasbqo77" path="res://scenes/levels/fade_control.gd" id="4_fadectrl"]
+[ext_resource type="PackedScene" uid="uid://bdykas68ga1qg" path="res://scenes/levels/main_menu.tscn" id="5_next"]
+[ext_resource type="FontFile" uid="uid://b36l0tnkhtkdw" path="res://assets/ui/GenFont_Mansalva-Regular.ttf" id="6_rlkjs"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3od3v"]
+font = ExtResource("6_rlkjs")
+font_size = 84
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="LoseScreen" type="Node2D" unique_id=1800001 node_paths=PackedStringArray("fade")]
+script = ExtResource("1_endscript")
+next_scene = ExtResource("5_next")
+fade = NodePath("Fade")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1800002]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_loseimg")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Fade" parent="." unique_id=1800003 instance=ExtResource("3_fade")]
+visible = false
+
+[node name="FadeControl" type="Node" parent="Fade" unique_id=1800004]
+script = ExtResource("4_fadectrl")
+metadata/_custom_type_script = "uid://3xr6yasbqo77"
+
+[node name="Label" type="Label" parent="." unique_id=657855194]
+offset_left = 1181.0
+offset_right = 1904.0
+offset_bottom = 134.0
+text = "Press enter to exit"
+label_settings = SubResource("LabelSettings_3od3v")
