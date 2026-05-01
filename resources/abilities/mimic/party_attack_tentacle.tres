@@ -12,8 +12,8 @@ metadata/_custom_type_script = "uid://dq0gts7suc1fg"
 
 [sub_resource type="Resource" id="Resource_q1053"]
 script = ExtResource("3_2ravq")
-damage_minimum = 10
-damage_maximum = 20
+damage_minimum = 12
+damage_maximum = 22
 override_target = true
 action_target = 8
 metadata/_custom_type_script = "uid://d0rap3gi3boj5"
