@@ -9,25 +9,35 @@ class_name InvisibleStatusEffect
 ## The description for the hover tooltip.
 @export_multiline var description: String
 
-## How much targeting chance to reduce per stack (as a percentage).
-## e.g. 0.25 means each stack reduces targeting chance by 25%.
-@export var target_reduction_per_stack: float = 0.25
+## How much targeting weight to reduce per stack.
+@export_range(0.0, 1.0, 0.05) var target_reduction_per_stack: float = 0.25
 
 ## The chance (0.0 to 1.0) that the effect ends when dealing damage.
-@export var break_chance: float = 0.5
+@export_range(0.0, 1.0, 0.05) var break_chance_on_attack: float = 0.5
+
+@export_range(0.0, 1.0, 0.05) var bonus_damage_percentage: float = 0.0
+
+@export var blocks_damage: bool = false
 
 func modify_value(field: StatusEffectModifier.Field, value: float, container: StatusEffectContainer) -> float:
 	match field:
+		StatusEffectModifier.Field.INCOMING_DAMAGE:
+			if blocks_damage:
+				container.target.remove_status_effect_instance(container)
+				return 0
+			return value
 		StatusEffectModifier.Field.INCOMING_TARGET_CHANCE:
 			# Reduce targeting chance by (reduction * stacks)
 			return value + value * (-target_reduction_per_stack * container.stacks)
 		StatusEffectModifier.Field.OUTGOING_DAMAGE_RNG_BIAS:
-			# Always max roll while in stealth
 			return 1.0
+		StatusEffectModifier.Field.OUTGOING_DAMAGE:
+			return value * (1.0 + bonus_damage_percentage)
+		
 	return value
 
 func on_damage_dealt(_context: AttackContext, container: StatusEffectContainer) -> void:
-	if RNG.chance(break_chance):
+	if RNG.chance(break_chance_on_attack):
 		container.target.remove_status_effect_instance(container)
 
 func stacks_to_alpha(stacks: int):

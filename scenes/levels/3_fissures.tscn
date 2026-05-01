@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://ciioiq2mp87e4"]
+
+[ext_resource type="Script" uid="uid://cbi33r5foad57" path="res://scripts/battle_logic/battle_manager.gd" id="1_s586h"]
+[ext_resource type="Texture2D" uid="uid://bju1dmce0qj4" path="res://workspaces/artemis/Normal_Gameplay_(focused_On_Fortune_Only)-4.png" id="2_ccrnb"]
+[ext_resource type="PackedScene" uid="uid://cfbgyh6odoe03" path="res://scenes/characters/players/umi.tscn" id="3_8bomq"]
+[ext_resource type="PackedScene" uid="uid://rb6hbhelm4lq" path="res://scenes/ui/health_bar.tscn" id="4_yw4x4"]
+[ext_resource type="PackedScene" uid="uid://cg3tnggxog80a" path="res://scenes/characters/players/fortune.tscn" id="5_nndlu"]
+[ext_resource type="PackedScene" uid="uid://bai7shmnqcg3f" path="res://scenes/characters/players/coralleine.tscn" id="6_cd3gx"]
+[ext_resource type="PackedScene" uid="uid://cj4h68lkbbwkt" path="res://scenes/ui/ability_select.tscn" id="8_cwaqo"]
+[ext_resource type="PackedScene" uid="uid://dhe3fu8fgev0" path="res://scenes/characters/bosses/jelly.tscn" id="9_ccrnb"]
+
+[node name="CoralReef" type="Node2D" unique_id=1926475326 node_paths=PackedStringArray("player_team", "boss_team")]
+script = ExtResource("1_s586h")
+player_team = [NodePath("Umi"), NodePath("Fortune"), NodePath("Coralleine")]
+boss_team = [NodePath("Jelly")]
+metadata/_custom_type_script = "uid://cbi33r5foad57"
+
+[node name="NormalGameplay(focusedOnFortuneOnly)4" type="Sprite2D" parent="." unique_id=641535787]
+visible = false
+texture = ExtResource("2_ccrnb")
+centered = false
+
+[node name="Umi" parent="." unique_id=34133432 instance=ExtResource("3_8bomq")]
+position = Vector2(937.00006, 674)
+
+[node name="HealthBar" parent="Umi" unique_id=1562969593 instance=ExtResource("4_yw4x4")]
+offset_left = -126.66675
+offset_top = -445.33334
+offset_right = 130.66663
+offset_bottom = -396.0
+
+[node name="Fortune" parent="." unique_id=724902013 instance=ExtResource("5_nndlu")]
+position = Vector2(762.00006, 794.00006)
+
+[node name="HealthBar" parent="Fortune" unique_id=593496078 instance=ExtResource("4_yw4x4")]
+offset_left = -126.66675
+offset_top = -478.66675
+offset_right = 130.66663
+offset_bottom = -429.3334
+
+[node name="Coralleine" parent="." unique_id=1190915457 instance=ExtResource("6_cd3gx")]
+position = Vector2(592, 914.00006)
+
+[node name="HealthBar" parent="Coralleine" unique_id=759737278 instance=ExtResource("4_yw4x4")]
+offset_left = -126.666664
+offset_top = -482.66672
+offset_right = 130.66672
+offset_bottom = -433.33337
+
+[node name="Jelly" parent="." unique_id=641243926 instance=ExtResource("9_ccrnb")]
+position = Vector2(1388, 749)
+max_health = 500
+
+[node name="HealthBar" parent="Jelly" unique_id=1784958776 instance=ExtResource("4_yw4x4")]
+offset_left = -318.66663
+offset_top = -708.0
+offset_right = 610.6666
+offset_bottom = -658.6667
+
+[node name="AbilitySelect" parent="." unique_id=844678139 node_paths=PackedStringArray("battle_manager") instance=ExtResource("8_cwaqo")]
+battle_manager = NodePath("..")

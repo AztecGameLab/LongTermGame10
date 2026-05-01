@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bh8ipn2dy8ivj"]
+
+[node name="Credits" type="Node2D" unique_id=1093290226]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1482242213]
+offset_right = 1234.0
+offset_bottom = 181.0
+theme_override_font_sizes/normal_font_size = 92
+text = "Ayo its the credits"

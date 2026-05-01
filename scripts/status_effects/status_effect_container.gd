@@ -26,7 +26,13 @@ func modify_value(field: StatusEffectModifier.Field, value: float) -> float:
 	return effect.modify_value(field, value, self)
 
 func run_triggers(trigger: StatusEffectTrigger.Type) -> void:
-	return effect.run_triggers(trigger, self)
+	await effect.run_triggers(trigger, self)
+	
+func get_remaining_turns() -> int:
+	return effect.get_remaining_turns(self)
+	
+func get_icon() -> Texture2D:
+	return effect.get_icon(self)
 
 func on_attacked(context: AttackContext) -> void:
 	await effect.on_attacked(context, self)

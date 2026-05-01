@@ -23,7 +23,7 @@ func run(context: ActionContext) -> void:
 
 	# Apply damage to all resolved targets
 	for target in resolve_targets(context):
-		BattleManager.apply_damage(total_damage, context.source, target)
+		await BattleManager.apply_damage(total_damage, context.source, target)
 	
 	# Clear the buffer after reflecting
 	if clear_damage_after_use:

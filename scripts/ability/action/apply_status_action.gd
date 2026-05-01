@@ -18,4 +18,5 @@ class_name ApplyStatusAction
 func run(context: ActionContext) -> void:
 	for target in resolve_targets(context):
 		if status_effect:
+			print("applying status: " + str(context))
 			target.add_status_effect(status_effect, context.source, applied_stacks, max_stacks)

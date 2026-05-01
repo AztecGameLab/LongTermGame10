@@ -4,7 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://dxnirih25xx8b" path="res://assets/sprites/scorpion_fish/ScorpionFish_Idle-Animation.png" id="2_2pcyb"]
 [ext_resource type="Texture2D" uid="uid://c3cdpajqmde4b" path="res://assets/sprites/scorpion_fish/ScorpionFish_Attack-Animation.png" id="2_4ltk0"]
 [ext_resource type="Shader" uid="uid://ctt5na6ppy7cj" path="res://scripts/shader/desaturate.gdshader" id="2_5odi0"]
+[ext_resource type="Script" uid="uid://d1o5abfusku1j" path="res://scripts/ability/base_ability.gd" id="2_kj128"]
+[ext_resource type="Resource" uid="uid://bbk8voggsovuk" path="res://resources/abilities/scorpion_fish/bite.tres" id="3_dtb7u"]
 [ext_resource type="PackedScene" uid="uid://5b5nch8ier3n" path="res://scenes/ui/selected_indicator.tscn" id="3_lff58"]
+[ext_resource type="Resource" uid="uid://8b7mh30psvls" path="res://resources/abilities/scorpion_fish/rage.tres" id="4_ym7ni"]
+[ext_resource type="Resource" uid="uid://crrdd0sksf7sc" path="res://resources/abilities/scorpion_fish/obsession.tres" id="5_dtb7u"]
+[ext_resource type="Resource" uid="uid://c0it6depr50y3" path="res://resources/abilities/scorpion_fish/venomous_spines.tres" id="6_ym7ni"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4ltk0"]
 shader = ExtResource("2_5odi0")
@@ -270,6 +275,7 @@ animations = [{
 scale = Vector2(0.75, 0.75)
 script = ExtResource("1_kml5a")
 character_name = "Scorpion Fish"
+abilities = Array[ExtResource("2_kj128")]([ExtResource("3_dtb7u"), ExtResource("4_ym7ni"), ExtResource("5_dtb7u"), ExtResource("6_ym7ni"), ExtResource("6_ym7ni")])
 metadata/_custom_type_script = "uid://ptnidpejecye"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=204606312]
