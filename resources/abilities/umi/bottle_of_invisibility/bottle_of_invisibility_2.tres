@@ -38,7 +38,7 @@ metadata/_graph_h = 55.0
 
 [resource]
 script = ExtResource("6_ptvpi")
-name = "Invisibility"
+name = "Bottle of Invis"
 description = "- Low chance of being targeted, more likely as the effect wears off.
 - Stronger attacks, but they might break the effect."
 move_target_type = 3

@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="StatusEffect" format=3 uid="uid://due0xdviby15i"]
+
+[ext_resource type="Texture2D" uid="uid://c6u7fbn78sfam" path="res://assets/status_effects/Corrode.png" id="1_62q3o"]
+[ext_resource type="Script" uid="uid://c4rwprj6d61c0" path="res://scripts/status_effects/status_effect.gd" id="2_nmqu2"]
+[ext_resource type="Script" uid="uid://c2ci25gmhnb4w" path="res://scripts/status_effects/status_effect_stack.gd" id="3_shroq"]
+[ext_resource type="Script" uid="uid://w6h7oqtjl61k" path="res://scripts/status_effects/status_effect_modifier.gd" id="4_jfanx"]
+[ext_resource type="Script" uid="uid://d0uvf6jnorxpw" path="res://scripts/status_effects/status_effect_trigger.gd" id="5_o61po"]
+
+[sub_resource type="Resource" id="Resource_ru53i"]
+script = ExtResource("4_jfanx")
+modifier_field = 1
+modifier_type = 2
+modifier_amount = 1.2000000000000457
+metadata/_graph_x = 1110.5
+metadata/_graph_y = 325.0
+metadata/_graph_w = 714.0
+metadata/_graph_h = 256.0
+
+[sub_resource type="Resource" id="Resource_mp1ee"]
+script = ExtResource("3_shroq")
+description = "Take 20% more damage."
+modifiers = Array[ExtResource("4_jfanx")]([SubResource("Resource_ru53i")])
+metadata/_graph_x = 540.0
+metadata/_graph_y = 200.0
+metadata/_graph_w = 367.0
+metadata/_graph_h = 333.0
+
+[resource]
+script = ExtResource("2_nmqu2")
+stacks = Array[ExtResource("3_shroq")]([SubResource("Resource_mp1ee")])
+name = "Defense Reduction"
+icon = ExtResource("1_62q3o")
+metadata/_custom_type_script = "uid://c4rwprj6d61c0"
+metadata/_graph_x = 50.0
+metadata/_graph_y = 50.0
+metadata/_graph_w = 468.0
+metadata/_graph_h = 439.0

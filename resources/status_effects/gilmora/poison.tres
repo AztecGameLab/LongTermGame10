@@ -1,0 +1,302 @@
+[gd_resource type="Resource" script_class="StatusEffect" format=3 uid="uid://ddha1ldel8l71"]
+
+[ext_resource type="Script" uid="uid://c4rwprj6d61c0" path="res://scripts/status_effects/status_effect.gd" id="1_3u2p8"]
+[ext_resource type="Texture2D" uid="uid://c50u43yrto437" path="res://assets/status_effects/Poison.png" id="1_ygfly"]
+[ext_resource type="Script" uid="uid://c2ci25gmhnb4w" path="res://scripts/status_effects/status_effect_stack.gd" id="2_jrbmj"]
+[ext_resource type="Script" uid="uid://w6h7oqtjl61k" path="res://scripts/status_effects/status_effect_modifier.gd" id="4_p5grk"]
+[ext_resource type="Script" uid="uid://d0uvf6jnorxpw" path="res://scripts/status_effects/status_effect_trigger.gd" id="5_54kcc"]
+[ext_resource type="Script" uid="uid://bihndepd0cudw" path="res://scripts/ability/action/static_damage_action.gd" id="6_elmmg"]
+
+[sub_resource type="Resource" id="Resource_ygfly"]
+script = ExtResource("6_elmmg")
+damage = 5
+can_miss = false
+metadata/_custom_type_script = "uid://bihndepd0cudw"
+metadata/_graph_x = 0.0
+metadata/_graph_y = 0.0
+metadata/_graph_w = 384.0
+metadata/_graph_h = 240.0
+
+[sub_resource type="Resource" id="Resource_p5grk"]
+script = ExtResource("5_54kcc")
+trigger_type = 1
+action = SubResource("Resource_ygfly")
+metadata/_custom_type_script = "uid://d0uvf6jnorxpw"
+metadata/_graph_x = 0.0
+metadata/_graph_y = 0.0
+metadata/_graph_w = 505.0
+metadata/_graph_h = 187.0
+
+[sub_resource type="Resource" id="Resource_py6ue"]
+script = ExtResource("2_jrbmj")
+description = "Deals 5 damage to whoever has this status."
+triggers = Array[ExtResource("5_54kcc")]([SubResource("Resource_p5grk")])
+metadata/_graph_x = 872.5
+metadata/_graph_y = 416.0
+metadata/_graph_w = 367.0
+metadata/_graph_h = 394.0
+
+[sub_resource type="Resource" id="Resource_elmmg"]
+script = ExtResource("6_elmmg")
+damage = 10
+can_miss = false
+metadata/_custom_type_script = "uid://bihndepd0cudw"
+metadata/_graph_x = 0.0
+metadata/_graph_y = 0.0
+metadata/_graph_w = 384.0
+metadata/_graph_h = 240.0
+
+[sub_resource type="Resource" id="Resource_sh8kl"]
+script = ExtResource("5_54kcc")
+trigger_type = 1
+action = SubResource("Resource_elmmg")
+metadata/_custom_type_script = "uid://d0uvf6jnorxpw"
+metadata/_graph_x = 0.0
+metadata/_graph_y = 0.0
+metadata/_graph_w = 505.0
+metadata/_graph_h = 187.0
+
+[sub_resource type="Resource" id="Resource_54kcc"]
+script = ExtResource("2_jrbmj")
+description = "Deals 10 damage to whoever has this status."
+triggers = Array[ExtResource("5_54kcc")]([SubResource("Resource_sh8kl")])
+metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
+metadata/_graph_x = 0.0
+metadata/_graph_y = 0.0
+metadata/_graph_w = 367.0
+metadata/_graph_h = 394.0
+
+[sub_resource type="Resource" id="Resource_ryqgu"]
+script = ExtResource("6_elmmg")
+damage = 15
+can_miss = false
+metadata/_custom_type_script = "uid://bihndepd0cudw"
+metadata/_graph_x = 0.0
+metadata/_graph_y = 0.0
+metadata/_graph_w = 384.0
+metadata/_graph_h = 240.0
+
+[sub_resource type="Resource" id="Resource_c5d0i"]
+script = ExtResource("5_54kcc")
+trigger_type = 1
+action = SubResource("Resource_ryqgu")
+metadata/_custom_type_script = "uid://d0uvf6jnorxpw"
+metadata/_graph_x = 0.0
+metadata/_graph_y = 0.0
+metadata/_graph_w = 505.0
+metadata/_graph_h = 187.0
+
+[sub_resource type="Resource" id="Resource_pivkh"]
+script = ExtResource("2_jrbmj")
+description = "Deals 15 damage to whoever has this status."
+triggers = Array[ExtResource("5_54kcc")]([SubResource("Resource_c5d0i")])
+metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
+metadata/_graph_x = 0.0
+metadata/_graph_y = 0.0
+metadata/_graph_w = 367.0
+metadata/_graph_h = 394.0
+
+[sub_resource type="Resource" id="Resource_ivpea"]
+script = ExtResource("6_elmmg")
+damage = 20
+can_miss = false
+metadata/_custom_type_script = "uid://bihndepd0cudw"
+metadata/_graph_x = 0.0
+metadata/_graph_y = 0.0
+metadata/_graph_w = 384.0
+metadata/_graph_h = 240.0
+
+[sub_resource type="Resource" id="Resource_gkm6w"]
+script = ExtResource("5_54kcc")
+trigger_type = 1
+action = SubResource("Resource_ivpea")
+metadata/_custom_type_script = "uid://d0uvf6jnorxpw"
+metadata/_graph_x = 0.0
+metadata/_graph_y = 0.0
+metadata/_graph_w = 505.0
+metadata/_graph_h = 187.0
+
+[sub_resource type="Resource" id="Resource_qrldk"]
+script = ExtResource("2_jrbmj")
+description = "Deals 20 damage to whoever has this status."
+triggers = Array[ExtResource("5_54kcc")]([SubResource("Resource_gkm6w")])
+metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
+metadata/_graph_x = 0.0
+metadata/_graph_y = 0.0
+metadata/_graph_w = 367.0
+metadata/_graph_h = 394.0
+
+[sub_resource type="Resource" id="Resource_xfkmi"]
+script = ExtResource("6_elmmg")
+damage = 25
+can_miss = false
+metadata/_custom_type_script = "uid://bihndepd0cudw"
+metadata/_graph_x = 0.0
+metadata/_graph_y = 0.0
+metadata/_graph_w = 384.0
+metadata/_graph_h = 240.0
+
+[sub_resource type="Resource" id="Resource_2107n"]
+script = ExtResource("5_54kcc")
+trigger_type = 1
+action = SubResource("Resource_xfkmi")
+metadata/_custom_type_script = "uid://d0uvf6jnorxpw"
+metadata/_graph_x = 0.0
+metadata/_graph_y = 0.0
+metadata/_graph_w = 505.0
+metadata/_graph_h = 187.0
+
+[sub_resource type="Resource" id="Resource_7htgs"]
+script = ExtResource("2_jrbmj")
+description = "Deals 25 damage to whoever has this status."
+triggers = Array[ExtResource("5_54kcc")]([SubResource("Resource_2107n")])
+metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
+metadata/_graph_x = 0.0
+metadata/_graph_y = 0.0
+metadata/_graph_w = 367.0
+metadata/_graph_h = 394.0
+
+[sub_resource type="Resource" id="Resource_cq1h8"]
+script = ExtResource("6_elmmg")
+damage = 32
+can_miss = false
+metadata/_custom_type_script = "uid://bihndepd0cudw"
+metadata/_graph_x = 0.0
+metadata/_graph_y = 0.0
+metadata/_graph_w = 384.0
+metadata/_graph_h = 240.0
+
+[sub_resource type="Resource" id="Resource_a1d37"]
+script = ExtResource("5_54kcc")
+trigger_type = 1
+action = SubResource("Resource_cq1h8")
+metadata/_custom_type_script = "uid://d0uvf6jnorxpw"
+metadata/_graph_x = 0.0
+metadata/_graph_y = 0.0
+metadata/_graph_w = 505.0
+metadata/_graph_h = 187.0
+
+[sub_resource type="Resource" id="Resource_bia7i"]
+script = ExtResource("2_jrbmj")
+description = "Deals 32 damage to whoever has this status."
+triggers = Array[ExtResource("5_54kcc")]([SubResource("Resource_a1d37")])
+metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
+metadata/_graph_x = 0.0
+metadata/_graph_y = 0.0
+metadata/_graph_w = 367.0
+metadata/_graph_h = 394.0
+
+[sub_resource type="Resource" id="Resource_bspm4"]
+script = ExtResource("6_elmmg")
+damage = 44
+can_miss = false
+metadata/_custom_type_script = "uid://bihndepd0cudw"
+metadata/_graph_x = 0.0
+metadata/_graph_y = 0.0
+metadata/_graph_w = 384.0
+metadata/_graph_h = 240.0
+
+[sub_resource type="Resource" id="Resource_3mu74"]
+script = ExtResource("5_54kcc")
+trigger_type = 1
+action = SubResource("Resource_bspm4")
+metadata/_custom_type_script = "uid://d0uvf6jnorxpw"
+metadata/_graph_x = 0.0
+metadata/_graph_y = 0.0
+metadata/_graph_w = 505.0
+metadata/_graph_h = 187.0
+
+[sub_resource type="Resource" id="Resource_euhlm"]
+script = ExtResource("2_jrbmj")
+description = "Deals 44 damage to whoever has this status."
+triggers = Array[ExtResource("5_54kcc")]([SubResource("Resource_3mu74")])
+metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
+metadata/_graph_x = 0.0
+metadata/_graph_y = 0.0
+metadata/_graph_w = 367.0
+metadata/_graph_h = 394.0
+
+[sub_resource type="Resource" id="Resource_n7vuw"]
+script = ExtResource("6_elmmg")
+damage = 56
+can_miss = false
+metadata/_custom_type_script = "uid://bihndepd0cudw"
+metadata/_graph_x = 0.0
+metadata/_graph_y = 0.0
+metadata/_graph_w = 384.0
+metadata/_graph_h = 240.0
+
+[sub_resource type="Resource" id="Resource_uuj0t"]
+script = ExtResource("5_54kcc")
+trigger_type = 1
+action = SubResource("Resource_n7vuw")
+metadata/_custom_type_script = "uid://d0uvf6jnorxpw"
+metadata/_graph_x = 0.0
+metadata/_graph_y = 0.0
+metadata/_graph_w = 505.0
+metadata/_graph_h = 187.0
+
+[sub_resource type="Resource" id="Resource_eyuo3"]
+script = ExtResource("2_jrbmj")
+description = "Deals 56 damage to whoever has this status."
+triggers = Array[ExtResource("5_54kcc")]([SubResource("Resource_uuj0t")])
+metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
+metadata/_graph_x = 0.0
+metadata/_graph_y = 0.0
+metadata/_graph_w = 367.0
+metadata/_graph_h = 394.0
+
+[sub_resource type="Resource" id="Resource_2q8bt"]
+script = ExtResource("6_elmmg")
+damage = 68
+can_miss = false
+metadata/_custom_type_script = "uid://bihndepd0cudw"
+
+[sub_resource type="Resource" id="Resource_70i12"]
+script = ExtResource("5_54kcc")
+trigger_type = 1
+action = SubResource("Resource_2q8bt")
+metadata/_custom_type_script = "uid://d0uvf6jnorxpw"
+
+[sub_resource type="Resource" id="Resource_gn4m3"]
+script = ExtResource("2_jrbmj")
+description = "Deals 68 damage to whoever has this status."
+triggers = Array[ExtResource("5_54kcc")]([SubResource("Resource_70i12")])
+metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
+
+[sub_resource type="Resource" id="Resource_ygws1"]
+script = ExtResource("6_elmmg")
+damage = 999
+can_miss = false
+metadata/_custom_type_script = "uid://bihndepd0cudw"
+
+[sub_resource type="Resource" id="Resource_iw6vl"]
+script = ExtResource("5_54kcc")
+trigger_type = 1
+action = SubResource("Resource_ygws1")
+metadata/_custom_type_script = "uid://d0uvf6jnorxpw"
+
+[sub_resource type="Resource" id="Resource_k6jfn"]
+script = ExtResource("2_jrbmj")
+description = "Deals 999 damage at the end of the turn to whoever has this status."
+triggers = Array[ExtResource("5_54kcc")]([SubResource("Resource_iw6vl")])
+metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
+
+[resource]
+script = ExtResource("1_3u2p8")
+stacks = Array[ExtResource("2_jrbmj")]([SubResource("Resource_py6ue"), SubResource("Resource_54kcc"), SubResource("Resource_pivkh"), SubResource("Resource_qrldk"), SubResource("Resource_7htgs"), SubResource("Resource_bia7i"), SubResource("Resource_euhlm"), SubResource("Resource_eyuo3"), SubResource("Resource_gn4m3"), SubResource("Resource_k6jfn")])
+name = "Poison"
+icon = ExtResource("1_ygfly")
+metadata/_custom_type_script = "uid://c4rwprj6d61c0"
+metadata/_graph_x = 50.0
+metadata/_graph_y = 50.0
+metadata/_graph_w = 468.0
+metadata/_graph_h = 991.0
+metadata/_external_layouts = {
+"uid://c50u43yrto437": {
+"h": 125.0,
+"w": 309.0,
+"x": 966.5,
+"y": 152.0
+}
+}

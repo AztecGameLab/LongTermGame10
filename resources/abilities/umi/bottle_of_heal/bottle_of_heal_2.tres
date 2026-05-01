@@ -23,7 +23,7 @@ metadata/_custom_type_script = "uid://da17dshmjafs6"
 
 [resource]
 script = ExtResource("1_b2xvn")
-name = "Heal"
+name = "Bottle of Heal"
 description = "Instantly heals all allies a meduim amount."
 move_target_type = 6
 action = SubResource("Resource_4dp4y")

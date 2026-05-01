@@ -32,7 +32,7 @@ metadata/_custom_type_script = "uid://da17dshmjafs6"
 
 [resource]
 script = ExtResource("6_t6fml")
-name = "Regeneration"
+name = "Bottle of Regen"
 description = "Heals the party a bunch and gives slight regeneration."
 move_target_type = 6
 action = SubResource("Resource_wc13e")
