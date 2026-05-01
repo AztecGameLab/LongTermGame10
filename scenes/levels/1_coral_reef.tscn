@@ -6,14 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://cfbgyh6odoe03" path="res://scenes/characters/players/umi.tscn" id="3_m8s2v"]
 [ext_resource type="PackedScene" uid="uid://cj4h68lkbbwkt" path="res://scenes/ui/ability_select.tscn" id="4_a4rq4"]
 [ext_resource type="PackedScene" uid="uid://bhot4510tfs43" path="res://scenes/characters/bosses/scorpion_fish.tscn" id="6_axod2"]
-[ext_resource type="Script" uid="uid://d1o5abfusku1j" path="res://scripts/ability/base_ability.gd" id="7_5t5uu"]
 [ext_resource type="Texture2D" uid="uid://bju1dmce0qj4" path="res://workspaces/artemis/Normal_Gameplay_(focused_On_Fortune_Only)-4.png" id="7_8wj54"]
-[ext_resource type="Resource" uid="uid://db77qu1n6a6p1" path="res://resources/abilities/coralleine/guardian/guardian_4.tres" id="8_uf7ed"]
 [ext_resource type="PackedScene" uid="uid://rb6hbhelm4lq" path="res://scenes/ui/health_bar.tscn" id="8_walo4"]
-[ext_resource type="Resource" uid="uid://cjl4tl2emlhod" path="res://resources/abilities/coralleine/lifesteal/lifesteal_4.tres" id="9_jok4t"]
-[ext_resource type="Resource" uid="uid://btt4hfmyenawq" path="res://resources/abilities/coralleine/magic_cannon/magic_cannon_4.tres" id="10_f1sko"]
-[ext_resource type="Resource" uid="uid://cwy5rolgk5id1" path="res://resources/abilities/coralleine/magic darts/magic_darts_4.tres" id="11_hu8bf"]
-[ext_resource type="Resource" uid="uid://c3g82ty4kye1n" path="res://resources/abilities/coralleine/rally/rally_3.tres" id="12_walo4"]
 
 [node name="CoralReef" type="Node2D" unique_id=1926475326 node_paths=PackedStringArray("player_team", "boss_team")]
 script = ExtResource("1_m8s2v")
@@ -46,7 +40,6 @@ offset_bottom = -429.3334
 
 [node name="Coralleine" parent="." unique_id=1190915457 instance=ExtResource("1_0umlr")]
 position = Vector2(592, 914.00006)
-abilities = Array[ExtResource("7_5t5uu")]([ExtResource("8_uf7ed"), ExtResource("9_jok4t"), ExtResource("10_f1sko"), ExtResource("11_hu8bf"), ExtResource("12_walo4")])
 
 [node name="HealthBar" parent="Coralleine" unique_id=759737278 instance=ExtResource("8_walo4")]
 offset_left = -126.666664

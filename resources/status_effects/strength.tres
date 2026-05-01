@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="StatusEffect" format=3 uid="uid://cjybefoa1fp4o"]
 
 [ext_resource type="Script" uid="uid://c4rwprj6d61c0" path="res://scripts/status_effects/status_effect.gd" id="1_df2h8"]
-[ext_resource type="Texture2D" uid="uid://crv2jpmgtm8kp" path="res://assets/status_effects/Strength.png" id="1_x4rp0"]
+[ext_resource type="Texture2D" uid="uid://m5cnn7xuiocw" path="res://assets/status_effects/Valor.png" id="1_x4rp0"]
 [ext_resource type="Script" uid="uid://c2ci25gmhnb4w" path="res://scripts/status_effects/status_effect_stack.gd" id="2_x4rp0"]
 [ext_resource type="Script" uid="uid://w6h7oqtjl61k" path="res://scripts/status_effects/status_effect_modifier.gd" id="3_fedou"]
 [ext_resource type="Script" uid="uid://d0uvf6jnorxpw" path="res://scripts/status_effects/status_effect_trigger.gd" id="4_vfrfl"]
