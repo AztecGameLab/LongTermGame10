@@ -112,8 +112,10 @@ func _ready() -> void:
 	battle_context = BattleContext.new(player_team, boss_team)
 	for character in player_team:
 		character.battle = battle_context
+		character.battle_init()
 	for character in boss_team:
 		character.battle = battle_context
+		character.battle_init()
 	_player_battle_team = PlayerTeam.new(player_team, battle_context)
 	_boss_battle_team = BossTeam.new(boss_team, battle_context)
 	battle_ready.emit()
