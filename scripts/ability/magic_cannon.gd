@@ -15,9 +15,10 @@ func get_label(_source: BattleCharacter) -> String:
 	return &"Magic Cannon"
 	
 func get_description(_source: BattleCharacter) -> String:
-	var description := &"Take one turn to charge the spell. Use it a second time to deal high damage."
+	var description := &"Take one turn to charge the spell. Use again for high damage."
+	description += &"\nWhen attacked, 50% chance to lose charge."
 	if has_extra_shots():
-		description += &"\nEvery turn you don't activate it, you gain one extra cannon shot worth a small amount of damage."
+		description += &"\nEvery turn not used, gain one charge worth extra damage."
 	return description
 
 func get_target_type(source: BattleCharacter) -> BaseAbility.TargetType:
@@ -38,6 +39,7 @@ func get_action(source: BattleCharacter) -> Action:
 		
 		var apply_status := ApplyStatusAction.new()
 		apply_status.status_effect = status_effect
+		apply_status.applied_stacks = level
 		group.actions.append(apply_status)
 		return group
 		
@@ -58,6 +60,7 @@ func get_action(source: BattleCharacter) -> Action:
 	remove_status.status_effect = status_effect
 	remove_status.override_target = true
 	remove_status.action_target = TargetType.SELF
+	remove_status.remove_stacks = -1
 	group.actions.append(remove_status)
 	
 	return group

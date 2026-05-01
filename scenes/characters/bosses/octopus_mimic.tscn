@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://duonu4gb0haaw" path="res://assets/sprites/octopus_mimic/idle octo final.png" id="6_lo1md"]
 [ext_resource type="Resource" uid="uid://dlcy0i6otx6qb" path="res://resources/abilities/mimic/party_attack_tentacle.tres" id="7_u6qu7"]
 [ext_resource type="PackedScene" uid="uid://5b5nch8ier3n" path="res://scenes/ui/selected_indicator.tscn" id="8_58dkj"]
+[ext_resource type="Resource" uid="uid://blt4haubgrwwo" path="res://resources/abilities/mimic/ink_screen.tres" id="8_n38kw"]
 [ext_resource type="Texture2D" uid="uid://dm0o5xgy6do4r" path="res://assets/sprites/octopus_mimic/inked.png" id="8_ybpql"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4ltk0"]
@@ -371,7 +372,8 @@ animations = [{
 scale = Vector2(0.75, 0.75)
 script = ExtResource("1_ybpql")
 character_name = "The Mimic"
-abilities = Array[ExtResource("2_ybpql")]([ExtResource("3_go14q"), ExtResource("4_ybpql"), ExtResource("5_gsagc"), ExtResource("6_j8vor"), ExtResource("7_u6qu7")])
+max_health = 750
+abilities = Array[ExtResource("2_ybpql")]([ExtResource("3_go14q"), ExtResource("4_ybpql"), ExtResource("5_gsagc"), ExtResource("6_j8vor"), ExtResource("7_u6qu7"), ExtResource("8_n38kw")])
 metadata/_custom_type_script = "uid://djn3ehpg2h4n4"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=204606312]

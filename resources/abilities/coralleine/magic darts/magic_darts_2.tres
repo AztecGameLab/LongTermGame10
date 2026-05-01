@@ -46,6 +46,7 @@ script = ExtResource("2_lg1uu")
 times = 4
 hit_chance_decrease = 0.15
 stop_on_miss = true
+use_luck = true
 action = SubResource("Resource_a0qop")
 metadata/_graph_x = 724.0
 metadata/_graph_y = 210.5
