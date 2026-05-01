@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="HasteStatusEffect" format=3 uid="uid://c8rwiciuu1mlf"]
+
+[ext_resource type="Script" uid="uid://c2lxu5uhl6boh" path="res://scripts/status_effects/custom/haste_status_effect.gd" id="1_g30i8"]
+[ext_resource type="Texture2D" uid="uid://bsp36fddjjl3p" path="res://assets/status_effects/Precision.png" id="1_i6rop"]
+
+[resource]
+script = ExtResource("1_g30i8")
+name = "Haste"
+icon = ExtResource("1_i6rop")
+metadata/_custom_type_script = "uid://c2lxu5uhl6boh"

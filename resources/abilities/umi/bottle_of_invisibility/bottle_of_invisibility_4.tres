@@ -38,7 +38,7 @@ metadata/_graph_h = 55.0
 
 [resource]
 script = ExtResource("1_xvarx")
-name = "Invisibility"
+name = "Bottle of Invis"
 description = "- No chance of being targeted, more likely as the effect wears off.
 - Stronger attacks, but might break the effect.
 - No incoming damage, but will break the effect."
