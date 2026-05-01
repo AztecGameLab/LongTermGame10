@@ -27,6 +27,8 @@
 [ext_resource type="PackedScene" uid="uid://csbhyubbu6bo6" path="res://scenes/ui/fade.tscn" id="25_3wjve"]
 [ext_resource type="Script" uid="uid://3xr6yasbqo77" path="res://scenes/levels/fade_control.gd" id="26_myvc7"]
 [ext_resource type="AudioStream" uid="uid://bq06xn6thxy1m" path="res://assets/audio/music/Glimmer.mp3" id="27_uy2m1"]
+[ext_resource type="PackedScene" uid="uid://d3shop3mqorls" path="res://scenes/levels/shop_3.tscn" id="28_shopnext"]
+[ext_resource type="PackedScene" uid="uid://c6losescrxy01" path="res://scenes/levels/lose_screen.tscn" id="29_losescn"]
 
 [sub_resource type="Resource" id="Resource_cd3gx"]
 script = ExtResource("7_yw4x4")
@@ -37,6 +39,8 @@ metadata/_custom_type_script = "uid://be5ru5snax08s"
 script = ExtResource("1_s586h")
 player_team = [NodePath("Umi"), NodePath("Fortune"), NodePath("Coralleine")]
 boss_team = [NodePath("Jelly")]
+next_scene_on_win = ExtResource("28_shopnext")
+next_scene_on_loss = ExtResource("29_losescn")
 metadata/_custom_type_script = "uid://cbi33r5foad57"
 
 [node name="NormalGameplay(focusedOnFortuneOnly)4" type="Sprite2D" parent="." unique_id=641535787]
@@ -47,6 +51,7 @@ centered = false
 [node name="Umi" parent="." unique_id=34133432 instance=ExtResource("3_8bomq")]
 position = Vector2(937.00006, 674)
 abilities = Array[ExtResource("8_cd3gx")]([ExtResource("5_swy3s"), ExtResource("6_7xlnq"), ExtResource("7_l0dv6"), ExtResource("8_iijgu")])
+battle_level = 3
 
 [node name="HealthBar" parent="Umi" unique_id=1562969593 instance=ExtResource("4_yw4x4")]
 offset_left = -126.66675
@@ -58,6 +63,7 @@ offset_bottom = -396.0
 position = Vector2(762.00006, 794.00006)
 abilities = Array[ExtResource("8_cd3gx")]([ExtResource("7_nndlu"), ExtResource("8_noy0c"), ExtResource("9_noy0c"), ExtResource("10_cwaqo"), ExtResource("11_05u3w")])
 initial_status_effects = Array[ExtResource("7_yw4x4")]([SubResource("Resource_cd3gx")])
+battle_level = 3
 
 [node name="HealthBar" parent="Fortune" unique_id=593496078 instance=ExtResource("4_yw4x4")]
 offset_left = -126.66675
@@ -68,6 +74,7 @@ offset_bottom = -429.3334
 [node name="Coralleine" parent="." unique_id=1190915457 instance=ExtResource("6_cd3gx")]
 position = Vector2(592, 914.00006)
 abilities = Array[ExtResource("8_cd3gx")]([ExtResource("15_s4uq2"), ExtResource("16_8mwti"), ExtResource("17_7ic2q"), ExtResource("18_bst2m")])
+battle_level = 3
 
 [node name="HealthBar" parent="Coralleine" unique_id=759737278 instance=ExtResource("4_yw4x4")]
 offset_left = -126.666664
@@ -77,6 +84,7 @@ offset_bottom = -433.33337
 
 [node name="Jelly" parent="." unique_id=641243926 instance=ExtResource("9_ccrnb")]
 position = Vector2(1388, 749)
+max_health = 1
 
 [node name="HealthBar" parent="Jelly" unique_id=1784958776 instance=ExtResource("4_yw4x4")]
 offset_left = -318.66663

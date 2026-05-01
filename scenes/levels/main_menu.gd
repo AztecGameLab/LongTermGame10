@@ -10,6 +10,9 @@ const credits := &"uid://bh8ipn2dy8ivj"
 @onready var more_games_button: Button = $EyesBelowTitleScreen/PaperPanel3/Button
 
 func _on_start_pressed() -> void:
+	# Reset progression state so each new game starts fresh.
+	if has_node(^"/root/GameState"):
+		get_node(^"/root/GameState").reset()
 	await fade_to_scene(level_1)
 
 func _on_quit_pressed() -> void:

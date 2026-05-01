@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://b5winscrnxy01"]
+
+[ext_resource type="Script" uid="uid://743mm3vife26" path="res://scripts/end_screen.gd" id="1_endscript"]
+[ext_resource type="Texture2D" uid="uid://bn5hy10wxjb01" path="res://assets/ui/win_screen.png" id="2_winimg"]
+[ext_resource type="PackedScene" uid="uid://csbhyubbu6bo6" path="res://scenes/ui/fade.tscn" id="3_fade"]
+[ext_resource type="Script" uid="uid://3xr6yasbqo77" path="res://scenes/levels/fade_control.gd" id="4_fadectrl"]
+[ext_resource type="PackedScene" uid="uid://bh8ipn2dy8ivj" path="res://scenes/levels/credits.tscn" id="5_next"]
+[ext_resource type="FontFile" uid="uid://b36l0tnkhtkdw" path="res://assets/ui/GenFont_Mansalva-Regular.ttf" id="6_j7ifq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_n5qyp"]
+font = ExtResource("6_j7ifq")
+font_size = 84
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="WinScreen" type="Node2D" unique_id=1700001 node_paths=PackedStringArray("fade")]
+script = ExtResource("1_endscript")
+next_scene = ExtResource("5_next")
+fade = NodePath("Fade")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1700002]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_winimg")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Fade" parent="." unique_id=1700003 instance=ExtResource("3_fade")]
+visible = false
+
+[node name="FadeControl" type="Node" parent="Fade" unique_id=1700004]
+script = ExtResource("4_fadectrl")
+metadata/_custom_type_script = "uid://3xr6yasbqo77"
+
+[node name="Label" type="Label" parent="." unique_id=553367944]
+offset_left = 555.0
+offset_top = 945.0
+offset_right = 1422.0
+offset_bottom = 1079.0
+text = "Press enter to continue"
+label_settings = SubResource("LabelSettings_n5qyp")
