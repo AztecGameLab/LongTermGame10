@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://xwcbloqu4nwu" path="res://scripts/ability/action/abstracts/action.gd" id="1_wj688"]
 [ext_resource type="Script" uid="uid://dq0gts7suc1fg" path="res://scripts/ability/action/animation_action.gd" id="2_2jfqh"]
 [ext_resource type="Script" uid="uid://c84i4tkx4t6au" path="res://scripts/ability/action/heal_action.gd" id="3_14x2k"]
+[ext_resource type="Script" uid="uid://d0rap3gi3boj5" path="res://scripts/ability/action/damage_action.gd" id="4_2jfqh"]
 [ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="4_eem7c"]
 
 [sub_resource type="Resource" id="Resource_s44ys"]
@@ -15,9 +16,17 @@ script = ExtResource("3_14x2k")
 heal_amount = 20
 metadata/_custom_type_script = "uid://c84i4tkx4t6au"
 
+[sub_resource type="Resource" id="Resource_14x2k"]
+script = ExtResource("4_2jfqh")
+damage_minimum = 8
+damage_maximum = 12
+override_target = true
+action_target = 8
+metadata/_custom_type_script = "uid://d0rap3gi3boj5"
+
 [sub_resource type="Resource" id="Resource_tg45n"]
 script = ExtResource("4_eem7c")
-actions = Array[ExtResource("1_wj688")]([SubResource("Resource_s44ys"), SubResource("Resource_gfu3a")])
+actions = Array[ExtResource("1_wj688")]([SubResource("Resource_s44ys"), SubResource("Resource_gfu3a"), SubResource("Resource_14x2k")])
 metadata/_custom_type_script = "uid://da17dshmjafs6"
 
 [resource]
