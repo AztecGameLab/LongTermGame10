@@ -29,4 +29,5 @@ stacks = Array[ExtResource("2_seamv")]([SubResource("Resource_c1t11")])
 limited_duration = false
 name = "Regenerate"
 icon = ExtResource("1_tvn0h")
+effect_type = 0
 metadata/_custom_type_script = "uid://c4rwprj6d61c0"

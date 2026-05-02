@@ -22,6 +22,7 @@
 [ext_resource type="Resource" uid="uid://ekd5eexxkduw" path="res://resources/abilities/coralleine/magic darts/magic_darts_2.tres" id="16_muu6h"]
 [ext_resource type="Resource" uid="uid://crljou6mtmq0h" path="res://resources/abilities/coralleine/magic_cannon/magic_cannon_2.tres" id="17_dwioa"]
 [ext_resource type="Resource" uid="uid://db3vxvsbuyf36" path="res://resources/abilities/coralleine/lifesteal/lifesteal_2.tres" id="18_8uqba"]
+[ext_resource type="Resource" uid="uid://bpc18qv76ws1u" path="res://resources/abilities/coralleine/decoy/decoy_2.tres" id="23_bc0gg"]
 [ext_resource type="PackedScene" uid="uid://csbhyubbu6bo6" path="res://scenes/ui/fade.tscn" id="23_yuf3x"]
 [ext_resource type="Script" uid="uid://3xr6yasbqo77" path="res://scenes/levels/fade_control.gd" id="24_rjwpj"]
 [ext_resource type="AudioStream" uid="uid://dfe065d4r30vm" path="res://assets/audio/music/Mimksnap DEMO.mp3" id="25_rjwpj"]
@@ -71,7 +72,7 @@ offset_bottom = -429.3334
 
 [node name="Coralleine" parent="." unique_id=1190915457 instance=ExtResource("6_bsqvu")]
 position = Vector2(592, 914.00006)
-abilities = Array[ExtResource("4_yi6pd")]([ExtResource("16_muu6h"), ExtResource("17_dwioa"), ExtResource("18_8uqba")])
+abilities = Array[ExtResource("4_yi6pd")]([ExtResource("16_muu6h"), ExtResource("17_dwioa"), ExtResource("18_8uqba"), ExtResource("23_bc0gg")])
 battle_level = 2
 
 [node name="HealthBar" parent="Coralleine" unique_id=759737278 instance=ExtResource("4_wj0pf")]

@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_c86xv")
 name = "Decoy"
-description = "Create 2 decoys. Each decoy reduces hit chance by 30%."
+description = "Create 2 decoys. Each decoy reduces the chance to be hit by 30%. Concentration breaks when hit."
 concentration_effect = ExtResource("1_2f533")
 metadata/_custom_type_script = "uid://fe5c3bvlmltj"
 metadata/_graph_x = 50.0

@@ -37,8 +37,7 @@ metadata/_graph_h = 177.0
 [resource]
 script = ExtResource("3_tdq5d")
 name = "Lucky Charm"
-description = "For the next 3 turns, you have:
-- Increased luck by 10%"
+description = "Increase luck by 10% for 3 turns."
 move_target_type = 3
 action = SubResource("Resource_rucsd")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"

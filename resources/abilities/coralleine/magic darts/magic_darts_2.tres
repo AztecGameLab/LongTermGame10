@@ -17,8 +17,8 @@ metadata/_graph_h = 100.0
 
 [sub_resource type="Resource" id="Resource_bdo0w"]
 script = ExtResource("1_eh6kd")
-damage_minimum = 20
-damage_maximum = 25
+damage_minimum = 17
+damage_maximum = 22
 can_miss = false
 metadata/_graph_x = 1360.0
 metadata/_graph_y = 160.0
@@ -45,6 +45,7 @@ metadata/_graph_h = 256.0
 script = ExtResource("2_lg1uu")
 times = 4
 hit_chance_decrease = 0.15
+damage_decrease = 0.15
 stop_on_miss = true
 use_luck = true
 action = SubResource("Resource_a0qop")
@@ -64,7 +65,7 @@ metadata/_graph_h = 256.0
 [resource]
 script = ExtResource("3_21yi2")
 name = "Magic Darts"
-description = "Fires up to 4 magic darts. 100% chance for first dart, 15% chance decrease for each dart"
+description = "Fires up to 4 darts (17-22 damage). The first dart always hits. Each following dart has 15% lower hit chance and deals 15% less damage than the previous."
 action = SubResource("Resource_q0u3d")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
 metadata/_graph_x = 50.0

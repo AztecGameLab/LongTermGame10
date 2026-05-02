@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://c2ci25gmhnb4w" path="res://scripts/status_effects/status_effect_stack.gd" id="2_35sfi"]
 [ext_resource type="Script" uid="uid://d0uvf6jnorxpw" path="res://scripts/status_effects/status_effect_trigger.gd" id="3_4g1eb"]
 [ext_resource type="Script" uid="uid://d0rap3gi3boj5" path="res://scripts/ability/action/damage_action.gd" id="4_4g1eb"]
+[ext_resource type="Texture2D" uid="uid://d2pcv17lpmlcp" path="res://assets/status_effects/Decoy.png" id="5_4g1eb"]
 
 [sub_resource type="Resource" id="Resource_2axnw"]
 script = ExtResource("1_0v0h7")
@@ -95,7 +96,8 @@ full_capacity_stack = SubResource("Resource_34xnb")
 half_capacity_stack = SubResource("Resource_2i1i1")
 break_chance = 1.0
 name = "Decoy"
-effect_type = 0
+icon = ExtResource("5_4g1eb")
+effect_type = 2
 metadata/_custom_type_script = "uid://dasiej7totk8c"
 metadata/_graph_x = -280.0
 metadata/_graph_y = 60.0

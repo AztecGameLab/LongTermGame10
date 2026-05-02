@@ -62,11 +62,14 @@ func run_triggers(type: StatusEffectTrigger.Type, container: StatusEffectContain
 		state.turns_concentrated += 1
 		if state.full_capacity != state._was_used:
 			state.full_capacity = state._was_used
-			state._was_used = false
+		state._was_used = false
 		updated.emit()
 
 func on_attacked(context: AttackContext, container: StatusEffectContainer) -> void:
 	if context.source:
 		await run_triggers(StatusEffectTrigger.Type.ON_ATTACKED, container)
-	if RNG.chance(break_chance):
+	var modified_break := break_chance
+	if context.target:
+		modified_break -= context.target.get_modified_field(StatusEffectModifier.Field.OUTGOING_LUCK)
+	if RNG.chance(modified_break):
 		context.target.remove_status_effect_instance(container)
