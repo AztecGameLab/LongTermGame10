@@ -28,7 +28,7 @@ metadata/_graph_h = 238.0
 
 [sub_resource type="Resource" id="Resource_btms6"]
 script = ExtResource("4_5e8pi")
-damage = 30
+damage = 40
 can_miss = false
 override_target = true
 metadata/_graph_x = 1380.0
@@ -89,7 +89,7 @@ metadata/_custom_type_script = "uid://da17dshmjafs6"
 [resource]
 script = ExtResource("7_hv7cx")
 name = "Reckless Slash"
-description = "High Damage attack, Fortune takes damage too"
+description = "Deal 120-150 damage to an enemy with a 30% chance to stagger. Fortune takes 40 recoil damage unless the target is already staggered. Damage buffs scale both."
 action = SubResource("Resource_hv7cx")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
 metadata/_graph_x = 20.0
