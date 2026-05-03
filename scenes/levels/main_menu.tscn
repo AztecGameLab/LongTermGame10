@@ -92,6 +92,7 @@ vertical_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1200809823]
 stream = ExtResource("5_fkd6t")
+volume_db = -12.0
 autoplay = true
 
 [node name="Fade" parent="." unique_id=872351749 node_paths=PackedStringArray("audio") instance=ExtResource("6_keln3")]

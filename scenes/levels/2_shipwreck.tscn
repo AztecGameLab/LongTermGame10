@@ -14,7 +14,7 @@
 [ext_resource type="Resource" uid="uid://by15ayc1hyli2" path="res://resources/abilities/umi/bottle_of_invisibility/bottle_of_invisibility_2.tres" id="8_bsqvu"]
 [ext_resource type="PackedScene" uid="uid://cj4h68lkbbwkt" path="res://scenes/ui/ability_select.tscn" id="8_f1qd7"]
 [ext_resource type="PackedScene" uid="uid://bk8xfp03deqb3" path="res://scenes/characters/bosses/octopus_mimic.tscn" id="9_pf1g0"]
-[ext_resource type="FontFile" uid="uid://iq5jfqev2lp0" path="res://assets/ui/EmphasisFont_Knewave-Regular.ttf" id="12_2616e"]
+[ext_resource type="LabelSettings" uid="uid://cq4v6mxpfa823" path="res://scenes/ui/HealthLabelStyle.tres" id="12_2gh6g"]
 [ext_resource type="Resource" uid="uid://08pycirc107h" path="res://resources/abilities/fortune/lucky_charm/lucky_charm_2.tres" id="12_by2pp"]
 [ext_resource type="Script" uid="uid://doviul66xwvvb" path="res://workspaces/artemis/health_label.gd" id="13_2gh6g"]
 [ext_resource type="Resource" uid="uid://c1df4288n6sfd" path="res://resources/abilities/fortune/reckless_slash/reckless_slash_2.tres" id="13_muu6h"]
@@ -30,26 +30,12 @@
 [ext_resource type="AudioStream" uid="uid://dfe065d4r30vm" path="res://assets/audio/music/Mimksnap DEMO.mp3" id="25_rjwpj"]
 [ext_resource type="PackedScene" uid="uid://c1oskpjo8ptrk" path="res://scenes/levels/shop_2.tscn" id="26_shopnext"]
 [ext_resource type="PackedScene" uid="uid://c6losescrxy01" path="res://scenes/levels/lose_screen.tscn" id="27_losescn"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_u2reh"]
-font = ExtResource("12_2616e")
-font_size = 29
-shadow_color = Color(0, 0, 0, 1)
+[ext_resource type="PackedScene" uid="uid://b828m0hfpjle8" path="res://scenes/ui/status_effect_inspect.tscn" id="28_2gh6g"]
 
 [sub_resource type="Resource" id="Resource_yuf3x"]
 script = ExtResource("15_odcq4")
 status_effect = ExtResource("16_cf3gs")
 metadata/_custom_type_script = "uid://be5ru5snax08s"
-
-[sub_resource type="LabelSettings" id="LabelSettings_2616e"]
-font = ExtResource("12_2616e")
-font_size = 29
-shadow_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_2gh6g"]
-font = ExtResource("12_2616e")
-font_size = 29
-shadow_color = Color(0, 0, 0, 1)
 
 [node name="CoralReef" type="Node2D" unique_id=1926475326 node_paths=PackedStringArray("player_team", "boss_team")]
 script = ExtResource("1_u30le")
@@ -82,7 +68,7 @@ offset_right = 103.0
 offset_bottom = 73.0
 theme_override_font_sizes/font_size = 53
 text = "90"
-label_settings = SubResource("LabelSettings_u2reh")
+label_settings = ExtResource("12_2gh6g")
 script = ExtResource("13_2gh6g")
 
 [node name="Fortune" parent="." unique_id=724902013 instance=ExtResource("5_2usji")]
@@ -104,7 +90,7 @@ offset_right = 103.0
 offset_bottom = 73.0
 theme_override_font_sizes/font_size = 53
 text = "120"
-label_settings = SubResource("LabelSettings_2616e")
+label_settings = ExtResource("12_2gh6g")
 script = ExtResource("13_2gh6g")
 
 [node name="Coralleine" parent="." unique_id=1190915457 instance=ExtResource("6_bsqvu")]
@@ -125,7 +111,7 @@ offset_right = 103.0
 offset_bottom = 73.0
 theme_override_font_sizes/font_size = 53
 text = "100"
-label_settings = SubResource("LabelSettings_2gh6g")
+label_settings = ExtResource("12_2gh6g")
 script = ExtResource("13_2gh6g")
 
 [node name="Mimic" parent="." unique_id=1968671649 instance=ExtResource("9_pf1g0")]
@@ -140,6 +126,11 @@ offset_bottom = -665.3334
 [node name="AbilitySelect" parent="." unique_id=844678139 node_paths=PackedStringArray("battle_manager") instance=ExtResource("8_f1qd7")]
 battle_manager = NodePath("..")
 
+[node name="StatusEffectInspect" parent="." unique_id=552639583 node_paths=PackedStringArray("battle_manager", "ability_select") instance=ExtResource("28_2gh6g")]
+visible = false
+battle_manager = NodePath("..")
+ability_select = NodePath("../AbilitySelect")
+
 [node name="Fade" parent="." unique_id=29959157 node_paths=PackedStringArray("audio") instance=ExtResource("23_yuf3x")]
 visible = false
 audio = NodePath("../AudioStreamPlayer")
@@ -150,4 +141,4 @@ metadata/_custom_type_script = "uid://3xr6yasbqo77"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1916575304]
 stream = ExtResource("25_rjwpj")
-volume_db = -12.0
+volume_db = -6.0

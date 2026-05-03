@@ -5,7 +5,8 @@
 
 [resource]
 script = ExtResource("1_yho0d")
-name = "Magic Cannon Charging"
+name = "Magic Cannon"
 icon = ExtResource("1_0rx5l")
 effect_type = 2
+remaining_label = "Charges"
 metadata/_custom_type_script = "uid://ba8ypqy5sue4n"

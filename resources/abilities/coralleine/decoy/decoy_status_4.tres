@@ -118,6 +118,7 @@ break_chance = 0.8
 name = "Decoy"
 icon = ExtResource("5_q3soh")
 effect_type = 2
+remaining_label = "Decoys"
 metadata/_custom_type_script = "uid://dasiej7totk8c"
 metadata/_graph_x = -280.0
 metadata/_graph_y = 60.0

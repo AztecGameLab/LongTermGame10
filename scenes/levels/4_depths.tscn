@@ -14,9 +14,9 @@
 [ext_resource type="Resource" uid="uid://d24qd6q4yfvkg" path="res://resources/abilities/umi/bottle_of_invisibility/bottle_of_invisibility_4.tres" id="8_ryc71"]
 [ext_resource type="Resource" uid="uid://cbiert6eya0oe" path="res://resources/abilities/umi/bottle_of_haste/bottle_of_haste_4.tres" id="9_j38gl"]
 [ext_resource type="Resource" uid="uid://w5ubyihph7x8" path="res://resources/abilities/fortune/pierce/pierce_4.tres" id="12_ae6lp"]
+[ext_resource type="LabelSettings" uid="uid://cq4v6mxpfa823" path="res://scenes/ui/HealthLabelStyle.tres" id="13_6pxs4"]
 [ext_resource type="PackedScene" uid="uid://pua2ophatdll" path="res://scenes/characters/bosses/eyes.tscn" id="13_kucsa"]
 [ext_resource type="Resource" uid="uid://dte47cg4lrnk2" path="res://resources/abilities/fortune/lucky_charm/lucky_charm_4.tres" id="13_toobq"]
-[ext_resource type="FontFile" uid="uid://iq5jfqev2lp0" path="res://assets/ui/EmphasisFont_Knewave-Regular.ttf" id="13_u0e4v"]
 [ext_resource type="Script" uid="uid://doviul66xwvvb" path="res://workspaces/artemis/health_label.gd" id="14_6pxs4"]
 [ext_resource type="Resource" uid="uid://bd1et3q8j0crh" path="res://resources/abilities/fortune/reckless_slash/reckless_slash_4.tres" id="14_dh8d8"]
 [ext_resource type="Resource" uid="uid://bpbnmjs6onsjr" path="res://resources/abilities/fortune/deflect/deflect_4.tres" id="15_su4nq"]
@@ -33,21 +33,7 @@
 [ext_resource type="AudioStream" uid="uid://bsr046adejqai" path="res://assets/audio/music/TheEyesBeginning.wav" id="28_u6w0s"]
 [ext_resource type="PackedScene" uid="uid://b5winscrnxy01" path="res://scenes/levels/win_screen.tscn" id="29_winscn"]
 [ext_resource type="PackedScene" uid="uid://c6losescrxy01" path="res://scenes/levels/lose_screen.tscn" id="30_losescn"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_y8pe3"]
-font = ExtResource("13_u0e4v")
-font_size = 29
-shadow_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_u0e4v"]
-font = ExtResource("13_u0e4v")
-font_size = 29
-shadow_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_6pxs4"]
-font = ExtResource("13_u0e4v")
-font_size = 29
-shadow_color = Color(0, 0, 0, 1)
+[ext_resource type="PackedScene" uid="uid://b828m0hfpjle8" path="res://scenes/ui/status_effect_inspect.tscn" id="34_6pxs4"]
 
 [node name="Depths" type="Node2D" unique_id=1926475326 node_paths=PackedStringArray("player_team", "boss_team")]
 script = ExtResource("1_rjim6")
@@ -80,7 +66,7 @@ offset_right = 103.0
 offset_bottom = 73.0
 theme_override_font_sizes/font_size = 53
 text = "90"
-label_settings = SubResource("LabelSettings_y8pe3")
+label_settings = ExtResource("13_6pxs4")
 script = ExtResource("14_6pxs4")
 
 [node name="Fortune" parent="." unique_id=724902013 instance=ExtResource("5_60ghh")]
@@ -101,7 +87,7 @@ offset_right = 103.0
 offset_bottom = 73.0
 theme_override_font_sizes/font_size = 53
 text = "120"
-label_settings = SubResource("LabelSettings_u0e4v")
+label_settings = ExtResource("13_6pxs4")
 script = ExtResource("14_6pxs4")
 
 [node name="Coralleine" parent="." unique_id=1190915457 instance=ExtResource("6_w51aq")]
@@ -122,7 +108,7 @@ offset_right = 103.0
 offset_bottom = 73.0
 theme_override_font_sizes/font_size = 53
 text = "100"
-label_settings = SubResource("LabelSettings_6pxs4")
+label_settings = ExtResource("13_6pxs4")
 script = ExtResource("14_6pxs4")
 
 [node name="Eyes" parent="." unique_id=843097491 node_paths=PackedStringArray("audio_player") instance=ExtResource("13_kucsa")]
@@ -138,6 +124,11 @@ offset_bottom = -717.3333
 [node name="AbilitySelect" parent="." unique_id=844678139 node_paths=PackedStringArray("battle_manager") instance=ExtResource("8_8beof")]
 battle_manager = NodePath("..")
 
+[node name="StatusEffectInspect" parent="." unique_id=552639583 node_paths=PackedStringArray("battle_manager", "ability_select") instance=ExtResource("34_6pxs4")]
+visible = false
+battle_manager = NodePath("..")
+ability_select = NodePath("../AbilitySelect")
+
 [node name="Fade" parent="." unique_id=29959157 node_paths=PackedStringArray("audio") instance=ExtResource("26_qajmi")]
 visible = false
 audio = NodePath("../AudioStreamPlayer")
@@ -148,3 +139,4 @@ metadata/_custom_type_script = "uid://3xr6yasbqo77"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=750711317]
 stream = ExtResource("28_u6w0s")
+volume_db = -6.0

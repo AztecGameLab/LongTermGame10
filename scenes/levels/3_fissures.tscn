@@ -20,7 +20,7 @@
 [ext_resource type="Resource" uid="uid://ce4daiuja61b4" path="res://resources/abilities/fortune/reckless_slash/reckless_slash_3.tres" id="9_noy0c"]
 [ext_resource type="Resource" uid="uid://coi7uxh8iaphi" path="res://resources/abilities/fortune/deflect/deflect_3.tres" id="10_cwaqo"]
 [ext_resource type="Resource" uid="uid://bnv8ckim477pc" path="res://resources/abilities/fortune/strengthen/strengthen_3.tres" id="11_05u3w"]
-[ext_resource type="FontFile" uid="uid://iq5jfqev2lp0" path="res://assets/ui/EmphasisFont_Knewave-Regular.ttf" id="12_sao3i"]
+[ext_resource type="LabelSettings" uid="uid://cq4v6mxpfa823" path="res://scenes/ui/HealthLabelStyle.tres" id="12_wqhnf"]
 [ext_resource type="Script" uid="uid://doviul66xwvvb" path="res://workspaces/artemis/health_label.gd" id="13_wqhnf"]
 [ext_resource type="Resource" uid="uid://pwlowac2wvrh" path="res://resources/abilities/coralleine/magic darts/magic_darts_3.tres" id="15_s4uq2"]
 [ext_resource type="Resource" uid="uid://bc20pkqsgk0qs" path="res://resources/abilities/coralleine/magic_cannon/magic_cannon_3.tres" id="16_8mwti"]
@@ -32,26 +32,12 @@
 [ext_resource type="AudioStream" uid="uid://bq06xn6thxy1m" path="res://assets/audio/music/Glimmer.mp3" id="27_uy2m1"]
 [ext_resource type="PackedScene" uid="uid://d3shop3mqorls" path="res://scenes/levels/shop_3.tscn" id="28_shopnext"]
 [ext_resource type="PackedScene" uid="uid://c6losescrxy01" path="res://scenes/levels/lose_screen.tscn" id="29_losescn"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_wj77d"]
-font = ExtResource("12_sao3i")
-font_size = 29
-shadow_color = Color(0, 0, 0, 1)
+[ext_resource type="PackedScene" uid="uid://b828m0hfpjle8" path="res://scenes/ui/status_effect_inspect.tscn" id="30_wqhnf"]
 
 [sub_resource type="Resource" id="Resource_cd3gx"]
 script = ExtResource("7_yw4x4")
 status_effect = ExtResource("8_nndlu")
 metadata/_custom_type_script = "uid://be5ru5snax08s"
-
-[sub_resource type="LabelSettings" id="LabelSettings_sao3i"]
-font = ExtResource("12_sao3i")
-font_size = 29
-shadow_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_wqhnf"]
-font = ExtResource("12_sao3i")
-font_size = 29
-shadow_color = Color(0, 0, 0, 1)
 
 [node name="CoralReef" type="Node2D" unique_id=1926475326 node_paths=PackedStringArray("player_team", "boss_team")]
 script = ExtResource("1_s586h")
@@ -84,7 +70,7 @@ offset_right = 103.0
 offset_bottom = 73.0
 theme_override_font_sizes/font_size = 53
 text = "90"
-label_settings = SubResource("LabelSettings_wj77d")
+label_settings = ExtResource("12_wqhnf")
 script = ExtResource("13_wqhnf")
 
 [node name="Fortune" parent="." unique_id=724902013 instance=ExtResource("5_nndlu")]
@@ -106,7 +92,7 @@ offset_right = 103.0
 offset_bottom = 73.0
 theme_override_font_sizes/font_size = 53
 text = "120"
-label_settings = SubResource("LabelSettings_sao3i")
+label_settings = ExtResource("12_wqhnf")
 script = ExtResource("13_wqhnf")
 
 [node name="Coralleine" parent="." unique_id=1190915457 instance=ExtResource("6_cd3gx")]
@@ -127,7 +113,7 @@ offset_right = 103.0
 offset_bottom = 73.0
 theme_override_font_sizes/font_size = 53
 text = "100"
-label_settings = SubResource("LabelSettings_wqhnf")
+label_settings = ExtResource("12_wqhnf")
 script = ExtResource("13_wqhnf")
 
 [node name="Jelly" parent="." unique_id=641243926 instance=ExtResource("9_ccrnb")]
@@ -141,6 +127,11 @@ offset_bottom = -658.6667
 
 [node name="AbilitySelect" parent="." unique_id=844678139 node_paths=PackedStringArray("battle_manager") instance=ExtResource("8_cwaqo")]
 battle_manager = NodePath("..")
+
+[node name="StatusEffectInspect" parent="." unique_id=552639583 node_paths=PackedStringArray("battle_manager", "ability_select") instance=ExtResource("30_wqhnf")]
+visible = false
+battle_manager = NodePath("..")
+ability_select = NodePath("../AbilitySelect")
 
 [node name="Fade" parent="." unique_id=29959157 node_paths=PackedStringArray("audio") instance=ExtResource("25_3wjve")]
 visible = false
