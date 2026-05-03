@@ -24,7 +24,7 @@ const SHOP_OPTIONS := {
 	2: {
 		"fortune": [{"key": "strengthen"}, {"key": "<carryover>"}],
 		"coralleine": [{"key": "rally"}, {"key": "<carryover>"}],
-		"umi": [{"key": "bottle_of_antidote", "disabled": true}, {"key": "<carryover>"}],
+		"umi": [{"key": "bottle_of_antidote"}, {"key": "<carryover>"}],
 	},
 	3: {
 		"fortune": [{"key": "riposte"}, {"key": "<carryover>"}],

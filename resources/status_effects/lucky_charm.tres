@@ -61,3 +61,7 @@ name = "Lucky Charm"
 icon = ExtResource("1_8x5e2")
 effect_type = 0
 metadata/_custom_type_script = "uid://c4rwprj6d61c0"
+metadata/_graph_x = -20.0
+metadata/_graph_y = 20.0
+metadata/_graph_w = 235.0
+metadata/_graph_h = 387.0

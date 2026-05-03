@@ -24,6 +24,7 @@ enum TargetType {
 	ENEMY,
 	## Targets the entire enemy team.
 	ALL_ENEMIES,
+	
 };
 
 ## Default audio (voiceline, SFX) played alongside this ability's animation.

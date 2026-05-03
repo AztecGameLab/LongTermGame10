@@ -127,6 +127,10 @@ func _build_registry() -> void:
 			3: load("res://resources/abilities/umi/bottle_of_invisibility/bottle_of_invisibility_3.tres"),
 			4: load("res://resources/abilities/umi/bottle_of_invisibility/bottle_of_invisibility_4.tres"),
 		},
+		"bottle_of_antidote": {
+			3: load("res://resources/abilities/umi/bottle_of_antidote/bottle_of_antidote3.tres"),
+			4: load("res://resources/abilities/umi/bottle_of_antidote/bottle_of_antidote4.tres")
+		},
 		"bottle_of_haste": {
 			4: load("res://resources/abilities/umi/bottle_of_haste/bottle_of_haste_4.tres"),
 		},
