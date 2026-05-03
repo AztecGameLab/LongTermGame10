@@ -26,4 +26,5 @@ description = "Deals 1 damage per stack each turn. Loses 10 stacks per turn."
 triggers = Array[ExtResource("3_koph0")]([SubResource("Resource_ba18c")])
 name = "Burn"
 icon = ExtResource("1_ati8t")
+remaining_label = "Stacks"
 metadata/_custom_type_script = "uid://dot0bfh4ojuo7"

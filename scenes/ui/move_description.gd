@@ -17,7 +17,6 @@ func _set(property, value):
 	
 	return false
 
-
 func update_font_size():
 	var font_size = get_theme_font_size("font_size")
 	
