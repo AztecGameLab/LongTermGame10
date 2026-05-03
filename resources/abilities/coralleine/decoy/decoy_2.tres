@@ -2,12 +2,14 @@
 
 [ext_resource type="Resource" uid="uid://bd3ycxkj7ly7" path="res://resources/abilities/coralleine/decoy/decoy_status_2.tres" id="1_2f533"]
 [ext_resource type="Script" uid="uid://fe5c3bvlmltj" path="res://scripts/ability/concentration_ability.gd" id="1_c86xv"]
+[ext_resource type="AudioStream" uid="uid://desfnxlqssfmn" path="res://assets/audio/voicelines/coralleine/decoy.wav" id="1_samtc"]
 
 [resource]
 script = ExtResource("1_c86xv")
 name = "Decoy"
 description = "Summons 2 decoys reducing incoming hit chance by 60%. Drops to 1 decoy (half stats) if not recast every turn. Any hit dispels all decoys. Luck reduces the chance to be dispelled."
 concentration_effect = ExtResource("1_2f533")
+audio = ExtResource("1_samtc")
 metadata/_custom_type_script = "uid://fe5c3bvlmltj"
 metadata/_graph_x = 50.0
 metadata/_graph_y = 50.0

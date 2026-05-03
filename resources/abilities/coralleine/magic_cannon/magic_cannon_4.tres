@@ -1,6 +1,8 @@
 [gd_resource type="Resource" script_class="MagicCannon" format=3 uid="uid://btt4hfmyenawq"]
 
+[ext_resource type="AudioStream" uid="uid://kusxnuslepvg" path="res://assets/audio/voicelines/coralleine/magic_cannon.wav" id="1_mdej5"]
 [ext_resource type="Script" uid="uid://duv3y2fv5rpwl" path="res://scripts/ability/magic_cannon.gd" id="1_mx3dk"]
+[ext_resource type="AudioStream" uid="uid://bosg603ib68i0" path="res://assets/audio/voicelines/coralleine/magic_cannon_fire.wav" id="2_4xuoa"]
 [ext_resource type="Resource" uid="uid://yre4ichska3w" path="res://resources/status_effects/magic_cannon_status_effect.tres" id="2_mdej5"]
 
 [resource]
@@ -9,4 +11,6 @@ status_effect = ExtResource("2_mdej5")
 level = 4
 base_damage = 130
 damage_per_cannon_charge = 15
+release_audio = ExtResource("2_4xuoa")
+audio = ExtResource("1_mdej5")
 metadata/_custom_type_script = "uid://duv3y2fv5rpwl"

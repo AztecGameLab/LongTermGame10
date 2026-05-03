@@ -31,5 +31,15 @@ func run():
 		source.used_ability.emit(ability, targets)
 	var first_target := true
 	for target in targets:
-		await action.run(ActionContext.new(source, target, battle_context, source, null, first_target))
+		await action.run(ActionContext.new(source, target, battle_context, source, null, first_target, ability))
 		first_target = false
+
+	# Block the queue until any audio (voiceline, SFX) the source kicked off finishes,
+	# so the next ability cast doesn't trample it. Group actions inside this run already
+	# finished without waiting on audio.
+	if source:
+		for child in source.get_children():
+			if child is AudioStreamPlayer:
+				if child.playing:
+					await child.finished
+				child.queue_free()

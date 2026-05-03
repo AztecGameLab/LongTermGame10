@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="ConcentrationAbility" format=3 uid="uid://bx2mnromk5oc8"]
 
 [ext_resource type="Script" uid="uid://fe5c3bvlmltj" path="res://scripts/ability/concentration_ability.gd" id="1_3gq0f"]
+[ext_resource type="AudioStream" uid="uid://desfnxlqssfmn" path="res://assets/audio/voicelines/coralleine/decoy.wav" id="1_a42ro"]
 [ext_resource type="Resource" uid="uid://sgjqj6wdvxki" path="res://resources/abilities/coralleine/decoy/decoy_status_3.tres" id="1_sl3o4"]
 
 [resource]
@@ -8,6 +9,7 @@ script = ExtResource("1_3gq0f")
 name = "Decoy"
 description = "Summons 2 decoys reducing incoming hit chance by 60% and countering hits for 35-45 damage. Drops to 1 decoy (half stats) if not recast every turn. Any hit dispels all decoys. Luck reduces the chance to be dispelled."
 concentration_effect = ExtResource("1_sl3o4")
+audio = ExtResource("1_a42ro")
 metadata/_custom_type_script = "uid://fe5c3bvlmltj"
 metadata/_graph_x = 50.0
 metadata/_graph_y = 50.0

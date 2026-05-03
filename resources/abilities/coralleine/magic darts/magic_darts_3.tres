@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://3xfxcysmuqdm" path="res://scripts/ability/action/repeat_action.gd" id="5_xeac1"]
 [ext_resource type="Resource" uid="uid://b5uv4uthbh2j6" path="res://resources/status_effects/burn.tres" id="6_7j8q8"]
 [ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="6_o24ck"]
+[ext_resource type="AudioStream" uid="uid://cgfdcpcgxpd8q" path="res://assets/audio/voicelines/coralleine/magic_dart.wav" id="10_o24ck"]
 
 [sub_resource type="Resource" id="Resource_dv3ey"]
 script = ExtResource("2_bdq8p")
@@ -90,6 +91,7 @@ script = ExtResource("6_o24ck")
 name = "Magic Darts"
 description = "Fires up to 4 darts (17-22 damage). The first dart always hits. Each following dart has 15% lower hit chance and deals 15% less damage than the previous. Each dart has a 25% chance to apply 10 burn. Luck improves dart hit chance and burn application."
 action = SubResource("Resource_xeac1")
+audio = ExtResource("10_o24ck")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
 metadata/_graph_x = 50.0
 metadata/_graph_y = 50.0
