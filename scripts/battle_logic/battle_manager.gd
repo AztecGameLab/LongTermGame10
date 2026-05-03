@@ -87,6 +87,7 @@ static func get_targets(source: BattleCharacter, source_team: Array[BattleCharac
 		BaseAbility.TargetType.EVERYONE:
 			targets.append_array(source_team)
 			targets.append_array(target_team)
+			
 	return targets.filter(func(target): return target and target.alive)
 
 ## --- Main Class ---

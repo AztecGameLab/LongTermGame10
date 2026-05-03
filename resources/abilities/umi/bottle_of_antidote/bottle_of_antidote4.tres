@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="Ability" format=3 uid="uid://d0h4dmixgpiud"]
+
+[ext_resource type="Script" uid="uid://xwcbloqu4nwu" path="res://scripts/ability/action/abstracts/action.gd" id="1_2a4v2"]
+[ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="1_t0m1x"]
+[ext_resource type="Script" uid="uid://ddno1xa7f8u6" path="res://scripts/ability/action/remove_status_type_action.gd" id="2_nqwfw"]
+[ext_resource type="Script" uid="uid://dkyoonc2qagl3" path="res://scripts/ability/action/luck_chance_action.gd" id="3_4is32"]
+[ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="4_jdbmk"]
+
+[sub_resource type="Resource" id="Resource_ni8yh"]
+script = ExtResource("2_nqwfw")
+remove_stacks = 10
+effect_count = -1
+metadata/_custom_type_script = "uid://ddno1xa7f8u6"
+
+[sub_resource type="Resource" id="Resource_kjrku"]
+script = ExtResource("2_nqwfw")
+remove_stacks = 10
+status_effect_type = 0
+effect_count = -1
+metadata/_custom_type_script = "uid://ddno1xa7f8u6"
+
+[sub_resource type="Resource" id="Resource_h0op8"]
+script = ExtResource("3_4is32")
+fail_action = SubResource("Resource_kjrku")
+metadata/_custom_type_script = "uid://dkyoonc2qagl3"
+
+[sub_resource type="Resource" id="Resource_so32c"]
+script = ExtResource("4_jdbmk")
+actions = Array[ExtResource("1_2a4v2")]([SubResource("Resource_ni8yh"), SubResource("Resource_h0op8")])
+metadata/_custom_type_script = "uid://da17dshmjafs6"
+
+[resource]
+script = ExtResource("1_t0m1x")
+name = "Bottle of Cure"
+description = "Removes all negative status effects, and 50% chance to remove positive status effects (chance reduced by luck)."
+move_target_type = 3
+action = SubResource("Resource_so32c")
+metadata/_custom_type_script = "uid://ny1mjfoo1mqc"

@@ -3,8 +3,14 @@
 [ext_resource type="Script" uid="uid://cbi33r5foad57" path="res://scripts/battle_logic/battle_manager.gd" id="1_wymiv"]
 [ext_resource type="Texture2D" uid="uid://bju1dmce0qj4" path="res://workspaces/artemis/Normal_Gameplay_(focused_On_Fortune_Only)-4.png" id="2_4v1ib"]
 [ext_resource type="PackedScene" uid="uid://cfbgyh6odoe03" path="res://scenes/characters/players/umi.tscn" id="3_m5fwu"]
+[ext_resource type="Resource" uid="uid://r0uijawe6ust" path="res://resources/abilities/umi/bottle_of_acid/bottle_of_acid_4.tres" id="5_3asos"]
+[ext_resource type="Script" uid="uid://d1o5abfusku1j" path="res://scripts/ability/base_ability.gd" id="6_4k3r8"]
+[ext_resource type="Resource" uid="uid://boy7gg5bk727q" path="res://resources/abilities/umi/bottle_of_heal/bottle_of_heal_4.tres" id="6_q7p2a"]
+[ext_resource type="Resource" uid="uid://d24qd6q4yfvkg" path="res://resources/abilities/umi/bottle_of_invisibility/bottle_of_invisibility_4.tres" id="7_7ydbt"]
+[ext_resource type="Resource" uid="uid://ceagyylpk7l64" path="res://resources/abilities/umi/bottle_of_splode/bottle_of_splode_4.tres" id="8_xm4nr"]
 [ext_resource type="PackedScene" uid="uid://rb6hbhelm4lq" path="res://scenes/ui/health_bar.tscn" id="9_jdqg4"]
 [ext_resource type="PackedScene" uid="uid://cg3tnggxog80a" path="res://scenes/characters/players/fortune.tscn" id="10_ng218"]
+[ext_resource type="Resource" uid="uid://d0h4dmixgpiud" path="res://resources/abilities/umi/bottle_of_antidote/bottle_of_antidote4.tres" id="12_5lbyq"]
 [ext_resource type="PackedScene" uid="uid://bai7shmnqcg3f" path="res://scenes/characters/players/coralleine.tscn" id="16_nh7gb"]
 [ext_resource type="PackedScene" uid="uid://bhot4510tfs43" path="res://scenes/characters/bosses/scorpion_fish.tscn" id="20_spmyf"]
 [ext_resource type="PackedScene" uid="uid://cj4h68lkbbwkt" path="res://scenes/ui/ability_select.tscn" id="22_75xf7"]
@@ -23,6 +29,7 @@ centered = false
 [node name="Umi" parent="." unique_id=34133432 instance=ExtResource("3_m5fwu")]
 position = Vector2(937.00006, 674)
 max_health = 75
+abilities = Array[ExtResource("6_4k3r8")]([ExtResource("5_3asos"), ExtResource("6_q7p2a"), ExtResource("7_7ydbt"), ExtResource("8_xm4nr"), ExtResource("12_5lbyq")])
 
 [node name="HealthBar" parent="Umi" unique_id=1562969593 instance=ExtResource("9_jdqg4")]
 offset_left = -126.66675
@@ -52,7 +59,7 @@ offset_bottom = -433.33337
 
 [node name="ScorpionFish" parent="." unique_id=1761068697 instance=ExtResource("20_spmyf")]
 position = Vector2(1454, 767)
-max_health = 500
+max_health = 1000
 
 [node name="HealthBar" parent="ScorpionFish" unique_id=1784958776 instance=ExtResource("9_jdqg4")]
 offset_left = -430.66675
