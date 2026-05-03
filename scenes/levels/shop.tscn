@@ -11,6 +11,18 @@
 [ext_resource type="PackedScene" uid="uid://csbhyubbu6bo6" path="res://scenes/ui/fade.tscn" id="7_wducc"]
 [ext_resource type="Script" uid="uid://3xr6yasbqo77" path="res://scenes/levels/fade_control.gd" id="8_lma4g"]
 [ext_resource type="AudioStream" uid="uid://ebuea3tg3fdv" path="res://assets/audio/music/Eyes Below New Shop Theme (No Tide Can Haunt You Down Here).wav" id="9_ly47m"]
+[ext_resource type="Script" uid="uid://b74xgaolay2es" path="res://scenes/levels/map_sounds.gd" id="9_vlndb"]
+[ext_resource type="AudioStream" uid="uid://c6wx1af4ur7t8" path="res://assets/audio/ui/footstep-001.wav" id="10_5t1oh"]
+[ext_resource type="AudioStream" uid="uid://ghl18l0ckcut" path="res://assets/audio/ui/footstep-002.wav" id="11_cedew"]
+[ext_resource type="AudioStream" uid="uid://dp7l8g04ftwrt" path="res://assets/audio/ui/footstep-003.wav" id="12_0qrhc"]
+[ext_resource type="AudioStream" uid="uid://di5rbltl8k5xp" path="res://assets/audio/ui/footstep-004.wav" id="13_nifbt"]
+[ext_resource type="AudioStream" uid="uid://ue0hx1r01df0" path="res://assets/audio/ui/footstep-005.wav" id="14_g1dic"]
+[ext_resource type="AudioStream" uid="uid://cpkxue8abhp2d" path="res://assets/audio/ui/footstep-006.wav" id="15_wfvyo"]
+[ext_resource type="AudioStream" uid="uid://bajqcyw3cobma" path="res://assets/audio/ui/footstep-007.wav" id="16_ppp86"]
+[ext_resource type="AudioStream" uid="uid://dmla1leia6wrn" path="res://assets/audio/ui/footstep-008.wav" id="17_afj8e"]
+[ext_resource type="AudioStream" uid="uid://dy3dmdkt5j0oq" path="res://assets/audio/ui/footstep-009.wav" id="18_2wopn"]
+[ext_resource type="AudioStream" uid="uid://doa821thba7gy" path="res://assets/audio/ui/footstep-010.wav" id="19_rr750"]
+[ext_resource type="AudioStream" uid="uid://das76xaawc04v" path="res://assets/audio/ui/write_double.wav" id="20_g1dic"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xf5gg"]
 
@@ -452,6 +464,19 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_cedew"]
+streams_count = 10
+stream_0/stream = ExtResource("10_5t1oh")
+stream_1/stream = ExtResource("11_cedew")
+stream_2/stream = ExtResource("12_0qrhc")
+stream_3/stream = ExtResource("13_nifbt")
+stream_4/stream = ExtResource("14_g1dic")
+stream_5/stream = ExtResource("15_wfvyo")
+stream_6/stream = ExtResource("16_ppp86")
+stream_7/stream = ExtResource("17_afj8e")
+stream_8/stream = ExtResource("18_2wopn")
+stream_9/stream = ExtResource("19_rr750")
+
 [node name="Shop" type="TextureRect" unique_id=624701852]
 offset_right = 40.0
 offset_bottom = 40.0
@@ -641,6 +666,16 @@ sprite_frames = SubResource("SpriteFrames_8ejsp")
 animation = &"4"
 frame = 4
 frame_progress = 1.0
+script = ExtResource("9_vlndb")
+
+[node name="footstep" type="AudioStreamPlayer" parent="AnimatedSprite2D" unique_id=1675028265]
+stream = SubResource("AudioStreamRandomizer_cedew")
+volume_db = -18.0
+max_polyphony = 6
+
+[node name="write" type="AudioStreamPlayer" parent="AnimatedSprite2D" unique_id=1465243068]
+stream = ExtResource("20_g1dic")
+volume_db = -9.0
 
 [node name="Fade" parent="." unique_id=29959157 node_paths=PackedStringArray("audio") instance=ExtResource("7_wducc")]
 visible = false
@@ -656,3 +691,5 @@ metadata/_custom_type_script = "uid://3xr6yasbqo77"
 stream = ExtResource("9_ly47m")
 volume_db = -12.0
 autoplay = true
+
+[connection signal="frame_changed" from="AnimatedSprite2D" to="AnimatedSprite2D" method="_on_frame_changed"]

@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://ctks3w5k7r8bb" path="res://scenes/levels/main_menu.gd" id="1_geflf"]
 [ext_resource type="PackedScene" uid="uid://bxrdvjrrvpyfd" path="res://scenes/ui/paper_panel.tscn" id="2_geflf"]
 [ext_resource type="FontFile" uid="uid://iq5jfqev2lp0" path="res://assets/ui/EmphasisFont_Knewave-Regular.ttf" id="3_fkd6t"]
+[ext_resource type="AudioStream" uid="uid://tpuw8q08ply2" path="res://resources/audio/paper_flips.tres" id="5_crctu"]
 [ext_resource type="AudioStream" uid="uid://bkfgwe03dm5oh" path="res://assets/audio/music/MainTheme.mp3" id="5_fkd6t"]
 [ext_resource type="PackedScene" uid="uid://csbhyubbu6bo6" path="res://scenes/ui/fade.tscn" id="6_keln3"]
 
@@ -94,6 +95,12 @@ vertical_alignment = 1
 stream = ExtResource("5_fkd6t")
 volume_db = -12.0
 autoplay = true
+
+[node name="ButtonClick" type="AudioStreamPlayer" parent="." unique_id=2124984892]
+stream = ExtResource("5_crctu")
+volume_db = -9.0
+mix_target = 2
+bus = &"SFX"
 
 [node name="Fade" parent="." unique_id=872351749 node_paths=PackedStringArray("audio") instance=ExtResource("6_keln3")]
 visible = false

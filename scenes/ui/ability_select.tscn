@@ -5,6 +5,7 @@
 [ext_resource type="FontFile" uid="uid://b36l0tnkhtkdw" path="res://assets/ui/GenFont_Mansalva-Regular.ttf" id="2_bw0a7"]
 [ext_resource type="Texture2D" uid="uid://bt5fio16wlynu" path="res://assets/ui/enter_inspect.png" id="3_d8uel"]
 [ext_resource type="Texture2D" uid="uid://0givt5uiw6ut" path="res://assets/ui/AbilitySelectUI.png" id="4_0mh3k"]
+[ext_resource type="AudioStream" uid="uid://tpuw8q08ply2" path="res://resources/audio/paper_flips.tres" id="6_hhrlr"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0mh3k"]
 
@@ -141,3 +142,9 @@ theme_override_font_sizes/normal_font_size = 20
 text = "Confirm"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2069229214]
+stream = ExtResource("6_hhrlr")
+volume_db = -9.0
+mix_target = 2
+max_polyphony = 6

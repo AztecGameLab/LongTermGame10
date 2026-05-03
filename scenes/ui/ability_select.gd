@@ -6,6 +6,8 @@ const MOVE_DISPLAY = preload("uid://8dt21l5flyv3")
 @onready var margin_container: MarginContainer = %MarginContainer
 @onready var move_container: VBoxContainer = %MoveContainer
 
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+
 @export var battle_manager: BattleManager
 var player_team: PlayerTeam
 
@@ -96,6 +98,7 @@ func _input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed(&"select_up"):
 		if not selecting_target:
+			audio_stream_player.play()
 			selected_move.selected = false
 			move_index -= 1
 			if move_index < 0:
@@ -106,6 +109,7 @@ func _input(event: InputEvent) -> void:
 		
 	if event.is_action_pressed(&"select_down"):
 		if not selecting_target:
+			audio_stream_player.play()
 			selected_move.selected = false
 			move_index += 1
 			if move_index >= moves.size():
