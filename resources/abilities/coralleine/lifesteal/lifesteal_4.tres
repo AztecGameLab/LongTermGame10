@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://coagjoj2grxm7" path="res://scripts/ability/action/lifesteal_action.gd" id="2_3s6es"]
 [ext_resource type="Script" uid="uid://dq0gts7suc1fg" path="res://scripts/ability/action/animation_action.gd" id="2_weeie"]
 [ext_resource type="Script" uid="uid://dkyoonc2qagl3" path="res://scripts/ability/action/luck_chance_action.gd" id="3_weeie"]
-[ext_resource type="Script" path="res://scripts/ability/action/steal_status_action.gd" id="4_er3r1"]
+[ext_resource type="Script" uid="uid://deeb01dip6syv" path="res://scripts/ability/action/steal_status_action.gd" id="4_er3r1"]
 [ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="5_4frgf"]
 [ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="6_ga7il"]
 [ext_resource type="AudioStream" uid="uid://vvnyccccrcxn" path="res://assets/audio/voicelines/coralleine/lifesteal.wav" id="7_5t8lf"]
