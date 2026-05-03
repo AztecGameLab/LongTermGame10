@@ -29,7 +29,7 @@ metadata/_graph_h = 187.0
 
 [sub_resource type="Resource" id="Resource_py6ue"]
 script = ExtResource("2_jrbmj")
-description = "Deals 5 damage to whoever has this status."
+description = "Deals 5 damage each turn."
 triggers = Array[ExtResource("5_54kcc")]([SubResource("Resource_p5grk")])
 metadata/_graph_x = 872.5
 metadata/_graph_y = 416.0
@@ -58,7 +58,7 @@ metadata/_graph_h = 187.0
 
 [sub_resource type="Resource" id="Resource_54kcc"]
 script = ExtResource("2_jrbmj")
-description = "Deals 10 damage to whoever has this status."
+description = "Deals 10 damage each turn."
 triggers = Array[ExtResource("5_54kcc")]([SubResource("Resource_sh8kl")])
 metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
 metadata/_graph_x = 0.0
@@ -88,7 +88,7 @@ metadata/_graph_h = 187.0
 
 [sub_resource type="Resource" id="Resource_pivkh"]
 script = ExtResource("2_jrbmj")
-description = "Deals 15 damage to whoever has this status."
+description = "Deals 15 damage each turn."
 triggers = Array[ExtResource("5_54kcc")]([SubResource("Resource_c5d0i")])
 metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
 metadata/_graph_x = 0.0
@@ -118,7 +118,7 @@ metadata/_graph_h = 187.0
 
 [sub_resource type="Resource" id="Resource_qrldk"]
 script = ExtResource("2_jrbmj")
-description = "Deals 20 damage to whoever has this status."
+description = "Deals 20 damage each turn."
 triggers = Array[ExtResource("5_54kcc")]([SubResource("Resource_gkm6w")])
 metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
 metadata/_graph_x = 0.0
@@ -148,7 +148,7 @@ metadata/_graph_h = 187.0
 
 [sub_resource type="Resource" id="Resource_7htgs"]
 script = ExtResource("2_jrbmj")
-description = "Deals 25 damage to whoever has this status."
+description = "Deals 25 damage each turn."
 triggers = Array[ExtResource("5_54kcc")]([SubResource("Resource_2107n")])
 metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
 metadata/_graph_x = 0.0
@@ -178,7 +178,7 @@ metadata/_graph_h = 187.0
 
 [sub_resource type="Resource" id="Resource_bia7i"]
 script = ExtResource("2_jrbmj")
-description = "Deals 32 damage to whoever has this status."
+description = "Deals 32 damage each turn."
 triggers = Array[ExtResource("5_54kcc")]([SubResource("Resource_a1d37")])
 metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
 metadata/_graph_x = 0.0
@@ -208,7 +208,7 @@ metadata/_graph_h = 187.0
 
 [sub_resource type="Resource" id="Resource_euhlm"]
 script = ExtResource("2_jrbmj")
-description = "Deals 44 damage to whoever has this status."
+description = "Deals 44 damage each turn."
 triggers = Array[ExtResource("5_54kcc")]([SubResource("Resource_3mu74")])
 metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
 metadata/_graph_x = 0.0
@@ -238,7 +238,7 @@ metadata/_graph_h = 187.0
 
 [sub_resource type="Resource" id="Resource_eyuo3"]
 script = ExtResource("2_jrbmj")
-description = "Deals 56 damage to whoever has this status."
+description = "Deals 56 damage each turn."
 triggers = Array[ExtResource("5_54kcc")]([SubResource("Resource_uuj0t")])
 metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
 metadata/_graph_x = 0.0
@@ -260,7 +260,7 @@ metadata/_custom_type_script = "uid://d0uvf6jnorxpw"
 
 [sub_resource type="Resource" id="Resource_gn4m3"]
 script = ExtResource("2_jrbmj")
-description = "Deals 68 damage to whoever has this status."
+description = "Deals 68 damage each turn."
 triggers = Array[ExtResource("5_54kcc")]([SubResource("Resource_70i12")])
 metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
 
@@ -278,7 +278,7 @@ metadata/_custom_type_script = "uid://d0uvf6jnorxpw"
 
 [sub_resource type="Resource" id="Resource_k6jfn"]
 script = ExtResource("2_jrbmj")
-description = "Deals 999 damage at the end of the turn to whoever has this status."
+description = "Deals 999 damage at the end of the turn."
 triggers = Array[ExtResource("5_54kcc")]([SubResource("Resource_iw6vl")])
 metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
 

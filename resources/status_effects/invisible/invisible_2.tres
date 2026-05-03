@@ -6,7 +6,8 @@
 [resource]
 script = ExtResource("2_ebmr8")
 max_stacks = 3
-bonus_damage_percentage = 0.5
+description = "Reduces enemy targeting by 25% per stack. Attacks deal +15 damage with a 50% chance to break. Loses 1 stack per turn."
+bonus_damage = 15
 name = "Invisible"
 icon = ExtResource("1_tkkj8")
 effect_type = 0

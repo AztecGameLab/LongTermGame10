@@ -463,7 +463,7 @@ material = SubResource("ShaderMaterial_3yplr")
 scale = Vector2(0.75, 0.75)
 script = ExtResource("1_3wpq2")
 character_name = "Umi"
-max_health = 100
+max_health = 90
 abilities = Array[ExtResource("3_kx5hu")]([ExtResource("4_y40pn"), ExtResource("5_ufhk0"), ExtResource("6_w55v4"), ExtResource("7_uh06h")])
 metadata/_custom_type_script = "uid://bghgfkrqkbbee"
 

@@ -18,7 +18,7 @@ metadata/_graph_h = 256.0
 
 [sub_resource type="Resource" id="Resource_hj7jl"]
 script = ExtResource("2_ktdmk")
-description = "Reduce accuracy by 40%"
+description = "Reduces accuracy by 40%."
 modifiers = Array[ExtResource("3_6upht")]([SubResource("Resource_lm5y3")])
 metadata/_graph_x = 720.0
 metadata/_graph_y = 180.0

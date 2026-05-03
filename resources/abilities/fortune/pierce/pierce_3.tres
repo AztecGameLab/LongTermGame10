@@ -46,7 +46,7 @@ metadata/_graph_h = 214.0
 [resource]
 script = ExtResource("1_bmkyx")
 name = "Pierce"
-description = "Damage the enemy and apply bleed."
+description = "Stabs the enemy for 20-60 damage and applies bleed."
 action = SubResource("Resource_f5fax")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
 metadata/_graph_x = 50.0

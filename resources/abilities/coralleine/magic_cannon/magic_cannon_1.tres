@@ -6,5 +6,5 @@
 [resource]
 script = ExtResource("1_0r5xt")
 status_effect = ExtResource("2_3lscp")
-base_damage = 50
+base_damage = 60
 metadata/_custom_type_script = "uid://duv3y2fv5rpwl"

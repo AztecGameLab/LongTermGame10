@@ -23,6 +23,14 @@ func get_target_type(_source: BattleCharacter) -> BaseAbility.TargetType:
 	return BaseAbility.TargetType.SELF
 
 func get_action(_source: BattleCharacter) -> Action:
+	var group := GroupAction.new()
+
+	var animation := AnimationAction.new()
+	animation.animation = AnimationAction.Anim.STATUS
+	group.actions.append(animation)
+
 	var apply_status := ApplyStatusAction.new()
 	apply_status.status_effect = concentration_effect
-	return apply_status
+	group.actions.append(apply_status)
+
+	return group

@@ -35,6 +35,6 @@ metadata/_custom_type_script = "uid://da17dshmjafs6"
 [resource]
 script = ExtResource("1_er3h7")
 name = "Bottle Of Splode"
-description = "Blow up the enemy and heat up the surrounding water to burn them!"
+description = "Blows up the enemy for 10-30 damage and heats the surrounding water, applying 25 stacks of burn."
 action = SubResource("Resource_8xj5m")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"

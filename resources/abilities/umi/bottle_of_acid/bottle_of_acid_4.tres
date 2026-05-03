@@ -65,7 +65,7 @@ metadata/_graph_h = 532.0
 [resource]
 script = ExtResource("7_fkklh")
 name = "Bottle of Acid"
-description = "Deals Damage and applies the Acid Debuff."
+description = "Deals 40 damage, applies 3 stacks of acid (40 damage per turn), makes the target take 20% more damage, and halves the healing they receive."
 action = SubResource("Resource_u5cyh")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
 metadata/_graph_x = -140.0

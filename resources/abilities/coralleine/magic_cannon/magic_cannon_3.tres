@@ -7,6 +7,6 @@
 script = ExtResource("1_o4xu8")
 status_effect = ExtResource("2_8y4o4")
 level = 3
-base_damage = 75
-damage_per_cannon_charge = 3
+base_damage = 100
+damage_per_cannon_charge = 10
 metadata/_custom_type_script = "uid://duv3y2fv5rpwl"

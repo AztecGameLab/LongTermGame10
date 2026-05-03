@@ -24,6 +24,6 @@ metadata/_custom_type_script = "uid://da17dshmjafs6"
 [resource]
 script = ExtResource("2_hx8j0")
 name = "Bottle Of Splode"
-description = "Blow up the enemy!"
+description = "Blows up the enemy for 10-30 damage."
 action = SubResource("Resource_5lw85")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"

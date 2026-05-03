@@ -34,7 +34,7 @@ metadata/_graph_h = 177.0
 [resource]
 script = ExtResource("1_x5i48")
 name = "Pierce"
-description = "Damage the enemy."
+description = "Stabs the enemy for 20-60 damage."
 action = SubResource("Resource_j0skc")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
 metadata/_graph_x = 50.0

@@ -15,10 +15,14 @@ func get_label(_source: BattleCharacter) -> String:
 	return &"Magic Cannon"
 	
 func get_description(_source: BattleCharacter) -> String:
-	var description := &"Take one turn to charge the spell. Use again for high damage."
-	description += &"\nWhen attacked, 50% chance to lose charge."
+	var description := "First cast loads the cannon. "
 	if has_extra_shots():
-		description += &"\nEvery turn not used, gain one charge worth extra damage."
+		description += "Each turn it stays loaded builds 1 charge. "
+		description += "Second cast fires for %d damage plus %d per charge." % [base_damage, damage_per_cannon_charge]
+		description += "\nEach incoming hit removes 2 charges, dispelling the cannon if charges drop below 0."
+	else:
+		description += "Second cast fires for %d damage." % base_damage
+		description += "\nAny incoming hit while loaded dispels the cannon."
 	return description
 
 func get_target_type(source: BattleCharacter) -> BaseAbility.TargetType:

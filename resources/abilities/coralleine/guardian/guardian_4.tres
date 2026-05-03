@@ -25,7 +25,7 @@ metadata/_custom_type_script = "uid://da17dshmjafs6"
 [resource]
 script = ExtResource("1_4dvwl")
 name = "Guardian"
-description = "For this round, the targeted ally will take half damage and gain no negative effects."
+description = "Protects an ally for the round. They take half damage and cannot receive negative effects."
 move_target_type = 3
 action = SubResource("Resource_ubymh")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"

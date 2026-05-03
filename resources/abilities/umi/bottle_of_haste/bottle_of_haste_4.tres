@@ -27,7 +27,7 @@ metadata/_custom_type_script = "uid://da17dshmjafs6"
 [resource]
 script = ExtResource("1_fcq1l")
 name = "Bottle of Haste"
-description = "Make a teammate dodge the next two incoming attacks."
+description = "An ally dodges the next 2 incoming attacks."
 move_target_type = 3
 action = SubResource("Resource_3te0a")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"

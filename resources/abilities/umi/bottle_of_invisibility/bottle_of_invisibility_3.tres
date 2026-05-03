@@ -39,9 +39,7 @@ metadata/_graph_h = 55.0
 [resource]
 script = ExtResource("6_2e03a")
 name = "Bottle of Invis"
-description = "- Almost no chance of being targeted, more likely as the effect wears off.
-- Stronger attacks, but might break the effect.
-- No incoming damage, but will break the effect."
+description = "Become invisible for 3 turns, reducing targeting by 25% each turn. Attacks deal +20 damage but have a 50% chance to break invisibility. Blocks the next incoming hit."
 move_target_type = 3
 action = SubResource("Resource_kjwq0")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"

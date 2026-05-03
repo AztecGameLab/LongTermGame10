@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://d0uvf6jnorxpw" path="res://scripts/status_effects/status_effect_trigger.gd" id="3_ges6c"]
 [ext_resource type="Script" uid="uid://d0rap3gi3boj5" path="res://scripts/ability/action/damage_action.gd" id="4_mdjt4"]
 [ext_resource type="Script" uid="uid://dasiej7totk8c" path="res://scripts/status_effects/concentration/concentration_status_effect.gd" id="5_5xvv6"]
+[ext_resource type="Texture2D" uid="uid://d2pcv17lpmlcp" path="res://assets/status_effects/Decoy.png" id="5_q3soh"]
 
 [sub_resource type="Resource" id="Resource_2axnw"]
 script = ExtResource("1_wilox")
@@ -49,7 +50,7 @@ metadata/_graph_h = 148.0
 
 [sub_resource type="Resource" id="Resource_34xnb"]
 script = ExtResource("2_q3soh")
-description = "2 decoys"
+description = "Two decoys reduce incoming hit chance by 70%, take 40% less damage, and counter for 55-65 damage."
 modifiers = Array[ExtResource("1_wilox")]([SubResource("Resource_2axnw"), SubResource("Resource_wilox")])
 triggers = Array[ExtResource("3_ges6c")]([SubResource("Resource_8ye2q")])
 metadata/_graph_x = 180.0
@@ -101,7 +102,7 @@ metadata/_graph_h = 148.0
 
 [sub_resource type="Resource" id="Resource_2i1i1"]
 script = ExtResource("2_q3soh")
-description = "1 decoy"
+description = "One decoy reduces incoming hit chance by 35%, takes 20% less damage, and counters for 28-32 damage."
 modifiers = Array[ExtResource("1_wilox")]([SubResource("Resource_sfwmm"), SubResource("Resource_q3soh")])
 triggers = Array[ExtResource("3_ges6c")]([SubResource("Resource_4g1eb")])
 metadata/_graph_x = 120.0
@@ -115,7 +116,8 @@ full_capacity_stack = SubResource("Resource_34xnb")
 half_capacity_stack = SubResource("Resource_2i1i1")
 break_chance = 0.8
 name = "Decoy"
-effect_type = 0
+icon = ExtResource("5_q3soh")
+effect_type = 2
 metadata/_custom_type_script = "uid://dasiej7totk8c"
 metadata/_graph_x = -280.0
 metadata/_graph_y = 60.0

@@ -22,8 +22,7 @@ enum Field {
 	## This field is a float from [code]-1.0[/code] to [code]1.0[/code], which defaults to [code]0.0[/code]
 	OUTGOING_LUCK,
 	
-	## Modifies the chance that an attack action hits towards the minimum or maximum ends of its damage range.[br]
-	## This field is a float from [code]-1.0[/code] to [code]1.0[/code], which defaults to [code]0.0[/code]
+	## DEPRECATED. Kept to preserve enum indices in existing .tres files. Do not use.
 	OUTGOING_DAMAGE_RNG_BIAS,
 	
 	## Modifies the raw amount of healing done by any actions from this character.

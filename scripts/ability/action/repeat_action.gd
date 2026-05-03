@@ -1,7 +1,7 @@
 extends Action
 class_name RepeatAction
 
-const LUCK_TO_CHANCE_SCALE := 0.5
+const LUCK_TO_CHANCE_SCALE := 1.0
 
 ## The maximum number of times this should run.
 @export_range(1, 20) var times: int = 1
@@ -9,6 +9,10 @@ const LUCK_TO_CHANCE_SCALE := 0.5
 ## The decrease in hit chance for each subsequent action.[br]
 ## For example, if this is 0.1, the first action will have a 100% hit chance, the second will have 90%, the third will have 80%, etc.
 @export_range(0.0, 1.0, 0.05) var hit_chance_decrease: float = 0.0
+
+## The decrease in damage for each subsequent action.[br]
+## For example, if this is 0.15, each iteration deals 15% less damage than the previous (cumulative).
+@export_range(0.0, 1.0, 0.05) var damage_decrease: float = 0.0
 
 ## If true, the sequence will stop if any of the actions miss. If false, it will run all [code]times[/code] regardless of hit success.
 @export var stop_on_miss: bool
@@ -25,7 +29,9 @@ const LUCK_TO_CHANCE_SCALE := 0.5
 
 func run(context: ActionContext) -> void:
 	if action:
-		var action_successful := true 
+		var saved_damage_multiplier := context.damage_multiplier
+		var current_damage_multiplier := 1.0
+		var action_successful := true
 		var hit_chance := 1.0
 		for i in range(times):
 			var calc_chance := hit_chance
@@ -36,19 +42,24 @@ func run(context: ActionContext) -> void:
 			calc_chance = context.target.get_incoming_hit_chance(calc_chance)
 
 			var success: bool = RNG.chance(calc_chance)
-			
+
 			if (not success):
 				print("dart miss")
 				action_successful = false
 				if stop_on_miss:
 					print("stopping...")
+					context.damage_multiplier = saved_damage_multiplier
 					return
 				continue
-			
+
 			print("dart hit!")
+			context.damage_multiplier = saved_damage_multiplier * current_damage_multiplier
 			await action.run(context)
 			hit_chance -= hit_chance_decrease
-		
+			current_damage_multiplier *= (1.0 - damage_decrease)
+
+		context.damage_multiplier = saved_damage_multiplier
+
 		# if the sequence fully completes, run sequence_complete_action
 		if action_successful and sequence_complete_action:
 			print("activating successful sequence action")

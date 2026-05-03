@@ -24,6 +24,6 @@ metadata/_custom_type_script = "uid://da17dshmjafs6"
 [resource]
 script = ExtResource("1_mnbr0")
 name = "Lifesteal"
-description = "Steal a percentage of the damage dealt to the enemy as health."
+description = "Deals 10-30 damage and heals for half."
 action = SubResource("Resource_ih3ow")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"

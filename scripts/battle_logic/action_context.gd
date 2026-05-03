@@ -17,6 +17,10 @@ var container: StatusEffectContainer
 
 var is_first_target: bool
 
+## Multiplier applied to outgoing damage from this action chain.
+## Used by RepeatAction to apply diminishing damage per iteration.
+var damage_multiplier: float = 1.0
+
 func _init(p_source: BattleCharacter = null, p_target: BattleCharacter = null, p_battle: BattleContext = null, p_origin: BattleCharacter = null, p_container: StatusEffectContainer = null, p_first_target: bool = true) -> void:
 	source = p_source
 	target = p_target
