@@ -8,6 +8,8 @@ class_name MoveDisplay
 @export var description_panel: Control
 @export var description_sprite: AnimatedSprite2D
 
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+
 static func create(p_ability: BaseAbility, p_character: BattleCharacter) -> MoveDisplay:
 	var display: MoveDisplay = load(&"uid://8dt21l5flyv3").instantiate()
 	display.character = p_character
@@ -30,6 +32,7 @@ var selected: bool:
 		else:
 			description_sprite.stop()
 			description_sprite.play()
+			audio_stream_player.play()
 			move_description.visible = false
 			description_panel.visible = true
 

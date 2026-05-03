@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b1hwixuoghjou" path="res://scenes/ui/selected_ability_indicator.tscn" id="2_cpkp8"]
 [ext_resource type="Texture2D" uid="uid://cmopacd2fe4xs" path="res://assets/ui/UI_Move_Description-Animation.png" id="5_gbwbf"]
 [ext_resource type="Script" uid="uid://cfhv2glvmjiv6" path="res://scenes/ui/move_description.gd" id="5_mr3lx"]
+[ext_resource type="AudioStream" uid="uid://tpuw8q08ply2" path="res://resources/audio/paper_flips.tres" id="6_mr3lx"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0mh3k"]
 
@@ -198,3 +199,9 @@ text = "Applies a burn effect to the target."
 autowrap_mode = 3
 clip_text = true
 script = ExtResource("5_mr3lx")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1498986534]
+stream = ExtResource("6_mr3lx")
+volume_db = -9.0
+mix_target = 2
+max_polyphony = 6
