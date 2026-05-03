@@ -37,7 +37,7 @@ metadata/_graph_h = 177.0
 [resource]
 script = ExtResource("6_vuchu")
 name = "Strengthen"
-description = "2.5x damage for the next 3 turns."
+description = "Multiplies attack damage by 2.5x for 3 turns."
 move_target_type = 0
 action = SubResource("Resource_kwaxg")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"

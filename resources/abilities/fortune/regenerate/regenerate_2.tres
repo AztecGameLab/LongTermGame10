@@ -19,7 +19,7 @@ metadata/_custom_type_script = "uid://d0uvf6jnorxpw"
 
 [sub_resource type="Resource" id="Resource_c1t11"]
 script = ExtResource("2_a3qf0")
-description = "Heals you 10hp each turn."
+description = "Heals 10 HP each turn."
 triggers = Array[ExtResource("4_vxtwa")]([SubResource("Resource_kwfm3")])
 metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
 

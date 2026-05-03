@@ -14,6 +14,7 @@ metadata/_custom_type_script = "uid://w6h7oqtjl61k"
 
 [sub_resource type="Resource" id="Resource_b0tnj"]
 script = ExtResource("2_6pj34")
+description = "Attacks deal 15% more damage."
 modifiers = Array[ExtResource("3_jlalh")]([SubResource("Resource_axwe1")])
 metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
 
@@ -25,6 +26,7 @@ metadata/_custom_type_script = "uid://w6h7oqtjl61k"
 
 [sub_resource type="Resource" id="Resource_jr63m"]
 script = ExtResource("2_6pj34")
+description = "Attacks deal 30% more damage."
 modifiers = Array[ExtResource("3_jlalh")]([SubResource("Resource_o8by3")])
 metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
 

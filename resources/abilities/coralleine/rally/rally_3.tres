@@ -26,7 +26,7 @@ metadata/_custom_type_script = "uid://da17dshmjafs6"
 [resource]
 script = ExtResource("1_vlylk")
 name = "Rally"
-description = "Buff the team’s damage output each turn while concentrating"
+description = "Increases the whole team's attack damage by 15% for 2 turns."
 move_target_type = 6
 action = SubResource("Resource_h67ae")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"

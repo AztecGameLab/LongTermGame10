@@ -73,3 +73,9 @@ func on_attacked(context: AttackContext, container: StatusEffectContainer) -> vo
 		modified_break -= context.target.get_modified_field(StatusEffectModifier.Field.OUTGOING_LUCK)
 	if RNG.chance(modified_break):
 		context.target.remove_status_effect_instance(container)
+
+func get_remaining_turns(container: StatusEffectContainer) -> int:
+	var state := _get_state(container)
+	if not state:
+		return -1
+	return 2 if state.full_capacity else 1

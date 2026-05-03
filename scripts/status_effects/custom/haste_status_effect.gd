@@ -1,8 +1,8 @@
 extends BaseStatusEffect
 class_name HasteStatusEffect
 
-func get_effect_description(_container: StatusEffectContainer) -> String:
-	return "Dodge the next incoming attacks"
+func get_effect_description(container: StatusEffectContainer) -> String:
+	return "Dodges the next %d incoming attack%s." % [container.stacks, "" if container.stacks == 1 else "s"]
 
 func get_effect_name(_container: StatusEffectContainer) -> String:
 	return "Haste"

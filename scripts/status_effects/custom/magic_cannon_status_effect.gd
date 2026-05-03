@@ -18,22 +18,26 @@ static func _iterate_state(container: StatusEffectContainer) -> int:
 static func _erase_state(container: StatusEffectContainer) -> void:
 	container.custom_state.erase(CUSTOM_STATE_KEY)
 
-## The chance that this concentration will break when the character is hurt.
-@export_range(0.0, 1.0, 0.05) var break_chance: float = 0.5
+## How many charges are knocked out per incoming hit. Cannon is lost when charges go below 0.
+@export_range(1, 10, 1) var charges_lost_per_hit: int = 2
 
 func get_effect_name(_container: StatusEffectContainer) -> String:
 	return name
 
-func get_effect_description(_container: StatusEffectContainer) -> String:
-	const description := "The Magic Cannon ability is charging."
-	return description
+func get_effect_description(container: StatusEffectContainer) -> String:
+	if container.stacks >= 3:
+		return "Magic Cannon is loaded. Each turn loaded builds 1 charge for the next shot. Each incoming hit removes %d charges. The cannon dispels when charges drop below 0." % charges_lost_per_hit
+	return "Magic Cannon is loaded. Any incoming hit dispels it."
 
 func on_applied(container: StatusEffectContainer) -> void:
 	_set_state(container, 0)
-	
+
 func on_damage_received(context: AttackContext, container: StatusEffectContainer) -> void:
-	if RNG.chance(break_chance):
+	var state := _get_state(container) - charges_lost_per_hit
+	if state < 0:
 		context.target.remove_status_effect_instance(container)
+	else:
+		_set_state(container, state)
 
 func run_triggers(type: StatusEffectTrigger.Type, container: StatusEffectContainer) -> void:
 	if type == StatusEffectTrigger.Type.ON_TURN_END:

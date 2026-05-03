@@ -4,7 +4,7 @@ class_name RageStatusEffect
 @export_range(0.0, 2.0, 0.05, "or_greater;suffix=x") var next_attack_damage_multiplier: float = 1.5
 
 func get_effect_description(_container: StatusEffectContainer) -> String:
-	return "Power up next attack."
+	return "The next attack deals %sx damage." % str(next_attack_damage_multiplier)
 
 func get_effect_name(_container: StatusEffectContainer) -> String:
 	return "Rage"

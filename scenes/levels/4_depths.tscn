@@ -16,6 +16,8 @@
 [ext_resource type="Resource" uid="uid://w5ubyihph7x8" path="res://resources/abilities/fortune/pierce/pierce_4.tres" id="12_ae6lp"]
 [ext_resource type="PackedScene" uid="uid://pua2ophatdll" path="res://scenes/characters/bosses/eyes.tscn" id="13_kucsa"]
 [ext_resource type="Resource" uid="uid://dte47cg4lrnk2" path="res://resources/abilities/fortune/lucky_charm/lucky_charm_4.tres" id="13_toobq"]
+[ext_resource type="FontFile" uid="uid://iq5jfqev2lp0" path="res://assets/ui/EmphasisFont_Knewave-Regular.ttf" id="13_u0e4v"]
+[ext_resource type="Script" uid="uid://doviul66xwvvb" path="res://workspaces/artemis/health_label.gd" id="14_6pxs4"]
 [ext_resource type="Resource" uid="uid://bd1et3q8j0crh" path="res://resources/abilities/fortune/reckless_slash/reckless_slash_4.tres" id="14_dh8d8"]
 [ext_resource type="Resource" uid="uid://bpbnmjs6onsjr" path="res://resources/abilities/fortune/deflect/deflect_4.tres" id="15_su4nq"]
 [ext_resource type="Resource" uid="uid://ddvltehnds3yy" path="res://resources/abilities/fortune/strengthen/strengthen_4.tres" id="16_mp6uq"]
@@ -25,11 +27,27 @@
 [ext_resource type="Resource" uid="uid://cjl4tl2emlhod" path="res://resources/abilities/coralleine/lifesteal/lifesteal_4.tres" id="21_qajmi"]
 [ext_resource type="Resource" uid="uid://db77qu1n6a6p1" path="res://resources/abilities/coralleine/guardian/guardian_4.tres" id="22_8uing"]
 [ext_resource type="Resource" uid="uid://dsamfn48c83rg" path="res://resources/abilities/coralleine/rally/rally_4.tres" id="23_5kcb0"]
+[ext_resource type="Resource" uid="uid://dqp2xx1u7keka" path="res://resources/abilities/coralleine/decoy/decoy_4.tres" id="26_35u22"]
 [ext_resource type="PackedScene" uid="uid://csbhyubbu6bo6" path="res://scenes/ui/fade.tscn" id="26_qajmi"]
 [ext_resource type="Script" uid="uid://3xr6yasbqo77" path="res://scenes/levels/fade_control.gd" id="27_8uing"]
 [ext_resource type="AudioStream" uid="uid://bsr046adejqai" path="res://assets/audio/music/TheEyesBeginning.wav" id="28_u6w0s"]
 [ext_resource type="PackedScene" uid="uid://b5winscrnxy01" path="res://scenes/levels/win_screen.tscn" id="29_winscn"]
 [ext_resource type="PackedScene" uid="uid://c6losescrxy01" path="res://scenes/levels/lose_screen.tscn" id="30_losescn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_y8pe3"]
+font = ExtResource("13_u0e4v")
+font_size = 29
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_u0e4v"]
+font = ExtResource("13_u0e4v")
+font_size = 29
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6pxs4"]
+font = ExtResource("13_u0e4v")
+font_size = 29
+shadow_color = Color(0, 0, 0, 1)
 
 [node name="Depths" type="Node2D" unique_id=1926475326 node_paths=PackedStringArray("player_team", "boss_team")]
 script = ExtResource("1_rjim6")
@@ -55,6 +73,16 @@ offset_top = -445.33334
 offset_right = 130.66663
 offset_bottom = -396.0
 
+[node name="Health" type="Label" parent="Umi/HealthBar" unique_id=763633697]
+layout_mode = 0
+offset_left = 12.0
+offset_right = 103.0
+offset_bottom = 73.0
+theme_override_font_sizes/font_size = 53
+text = "90"
+label_settings = SubResource("LabelSettings_y8pe3")
+script = ExtResource("14_6pxs4")
+
 [node name="Fortune" parent="." unique_id=724902013 instance=ExtResource("5_60ghh")]
 position = Vector2(762.00006, 794.00006)
 abilities = Array[ExtResource("8_ah7ph")]([ExtResource("12_ae6lp"), ExtResource("13_toobq"), ExtResource("14_dh8d8"), ExtResource("15_su4nq"), ExtResource("16_mp6uq"), ExtResource("17_5kcb0")])
@@ -66,9 +94,19 @@ offset_top = -478.66675
 offset_right = 130.66663
 offset_bottom = -429.3334
 
+[node name="Health" type="Label" parent="Fortune/HealthBar" unique_id=32822596]
+layout_mode = 0
+offset_left = 12.0
+offset_right = 103.0
+offset_bottom = 73.0
+theme_override_font_sizes/font_size = 53
+text = "120"
+label_settings = SubResource("LabelSettings_u0e4v")
+script = ExtResource("14_6pxs4")
+
 [node name="Coralleine" parent="." unique_id=1190915457 instance=ExtResource("6_w51aq")]
 position = Vector2(592, 914.00006)
-abilities = Array[ExtResource("8_ah7ph")]([ExtResource("19_mp6uq"), ExtResource("20_5kcb0"), ExtResource("21_qajmi"), ExtResource("23_5kcb0"), ExtResource("22_8uing")])
+abilities = Array[ExtResource("8_ah7ph")]([ExtResource("19_mp6uq"), ExtResource("20_5kcb0"), ExtResource("21_qajmi"), ExtResource("26_35u22"), ExtResource("23_5kcb0"), ExtResource("22_8uing")])
 battle_level = 4
 
 [node name="HealthBar" parent="Coralleine" unique_id=759737278 instance=ExtResource("4_18mhl")]
@@ -76,6 +114,16 @@ offset_left = -126.666664
 offset_top = -482.66672
 offset_right = 130.66672
 offset_bottom = -433.33337
+
+[node name="Health" type="Label" parent="Coralleine/HealthBar" unique_id=167294017]
+layout_mode = 0
+offset_left = 12.0
+offset_right = 103.0
+offset_bottom = 73.0
+theme_override_font_sizes/font_size = 53
+text = "100"
+label_settings = SubResource("LabelSettings_6pxs4")
+script = ExtResource("14_6pxs4")
 
 [node name="Eyes" parent="." unique_id=843097491 node_paths=PackedStringArray("audio_player") instance=ExtResource("13_kucsa")]
 position = Vector2(1494, 725)
