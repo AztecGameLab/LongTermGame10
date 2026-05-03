@@ -10,7 +10,7 @@
 [ext_resource type="Resource" uid="uid://ceagyylpk7l64" path="res://resources/abilities/umi/bottle_of_splode/bottle_of_splode_4.tres" id="8_xm4nr"]
 [ext_resource type="PackedScene" uid="uid://rb6hbhelm4lq" path="res://scenes/ui/health_bar.tscn" id="9_jdqg4"]
 [ext_resource type="PackedScene" uid="uid://cg3tnggxog80a" path="res://scenes/characters/players/fortune.tscn" id="10_ng218"]
-[ext_resource type="Resource" uid="uid://d0h4dmixgpiud" path="res://workspaces/jake/bottle_of_antidote4.tres" id="12_5lbyq"]
+[ext_resource type="Resource" uid="uid://d0h4dmixgpiud" path="res://resources/abilities/umi/bottle_of_antidote/bottle_of_antidote4.tres" id="12_5lbyq"]
 [ext_resource type="PackedScene" uid="uid://bai7shmnqcg3f" path="res://scenes/characters/players/coralleine.tscn" id="16_nh7gb"]
 [ext_resource type="PackedScene" uid="uid://bhot4510tfs43" path="res://scenes/characters/bosses/scorpion_fish.tscn" id="20_spmyf"]
 [ext_resource type="PackedScene" uid="uid://cj4h68lkbbwkt" path="res://scenes/ui/ability_select.tscn" id="22_75xf7"]

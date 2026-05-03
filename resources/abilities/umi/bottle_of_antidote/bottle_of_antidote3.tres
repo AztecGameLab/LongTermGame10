@@ -25,8 +25,8 @@ metadata/_custom_type_script = "uid://da17dshmjafs6"
 
 [resource]
 script = ExtResource("1_rfavf")
-name = "The Cure All"
+name = "Bottle of Cure"
 description = "Removes ALL status effects on one ally."
-move_target_type = 4
+move_target_type = 3
 action = SubResource("Resource_3c2yl")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
