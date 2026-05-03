@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_3gq0f")
 name = "Decoy"
-description = "Summons 2 decoys reducing incoming hit chance by 60% and countering hits for 35-45 damage. Drops to 1 decoy (half stats) if not recast every turn. Any hit dispels all decoys."
+description = "Summons 2 decoys reducing incoming hit chance by 60% and countering hits for 35-45 damage. Drops to 1 decoy (half stats) if not recast every turn. Any hit dispels all decoys. Luck reduces the chance to be dispelled."
 concentration_effect = ExtResource("1_sl3o4")
 metadata/_custom_type_script = "uid://fe5c3bvlmltj"
 metadata/_graph_x = 50.0

@@ -99,7 +99,7 @@ metadata/_graph_h = 256.0
 [resource]
 script = ExtResource("10_sg25h")
 name = "Magic Darts"
-description = "Fires up to 5 darts (18-22 damage). The first dart always hits. Each following dart has 10% lower hit chance and deals 15% less damage than the previous. Each dart has a 25% chance to apply 10 burn. If all 5 hit, the target becomes staggered."
+description = "Fires up to 5 darts (18-22 damage). The first dart always hits. Each following dart has 10% lower hit chance and deals 15% less damage than the previous. Each dart has a 25% chance to apply 10 burn. If all 5 hit, the target becomes staggered. Luck improves dart hit chance and burn application."
 action = SubResource("Resource_xeac1")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
 metadata/_graph_x = -520.0

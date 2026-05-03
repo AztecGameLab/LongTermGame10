@@ -35,6 +35,6 @@ metadata/_custom_type_script = "uid://da17dshmjafs6"
 [resource]
 script = ExtResource("2_rj37m")
 name = "Lifesteal"
-description = "Deals 25-45 damage and heals for half. 50% chance to also steal a positive status from the enemy."
+description = "Deals 25-45 damage and heals for half. 50% chance to also steal a positive status from the enemy. Luck improves the steal chance."
 action = SubResource("Resource_ly7en")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
