@@ -45,6 +45,8 @@ func run(context: ActionContext) -> void:
 
 			if (not success):
 				print("dart miss")
+				if context.target:
+					context.target.missed.emit()
 				action_successful = false
 				if stop_on_miss:
 					print("stopping...")

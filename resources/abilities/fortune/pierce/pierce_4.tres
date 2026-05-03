@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dq0gts7suc1fg" path="res://scripts/ability/action/animation_action.gd" id="2_76lt6"]
 [ext_resource type="Script" uid="uid://be5ru5snax08s" path="res://scripts/ability/action/apply_status_action.gd" id="3_mwtfa"]
 [ext_resource type="Resource" uid="uid://dpscjkruqnc5j" path="res://resources/status_effects/bleed.tres" id="4_ovjho"]
+[ext_resource type="AudioStream" uid="uid://cu2m2aolt6ohu" path="res://assets/audio/voicelines/fortune/pierce.wav" id="8_r6tsj"]
 [ext_resource type="Script" uid="uid://cy60nwkkhatr8" path="res://scripts/ability/action/hit_chance_action.gd" id="9_i033t"]
 [ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="10_c5t8i"]
 
@@ -69,6 +70,7 @@ script = ExtResource("1_fs1un")
 name = "Pierce"
 description = "Stabs the enemy for 30-80 damage and applies bleed. 50% chance to strike a second time."
 action = SubResource("Resource_8m4ft")
+audio = ExtResource("8_r6tsj")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
 metadata/_graph_x = 50.0
 metadata/_graph_y = 50.0

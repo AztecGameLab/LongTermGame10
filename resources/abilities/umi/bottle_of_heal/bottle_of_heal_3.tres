@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://bwgjdhbcxwwij" path="res://resources/status_effects/alchemical_regeneration.tres" id="4_2lfhi"]
 [ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="5_rbl3t"]
 [ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="6_t6fml"]
+[ext_resource type="AudioStream" uid="uid://dcysqaenp4gfs" path="res://assets/audio/voicelines/umi/bottle_of_heal.wav" id="7_cebpu"]
 
 [sub_resource type="Resource" id="Resource_cebpu"]
 script = ExtResource("2_k4t2x")
@@ -36,4 +37,5 @@ name = "Bottle of Heal"
 description = "Heals an ally 50 health, plus 5 health per turn for 3 turns."
 move_target_type = 3
 action = SubResource("Resource_wc13e")
+audio = ExtResource("7_cebpu")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"

@@ -10,6 +10,7 @@
 [ext_resource type="Resource" uid="uid://q0hcx1ti141" path="res://resources/status_effects/staggered.tres" id="5_qx67u"]
 [ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="6_u3rxh"]
 [ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="7_hv7cx"]
+[ext_resource type="AudioStream" uid="uid://csx0ay77lntyb" path="res://assets/audio/voicelines/fortune/reckless_slash.wav" id="10_qx67u"]
 
 [sub_resource type="Resource" id="Resource_qx67u"]
 script = ExtResource("2_j1wj7")
@@ -91,6 +92,7 @@ script = ExtResource("7_hv7cx")
 name = "Reckless Slash"
 description = "Deals 120-150 damage to an enemy with a 30% chance to stagger. Fortune takes 60 recoil damage unless the target is already staggered. Damage buffs scale both."
 action = SubResource("Resource_hv7cx")
+audio = ExtResource("10_qx67u")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
 metadata/_graph_x = 20.0
 metadata/_graph_y = 160.0

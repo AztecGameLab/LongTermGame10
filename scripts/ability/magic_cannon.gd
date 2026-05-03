@@ -11,6 +11,15 @@ class_name MagicCannon
 @export_range(0, 1, 1, "or_greater") var base_damage: int = 10
 @export_range(0, 1, 1, "or_greater") var damage_per_cannon_charge = 2
 
+## Audio played when firing the loaded cannon. Falls back to [code]audio[/code] (load sound) if unset.
+@export var release_audio: AudioStream
+
+func get_audio(source: BattleCharacter) -> AudioStream:
+	var container := source.get_status_effect(status_effect)
+	if container != null and release_audio:
+		return release_audio
+	return audio
+
 func get_label(_source: BattleCharacter) -> String:
 	return &"Magic Cannon"
 	
