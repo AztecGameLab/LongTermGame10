@@ -383,14 +383,14 @@ sprite_frames = SubResource("SpriteFrames_kijca")
 animation = &"attack"
 autoplay = "idle"
 
-[node name="SelectedIndicator" parent="." unique_id=2093613863 instance=ExtResource("8_58dkj")]
-offset_left = -297.3333
-offset_top = -660.0
-offset_right = -228.71109
-offset_bottom = -601.24445
-
 [node name="InkSpray" type="AnimatedSprite2D" parent="." unique_id=1829248143]
 position = Vector2(220, -220)
 sprite_frames = SubResource("SpriteFrames_go14q")
 frame = 22
 frame_progress = 1.0
+
+[node name="SelectedIndicator" parent="." unique_id=2093613863 instance=ExtResource("8_58dkj")]
+offset_left = -298.0
+offset_top = -660.0
+offset_right = -228.0
+offset_bottom = -602.0

@@ -31,6 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://c1oskpjo8ptrk" path="res://scenes/levels/shop_2.tscn" id="26_shopnext"]
 [ext_resource type="PackedScene" uid="uid://c6losescrxy01" path="res://scenes/levels/lose_screen.tscn" id="27_losescn"]
 [ext_resource type="PackedScene" uid="uid://b828m0hfpjle8" path="res://scenes/ui/status_effect_inspect.tscn" id="28_2gh6g"]
+[ext_resource type="Texture2D" uid="uid://ddkv1ar4yot2k" path="res://assets/ui/shipwreck_background.png" id="32_u2reh"]
 
 [sub_resource type="Resource" id="Resource_yuf3x"]
 script = ExtResource("15_odcq4")
@@ -45,13 +46,20 @@ next_scene_on_win = ExtResource("26_shopnext")
 next_scene_on_loss = ExtResource("27_losescn")
 metadata/_custom_type_script = "uid://cbi33r5foad57"
 
+[node name="ShipwreckBackground" type="Sprite2D" parent="." unique_id=1151435878]
+position = Vector2(-0.061455656, -0.27654946)
+scale = Vector2(1.6680851, 1.6680851)
+texture = ExtResource("32_u2reh")
+centered = false
+offset = Vector2(-2, -9)
+
 [node name="NormalGameplay(focusedOnFortuneOnly)4" type="Sprite2D" parent="." unique_id=641535787]
 visible = false
 texture = ExtResource("2_pf1g0")
 centered = false
 
 [node name="Umi" parent="." unique_id=34133432 instance=ExtResource("3_yi6pd")]
-position = Vector2(937.00006, 674)
+position = Vector2(967.00006, 736)
 abilities = Array[ExtResource("4_yi6pd")]([ExtResource("5_yi6pd"), ExtResource("6_wj0pf"), ExtResource("7_2usji"), ExtResource("8_bsqvu")])
 battle_level = 2
 
@@ -82,7 +90,7 @@ text = "/90"
 label_settings = ExtResource("12_2gh6g")
 
 [node name="Fortune" parent="." unique_id=724902013 instance=ExtResource("5_2usji")]
-position = Vector2(762.00006, 794.00006)
+position = Vector2(787.00006, 865.00006)
 abilities = Array[ExtResource("4_yi6pd")]([ExtResource("5_wj0pf"), ExtResource("12_by2pp"), ExtResource("13_muu6h"), ExtResource("14_dwioa")])
 initial_status_effects = Array[ExtResource("15_odcq4")]([SubResource("Resource_yuf3x")])
 battle_level = 2
@@ -114,7 +122,7 @@ text = "/120"
 label_settings = ExtResource("12_2gh6g")
 
 [node name="Coralleine" parent="." unique_id=1190915457 instance=ExtResource("6_bsqvu")]
-position = Vector2(592, 914.00006)
+position = Vector2(585, 960)
 abilities = Array[ExtResource("4_yi6pd")]([ExtResource("16_muu6h"), ExtResource("17_dwioa"), ExtResource("18_8uqba"), ExtResource("23_bc0gg")])
 battle_level = 2
 
@@ -145,7 +153,7 @@ text = "/100"
 label_settings = ExtResource("12_2gh6g")
 
 [node name="Mimic" parent="." unique_id=1968671649 instance=ExtResource("9_pf1g0")]
-position = Vector2(1353, 765)
+position = Vector2(1364, 854)
 
 [node name="HealthBar" parent="Mimic" unique_id=1784958776 instance=ExtResource("4_wj0pf")]
 offset_left = -290.66675

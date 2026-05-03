@@ -289,7 +289,7 @@ frame = 22
 frame_progress = 1.0
 
 [node name="SelectedIndicator" parent="." unique_id=2093613863 instance=ExtResource("3_lff58")]
-offset_left = -430.66666
-offset_top = -557.3333
-offset_right = -340.0889
-offset_bottom = -506.22223
+offset_left = -430.0
+offset_top = -558.0
+offset_right = -340.0
+offset_bottom = -507.0
