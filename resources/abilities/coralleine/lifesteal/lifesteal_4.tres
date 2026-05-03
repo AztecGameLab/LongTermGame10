@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://deeb01dip6syv" path="res://scripts/ability/action/steal_status_action.gd" id="4_er3r1"]
 [ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="5_4frgf"]
 [ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="6_ga7il"]
+[ext_resource type="AudioStream" uid="uid://vvnyccccrcxn" path="res://assets/audio/voicelines/coralleine/lifesteal.wav" id="7_5t8lf"]
 
 [sub_resource type="Resource" id="Resource_er3r1"]
 script = ExtResource("2_weeie")
@@ -36,6 +37,7 @@ metadata/_custom_type_script = "uid://da17dshmjafs6"
 [resource]
 script = ExtResource("6_ga7il")
 name = "Lifesteal"
-description = "Steal ALL of the damage dealt to the enemy as health and there is a chance to steal a positive status effect from the enemy. "
+description = "Deals 30-60 damage and heals for the full amount. 50% chance to also steal a positive status from the enemy. Luck improves the steal chance."
 action = SubResource("Resource_ly7en")
+audio = ExtResource("7_5t8lf")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"

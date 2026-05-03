@@ -1,8 +1,8 @@
 extends BaseStatusEffect
 class_name HasteStatusEffect
 
-func get_effect_description(_container: StatusEffectContainer) -> String:
-	return "Dodge the next incoming attacks"
+func get_effect_description(container: StatusEffectContainer) -> String:
+	return "Dodges the next %d incoming attack%s." % [container.stacks, "" if container.stacks == 1 else "s"]
 
 func get_effect_name(_container: StatusEffectContainer) -> String:
 	return "Haste"
@@ -18,3 +18,9 @@ func modify_value(field: StatusEffectModifier.Field, value: float, container: St
 
 func get_remaining_turns(container: StatusEffectContainer) -> int:
 	return container.stacks
+
+func on_reapplied(container: StatusEffectContainer, p_stacks: int, p_max_stacks: int) -> void:
+	var new_stacks := container.stacks + p_stacks
+	if p_max_stacks > 0:
+		new_stacks = mini(new_stacks, p_max_stacks)
+	container.stacks = new_stacks

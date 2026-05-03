@@ -50,6 +50,7 @@ offset_top = -38.0
 offset_right = -101.0
 offset_bottom = -15.0
 theme_override_font_sizes/font_size = 53
+text = "100"
 script = ExtResource("3_dq3ge")
 
 [node name="Turn" type="Label" parent="Boss" unique_id=887092402]

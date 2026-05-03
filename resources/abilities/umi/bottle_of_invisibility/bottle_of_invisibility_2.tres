@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://be5ru5snax08s" path="res://scripts/ability/action/apply_status_action.gd" id="3_4g6n2"]
 [ext_resource type="Resource" uid="uid://c5vl6t7y3qqlx" path="res://resources/status_effects/invisible/invisible_2.tres" id="4_3ywaq"]
 [ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="5_aplhm"]
+[ext_resource type="AudioStream" uid="uid://yxu2buj6y3ie" path="res://assets/audio/voicelines/umi/bottle_of_invis.wav" id="6_3yk76"]
 [ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="6_ptvpi"]
 
 [sub_resource type="Resource" id="Resource_ijstw"]
@@ -39,10 +40,10 @@ metadata/_graph_h = 55.0
 [resource]
 script = ExtResource("6_ptvpi")
 name = "Bottle of Invis"
-description = "- Low chance of being targeted, more likely as the effect wears off.
-- Stronger attacks, but they might break the effect."
+description = "Become invisible for 2 turns, reducing targeting by 25% each turn. Attacks deal +15 damage but have a 50% chance to break invisibility."
 move_target_type = 3
 action = SubResource("Resource_kjwq0")
+audio = ExtResource("6_3yk76")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
 metadata/_graph_x = 50.0
 metadata/_graph_y = 50.0

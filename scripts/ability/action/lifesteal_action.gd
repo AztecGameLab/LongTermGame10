@@ -9,7 +9,7 @@ class_name LifestealAction
 @export_range(0.0, 1.0, 0.05) var lifesteal_percent: float = 0.5
 
 func run(context: ActionContext) -> void:
-	var damage = randi_range(damage_minimum, damage_maximum)
+	var damage := RNG.curve_with_bias(damage_minimum, damage_maximum, 0.0)
 	var heal = roundi(damage * lifesteal_percent)
 	for target in resolve_targets(context):
 		await BattleManager.apply_damage(damage, context.source, target)

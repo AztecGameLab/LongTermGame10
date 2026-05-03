@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="6_8vpq8"]
 [ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="7_fkklh"]
 [ext_resource type="Script" uid="uid://bihndepd0cudw" path="res://scripts/ability/action/static_damage_action.gd" id="7_yy74p"]
+[ext_resource type="AudioStream" uid="uid://gvff4fqu1sn7" path="res://assets/audio/voicelines/umi/bottle_of_acid.wav" id="9_lgolk"]
 
 [sub_resource type="Resource" id="Resource_lgolk"]
 script = ExtResource("2_yy74p")
@@ -65,8 +66,9 @@ metadata/_graph_h = 532.0
 [resource]
 script = ExtResource("7_fkklh")
 name = "Bottle of Acid"
-description = "Deals Damage and applies the Acid Debuff."
+description = "Deals 40 damage, applies 3 stacks of acid (40 damage per turn), makes the target take 20% more damage, and halves the healing they receive."
 action = SubResource("Resource_u5cyh")
+audio = ExtResource("9_lgolk")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
 metadata/_graph_x = -140.0
 metadata/_graph_y = 260.0

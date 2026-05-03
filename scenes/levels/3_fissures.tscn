@@ -20,15 +20,19 @@
 [ext_resource type="Resource" uid="uid://ce4daiuja61b4" path="res://resources/abilities/fortune/reckless_slash/reckless_slash_3.tres" id="9_noy0c"]
 [ext_resource type="Resource" uid="uid://coi7uxh8iaphi" path="res://resources/abilities/fortune/deflect/deflect_3.tres" id="10_cwaqo"]
 [ext_resource type="Resource" uid="uid://bnv8ckim477pc" path="res://resources/abilities/fortune/strengthen/strengthen_3.tres" id="11_05u3w"]
+[ext_resource type="LabelSettings" uid="uid://cq4v6mxpfa823" path="res://scenes/ui/HealthLabelStyle.tres" id="12_wqhnf"]
+[ext_resource type="Script" uid="uid://doviul66xwvvb" path="res://workspaces/artemis/health_label.gd" id="13_wqhnf"]
 [ext_resource type="Resource" uid="uid://pwlowac2wvrh" path="res://resources/abilities/coralleine/magic darts/magic_darts_3.tres" id="15_s4uq2"]
 [ext_resource type="Resource" uid="uid://bc20pkqsgk0qs" path="res://resources/abilities/coralleine/magic_cannon/magic_cannon_3.tres" id="16_8mwti"]
 [ext_resource type="Resource" uid="uid://7fj07lgcsb2a" path="res://resources/abilities/coralleine/lifesteal/lifesteal_3.tres" id="17_7ic2q"]
 [ext_resource type="Resource" uid="uid://c3g82ty4kye1n" path="res://resources/abilities/coralleine/rally/rally_3.tres" id="18_bst2m"]
 [ext_resource type="PackedScene" uid="uid://csbhyubbu6bo6" path="res://scenes/ui/fade.tscn" id="25_3wjve"]
+[ext_resource type="Resource" uid="uid://bx2mnromk5oc8" path="res://resources/abilities/coralleine/decoy/decoy_3.tres" id="25_md5a0"]
 [ext_resource type="Script" uid="uid://3xr6yasbqo77" path="res://scenes/levels/fade_control.gd" id="26_myvc7"]
 [ext_resource type="AudioStream" uid="uid://bq06xn6thxy1m" path="res://assets/audio/music/Glimmer.mp3" id="27_uy2m1"]
 [ext_resource type="PackedScene" uid="uid://d3shop3mqorls" path="res://scenes/levels/shop_3.tscn" id="28_shopnext"]
 [ext_resource type="PackedScene" uid="uid://c6losescrxy01" path="res://scenes/levels/lose_screen.tscn" id="29_losescn"]
+[ext_resource type="PackedScene" uid="uid://b828m0hfpjle8" path="res://scenes/ui/status_effect_inspect.tscn" id="30_wqhnf"]
 
 [sub_resource type="Resource" id="Resource_cd3gx"]
 script = ExtResource("7_yw4x4")
@@ -59,6 +63,16 @@ offset_top = -445.33334
 offset_right = 130.66663
 offset_bottom = -396.0
 
+[node name="Health" type="Label" parent="Umi/HealthBar" unique_id=1897370562]
+layout_mode = 0
+offset_left = 12.0
+offset_right = 103.0
+offset_bottom = 73.0
+theme_override_font_sizes/font_size = 53
+text = "90"
+label_settings = ExtResource("12_wqhnf")
+script = ExtResource("13_wqhnf")
+
 [node name="Fortune" parent="." unique_id=724902013 instance=ExtResource("5_nndlu")]
 position = Vector2(762.00006, 794.00006)
 abilities = Array[ExtResource("8_cd3gx")]([ExtResource("7_nndlu"), ExtResource("8_noy0c"), ExtResource("9_noy0c"), ExtResource("10_cwaqo"), ExtResource("11_05u3w")])
@@ -71,9 +85,19 @@ offset_top = -478.66675
 offset_right = 130.66663
 offset_bottom = -429.3334
 
+[node name="Health" type="Label" parent="Fortune/HealthBar" unique_id=2080645500]
+layout_mode = 0
+offset_left = 12.0
+offset_right = 103.0
+offset_bottom = 73.0
+theme_override_font_sizes/font_size = 53
+text = "120"
+label_settings = ExtResource("12_wqhnf")
+script = ExtResource("13_wqhnf")
+
 [node name="Coralleine" parent="." unique_id=1190915457 instance=ExtResource("6_cd3gx")]
 position = Vector2(592, 914.00006)
-abilities = Array[ExtResource("8_cd3gx")]([ExtResource("15_s4uq2"), ExtResource("16_8mwti"), ExtResource("17_7ic2q"), ExtResource("18_bst2m")])
+abilities = Array[ExtResource("8_cd3gx")]([ExtResource("15_s4uq2"), ExtResource("16_8mwti"), ExtResource("17_7ic2q"), ExtResource("25_md5a0"), ExtResource("18_bst2m")])
 battle_level = 3
 
 [node name="HealthBar" parent="Coralleine" unique_id=759737278 instance=ExtResource("4_yw4x4")]
@@ -81,6 +105,16 @@ offset_left = -126.666664
 offset_top = -482.66672
 offset_right = 130.66672
 offset_bottom = -433.33337
+
+[node name="Health" type="Label" parent="Coralleine/HealthBar" unique_id=1437877032]
+layout_mode = 0
+offset_left = 12.0
+offset_right = 103.0
+offset_bottom = 73.0
+theme_override_font_sizes/font_size = 53
+text = "100"
+label_settings = ExtResource("12_wqhnf")
+script = ExtResource("13_wqhnf")
 
 [node name="Jelly" parent="." unique_id=641243926 instance=ExtResource("9_ccrnb")]
 position = Vector2(1388, 749)
@@ -93,6 +127,11 @@ offset_bottom = -658.6667
 
 [node name="AbilitySelect" parent="." unique_id=844678139 node_paths=PackedStringArray("battle_manager") instance=ExtResource("8_cwaqo")]
 battle_manager = NodePath("..")
+
+[node name="StatusEffectInspect" parent="." unique_id=552639583 node_paths=PackedStringArray("battle_manager", "ability_select") instance=ExtResource("30_wqhnf")]
+visible = false
+battle_manager = NodePath("..")
+ability_select = NodePath("../AbilitySelect")
 
 [node name="Fade" parent="." unique_id=29959157 node_paths=PackedStringArray("audio") instance=ExtResource("25_3wjve")]
 visible = false

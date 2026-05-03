@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://be5ru5snax08s" path="res://scripts/ability/action/apply_status_action.gd" id="3_21o7u"]
 [ext_resource type="Resource" uid="uid://b5uv4uthbh2j6" path="res://resources/status_effects/burn.tres" id="4_v6q7v"]
 [ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="4_yuhrs"]
+[ext_resource type="AudioStream" uid="uid://mknkil4pij7i" path="res://assets/audio/voicelines/umi/bottle_of_splode.wav" id="7_fgqq4"]
 
 [sub_resource type="Resource" id="Resource_fgqq4"]
 script = ExtResource("2_ekhvq")
@@ -35,6 +36,7 @@ metadata/_custom_type_script = "uid://da17dshmjafs6"
 [resource]
 script = ExtResource("1_er3h7")
 name = "Bottle Of Splode"
-description = "Blow up the enemy and heat up the surrounding water to burn them!"
+description = "Blows up the enemy for 10-30 damage and heats the surrounding water, applying 25 stacks of burn."
 action = SubResource("Resource_8xj5m")
+audio = ExtResource("7_fgqq4")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"

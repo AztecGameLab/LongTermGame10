@@ -29,7 +29,7 @@ metadata/_graph_h = 187.0
 
 [sub_resource type="Resource" id="Resource_h2apg"]
 script = ExtResource("3_h2apg")
-description = "Deals 10 damage"
+description = "Deals 10 damage each turn."
 triggers = Array[ExtResource("5_3odem")]([SubResource("Resource_etb38")])
 metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
 metadata/_graph_x = 0.0
@@ -40,7 +40,7 @@ metadata/_graph_h = 394.0
 [resource]
 script = ExtResource("2_etb38")
 stacks = Array[ExtResource("3_h2apg")]([SubResource("Resource_h2apg")])
-name = "Venomous Poison"
+name = "Poison"
 icon = ExtResource("1_82j4v")
 metadata/_custom_type_script = "uid://c4rwprj6d61c0"
 metadata/_graph_x = 50.0

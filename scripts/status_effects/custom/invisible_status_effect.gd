@@ -1,8 +1,8 @@
 extends BaseStatusEffect
 class_name InvisibleStatusEffect
 ## A status effect that reduces targeting chance based on stacks.
-## When the character deals damage, they always roll max damage,
-## and there is a chance the effect ends.
+## Adds a flat damage bonus to outgoing attacks, with a chance the effect
+## ends when dealing damage.
 
 @export var max_stacks: int = 4
 
@@ -15,7 +15,7 @@ class_name InvisibleStatusEffect
 ## The chance (0.0 to 1.0) that the effect ends when dealing damage.
 @export_range(0.0, 1.0, 0.05) var break_chance_on_attack: float = 0.5
 
-@export_range(0.0, 1.0, 0.05) var bonus_damage_percentage: float = 0.0
+@export var bonus_damage: int = 0
 
 @export var blocks_damage: bool = false
 
@@ -29,11 +29,9 @@ func modify_value(field: StatusEffectModifier.Field, value: float, container: St
 		StatusEffectModifier.Field.INCOMING_TARGET_CHANCE:
 			# Reduce targeting chance by (reduction * stacks)
 			return value + value * (-target_reduction_per_stack * container.stacks)
-		StatusEffectModifier.Field.OUTGOING_DAMAGE_RNG_BIAS:
-			return 1.0
 		StatusEffectModifier.Field.OUTGOING_DAMAGE:
-			return value * (1.0 + bonus_damage_percentage)
-		
+			return value + bonus_damage
+
 	return value
 
 func on_damage_dealt(_context: AttackContext, container: StatusEffectContainer) -> void:

@@ -23,6 +23,9 @@ enum EffectType {
 ## Whether this effect is positive, negative, or locked (cannot be transferred).
 @export var effect_type: EffectType = EffectType.NEGATIVE
 
+## Label for the remaining-turns display (e.g., "Turns Left", "Charges", "Stacks").
+@export var remaining_label: String = "Turns Left"
+
 # --- Virtual Methods ---
 # Override in subclasses to customize behavior.
 
@@ -86,3 +89,7 @@ func get_icon(_container: StatusEffectContainer) -> Texture2D:
 ## Returns the remaining turns for display purposes. Returns [code]-1[/code] if no duration to display.
 func get_remaining_turns(_container: StatusEffectContainer) -> int:
 	return -1
+
+## Returns the label to use for the remaining-turns display.
+func get_remaining_label(_container: StatusEffectContainer) -> String:
+	return remaining_label

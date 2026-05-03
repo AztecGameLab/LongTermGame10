@@ -21,7 +21,7 @@ metadata/_custom_type_script = "uid://d0uvf6jnorxpw"
 
 [sub_resource type="Resource" id="Resource_a8wml"]
 script = ExtResource("2_yvft3")
-description = "Lowers HP by 10 each turn."
+description = "Loses 10 HP each turn."
 triggers = Array[ExtResource("3_yvft3")]([SubResource("Resource_1acph")])
 metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
 
@@ -39,7 +39,7 @@ metadata/_custom_type_script = "uid://d0uvf6jnorxpw"
 
 [sub_resource type="Resource" id="Resource_ro6od"]
 script = ExtResource("2_yvft3")
-description = "Lowers HP by 20 each turn."
+description = "Loses 20 HP each turn."
 triggers = Array[ExtResource("3_yvft3")]([SubResource("Resource_osoxr")])
 metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
 

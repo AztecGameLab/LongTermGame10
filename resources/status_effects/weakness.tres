@@ -18,7 +18,7 @@ metadata/_graph_h = 256.0
 
 [sub_resource type="Resource" id="Resource_mp1ee"]
 script = ExtResource("3_csppg")
-description = "Take 20% more damage."
+description = "Takes 20% more damage."
 modifiers = Array[ExtResource("4_1nd5b")]([SubResource("Resource_ru53i")])
 metadata/_graph_x = 540.0
 metadata/_graph_y = 200.0
@@ -29,7 +29,7 @@ metadata/_graph_h = 333.0
 script = ExtResource("2_yodd5")
 stacks = Array[ExtResource("3_csppg")]([SubResource("Resource_mp1ee")])
 duration_turns = 4
-name = "Defense Reduction"
+name = "Weakness"
 icon = ExtResource("1_55dos")
 metadata/_custom_type_script = "uid://c4rwprj6d61c0"
 metadata/_graph_x = 50.0

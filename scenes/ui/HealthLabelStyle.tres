@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://cq4v6mxpfa823"]
+
+[ext_resource type="FontFile" uid="uid://iq5jfqev2lp0" path="res://assets/ui/EmphasisFont_Knewave-Regular.ttf" id="1_a6k1d"]
+
+[resource]
+font = ExtResource("1_a6k1d")
+font_size = 29
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)

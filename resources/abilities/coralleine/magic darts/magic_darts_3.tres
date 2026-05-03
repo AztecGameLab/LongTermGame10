@@ -5,11 +5,12 @@
 [ext_resource type="Script" uid="uid://d0rap3gi3boj5" path="res://scripts/ability/action/damage_action.gd" id="2_t1bep"]
 [ext_resource type="Script" uid="uid://bewmys3bnrfj4" path="res://scripts/ability/action/wait_action.gd" id="3_bdq8p"]
 [ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="4_dv3ey"]
-[ext_resource type="Script" uid="uid://cy60nwkkhatr8" path="res://scripts/ability/action/hit_chance_action.gd" id="4_xeac1"]
+[ext_resource type="Script" uid="uid://dkyoonc2qagl3" path="res://scripts/ability/action/luck_chance_action.gd" id="4_xeac1"]
 [ext_resource type="Script" uid="uid://be5ru5snax08s" path="res://scripts/ability/action/apply_status_action.gd" id="5_o24ck"]
 [ext_resource type="Script" uid="uid://3xfxcysmuqdm" path="res://scripts/ability/action/repeat_action.gd" id="5_xeac1"]
 [ext_resource type="Resource" uid="uid://b5uv4uthbh2j6" path="res://resources/status_effects/burn.tres" id="6_7j8q8"]
 [ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="6_o24ck"]
+[ext_resource type="AudioStream" uid="uid://cgfdcpcgxpd8q" path="res://assets/audio/voicelines/coralleine/magic_dart.wav" id="10_o24ck"]
 
 [sub_resource type="Resource" id="Resource_dv3ey"]
 script = ExtResource("2_bdq8p")
@@ -20,8 +21,8 @@ metadata/_graph_h = 100.0
 
 [sub_resource type="Resource" id="Resource_bdo0w"]
 script = ExtResource("2_t1bep")
-damage_minimum = 20
-damage_maximum = 25
+damage_minimum = 17
+damage_maximum = 22
 can_miss = false
 metadata/_graph_x = 1420.0
 metadata/_graph_y = -20.0
@@ -41,7 +42,7 @@ metadata/_graph_h = 286.0
 
 [sub_resource type="Resource" id="Resource_pove0"]
 script = ExtResource("4_xeac1")
-success_chance = 0.25
+base_chance = 0.25
 success_action = SubResource("Resource_am6pk")
 metadata/_graph_x = 1000.0
 metadata/_graph_y = 220.0
@@ -68,6 +69,7 @@ metadata/_graph_h = 310.0
 script = ExtResource("5_xeac1")
 times = 4
 hit_chance_decrease = 0.15
+damage_decrease = 0.15
 stop_on_miss = true
 use_luck = true
 action = SubResource("Resource_a0qop")
@@ -87,8 +89,9 @@ metadata/_graph_h = 256.0
 [resource]
 script = ExtResource("6_o24ck")
 name = "Magic Darts"
-description = "Fires up to 4 magic darts. 100% chance for first dart, 15% chance decrease for each dart. Each dart has a 25% chance to burn 10"
+description = "Fires up to 4 darts (17-22 damage). The first dart always hits. Each following dart has 15% lower hit chance and deals 15% less damage than the previous. Each dart has a 25% chance to apply 10 burn. Luck improves dart hit chance and burn application."
 action = SubResource("Resource_xeac1")
+audio = ExtResource("10_o24ck")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
 metadata/_graph_x = 50.0
 metadata/_graph_y = 50.0

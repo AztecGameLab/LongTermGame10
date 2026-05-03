@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://be5ru5snax08s" path="res://scripts/ability/action/apply_status_action.gd" id="3_je6m7"]
 [ext_resource type="Resource" uid="uid://dms3r767vo3de" path="res://resources/status_effects/guardian.tres" id="4_fwohp"]
 [ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="5_q70dp"]
+[ext_resource type="AudioStream" uid="uid://cssvtc3kjhfrs" path="res://assets/audio/voicelines/coralleine/guardian.wav" id="6_y0uyh"]
 
 [sub_resource type="Resource" id="Resource_3td52"]
 script = ExtResource("2_y0uyh")
@@ -25,7 +26,8 @@ metadata/_custom_type_script = "uid://da17dshmjafs6"
 [resource]
 script = ExtResource("1_4dvwl")
 name = "Guardian"
-description = "For this round, the targeted ally will take half damage and gain no negative effects."
+description = "Protects an ally for the round. They take half damage and cannot receive negative effects."
 move_target_type = 3
 action = SubResource("Resource_ubymh")
+audio = ExtResource("6_y0uyh")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"

@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://be5ru5snax08s" path="res://scripts/ability/action/apply_status_action.gd" id="3_12mal"]
 [ext_resource type="Resource" uid="uid://cjybefoa1fp4o" path="res://resources/status_effects/strength.tres" id="4_en8xi"]
 [ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="5_e765e"]
+[ext_resource type="AudioStream" uid="uid://3o5p6atv0uj" path="res://assets/audio/voicelines/fortune/strengthen.wav" id="6_g4to6"]
 [ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="6_vuchu"]
 
 [sub_resource type="Resource" id="Resource_lx3qm"]
@@ -37,9 +38,10 @@ metadata/_graph_h = 177.0
 [resource]
 script = ExtResource("6_vuchu")
 name = "Strengthen"
-description = "2.5x damage for the next 3 turns."
+description = "Multiplies attack damage by 2.5x for 3 turns."
 move_target_type = 0
 action = SubResource("Resource_kwaxg")
+audio = ExtResource("6_g4to6")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
 metadata/_graph_x = 50.0
 metadata/_graph_y = 50.0

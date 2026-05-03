@@ -1,0 +1,140 @@
+[gd_scene format=3 uid="uid://b828m0hfpjle8"]
+
+[ext_resource type="Texture2D" uid="uid://bbg62gpgw6vv8" path="res://assets/ui/exit_inspect.png" id="2_8nawl"]
+[ext_resource type="Texture2D" uid="uid://cn58wfn37rpao" path="res://assets/status_effects/Bleed.png" id="2_5356n"]
+[ext_resource type="FontFile" uid="uid://b36l0tnkhtkdw" path="res://assets/ui/GenFont_Mansalva-Regular.ttf" id="3_1kfg4"]
+[ext_resource type="Texture2D" uid="uid://c0v8kgun28ryu" path="res://assets/ui/inspect_backdrop.png" id="3_8nawl"]
+[ext_resource type="FontFile" uid="uid://iq5jfqev2lp0" path="res://assets/ui/EmphasisFont_Knewave-Regular.ttf" id="4_hi0ul"]
+[ext_resource type="Script" uid="uid://cfhv2glvmjiv6" path="res://scenes/ui/move_description.gd" id="4_poyih"]
+[ext_resource type="Script" uid="uid://djir4teib6b4a" path="res://scenes/ui/status_effect_inspect.gd" id="5_inspect"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8nawl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5356n"]
+font = ExtResource("4_hi0ul")
+font_size = 31
+font_color = Color(0.29803923, 0.1882353, 0.09411765, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_72b5i"]
+font = ExtResource("3_1kfg4")
+font_size = 26
+font_color = Color(0.29803923, 0.1882353, 0.09411765, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1kfg4"]
+font = ExtResource("3_1kfg4")
+font_size = 28
+font_color = Color(0.29803923, 0.1882353, 0.09411765, 1)
+
+[node name="StatusEffectInspect" type="CanvasLayer" unique_id=552639583]
+script = ExtResource("5_inspect")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=153710752]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 37
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer" unique_id=1401479268]
+custom_minimum_size = Vector2(700, 300)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_8nawl")
+
+[node name="Control" type="Control" parent="MarginContainer/PanelContainer" unique_id=969797681]
+layout_mode = 2
+
+[node name="inspect" type="TextureRect" parent="MarginContainer/PanelContainer/Control" unique_id=1207987887]
+layout_mode = 0
+offset_left = 700.0
+offset_right = 816.0
+offset_bottom = 145.0
+texture = ExtResource("2_8nawl")
+
+[node name="Move" type="RichTextLabel" parent="MarginContainer/PanelContainer/Control/inspect" unique_id=182138748]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 80.0
+offset_right = 120.0
+offset_bottom = 132.0
+theme_override_colors/default_color = Color(0.41960785, 0.23137255, 0.09019608, 1)
+theme_override_fonts/normal_font = ExtResource("3_1kfg4")
+theme_override_font_sizes/normal_font_size = 18
+text = "Tab"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/Control" unique_id=115716510]
+layout_mode = 0
+offset_left = -20.0
+offset_top = -35.0
+offset_right = 730.0
+offset_bottom = 340.0
+texture = ExtResource("3_8nawl")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer" unique_id=1837619310]
+layout_mode = 2
+theme_override_constants/margin_left = 68
+theme_override_constants/margin_top = 27
+theme_override_constants/margin_right = 58
+theme_override_constants/margin_bottom = 17
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer" unique_id=1646295625]
+layout_mode = 2
+
+[node name="Name" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=570168220]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Name" unique_id=177970855]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("2_5356n")
+expand_mode = 4
+
+[node name="NameLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Name" unique_id=1487655679]
+layout_mode = 2
+text = "Bleed"
+label_settings = SubResource("LabelSettings_5356n")
+
+[node name="Control" type="Control" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Name" unique_id=2020744715]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Name" unique_id=1275039321]
+layout_mode = 2
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Name/MarginContainer" unique_id=217210566]
+layout_mode = 2
+
+[node name="StacksLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Name/MarginContainer/VBoxContainer" unique_id=521178652]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Turns Left: N/A"
+label_settings = SubResource("LabelSettings_72b5i")
+horizontal_alignment = 2
+script = ExtResource("4_poyih")
+
+[node name="Description" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=229839154]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Description" unique_id=1394482000]
+layout_mode = 2
+theme_override_constants/margin_left = 9
+
+[node name="DescriptionLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Description/MarginContainer" unique_id=930377988]
+custom_minimum_size = Vector2(556, 160)
+layout_mode = 2
+size_flags_vertical = 1
+text = "Loses 10 HP each turn."
+label_settings = SubResource("LabelSettings_1kfg4")
+autowrap_mode = 3
+script = ExtResource("4_poyih")

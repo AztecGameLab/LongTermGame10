@@ -12,7 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://bju1dmce0qj4" path="res://workspaces/artemis/Normal_Gameplay_(focused_On_Fortune_Only)-4.png" id="7_8wj54"]
 [ext_resource type="PackedScene" uid="uid://rb6hbhelm4lq" path="res://scenes/ui/health_bar.tscn" id="8_walo4"]
 [ext_resource type="Resource" uid="uid://c71y0pm2tt1g" path="res://resources/abilities/fortune/pierce/pierce_1.tres" id="9_dp7j0"]
+[ext_resource type="LabelSettings" uid="uid://cq4v6mxpfa823" path="res://scenes/ui/HealthLabelStyle.tres" id="10_bltc4"]
 [ext_resource type="Resource" uid="uid://byvu2q77v5qva" path="res://resources/abilities/fortune/lucky_charm/lucky_charm_1.tres" id="10_q5g08"]
+[ext_resource type="Script" uid="uid://doviul66xwvvb" path="res://workspaces/artemis/health_label.gd" id="11_bltc4"]
 [ext_resource type="Script" uid="uid://be5ru5snax08s" path="res://scripts/ability/action/apply_status_action.gd" id="11_uf7ed"]
 [ext_resource type="Resource" uid="uid://dnx5kk4jemlol" path="res://resources/abilities/fortune/regenerate/regenerate_1.tres" id="12_jok4t"]
 [ext_resource type="Resource" uid="uid://ct6luvxunm4ye" path="res://resources/abilities/coralleine/magic darts/magic_darts_1.tres" id="14_jok4t"]
@@ -21,6 +23,7 @@
 [ext_resource type="Script" uid="uid://3xr6yasbqo77" path="res://scenes/levels/fade_control.gd" id="19_ty1hb"]
 [ext_resource type="AudioStream" uid="uid://yndkk2w8804l" path="res://assets/audio/music/ScorpionFish.wav" id="20_ty1hb"]
 [ext_resource type="PackedScene" uid="uid://ctdmu6xr5qfnf" path="res://scenes/levels/shop_1.tscn" id="21_shopnext"]
+[ext_resource type="PackedScene" uid="uid://b828m0hfpjle8" path="res://scenes/ui/status_effect_inspect.tscn" id="22_bltc4"]
 [ext_resource type="PackedScene" uid="uid://c6losescrxy01" path="res://scenes/levels/lose_screen.tscn" id="22_losescn"]
 
 [sub_resource type="Resource" id="Resource_f1sko"]
@@ -52,6 +55,16 @@ offset_top = -445.33334
 offset_right = 130.66663
 offset_bottom = -396.0
 
+[node name="Health" type="Label" parent="Umi/HealthBar" unique_id=697198388]
+layout_mode = 0
+offset_left = 12.0
+offset_right = 103.0
+offset_bottom = 73.0
+theme_override_font_sizes/font_size = 53
+text = "90"
+label_settings = ExtResource("10_bltc4")
+script = ExtResource("11_bltc4")
+
 [node name="Fortune" parent="." unique_id=724902013 instance=ExtResource("2_a4rq4")]
 position = Vector2(762.00006, 794.00006)
 abilities = Array[ExtResource("4_cmpws")]([ExtResource("9_dp7j0"), ExtResource("10_q5g08")])
@@ -64,6 +77,16 @@ offset_top = -478.66675
 offset_right = 130.66663
 offset_bottom = -429.3334
 
+[node name="Health" type="Label" parent="Fortune/HealthBar" unique_id=558821488]
+layout_mode = 0
+offset_left = 12.0
+offset_right = 103.0
+offset_bottom = 73.0
+theme_override_font_sizes/font_size = 53
+text = "120"
+label_settings = ExtResource("10_bltc4")
+script = ExtResource("11_bltc4")
+
 [node name="Coralleine" parent="." unique_id=1190915457 instance=ExtResource("1_0umlr")]
 position = Vector2(592, 914.00006)
 abilities = Array[ExtResource("4_cmpws")]([ExtResource("14_jok4t"), ExtResource("15_f1sko")])
@@ -74,6 +97,16 @@ offset_left = -126.666664
 offset_top = -482.66672
 offset_right = 130.66672
 offset_bottom = -433.33337
+
+[node name="Health" type="Label" parent="Coralleine/HealthBar" unique_id=1927757558]
+layout_mode = 0
+offset_left = 12.0
+offset_right = 103.0
+offset_bottom = 73.0
+theme_override_font_sizes/font_size = 53
+text = "100"
+label_settings = ExtResource("10_bltc4")
+script = ExtResource("11_bltc4")
 
 [node name="ScorpionFish" parent="." unique_id=1761068697 instance=ExtResource("6_axod2")]
 position = Vector2(1454, 767)
@@ -86,6 +119,11 @@ offset_bottom = -650.6667
 
 [node name="AbilitySelect" parent="." unique_id=844678139 node_paths=PackedStringArray("battle_manager") instance=ExtResource("4_a4rq4")]
 battle_manager = NodePath("..")
+
+[node name="StatusEffectInspect" parent="." unique_id=552639583 node_paths=PackedStringArray("battle_manager", "ability_select") instance=ExtResource("22_bltc4")]
+visible = false
+battle_manager = NodePath("..")
+ability_select = NodePath("../AbilitySelect")
 
 [node name="Fade" parent="." unique_id=29959157 node_paths=PackedStringArray("audio") instance=ExtResource("18_walo4")]
 visible = false

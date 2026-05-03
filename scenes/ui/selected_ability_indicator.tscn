@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cfrrwjfp8nrbw" path="res://assets/ui/ability-selected.png" id="1_rktlt"]
 
 [node name="SelectedAbilityIndicator" type="NinePatchRect" unique_id=2093613863]
-texture_filter = 1
+texture_filter = 5
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_rktlt")

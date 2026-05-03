@@ -1,10 +1,9 @@
 extends Action
 class_name LuckChanceAction
 
-## Biases the chance towards success or failure.[br]
-## -1.0 = guaranteed fail, 0.0 = 50/50, 1.0 = guaranteed success.
-## Can be modified by status effects through luck.
-@export_range(-1.0, 1.0, 0.05) var default_bias: float = 0.0
+## Rolls a chance with linear luck modifier.[br]
+## Final chance = [code]base_chance + source's OUTGOING_LUCK[/code], clamped to 0-1.
+@export_range(0.0, 1.0, 0.05) var base_chance: float = 0.5
 
 @export var success_action: Action
 
@@ -12,11 +11,11 @@ class_name LuckChanceAction
 @export var fail_action: Action
 
 func run(context: ActionContext) -> void:
-	var success_bias := default_bias
+	var chance := base_chance
 	if context.source:
-		success_bias = context.source.get_modified_field(StatusEffectModifier.Field.OUTGOING_LUCK, default_bias)
-	
-	var success: bool = RNG.binary_with_bias(success_bias)
+		chance += context.source.get_modified_field(StatusEffectModifier.Field.OUTGOING_LUCK)
+
+	var success: bool = RNG.chance(chance)
 
 	var action: Action = success_action if success else fail_action
 

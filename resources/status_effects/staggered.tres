@@ -22,7 +22,7 @@ metadata/_custom_type_script = "uid://w6h7oqtjl61k"
 
 [sub_resource type="Resource" id="Resource_5xyqx"]
 script = ExtResource("2_dmr15")
-description = "decrease def and dodge"
+description = "Takes 30% more damage and is 20% easier to hit."
 modifiers = Array[ExtResource("3_5xyqx")]([SubResource("Resource_6k7cs"), SubResource("Resource_griht")])
 metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
 

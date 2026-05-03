@@ -5,12 +5,16 @@ class_name BattleManager
 ## --- Static/Helper Methods ---
 
 ## Checks if an attack hits successfully. Returns [code]true[/code] if it hits, [code]false[/code] if it misses.
+## Emits [signal BattleCharacter.missed] on the target when the attack misses.
 static func check_hit_success(source: BattleCharacter, target: BattleCharacter) -> bool:
 	var hit_chance := 1.0
 	if source:
 		hit_chance = source.get_outgoing_hit_chance(hit_chance)
 	hit_chance = target.get_incoming_hit_chance(hit_chance)
-	return RNG.chance(hit_chance)
+	var success := RNG.chance(hit_chance)
+	if not success:
+		target.missed.emit()
+	return success
 
 ## Applies damage from [param source] to [param target]. 
 ## Also triggers the appropriate signals on both characters.

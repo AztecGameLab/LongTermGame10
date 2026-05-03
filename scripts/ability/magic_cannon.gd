@@ -11,14 +11,27 @@ class_name MagicCannon
 @export_range(0, 1, 1, "or_greater") var base_damage: int = 10
 @export_range(0, 1, 1, "or_greater") var damage_per_cannon_charge = 2
 
+## Audio played when firing the loaded cannon. Falls back to [code]audio[/code] (load sound) if unset.
+@export var release_audio: AudioStream
+
+func get_audio(source: BattleCharacter) -> AudioStream:
+	var container := source.get_status_effect(status_effect)
+	if container != null and release_audio:
+		return release_audio
+	return audio
+
 func get_label(_source: BattleCharacter) -> String:
 	return &"Magic Cannon"
 	
 func get_description(_source: BattleCharacter) -> String:
-	var description := &"Take one turn to charge the spell. Use again for high damage."
-	description += &"\nWhen attacked, 50% chance to lose charge."
+	var description := "First cast loads the cannon. "
 	if has_extra_shots():
-		description += &"\nEvery turn not used, gain one charge worth extra damage."
+		description += "Each turn it stays loaded builds 1 charge. "
+		description += "Second cast fires for %d damage plus %d per charge." % [base_damage, damage_per_cannon_charge]
+		description += "\nEach incoming hit removes 2 charges, dispelling the cannon if charges drop below 0."
+	else:
+		description += "Second cast fires for %d damage." % base_damage
+		description += "\nAny incoming hit while loaded dispels the cannon."
 	return description
 
 func get_target_type(source: BattleCharacter) -> BaseAbility.TargetType:

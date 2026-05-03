@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://dq0gts7suc1fg" path="res://scripts/ability/action/animation_action.gd" id="2_x0nb1"]
 [ext_resource type="Script" uid="uid://bewmys3bnrfj4" path="res://scripts/ability/action/wait_action.gd" id="3_x0nb1"]
 [ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="4_7e67t"]
+[ext_resource type="AudioStream" uid="uid://cgfdcpcgxpd8q" path="res://assets/audio/voicelines/coralleine/magic_dart.wav" id="7_7e67t"]
 
 [sub_resource type="Resource" id="Resource_7e67t"]
 script = ExtResource("2_x0nb1")
@@ -17,8 +18,8 @@ metadata/_graph_h = 100.0
 
 [sub_resource type="Resource" id="Resource_bdo0w"]
 script = ExtResource("1_6mqk5")
-damage_minimum = 17
-damage_maximum = 23
+damage_minimum = 15
+damage_maximum = 20
 can_miss = false
 metadata/_graph_x = 1400.0
 metadata/_graph_y = 200.0
@@ -44,7 +45,8 @@ metadata/_graph_h = 256.0
 [sub_resource type="Resource" id="Resource_427vy"]
 script = ExtResource("2_agl6e")
 times = 4
-hit_chance_decrease = 0.25
+hit_chance_decrease = 0.2
+damage_decrease = 0.15
 stop_on_miss = true
 use_luck = true
 action = SubResource("Resource_xdlqi")
@@ -64,8 +66,9 @@ metadata/_graph_h = 256.0
 [resource]
 script = ExtResource("1_8jw48")
 name = "Magic Darts"
-description = "Fires up to 4 magic darts. 100% chance for first dart, 20% chance decrease for each dart"
+description = "Fires up to 4 darts (15-20 damage). The first dart always hits. Each following dart has 20% lower hit chance and deals 15% less damage than the previous. Luck improves dart hit chance."
 action = SubResource("Resource_wdn4d")
+audio = ExtResource("7_7e67t")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
 metadata/_graph_x = 50.0
 metadata/_graph_y = 50.0

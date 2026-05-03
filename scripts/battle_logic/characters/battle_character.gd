@@ -13,10 +13,12 @@ enum Stat {
 
 # --- Signals ---
 
-## Fires when the character is attacked. 
+## Fires when the character is attacked.
 ## [br][param amount] is the actual damage dealt until zero. [param context] contains the source and the raw damage.
 signal damaged(amount: int, context: AttackContext)
 signal healed(amount: int, source: BattleCharacter)
+## Fires when an attack against this character misses.
+signal missed()
 
 signal health_updated(new_health: int)
 signal died()
@@ -142,7 +144,7 @@ func get_default_field(field: StatusEffectModifier.Field) -> float:
 
 func get_modified_field(field: StatusEffectModifier.Field, value: float = get_default_field(field)) -> float:
 	var modified := value
-	for instance in _status_effects:
+	for instance in _status_effects.duplicate():
 		modified = instance.modify_value(field, modified)
 	return modified
 	
@@ -251,7 +253,7 @@ func on_turn_ended() -> void:
 	status_effects_updated.emit()
 
 func on_damage_dealt(attackContext: AttackContext):
-	for instance in _status_effects:
+	for instance in _status_effects.duplicate():
 		instance.on_damage_dealt(attackContext)
 		
 func on_damage_received(attackContext: AttackContext):
@@ -262,7 +264,7 @@ func on_damage_received(attackContext: AttackContext):
 	current_health -= damage
 	current_health = maxi(current_health, 0)
 	
-	for instance in _status_effects:
+	for instance in _status_effects.duplicate():
 		instance.on_damage_received(attackContext)
 
 	damaged.emit(damage, attackContext)
@@ -271,7 +273,7 @@ func on_damage_received(attackContext: AttackContext):
 		die()
 
 func on_attacked(attackContext: AttackContext):
-	for instance in _status_effects:
+	for instance in _status_effects.duplicate():
 		await instance.on_attacked(attackContext)
 
 # --- Internals ---

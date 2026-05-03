@@ -18,7 +18,7 @@ metadata/_graph_h = 256.0
 
 [sub_resource type="Resource" id="Resource_mp1ee"]
 script = ExtResource("3_shroq")
-description = "Take 20% more damage."
+description = "Takes 20% more damage."
 modifiers = Array[ExtResource("4_jfanx")]([SubResource("Resource_ru53i")])
 metadata/_graph_x = 540.0
 metadata/_graph_y = 200.0
@@ -28,7 +28,7 @@ metadata/_graph_h = 333.0
 [resource]
 script = ExtResource("2_nmqu2")
 stacks = Array[ExtResource("3_shroq")]([SubResource("Resource_mp1ee")])
-name = "Defense Reduction"
+name = "Barbed Sting"
 icon = ExtResource("1_62q3o")
 metadata/_custom_type_script = "uid://c4rwprj6d61c0"
 metadata/_graph_x = 50.0

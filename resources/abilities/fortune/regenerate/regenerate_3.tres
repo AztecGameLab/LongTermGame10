@@ -36,7 +36,7 @@ metadata/_custom_type_script = "uid://d0uvf6jnorxpw"
 
 [sub_resource type="Resource" id="Resource_c1t11"]
 script = ExtResource("2_glgyw")
-description = "Heals you 15hp each turn. May cure an ailment."
+description = "Heals 15 HP each turn. 50% chance per turn to cure a negative status. Luck improves the cure chance."
 triggers = Array[ExtResource("4_2f3ui")]([SubResource("Resource_kwfm3"), SubResource("Resource_cure01")])
 metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
 
@@ -44,6 +44,7 @@ metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
 script = ExtResource("1_omrdo")
 stacks = Array[ExtResource("2_glgyw")]([SubResource("Resource_c1t11")])
 limited_duration = false
-name = "Regenerate Level 3"
+name = "Regenerate"
 icon = ExtResource("1_2f3ui")
+effect_type = 0
 metadata/_custom_type_script = "uid://c4rwprj6d61c0"

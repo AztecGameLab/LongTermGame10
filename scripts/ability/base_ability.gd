@@ -29,10 +29,19 @@ enum TargetType {
 	
 };
 
+## Default audio (voiceline, SFX) played alongside this ability's animation.
+## Override [code]get_audio[/code] in subclasses for state-dependent audio
+## (e.g., Magic Cannon plays a different sound on load vs. release).
+@export var audio: AudioStream
+
 @abstract func get_label(source: BattleCharacter) -> String;
-	
+
 @abstract func get_description(source: BattleCharacter) -> String;
 
 @abstract func get_target_type(source: BattleCharacter) -> BaseAbility.TargetType;
 
 @abstract func get_action(source: BattleCharacter) -> Action;
+
+## Returns the audio to play when this ability is cast. Override for state-dependent audio.
+func get_audio(_source: BattleCharacter) -> AudioStream:
+	return audio

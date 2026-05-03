@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://bihndepd0cudw" path="res://scripts/ability/action/static_damage_action.gd" id="5_h27y4"]
 [ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="6_cjrp4"]
 [ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="7_vn8mx"]
+[ext_resource type="AudioStream" uid="uid://csx0ay77lntyb" path="res://assets/audio/voicelines/fortune/reckless_slash.wav" id="7_xymqa"]
 
 [sub_resource type="Resource" id="Resource_5k8pl"]
 script = ExtResource("2_xymqa")
@@ -25,7 +26,7 @@ metadata/_graph_h = 238.0
 
 [sub_resource type="Resource" id="Resource_ahmp4"]
 script = ExtResource("5_h27y4")
-damage = 30
+damage = 40
 can_miss = false
 override_target = true
 metadata/_graph_x = 1160.0
@@ -58,8 +59,9 @@ metadata/_custom_type_script = "uid://da17dshmjafs6"
 [resource]
 script = ExtResource("7_vn8mx")
 name = "Reckless Slash"
-description = "High Damage attack, Fortune takes damage too"
+description = "Deals 80-100 damage to an enemy. Fortune takes 40 recoil damage. Damage buffs scale both."
 action = SubResource("Resource_pjjtl")
+audio = ExtResource("7_xymqa")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
 metadata/_graph_x = 20.0
 metadata/_graph_y = 160.0
