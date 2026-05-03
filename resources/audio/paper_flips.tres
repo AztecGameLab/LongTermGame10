@@ -1,0 +1,18 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://tpuw8q08ply2"]
+
+[ext_resource type="AudioStream" uid="uid://bbh7t5fdj8pm3" path="res://assets/audio/ui/paper_flip-001.wav" id="1_s8uo4"]
+[ext_resource type="AudioStream" uid="uid://v7nujjjux58" path="res://assets/audio/ui/paper_flip-002.wav" id="2_6ae1t"]
+[ext_resource type="AudioStream" uid="uid://dbrh2f2t8qe2t" path="res://assets/audio/ui/paper_flip-003.wav" id="3_742tk"]
+[ext_resource type="AudioStream" uid="uid://b04rehne74jdd" path="res://assets/audio/ui/paper_flip-004.wav" id="4_sjbst"]
+[ext_resource type="AudioStream" uid="uid://bpssmyot4ral7" path="res://assets/audio/ui/paper_flip-005.wav" id="5_8oluo"]
+[ext_resource type="AudioStream" uid="uid://b65ofyrcawpns" path="res://assets/audio/ui/paper_flip-006.wav" id="6_iw4w1"]
+
+[resource]
+random_pitch = 1.0116194
+streams_count = 6
+stream_0/stream = ExtResource("1_s8uo4")
+stream_1/stream = ExtResource("2_6ae1t")
+stream_2/stream = ExtResource("3_742tk")
+stream_3/stream = ExtResource("4_sjbst")
+stream_4/stream = ExtResource("5_8oluo")
+stream_5/stream = ExtResource("6_iw4w1")

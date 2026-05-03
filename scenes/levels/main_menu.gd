@@ -9,17 +9,22 @@ const credits := &"uid://bh8ipn2dy8ivj"
 @onready var start_button: Button = $EyesBelowTitleScreen/PaperPanel2/Button
 @onready var more_games_button: Button = $EyesBelowTitleScreen/PaperPanel3/Button
 
+@onready var button_click: AudioStreamPlayer = $ButtonClick
+
 func _on_start_pressed() -> void:
+	button_click.play()
 	# Reset progression state so each new game starts fresh.
 	if has_node(^"/root/GameState"):
 		get_node(^"/root/GameState").reset()
 	await fade_to_scene(level_1)
 
 func _on_quit_pressed() -> void:
+	button_click.play()
 	await fade_out()
 	get_tree().quit()
 
 func _on_credits_pressed() -> void:
+	button_click.play()
 	await fade_to_scene(credits)
 
 func fade_to_scene(scene: String):

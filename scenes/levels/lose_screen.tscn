@@ -33,8 +33,8 @@ script = ExtResource("4_fadectrl")
 metadata/_custom_type_script = "uid://3xr6yasbqo77"
 
 [node name="Label" type="Label" parent="." unique_id=657855194]
-offset_left = 1181.0
-offset_right = 1904.0
+offset_left = 1190.0
+offset_right = 1932.0
 offset_bottom = 134.0
 text = "Press enter to exit"
 label_settings = SubResource("LabelSettings_3od3v")
