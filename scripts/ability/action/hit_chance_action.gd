@@ -18,6 +18,8 @@ func run(context: ActionContext) -> void:
 	calc_chance = context.target.get_incoming_hit_chance(calc_chance)
 	
 	var success: bool = RNG.chance(calc_chance)
+	if not success and context.target:
+		context.target.missed.emit()
 
 	var action: Action = success_action if success else fail_action
 

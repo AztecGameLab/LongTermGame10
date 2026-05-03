@@ -13,10 +13,12 @@ enum Stat {
 
 # --- Signals ---
 
-## Fires when the character is attacked. 
+## Fires when the character is attacked.
 ## [br][param amount] is the actual damage dealt until zero. [param context] contains the source and the raw damage.
 signal damaged(amount: int, context: AttackContext)
 signal healed(amount: int, source: BattleCharacter)
+## Fires when an attack against this character misses.
+signal missed()
 
 signal health_updated(new_health: int)
 signal died()

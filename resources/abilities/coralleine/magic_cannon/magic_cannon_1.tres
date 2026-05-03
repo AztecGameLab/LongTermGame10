@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="MagicCannon" format=3 uid="uid://bfh4vkt77fdbm"]
 
 [ext_resource type="Script" uid="uid://duv3y2fv5rpwl" path="res://scripts/ability/magic_cannon.gd" id="1_0r5xt"]
+[ext_resource type="AudioStream" uid="uid://kusxnuslepvg" path="res://assets/audio/voicelines/coralleine/magic_cannon.wav" id="1_bdvjj"]
 [ext_resource type="Resource" uid="uid://yre4ichska3w" path="res://resources/status_effects/magic_cannon_status_effect.tres" id="2_3lscp"]
+[ext_resource type="AudioStream" uid="uid://bosg603ib68i0" path="res://assets/audio/voicelines/coralleine/magic_cannon_fire.wav" id="2_b7e71"]
 
 [resource]
 script = ExtResource("1_0r5xt")
 status_effect = ExtResource("2_3lscp")
 base_damage = 60
+release_audio = ExtResource("2_b7e71")
+audio = ExtResource("1_bdvjj")
 metadata/_custom_type_script = "uid://duv3y2fv5rpwl"

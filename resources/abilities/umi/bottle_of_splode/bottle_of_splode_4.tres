@@ -8,6 +8,7 @@
 [ext_resource type="Resource" uid="uid://b5uv4uthbh2j6" path="res://resources/status_effects/burn.tres" id="4_hbnbj"]
 [ext_resource type="Resource" uid="uid://566yr04amve8" path="res://resources/status_effects/reduce_enemy_accuracy.tres" id="5_f61d5"]
 [ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="5_igtvb"]
+[ext_resource type="AudioStream" uid="uid://mknkil4pij7i" path="res://assets/audio/voicelines/umi/bottle_of_splode.wav" id="8_kpq6q"]
 
 [sub_resource type="Resource" id="Resource_kpq6q"]
 script = ExtResource("2_a7h8h")
@@ -43,4 +44,5 @@ script = ExtResource("1_e5qeb")
 name = "Bottle of Splode"
 description = "Blows up the enemy for 30-60 damage and heats the surrounding water, applying 50 stacks of burn. Steam reduces the enemy's accuracy by 20%."
 action = SubResource("Resource_e2nbg")
+audio = ExtResource("8_kpq6q")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"

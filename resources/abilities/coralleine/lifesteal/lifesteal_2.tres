@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="2_aqbhc"]
 [ext_resource type="Script" uid="uid://dq0gts7suc1fg" path="res://scripts/ability/action/animation_action.gd" id="2_jf5nw"]
 [ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="4_q18fv"]
+[ext_resource type="AudioStream" uid="uid://vvnyccccrcxn" path="res://assets/audio/voicelines/coralleine/lifesteal.wav" id="5_t3snt"]
 
 [sub_resource type="Resource" id="Resource_vgrmj"]
 script = ExtResource("2_jf5nw")
@@ -26,4 +27,5 @@ script = ExtResource("2_aqbhc")
 name = "Lifesteal"
 description = "Deals 20-40 damage and heals for half."
 action = SubResource("Resource_76ive")
+audio = ExtResource("5_t3snt")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"

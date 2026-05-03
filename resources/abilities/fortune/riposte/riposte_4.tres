@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://8inxsylqt1fc" path="res://resources/status_effects/riposte_4.1.tres" id="4_f7ttm"]
 [ext_resource type="Resource" uid="uid://vmnkqffx60xw" path="res://resources/status_effects/riposte_4.2.tres" id="5_lch8y"]
 [ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="6_2nge7"]
+[ext_resource type="AudioStream" uid="uid://c6ccariehds35" path="res://assets/audio/voicelines/fortune/riposte.wav" id="7_sms5n"]
 
 [sub_resource type="Resource" id="Resource_vsn4t"]
 script = ExtResource("2_sms5n")
@@ -36,4 +37,5 @@ name = "Riposte"
 description = "Forces the enemy to target Fortune and halves the damage other allies take next turn."
 move_target_type = 0
 action = SubResource("Resource_eh2g8")
+audio = ExtResource("7_sms5n")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
