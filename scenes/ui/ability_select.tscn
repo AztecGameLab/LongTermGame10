@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ipos1tsu6bfm" path="res://scenes/ui/ability_select.gd" id="1_bw0a7"]
 [ext_resource type="Texture2D" uid="uid://hktm23vmjj1d" path="res://assets/ui/Name.png" id="2_0mh3k"]
 [ext_resource type="FontFile" uid="uid://b36l0tnkhtkdw" path="res://assets/ui/GenFont_Mansalva-Regular.ttf" id="2_bw0a7"]
+[ext_resource type="Texture2D" uid="uid://bt5fio16wlynu" path="res://assets/ui/enter_inspect.png" id="3_d8uel"]
 [ext_resource type="Texture2D" uid="uid://0givt5uiw6ut" path="res://assets/ui/AbilitySelectUI.png" id="4_0mh3k"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0mh3k"]
@@ -30,7 +31,28 @@ theme_override_constants/margin_right = 50
 [node name="Control" type="Control" parent="MarginContainer/VBoxContainer/MarginContainer" unique_id=1433714791]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer/Control" unique_id=1024994149]
+[node name="inspect" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer/Control" unique_id=1731916067]
+layout_mode = 0
+offset_left = 379.0
+offset_top = 10.0
+offset_right = 495.0
+offset_bottom = 155.0
+texture = ExtResource("3_d8uel")
+
+[node name="Move" type="RichTextLabel" parent="MarginContainer/VBoxContainer/MarginContainer/Control/inspect" unique_id=810350485]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 80.0
+offset_right = 120.0
+offset_bottom = 132.0
+theme_override_colors/default_color = Color(0.41960785, 0.23137255, 0.09019608, 1)
+theme_override_fonts/normal_font = ExtResource("2_bw0a7")
+theme_override_font_sizes/normal_font_size = 18
+text = "Tab"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NameBackground" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer/Control" unique_id=1024994149]
 layout_mode = 0
 offset_left = -14.0
 offset_top = -44.0

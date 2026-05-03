@@ -4,10 +4,10 @@ class_name StatusEffectInspect
 @export var battle_manager: BattleManager
 @export var ability_select: CanvasLayer
 
-@onready var _icon: TextureRect = $MarginContainer/PaperPanel/MarginContainer/VBoxContainer/Name/TextureRect
-@onready var _name_label: Label = $MarginContainer/PaperPanel/MarginContainer/VBoxContainer/Name/NameLabel
-@onready var _stacks_label: Label = $MarginContainer/PaperPanel/MarginContainer/VBoxContainer/Name/MarginContainer/VBoxContainer/StacksLabel
-@onready var _description_label: Label = $MarginContainer/PaperPanel/MarginContainer/VBoxContainer/Description/MarginContainer/DescriptionLabel
+@onready var _icon: TextureRect = $MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Name/TextureRect
+@onready var _name_label: Label = $MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Name/NameLabel
+@onready var _stacks_label: Label = $MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Name/MarginContainer/VBoxContainer/StacksLabel
+@onready var _description_label: Label = $MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Description/MarginContainer/DescriptionLabel
 
 var _inspecting: bool = false
 var _entries: Array[Dictionary] = []

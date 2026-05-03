@@ -139,3 +139,4 @@ metadata/_custom_type_script = "uid://3xr6yasbqo77"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=750711317]
 stream = ExtResource("28_u6w0s")
+volume_db = -6.0
