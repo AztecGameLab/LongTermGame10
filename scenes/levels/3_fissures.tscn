@@ -63,15 +63,25 @@ offset_top = -445.33334
 offset_right = 130.66663
 offset_bottom = -396.0
 
-[node name="Health" type="Label" parent="Umi/HealthBar" unique_id=1897370562]
+[node name="Health" type="Label" parent="Umi/HealthBar" unique_id=287430998]
 layout_mode = 0
 offset_left = 12.0
-offset_right = 103.0
+offset_right = 47.0
 offset_bottom = 73.0
 theme_override_font_sizes/font_size = 53
 text = "90"
 label_settings = ExtResource("12_wqhnf")
+horizontal_alignment = 2
 script = ExtResource("13_wqhnf")
+
+[node name="Health2" type="Label" parent="Umi/HealthBar/Health" unique_id=1194325721]
+layout_mode = 0
+offset_left = 33.333336
+offset_right = 124.33334
+offset_bottom = 73.0
+theme_override_font_sizes/font_size = 53
+text = "/90"
+label_settings = ExtResource("12_wqhnf")
 
 [node name="Fortune" parent="." unique_id=724902013 instance=ExtResource("5_nndlu")]
 position = Vector2(762.00006, 794.00006)
@@ -85,15 +95,25 @@ offset_top = -478.66675
 offset_right = 130.66663
 offset_bottom = -429.3334
 
-[node name="Health" type="Label" parent="Fortune/HealthBar" unique_id=2080645500]
+[node name="Health" type="Label" parent="Fortune/HealthBar" unique_id=1008976602]
 layout_mode = 0
 offset_left = 12.0
-offset_right = 103.0
+offset_right = 57.0
 offset_bottom = 73.0
 theme_override_font_sizes/font_size = 53
 text = "120"
 label_settings = ExtResource("12_wqhnf")
+horizontal_alignment = 2
 script = ExtResource("13_wqhnf")
+
+[node name="Health2" type="Label" parent="Fortune/HealthBar/Health" unique_id=1632571090]
+layout_mode = 0
+offset_left = 42.666626
+offset_right = 133.66663
+offset_bottom = 73.0
+theme_override_font_sizes/font_size = 53
+text = "/120"
+label_settings = ExtResource("12_wqhnf")
 
 [node name="Coralleine" parent="." unique_id=1190915457 instance=ExtResource("6_cd3gx")]
 position = Vector2(592, 914.00006)
@@ -106,15 +126,25 @@ offset_top = -482.66672
 offset_right = 130.66672
 offset_bottom = -433.33337
 
-[node name="Health" type="Label" parent="Coralleine/HealthBar" unique_id=1437877032]
+[node name="Health" type="Label" parent="Coralleine/HealthBar" unique_id=2132662786]
 layout_mode = 0
 offset_left = 12.0
-offset_right = 103.0
+offset_right = 58.0
 offset_bottom = 73.0
 theme_override_font_sizes/font_size = 53
 text = "100"
 label_settings = ExtResource("12_wqhnf")
+horizontal_alignment = 2
 script = ExtResource("13_wqhnf")
+
+[node name="Health2" type="Label" parent="Coralleine/HealthBar/Health" unique_id=1178378038]
+layout_mode = 0
+offset_left = 45.333336
+offset_right = 136.33334
+offset_bottom = 73.0
+theme_override_font_sizes/font_size = 53
+text = "/100"
+label_settings = ExtResource("12_wqhnf")
 
 [node name="Jelly" parent="." unique_id=641243926 instance=ExtResource("9_ccrnb")]
 position = Vector2(1388, 749)

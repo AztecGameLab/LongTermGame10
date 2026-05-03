@@ -15,7 +15,7 @@ metadata/_custom_type_script = "uid://w6h7oqtjl61k"
 
 [sub_resource type="Resource" id="Resource_c3ybc"]
 script = ExtResource("2_q437y")
-description = "Takes 70% less damage."
+description = "Take 70% less damage."
 modifiers = Array[ExtResource("4_fwfsx")]([SubResource("Resource_dn1es")])
 metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
 

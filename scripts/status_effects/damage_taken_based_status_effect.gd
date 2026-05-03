@@ -32,3 +32,6 @@ func run_triggers(type: StatusEffectTrigger.Type, container: StatusEffectContain
 	for trigger in triggers:
 		if trigger.trigger_type == type and trigger.action:
 			await trigger.action.run(ActionContext.new(null, container.target, container.battle, container.source, container))
+
+func get_remaining_turns(container: StatusEffectContainer) -> int:
+	return container.stacks

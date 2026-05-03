@@ -38,7 +38,7 @@ metadata/_graph_h = 61.0
 [resource]
 script = ExtResource("6_nk4ix")
 name = "Deflect?"
-description = "Blocks 50% of the damage taken this turn. Returns all damage back to the attacker."
+description = "Blocks (stacks)% of the damage taken this turn. Returns that damage back to the attacker."
 move_target_type = 0
 action = SubResource("Resource_iqkw1")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"

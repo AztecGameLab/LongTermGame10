@@ -17,7 +17,7 @@ metadata/_graph_h = 256.0
 
 [sub_resource type="Resource" id="Resource_qiox4"]
 script = ExtResource("2_2fj5t")
-description = "Receives 50% less healing."
+description = "Receive 50% less healing."
 modifiers = Array[ExtResource("3_3ur3n")]([SubResource("Resource_36o25")])
 metadata/_graph_x = 640.0
 metadata/_graph_y = 160.0

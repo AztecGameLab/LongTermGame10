@@ -15,7 +15,7 @@ metadata/_custom_type_script = "uid://w6h7oqtjl61k"
 
 [sub_resource type="Resource" id="Resource_yne0e"]
 script = ExtResource("2_4w4rs")
-description = "Twice as likely to be targeted by attacks."
+description = "2x more likely to be targeted by attacks."
 modifiers = Array[ExtResource("3_2cvs5")]([SubResource("Resource_2cvs5")])
 metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
 

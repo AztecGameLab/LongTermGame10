@@ -1,6 +1,8 @@
 extends BaseStatusEffect
 class_name ScalingStatusEffect
 
+@export_multiline() var description: String
+
 @export_group("Scaling")
 ## The base modifiers to apply. Their values are multiplied by the current stack count.
 @export var base_modifiers: Array[StatusEffectModifier]
@@ -46,5 +48,5 @@ func _setup_container(container: StatusEffectContainer) -> void:
 func get_remaining_turns(container: StatusEffectContainer) -> int:
 	return container.remaining_turns
 
-func get_effect_description(container: StatusEffectContainer) -> String:
-	return name + " (Stacks: " + str(container.stacks) + ")"
+func get_effect_description(_container: StatusEffectContainer) -> String:
+	return description

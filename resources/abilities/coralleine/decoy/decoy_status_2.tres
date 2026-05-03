@@ -18,7 +18,7 @@ metadata/_graph_h = 202.0
 
 [sub_resource type="Resource" id="Resource_34xnb"]
 script = ExtResource("2_2i1i1")
-description = "Two decoys reduce incoming hit chance by 60%."
+description = "2 decoys reduce incoming hit chance by 60%."
 modifiers = Array[ExtResource("1_sfwmm")]([SubResource("Resource_2axnw")])
 metadata/_graph_x = 180.0
 metadata/_graph_y = -40.0
@@ -37,7 +37,7 @@ metadata/_graph_h = 202.0
 
 [sub_resource type="Resource" id="Resource_2i1i1"]
 script = ExtResource("2_2i1i1")
-description = "One decoy reduces incoming hit chance by 30%."
+description = "1 decoy reduces incoming hit chance by 30%."
 modifiers = Array[ExtResource("1_sfwmm")]([SubResource("Resource_sfwmm")])
 metadata/_graph_x = 200.0
 metadata/_graph_y = 420.0

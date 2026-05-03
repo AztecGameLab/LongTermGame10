@@ -24,13 +24,13 @@ func get_label(_source: BattleCharacter) -> String:
 	return &"Magic Cannon"
 	
 func get_description(_source: BattleCharacter) -> String:
-	var description := "First cast loads the cannon. "
+	var description := "1st cast loads the cannon. "
 	if has_extra_shots():
 		description += "Each turn it stays loaded builds 1 charge. "
-		description += "Second cast fires for %d damage plus %d per charge." % [base_damage, damage_per_cannon_charge]
+		description += "2nd cast fires for %d damage plus %d per charge." % [base_damage, damage_per_cannon_charge]
 		description += "\nEach incoming hit removes 2 charges, dispelling the cannon if charges drop below 0."
 	else:
-		description += "Second cast fires for %d damage." % base_damage
+		description += "2nd cast fires for %d damage." % base_damage
 		description += "\nAny incoming hit while loaded dispels the cannon."
 	return description
 

@@ -9,7 +9,7 @@ class_name GuardianStatusEffect
 @export var duration_turns: int = 3
 
 func get_effect_description(_container: StatusEffectContainer) -> String:
-	return "Take less damage, and don't receive negative effects."
+	return "Take 50% less damage, and don't receive negative effects."
 
 func get_effect_name(_container: StatusEffectContainer) -> String:
 	return "Guardian"

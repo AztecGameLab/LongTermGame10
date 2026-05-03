@@ -18,7 +18,7 @@ metadata/_graph_h = 256.0
 
 [sub_resource type="Resource" id="Resource_mp1ee"]
 script = ExtResource("3_csppg")
-description = "Takes 20% more damage."
+description = "Take 20% more damage."
 modifiers = Array[ExtResource("4_1nd5b")]([SubResource("Resource_ru53i")])
 metadata/_graph_x = 540.0
 metadata/_graph_y = 200.0

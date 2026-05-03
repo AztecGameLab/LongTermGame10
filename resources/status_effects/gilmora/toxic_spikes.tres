@@ -11,8 +11,9 @@
 [sub_resource type="Resource" id="Resource_7q27p"]
 script = ExtResource("4_8s8mk")
 applied_stacks = 2
+upgrade_stacks = 2
 status_effect = ExtResource("7_uliur")
-max_stacks = 15
+max_stacks = 4
 override_target = true
 action_target = 2
 metadata/_custom_type_script = "uid://be5ru5snax08s"
@@ -33,7 +34,7 @@ metadata/_graph_h = 61.0
 
 [sub_resource type="Resource" id="Resource_61t6j"]
 script = ExtResource("2_qc7lu")
-description = "Applies poison to attackers."
+description = "Applies poison to attackers. Each attack applies 2 stacks up to a max of 6. Poison deals 5 damage per stack at the end of each round (30 damage maximum per round)."
 triggers = Array[ExtResource("4_pjfgw")]([SubResource("Resource_uliur")])
 metadata/_custom_type_script = "uid://c2ci25gmhnb4w"
 metadata/_graph_x = 0.0

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="1_dhy5r"]
 [ext_resource type="Script" uid="uid://be5ru5snax08s" path="res://scripts/ability/action/apply_status_action.gd" id="1_k0siq"]
-[ext_resource type="Resource" uid="uid://dha1r73qn70k7" path="res://resources/status_effects/gilmora/toxic_spikes.tres" id="2_h6uah"]
+[ext_resource type="Resource" uid="uid://da0cwew7ga8jw" path="res://resources/status_effects/gilmora/toxic_spikes.tres" id="2_h6uah"]
 
 [sub_resource type="Resource" id="Resource_i8ckn"]
 script = ExtResource("1_k0siq")
