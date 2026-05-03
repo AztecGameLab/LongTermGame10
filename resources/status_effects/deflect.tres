@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://w6h7oqtjl61k" path="res://scripts/status_effects/status_effect_modifier.gd" id="1_8r6gs"]
 [ext_resource type="Texture2D" uid="uid://d1de4d8ioecu5" path="res://assets/status_effects/EnGarde.png" id="2_o1wbo"]
-[ext_resource type="Script" uid="uid://bfrfeh04xxg16" path="res://scripts/status_effects/damage_taken_based_status_effect.gd" id="2_rp0ri"]
+[ext_resource type="Script" path="res://scripts/status_effects/damage_taken_based_status_effect.gd" id="2_rp0ri"]
 [ext_resource type="Script" uid="uid://d0uvf6jnorxpw" path="res://scripts/status_effects/status_effect_trigger.gd" id="3_o1wbo"]
 [ext_resource type="Script" uid="uid://da04mqqqleenk" path="res://scripts/ability/action/damage_taken_based_attack_action.gd" id="4_rp0ri"]
 [ext_resource type="Script" uid="uid://xwcbloqu4nwu" path="res://scripts/ability/action/abstracts/action.gd" id="5_qgldp"]

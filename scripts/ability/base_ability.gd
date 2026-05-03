@@ -8,8 +8,6 @@ enum TargetType {
 	SELF,
 	## Targets everybody on the battlefield.
 	EVERYONE,
-	## Targets any one ally or enemy. (doesn't show up for some reason?)
-	ANYONE,
 	## Targets the last character that attacked the character using this move.
 	ATTACKER,
 	
