@@ -7,9 +7,9 @@
 [ext_resource type="Resource" uid="uid://fbtwj6e3t3aa" path="res://resources/abilities/eyes/coil_up.tres" id="5_u7r4r"]
 [ext_resource type="Resource" uid="uid://djie3akhwaspl" path="res://resources/abilities/eyes/recover.tres" id="6_4ibot"]
 [ext_resource type="Shader" uid="uid://ctt5na6ppy7cj" path="res://scripts/shader/desaturate.gdshader" id="7_a7td0"]
-[ext_resource type="Texture2D" uid="uid://cy4x3g8v8ksis" path="res://assets/sprites/eyes/TheEyes_transparent_idle.png" id="8_a2pb1"]
-[ext_resource type="Texture2D" uid="uid://c6f1kk1x7xngd" path="res://assets/sprites/eyes/TheEyes_transparent_attack.png" id="8_u7r4r"]
-[ext_resource type="Texture2D" uid="uid://bnnlqwkglne2v" path="res://assets/sprites/eyes/TheEyes_transparent_status.png" id="10_4ibot"]
+[ext_resource type="Texture2D" uid="uid://cy4x3g8v8ksis" path="res://assets/sprites/eyes/TheEyes_idle.png" id="8_a2pb1"]
+[ext_resource type="Texture2D" uid="uid://c6f1kk1x7xngd" path="res://assets/sprites/eyes/TheEyes_attack.png" id="8_u7r4r"]
+[ext_resource type="Texture2D" uid="uid://bnnlqwkglne2v" path="res://assets/sprites/eyes/TheEyes_status.png" id="10_4ibot"]
 [ext_resource type="PackedScene" uid="uid://5b5nch8ier3n" path="res://scenes/ui/selected_indicator.tscn" id="11_uu51a"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4ltk0"]

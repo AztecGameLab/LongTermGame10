@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnnlqwkglne2v"
-path="res://.godot/imported/TheEyes_transparent_status.png-c0072e140e7935aad1226c0aef5addb2.ctex"
+uid="uid://cy4x3g8v8ksis"
+path="res://.godot/imported/TheEyes_idle.png-3b015fcdb41fe94c730634cdecd76548.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/eyes/TheEyes_transparent_status.png"
-dest_files=["res://.godot/imported/TheEyes_transparent_status.png-c0072e140e7935aad1226c0aef5addb2.ctex"]
+source_file="res://assets/sprites/eyes/TheEyes_idle.png"
+dest_files=["res://.godot/imported/TheEyes_idle.png-3b015fcdb41fe94c730634cdecd76548.ctex"]
 
 [params]
 

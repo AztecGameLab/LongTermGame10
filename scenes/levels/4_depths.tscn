@@ -43,13 +43,6 @@ next_scene_on_win = ExtResource("29_winscn")
 next_scene_on_loss = ExtResource("30_losescn")
 metadata/_custom_type_script = "uid://cbi33r5foad57"
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1427683608]
-offset_left = 1095.0
-offset_top = 74.0
-offset_right = 2298.0
-offset_bottom = 1040.0
-color = Color(0.3254902, 0.33333334, 0.38039216, 1)
-
 [node name="NormalGameplay(focusedOnFortuneOnly)4" type="Sprite2D" parent="." unique_id=641535787]
 visible = false
 texture = ExtResource("2_3e11k")
