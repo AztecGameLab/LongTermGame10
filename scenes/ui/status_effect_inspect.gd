@@ -65,6 +65,9 @@ func _enter() -> void:
 		ability_select.set_process_input(false)
 		if ability_select.selected_character:
 			ability_select.selected_character.selected = false
+		var timer: Timer = ability_select.get_node_or_null("MarginContainer/VBoxContainer/MarginContainer/Control/inspect/AnimatedSprite2D/Timer")
+		if timer and not timer.is_stopped():
+			timer.stop()
 	visible = true
 	_build_entries()
 	_focus_index = 0

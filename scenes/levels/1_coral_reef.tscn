@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://cbi33r5foad57" path="res://scripts/battle_logic/battle_manager.gd" id="1_m8s2v"]
 [ext_resource type="PackedScene" uid="uid://cg3tnggxog80a" path="res://scenes/characters/players/fortune.tscn" id="2_a4rq4"]
 [ext_resource type="PackedScene" uid="uid://cfbgyh6odoe03" path="res://scenes/characters/players/umi.tscn" id="3_m8s2v"]
-[ext_resource type="PackedScene" uid="uid://cj4h68lkbbwkt" path="res://scenes/ui/ability_select.tscn" id="4_a4rq4"]
 [ext_resource type="Script" uid="uid://d1o5abfusku1j" path="res://scripts/ability/base_ability.gd" id="4_cmpws"]
 [ext_resource type="Resource" uid="uid://q0vaumedltl4" path="res://resources/abilities/umi/bottle_of_heal/bottle_of_heal_1.tres" id="5_3j42f"]
 [ext_resource type="Resource" uid="uid://dc32yg3yahssj" path="res://resources/abilities/umi/bottle_of_splode/bottle_of_splode_1.tres" id="6_7mltf"]
@@ -29,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://cvdf4p2hgw0rq" path="res://assets/ui/coral_reef/Coral-5.png" id="28_27fr0"]
 [ext_resource type="Texture2D" uid="uid://bs3o3q2aihtsd" path="res://assets/ui/coral_reef/Coral-1.png" id="28_elafc"]
 [ext_resource type="Texture2D" uid="uid://bf2rql1esuw2m" path="res://assets/ui/coral_reef/Coral-12.png" id="28_lv4ky"]
+[ext_resource type="PackedScene" uid="uid://c55yhompt401q" path="res://scenes/ui/ability_select_indicate.tscn" id="29_elafc"]
 [ext_resource type="Texture2D" uid="uid://r6s7gog3m3ts" path="res://assets/ui/coral_reef/Coral-14.png" id="29_lv4ky"]
 [ext_resource type="Texture2D" uid="uid://xme0117fhsgn" path="res://assets/ui/coral_reef/Coral-15.png" id="30_i6tgk"]
 [ext_resource type="Texture2D" uid="uid://bth7kewm54mf8" path="res://assets/ui/coral_reef/Coral-4.png" id="31_7nltr"]
@@ -206,7 +206,7 @@ rotation = -0.7853982
 scale = Vector2(1.0487102, 1.0487101)
 texture = ExtResource("32_7nltr")
 
-[node name="AbilitySelect" parent="." unique_id=844678139 node_paths=PackedStringArray("battle_manager") instance=ExtResource("4_a4rq4")]
+[node name="AbilitySelect" parent="." unique_id=844678139 node_paths=PackedStringArray("battle_manager") instance=ExtResource("29_elafc")]
 battle_manager = NodePath("..")
 
 [node name="StatusEffectInspect" parent="." unique_id=552639583 node_paths=PackedStringArray("battle_manager", "ability_select") instance=ExtResource("22_bltc4")]

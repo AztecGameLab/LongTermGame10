@@ -154,7 +154,7 @@ func _run_actions(after_each_action: Callable):
 		var action := _queued_actions[0]
 		_queued_actions.remove_at(0)
 		var source := action.source
-		if (not source) or source.alive:
+		if (not source or source.alive):
 			await action.run()
 		after_each_action.call()
 		await get_tree().create_timer(0.35).timeout

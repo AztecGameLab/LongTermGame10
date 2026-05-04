@@ -30,7 +30,7 @@ func run():
 		print(source.character_name + " using " + ability.get_label(source) + " on " + (str(targets) if targets else "no one"))
 		source.used_ability.emit(ability, targets)
 	var first_target := true
-	for target in targets:
+	for target in targets.filter(func(c): return c.alive):
 		await action.run(ActionContext.new(source, target, battle_context, source, null, first_target, ability))
 		first_target = false
 
