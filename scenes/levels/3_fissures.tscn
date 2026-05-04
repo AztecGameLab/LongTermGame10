@@ -29,10 +29,10 @@
 [ext_resource type="PackedScene" uid="uid://csbhyubbu6bo6" path="res://scenes/ui/fade.tscn" id="25_3wjve"]
 [ext_resource type="Resource" uid="uid://bx2mnromk5oc8" path="res://resources/abilities/coralleine/decoy/decoy_3.tres" id="25_md5a0"]
 [ext_resource type="Script" uid="uid://3xr6yasbqo77" path="res://scenes/levels/fade_control.gd" id="26_myvc7"]
-[ext_resource type="AudioStream" uid="uid://bq06xn6thxy1m" path="res://assets/audio/music/Glimmer.mp3" id="27_uy2m1"]
 [ext_resource type="PackedScene" uid="uid://d3shop3mqorls" path="res://scenes/levels/shop_3.tscn" id="28_shopnext"]
 [ext_resource type="PackedScene" uid="uid://c6losescrxy01" path="res://scenes/levels/lose_screen.tscn" id="29_losescn"]
 [ext_resource type="PackedScene" uid="uid://b828m0hfpjle8" path="res://scenes/ui/status_effect_inspect.tscn" id="30_wqhnf"]
+[ext_resource type="AudioStream" uid="uid://cvt4fw3f7btxf" path="res://assets/audio/music/Glimmer.wav" id="34_1i60b"]
 [ext_resource type="Texture2D" uid="uid://bnemp6vjldyu7" path="res://assets/ui/fissure_background.png" id="34_wj77d"]
 
 [sub_resource type="Resource" id="Resource_cd3gx"]
@@ -180,5 +180,5 @@ script = ExtResource("26_myvc7")
 metadata/_custom_type_script = "uid://3xr6yasbqo77"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=576167800]
-stream = ExtResource("27_uy2m1")
-volume_db = -9.0
+stream = ExtResource("34_1i60b")
+volume_db = -6.0
