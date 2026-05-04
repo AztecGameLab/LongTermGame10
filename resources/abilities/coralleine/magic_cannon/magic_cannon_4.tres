@@ -9,8 +9,8 @@
 script = ExtResource("1_mx3dk")
 status_effect = ExtResource("2_mdej5")
 level = 4
-base_damage = 130
-damage_per_cannon_charge = 15
+base_damage = 100
+damage_per_cannon_charge = 25
 release_audio = ExtResource("2_4xuoa")
 audio = ExtResource("1_mdej5")
 metadata/_custom_type_script = "uid://duv3y2fv5rpwl"

@@ -24,14 +24,15 @@ func get_label(_source: BattleCharacter) -> String:
 	return &"Magic Cannon"
 	
 func get_description(_source: BattleCharacter) -> String:
+	var break_pct := int(round(status_effect.break_chance * 100.0)) if status_effect else 0
 	var description := "1st cast loads the cannon. "
 	if has_extra_shots():
 		description += "Each turn it stays loaded builds 1 charge. "
 		description += "2nd cast fires for %d damage plus %d per charge." % [base_damage, damage_per_cannon_charge]
-		description += "\nEach incoming hit removes 2 charges, dispelling the cannon if charges drop below 0."
+		description += "\nEach incoming hit has a %d%% chance to remove 1 charge, dispelling the cannon if charges drop below 0. Luck makes the chance lower." % break_pct
 	else:
 		description += "2nd cast fires for %d damage." % base_damage
-		description += "\nAny incoming hit while loaded dispels the cannon."
+		description += "\nEach incoming hit has a %d%% chance to dispel the cannon. Luck makes the chance lower." % break_pct
 	return description
 
 func get_target_type(source: BattleCharacter) -> BaseAbility.TargetType:

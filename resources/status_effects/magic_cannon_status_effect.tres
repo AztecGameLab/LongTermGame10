@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("1_yho0d")
+break_chance = 0.35
 name = "Magic Cannon"
 icon = ExtResource("1_0rx5l")
 effect_type = 2

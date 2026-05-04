@@ -59,7 +59,7 @@ metadata/_custom_type_script = "uid://da17dshmjafs6"
 [resource]
 script = ExtResource("7_vn8mx")
 name = "Reckless Slash"
-description = "Deals 80-100 damage to an enemy. Fortune takes 40 recoil damage. Damage buffs scale both."
+description = "Deals 80-100 damage to an enemy. Fortune takes 40 recoil damage. Damage buffs scale enemy AND self damage."
 action = SubResource("Resource_pjjtl")
 audio = ExtResource("7_xymqa")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
