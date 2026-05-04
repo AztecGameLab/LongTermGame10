@@ -244,7 +244,7 @@ animation = &"open"
 autoplay = "open"
 
 [node name="SelectedIndicator" parent="." unique_id=2093613863 instance=ExtResource("8_ebunu")]
-offset_left = -321.33334
-offset_top = -647.99994
-offset_right = -259.2
-offset_bottom = -588.88885
+offset_left = -320.0
+offset_top = -648.0
+offset_right = -258.0
+offset_bottom = -588.0

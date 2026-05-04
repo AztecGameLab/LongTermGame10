@@ -280,5 +280,5 @@ autoplay = "idle"
 [node name="SelectedIndicator" parent="." unique_id=2093613863 instance=ExtResource("24_8svyu")]
 offset_left = -160.0
 offset_top = -424.0
-offset_right = -138.4
-offset_bottom = -391.73334
+offset_right = -139.0
+offset_bottom = -392.0

@@ -25,6 +25,14 @@
 [ext_resource type="PackedScene" uid="uid://ctdmu6xr5qfnf" path="res://scenes/levels/shop_1.tscn" id="21_shopnext"]
 [ext_resource type="PackedScene" uid="uid://b828m0hfpjle8" path="res://scenes/ui/status_effect_inspect.tscn" id="22_bltc4"]
 [ext_resource type="PackedScene" uid="uid://c6losescrxy01" path="res://scenes/levels/lose_screen.tscn" id="22_losescn"]
+[ext_resource type="Texture2D" uid="uid://dnoggoss1m1vl" path="res://assets/ui/coral_reef/coral_reef_background.png" id="26_joies"]
+[ext_resource type="Texture2D" uid="uid://cvdf4p2hgw0rq" path="res://assets/ui/coral_reef/Coral-5.png" id="28_27fr0"]
+[ext_resource type="Texture2D" uid="uid://bs3o3q2aihtsd" path="res://assets/ui/coral_reef/Coral-1.png" id="28_elafc"]
+[ext_resource type="Texture2D" uid="uid://bf2rql1esuw2m" path="res://assets/ui/coral_reef/Coral-12.png" id="28_lv4ky"]
+[ext_resource type="Texture2D" uid="uid://r6s7gog3m3ts" path="res://assets/ui/coral_reef/Coral-14.png" id="29_lv4ky"]
+[ext_resource type="Texture2D" uid="uid://xme0117fhsgn" path="res://assets/ui/coral_reef/Coral-15.png" id="30_i6tgk"]
+[ext_resource type="Texture2D" uid="uid://bth7kewm54mf8" path="res://assets/ui/coral_reef/Coral-4.png" id="31_7nltr"]
+[ext_resource type="Texture2D" uid="uid://dds0vn0xyhtld" path="res://assets/ui/coral_reef/Coral-8.png" id="32_7nltr"]
 
 [sub_resource type="Resource" id="Resource_f1sko"]
 script = ExtResource("11_uf7ed")
@@ -39,13 +47,17 @@ next_scene_on_win = ExtResource("21_shopnext")
 next_scene_on_loss = ExtResource("22_losescn")
 metadata/_custom_type_script = "uid://cbi33r5foad57"
 
+[node name="CoralReefBackground" type="Sprite2D" parent="." unique_id=642712526]
+texture = ExtResource("26_joies")
+centered = false
+
 [node name="NormalGameplay(focusedOnFortuneOnly)4" type="Sprite2D" parent="." unique_id=641535787]
 visible = false
 texture = ExtResource("7_8wj54")
 centered = false
 
 [node name="Umi" parent="." unique_id=34133432 instance=ExtResource("3_m8s2v")]
-position = Vector2(937.00006, 674)
+position = Vector2(970.00006, 750)
 abilities = Array[ExtResource("4_cmpws")]([ExtResource("5_3j42f"), ExtResource("6_7mltf")])
 battle_level = 1
 
@@ -76,7 +88,7 @@ text = "/90"
 label_settings = ExtResource("10_bltc4")
 
 [node name="Fortune" parent="." unique_id=724902013 instance=ExtResource("2_a4rq4")]
-position = Vector2(762.00006, 794.00006)
+position = Vector2(778.00006, 854)
 abilities = Array[ExtResource("4_cmpws")]([ExtResource("9_dp7j0"), ExtResource("10_q5g08")])
 initial_status_effects = Array[ExtResource("11_uf7ed")]([SubResource("Resource_f1sko")])
 battle_level = 1
@@ -108,7 +120,7 @@ text = "/120"
 label_settings = ExtResource("10_bltc4")
 
 [node name="Coralleine" parent="." unique_id=1190915457 instance=ExtResource("1_0umlr")]
-position = Vector2(592, 914.00006)
+position = Vector2(579, 950)
 abilities = Array[ExtResource("4_cmpws")]([ExtResource("14_jok4t"), ExtResource("15_f1sko")])
 battle_level = 1
 
@@ -139,13 +151,60 @@ text = "/100"
 label_settings = ExtResource("10_bltc4")
 
 [node name="ScorpionFish" parent="." unique_id=1761068697 instance=ExtResource("6_axod2")]
-position = Vector2(1454, 767)
+position = Vector2(1471, 785)
+metadata/_edit_lock_ = true
 
 [node name="HealthBar" parent="ScorpionFish" unique_id=1784958776 instance=ExtResource("8_walo4")]
 offset_left = -430.66675
 offset_top = -700.0
 offset_right = 548.0
 offset_bottom = -650.6667
+
+[node name="Coral14" type="Sprite2D" parent="." unique_id=763103275]
+position = Vector2(1842.9999, 777)
+scale = Vector2(0.9009902, 0.9009901)
+texture = ExtResource("29_lv4ky")
+
+[node name="Coral1" type="Sprite2D" parent="." unique_id=1177723528]
+position = Vector2(1592, 966.99994)
+rotation = 0.02256982
+scale = Vector2(0.8599247, 0.8599246)
+texture = ExtResource("28_elafc")
+flip_h = true
+
+[node name="Coral15" type="Sprite2D" parent="." unique_id=2027756734]
+position = Vector2(1863.6349, 938.18713)
+scale = Vector2(1.5470297, 1.5470297)
+texture = ExtResource("30_i6tgk")
+
+[node name="Coral5" type="Sprite2D" parent="." unique_id=1955254759]
+position = Vector2(1946.6349, 794.18713)
+rotation = -0.5235988
+texture = ExtResource("31_7nltr")
+
+[node name="Coral6" type="Sprite2D" parent="." unique_id=922248643]
+position = Vector2(1811.0001, 929.0001)
+rotation = 0.5235988
+scale = Vector2(0.9725861, 0.9913367)
+texture = ExtResource("28_27fr0")
+flip_h = true
+
+[node name="Coral4" type="Sprite2D" parent="." unique_id=1938528448]
+position = Vector2(1820, 950)
+texture = ExtResource("31_7nltr")
+
+[node name="Coral13" type="Sprite2D" parent="." unique_id=435947285]
+position = Vector2(1563.0001, 1027)
+rotation = -0.31968975
+scale = Vector2(0.7952229, 0.7952226)
+texture = ExtResource("28_lv4ky")
+flip_h = true
+
+[node name="Coral8" type="Sprite2D" parent="." unique_id=1669871527]
+position = Vector2(1867, 1003.0001)
+rotation = -0.7853982
+scale = Vector2(1.0487102, 1.0487101)
+texture = ExtResource("32_7nltr")
 
 [node name="AbilitySelect" parent="." unique_id=844678139 node_paths=PackedStringArray("battle_manager") instance=ExtResource("4_a4rq4")]
 battle_manager = NodePath("..")
