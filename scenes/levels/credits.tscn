@@ -3531,7 +3531,7 @@ horizontal_alignment = 1
 
 [node name="TitleTheme" type="Label" parent="MarginContainer/VBoxContainer/Music" unique_id=86982805]
 layout_mode = 2
-text = "Title Theme"
+text = "Eyes Below Main Theme"
 label_settings = SubResource("LabelSettings_m0p4o")
 horizontal_alignment = 1
 

@@ -208,7 +208,7 @@ func start_selecting_targets():
 		_:
 			push_error("A target type was used that is not covered by the Ability Picker!")
 	
-	selectable_targets.assign(selectable_targets.map(func(a): return a.filter(func(c): return c.alive)))
+	selectable_targets.assign(selectable_targets.map(func(a): return a.filter(func(c): return c.alive)).filter(func(a): return not a.is_empty()))
 	
 	target_index = 0
 	selecting_target = true
