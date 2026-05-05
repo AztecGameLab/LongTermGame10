@@ -184,5 +184,5 @@ metadata/_custom_type_script = "uid://3xr6yasbqo77"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=576167800]
 stream = ExtResource("34_1i60b")
-volume_db = -6.0
+volume_db = -9.0
 bus = &"Music"
