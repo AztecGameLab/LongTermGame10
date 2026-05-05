@@ -32,6 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://r6s7gog3m3ts" path="res://assets/ui/coral_reef/Coral-14.png" id="29_lv4ky"]
 [ext_resource type="Texture2D" uid="uid://xme0117fhsgn" path="res://assets/ui/coral_reef/Coral-15.png" id="30_i6tgk"]
 [ext_resource type="Texture2D" uid="uid://bth7kewm54mf8" path="res://assets/ui/coral_reef/Coral-4.png" id="31_7nltr"]
+[ext_resource type="PackedScene" uid="uid://dki7wwnotyklo" path="res://scenes/ui/settings.tscn" id="31_dptmu"]
 [ext_resource type="Texture2D" uid="uid://dds0vn0xyhtld" path="res://assets/ui/coral_reef/Coral-8.png" id="32_7nltr"]
 
 [sub_resource type="Resource" id="Resource_f1sko"]
@@ -214,6 +215,8 @@ visible = false
 battle_manager = NodePath("..")
 ability_select = NodePath("../AbilitySelect")
 
+[node name="Settings" parent="." unique_id=317798756 instance=ExtResource("31_dptmu")]
+
 [node name="Fade" parent="." unique_id=29959157 node_paths=PackedStringArray("audio") instance=ExtResource("18_walo4")]
 visible = false
 audio = NodePath("../AudioStreamPlayer")
@@ -225,3 +228,4 @@ metadata/_custom_type_script = "uid://3xr6yasbqo77"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1548842949]
 stream = ExtResource("20_ty1hb")
 volume_db = -12.0
+bus = &"Music"

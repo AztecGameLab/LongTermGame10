@@ -33,6 +33,7 @@
 [ext_resource type="AudioStream" uid="uid://bsr046adejqai" path="res://assets/audio/music/TheEyesBeginning.wav" id="28_u6w0s"]
 [ext_resource type="PackedScene" uid="uid://b5winscrnxy01" path="res://scenes/levels/win_screen.tscn" id="29_winscn"]
 [ext_resource type="PackedScene" uid="uid://c6losescrxy01" path="res://scenes/levels/lose_screen.tscn" id="30_losescn"]
+[ext_resource type="PackedScene" uid="uid://dki7wwnotyklo" path="res://scenes/ui/settings.tscn" id="32_y8pe3"]
 [ext_resource type="PackedScene" uid="uid://b828m0hfpjle8" path="res://scenes/ui/status_effect_inspect.tscn" id="34_6pxs4"]
 
 [node name="Depths" type="Node2D" unique_id=1926475326 node_paths=PackedStringArray("player_team", "boss_team")]
@@ -159,6 +160,8 @@ visible = false
 battle_manager = NodePath("..")
 ability_select = NodePath("../AbilitySelect")
 
+[node name="Settings" parent="." unique_id=317798756 instance=ExtResource("32_y8pe3")]
+
 [node name="Fade" parent="." unique_id=29959157 node_paths=PackedStringArray("audio") instance=ExtResource("26_qajmi")]
 visible = false
 audio = NodePath("../AudioStreamPlayer")
@@ -170,3 +173,4 @@ metadata/_custom_type_script = "uid://3xr6yasbqo77"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=750711317]
 stream = ExtResource("28_u6w0s")
 volume_db = -6.0
+bus = &"Music"

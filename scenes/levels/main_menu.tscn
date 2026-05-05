@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://tpuw8q08ply2" path="res://resources/audio/paper_flips.tres" id="5_crctu"]
 [ext_resource type="AudioStream" uid="uid://bkfgwe03dm5oh" path="res://assets/audio/music/MainTheme.mp3" id="5_fkd6t"]
 [ext_resource type="PackedScene" uid="uid://csbhyubbu6bo6" path="res://scenes/ui/fade.tscn" id="6_keln3"]
+[ext_resource type="PackedScene" uid="uid://dki7wwnotyklo" path="res://scenes/ui/settings.tscn" id="7_sn5u3"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_keln3"]
 
@@ -95,12 +96,15 @@ vertical_alignment = 1
 stream = ExtResource("5_fkd6t")
 volume_db = -12.0
 autoplay = true
+bus = &"Music"
 
 [node name="ButtonClick" type="AudioStreamPlayer" parent="." unique_id=2124984892]
 stream = ExtResource("5_crctu")
 volume_db = -9.0
 mix_target = 2
 bus = &"SFX"
+
+[node name="Settings" parent="." unique_id=317798756 instance=ExtResource("7_sn5u3")]
 
 [node name="Fade" parent="." unique_id=872351749 node_paths=PackedStringArray("audio") instance=ExtResource("6_keln3")]
 visible = false
