@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="FadingStatusEffect" format=3 uid="uid://b5uv4uthbh2j6"]
 
-[ext_resource type="Texture2D" uid="uid://c50u43yrto437" path="res://assets/status_effects/Poison.png" id="1_ati8t"]
+[ext_resource type="Texture2D" uid="uid://dqmmhupkvy5an" path="res://assets/status_effects/Burn.png" id="1_ati8t"]
 [ext_resource type="Script" uid="uid://w6h7oqtjl61k" path="res://scripts/status_effects/status_effect_modifier.gd" id="1_v15xi"]
 [ext_resource type="Script" uid="uid://dot0bfh4ojuo7" path="res://scripts/status_effects/fading_status_effect.gd" id="2_ati8t"]
 [ext_resource type="Script" uid="uid://d0uvf6jnorxpw" path="res://scripts/status_effects/status_effect_trigger.gd" id="3_koph0"]
