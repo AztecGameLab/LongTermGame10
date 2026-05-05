@@ -10,10 +10,11 @@ config_version=5
 
 [application]
 
-config/name="LTG10 Eyes Below"
+config/name="Eyes Below"
 run/main_scene="uid://bdykas68ga1qg"
 config/features=PackedStringArray("4.6", "Mobile")
-config/icon="res://icon.svg"
+config/icon="uid://b2or2fspbw72l"
+config/windows_native_icon="res://assets/icon/App_Icon.ico"
 
 [autoload]
 
