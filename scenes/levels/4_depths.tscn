@@ -57,7 +57,7 @@ texture = ExtResource("5_i6jfv")
 centered = false
 
 [node name="EnvDepthsTreasure" type="Sprite2D" parent="." unique_id=1731431428]
-modulate = Color(0.7512576, 0.81927645, 0.9600244, 1)
+modulate = Color(0.8229925, 0.8550887, 0.94465655, 1)
 position = Vector2(1691.9999, 778)
 scale = Vector2(0.787338, 0.787338)
 texture = ExtResource("6_5ajus")
