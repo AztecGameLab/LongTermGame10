@@ -31,6 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://c1oskpjo8ptrk" path="res://scenes/levels/shop_2.tscn" id="26_shopnext"]
 [ext_resource type="PackedScene" uid="uid://c6losescrxy01" path="res://scenes/levels/lose_screen.tscn" id="27_losescn"]
 [ext_resource type="PackedScene" uid="uid://b828m0hfpjle8" path="res://scenes/ui/status_effect_inspect.tscn" id="28_2gh6g"]
+[ext_resource type="PackedScene" uid="uid://dki7wwnotyklo" path="res://scenes/ui/settings.tscn" id="30_menln"]
 [ext_resource type="Texture2D" uid="uid://ddkv1ar4yot2k" path="res://assets/ui/shipwreck_background.png" id="32_u2reh"]
 
 [sub_resource type="Resource" id="Resource_yuf3x"]
@@ -169,6 +170,8 @@ visible = false
 battle_manager = NodePath("..")
 ability_select = NodePath("../AbilitySelect")
 
+[node name="Settings" parent="." unique_id=317798756 instance=ExtResource("30_menln")]
+
 [node name="Fade" parent="." unique_id=29959157 node_paths=PackedStringArray("audio") instance=ExtResource("23_yuf3x")]
 visible = false
 audio = NodePath("../AudioStreamPlayer")
@@ -180,3 +183,4 @@ metadata/_custom_type_script = "uid://3xr6yasbqo77"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1916575304]
 stream = ExtResource("25_rjwpj")
 volume_db = -6.0
+bus = &"Music"

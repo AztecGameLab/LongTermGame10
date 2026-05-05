@@ -205,3 +205,4 @@ stream = ExtResource("6_mr3lx")
 volume_db = -9.0
 mix_target = 2
 max_polyphony = 6
+bus = &"SFX"

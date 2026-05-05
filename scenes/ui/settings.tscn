@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://dki7wwnotyklo"]
+
+[ext_resource type="Script" uid="uid://b6os6cs56gf8k" path="res://scenes/ui/settings.gd" id="1_7pacj"]
+[ext_resource type="Texture2D" uid="uid://ckiboxi4r75vf" path="res://assets/ui/settings_icon.svg" id="1_8wfqe"]
+[ext_resource type="Texture2D" uid="uid://bk5fwvj40mo6j" path="res://assets/ui/settings_icon_dark.svg" id="3_h175o"]
+[ext_resource type="AudioStream" uid="uid://yxu2buj6y3ie" path="res://assets/audio/voicelines/umi/bottle_of_invis.wav" id="4_ptynm"]
+[ext_resource type="AudioStream" uid="uid://n31cfkj1x8pg" path="res://assets/audio/voicelines/fortune/lucky_charm.wav" id="5_ncfhn"]
+[ext_resource type="AudioStream" uid="uid://cr71gfk3aeboc" path="res://assets/audio/voicelines/coralleine/rally.wav" id="6_ob3hf"]
+[ext_resource type="AudioStream" uid="uid://cu2m2aolt6ohu" path="res://assets/audio/voicelines/fortune/pierce.wav" id="7_4xk3x"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ptynm"]
+streams_count = 4
+stream_0/stream = ExtResource("4_ptynm")
+stream_0/weight = 1.5
+stream_1/stream = ExtResource("5_ncfhn")
+stream_2/stream = ExtResource("6_ob3hf")
+stream_3/stream = ExtResource("7_4xk3x")
+
+[node name="Settings" type="CanvasLayer" unique_id=317798756]
+script = ExtResource("1_7pacj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1867489429]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -72.0
+offset_bottom = 72.0
+grow_horizontal = 0
+
+[node name="SettingsButton" type="TextureButton" parent="VBoxContainer" unique_id=109168672]
+layout_mode = 2
+size_flags_horizontal = 8
+texture_normal = ExtResource("3_h175o")
+texture_pressed = ExtResource("3_h175o")
+texture_hover = ExtResource("1_8wfqe")
+texture_disabled = ExtResource("3_h175o")
+texture_focused = ExtResource("3_h175o")
+
+[node name="Music" type="HBoxContainer" parent="VBoxContainer" unique_id=185474464]
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/Music" unique_id=1334143432]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 24
+text = "Music"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/Music" unique_id=1762150413]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.05
+
+[node name="SFX" type="HBoxContainer" parent="VBoxContainer" unique_id=397896365]
+visible = false
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/SFX" unique_id=557894160]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 24
+text = "SFX"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/SFX" unique_id=996042397]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.05
+
+[node name="Timer" type="Timer" parent="VBoxContainer/SFX/HSlider" unique_id=789315232]
+wait_time = 0.25
+one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="VBoxContainer/SFX" unique_id=1636184874]
+stream = SubResource("AudioStreamRandomizer_ptynm")
+bus = &"SFX"
+
+[connection signal="mouse_exited" from="VBoxContainer/SettingsButton" to="VBoxContainer/SettingsButton" method="release_focus"]
+[connection signal="mouse_exited" from="VBoxContainer/Music/HSlider" to="VBoxContainer/Music/HSlider" method="release_focus"]
+[connection signal="mouse_exited" from="VBoxContainer/SFX/HSlider" to="VBoxContainer/SFX/HSlider" method="release_focus"]

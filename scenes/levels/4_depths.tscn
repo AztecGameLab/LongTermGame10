@@ -5,7 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://cfbgyh6odoe03" path="res://scenes/characters/players/umi.tscn" id="3_yfc2s"]
 [ext_resource type="PackedScene" uid="uid://rb6hbhelm4lq" path="res://scenes/ui/health_bar.tscn" id="4_18mhl"]
 [ext_resource type="PackedScene" uid="uid://cg3tnggxog80a" path="res://scenes/characters/players/fortune.tscn" id="5_60ghh"]
+[ext_resource type="Texture2D" uid="uid://cii7hcs2bix2u" path="res://assets/ui/depths/Env_Depths Background.png" id="5_i6jfv"]
 [ext_resource type="Resource" uid="uid://boy7gg5bk727q" path="res://resources/abilities/umi/bottle_of_heal/bottle_of_heal_4.tres" id="5_t871m"]
+[ext_resource type="Texture2D" uid="uid://o6bmyr4dyfxx" path="res://assets/ui/depths/Env_Depths Treasure.png" id="6_5ajus"]
 [ext_resource type="Resource" uid="uid://ceagyylpk7l64" path="res://resources/abilities/umi/bottle_of_splode/bottle_of_splode_4.tres" id="6_il4l7"]
 [ext_resource type="PackedScene" uid="uid://bai7shmnqcg3f" path="res://scenes/characters/players/coralleine.tscn" id="6_w51aq"]
 [ext_resource type="Resource" uid="uid://r0uijawe6ust" path="res://resources/abilities/umi/bottle_of_acid/bottle_of_acid_4.tres" id="7_lfa6g"]
@@ -33,7 +35,9 @@
 [ext_resource type="AudioStream" uid="uid://bsr046adejqai" path="res://assets/audio/music/TheEyesBeginning.wav" id="28_u6w0s"]
 [ext_resource type="PackedScene" uid="uid://b5winscrnxy01" path="res://scenes/levels/win_screen.tscn" id="29_winscn"]
 [ext_resource type="PackedScene" uid="uid://c6losescrxy01" path="res://scenes/levels/lose_screen.tscn" id="30_losescn"]
+[ext_resource type="PackedScene" uid="uid://dki7wwnotyklo" path="res://scenes/ui/settings.tscn" id="32_y8pe3"]
 [ext_resource type="PackedScene" uid="uid://b828m0hfpjle8" path="res://scenes/ui/status_effect_inspect.tscn" id="34_6pxs4"]
+[ext_resource type="Texture2D" uid="uid://c2j7mvhy77ucp" path="res://assets/ui/depths/Env_Depths Foreground.png" id="37_n50s2"]
 
 [node name="Depths" type="Node2D" unique_id=1926475326 node_paths=PackedStringArray("player_team", "boss_team")]
 script = ExtResource("1_rjim6")
@@ -47,6 +51,16 @@ metadata/_custom_type_script = "uid://cbi33r5foad57"
 visible = false
 texture = ExtResource("2_3e11k")
 centered = false
+
+[node name="EnvDepthsBackground" type="Sprite2D" parent="." unique_id=1985020688]
+texture = ExtResource("5_i6jfv")
+centered = false
+
+[node name="EnvDepthsTreasure" type="Sprite2D" parent="." unique_id=1731431428]
+modulate = Color(0.8229925, 0.8550887, 0.94465655, 1)
+position = Vector2(1691.9999, 778)
+scale = Vector2(0.787338, 0.787338)
+texture = ExtResource("6_5ajus")
 
 [node name="Umi" parent="." unique_id=34133432 instance=ExtResource("3_yfc2s")]
 position = Vector2(937.00006, 674)
@@ -142,14 +156,15 @@ text = "/100"
 label_settings = ExtResource("13_6pxs4")
 
 [node name="Eyes" parent="." unique_id=843097491 node_paths=PackedStringArray("audio_player") instance=ExtResource("13_kucsa")]
-position = Vector2(1494, 725)
+position = Vector2(1494, 698)
 audio_player = NodePath("../AudioStreamPlayer")
 
 [node name="HealthBar" parent="Eyes" unique_id=1784958776 instance=ExtResource("4_18mhl")]
-offset_left = -501.33325
-offset_top = -766.6666
-offset_right = 542.6666
-offset_bottom = -717.3333
+z_index = 1
+offset_left = -417.3332
+offset_top = -735.99994
+offset_right = 525.33344
+offset_bottom = -686.6666
 
 [node name="AbilitySelect" parent="." unique_id=844678139 node_paths=PackedStringArray("battle_manager") instance=ExtResource("8_8beof")]
 battle_manager = NodePath("..")
@@ -158,6 +173,8 @@ battle_manager = NodePath("..")
 visible = false
 battle_manager = NodePath("..")
 ability_select = NodePath("../AbilitySelect")
+
+[node name="Settings" parent="." unique_id=317798756 instance=ExtResource("32_y8pe3")]
 
 [node name="Fade" parent="." unique_id=29959157 node_paths=PackedStringArray("audio") instance=ExtResource("26_qajmi")]
 visible = false
@@ -170,3 +187,8 @@ metadata/_custom_type_script = "uid://3xr6yasbqo77"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=750711317]
 stream = ExtResource("28_u6w0s")
 volume_db = -6.0
+bus = &"Music"
+
+[node name="EnvDepthsForeground" type="Sprite2D" parent="." unique_id=248185090]
+texture = ExtResource("37_n50s2")
+centered = false

@@ -461,7 +461,7 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="SelectedIndicator" parent="." unique_id=2093613863 instance=ExtResource("11_uu51a")]
-offset_left = -512.0
-offset_top = -682.0
-offset_right = -364.0
-offset_bottom = -612.0
+offset_left = -410.66666
+offset_top = -653.3334
+offset_right = -269.42218
+offset_bottom = -585.2445

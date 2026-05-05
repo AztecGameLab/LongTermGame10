@@ -2643,7 +2643,9 @@ text = "Ayo its the credits"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1519990145]
 stream = ExtResource("1_kxfi0")
+volume_db = 3.0
 autoplay = true
+bus = &"Music"
 
 [node name="Fade" parent="." unique_id=1900001 instance=ExtResource("3_fade")]
 visible = false
