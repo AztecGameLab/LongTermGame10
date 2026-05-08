@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://be5ru5snax08s" path="res://scripts/ability/action/apply_status_action.gd" id="3_tgxux"]
 [ext_resource type="Resource" uid="uid://dcrt047qu64c8" path="res://resources/status_effects/coil_up.tres" id="4_egahv"]
 [ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="5_a0a62"]
+[ext_resource type="AudioStream" uid="uid://bcdybiibrxnlr" path="res://assets/audio/voicelines/eyes/eyes_status.wav" id="6_3wut6"]
 
 [sub_resource type="Resource" id="Resource_nnpor"]
 script = ExtResource("2_3wut6")
@@ -28,4 +29,5 @@ name = "Coil Up"
 description = "Boss protects his eyes from attack by coiling up"
 move_target_type = 0
 action = SubResource("Resource_21k4f")
+audio = ExtResource("6_3wut6")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"

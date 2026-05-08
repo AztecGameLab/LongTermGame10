@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://dxc0t8yyfcofy" path="res://resources/status_effects/scorpion_fish/obsession_status.tres" id="2_0o4oc"]
 [ext_resource type="Script" uid="uid://dq0gts7suc1fg" path="res://scripts/ability/action/animation_action.gd" id="2_htwuw"]
 [ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="5_07san"]
+[ext_resource type="AudioStream" uid="uid://jb2hnis6cxrm" path="res://assets/audio/voicelines/scorpionfish/ScorpionfishStatus.wav" id="6_htwuw"]
 
 [sub_resource type="Resource" id="Resource_135fw"]
 script = ExtResource("2_htwuw")
@@ -37,6 +38,7 @@ script = ExtResource("1_p1neq")
 name = "Obsession"
 description = "Increases the chance to target specific enemy."
 action = SubResource("Resource_flkc5")
+audio = ExtResource("6_htwuw")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
 metadata/_graph_x = -520.0
 metadata/_graph_y = 40.0

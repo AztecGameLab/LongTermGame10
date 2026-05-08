@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://bihndepd0cudw" path="res://scripts/ability/action/static_damage_action.gd" id="5_5wleh"]
 [ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="5_66l4o"]
 [ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="6_tma1b"]
+[ext_resource type="AudioStream" uid="uid://cxe2of7mo80md" path="res://assets/audio/voicelines/mimic/MimicAttack.wav" id="7_k65y0"]
 
 [sub_resource type="Resource" id="Resource_ywm75"]
 script = ExtResource("2_n31tp")
@@ -46,6 +47,7 @@ script = ExtResource("6_tma1b")
 name = "Bottle of Acid"
 description = "Deals Damage and applies the Acid Debuff."
 action = SubResource("Resource_u5cyh")
+audio = ExtResource("7_k65y0")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
 metadata/_graph_x = -380.0
 metadata/_graph_y = 240.0
