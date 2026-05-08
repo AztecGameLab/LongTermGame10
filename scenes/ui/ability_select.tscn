@@ -5,8 +5,20 @@
 [ext_resource type="FontFile" uid="uid://b36l0tnkhtkdw" path="res://assets/ui/GenFont_Mansalva-Regular.ttf" id="2_bw0a7"]
 [ext_resource type="Texture2D" uid="uid://bt5fio16wlynu" path="res://assets/ui/enter_inspect.png" id="3_d8uel"]
 [ext_resource type="Texture2D" uid="uid://0givt5uiw6ut" path="res://assets/ui/AbilitySelectUI.png" id="4_0mh3k"]
+[ext_resource type="AudioStream" uid="uid://vjvelfww7gv5" path="res://assets/audio/ui/write_confirm.wav" id="6_hhrlr"]
+[ext_resource type="AudioStream" uid="uid://dgxqiw6nmsbsn" path="res://assets/audio/ui/write_once.wav" id="7_hltlt"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0mh3k"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_hhrlr"]
+random_pitch = 1.1553527
+streams_count = 1
+stream_0/stream = ExtResource("6_hhrlr")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_hltlt"]
+random_pitch = 1.1553527
+streams_count = 1
+stream_0/stream = ExtResource("7_hltlt")
 
 [node name="AbilitySelect" type="CanvasLayer" unique_id=844678139]
 script = ExtResource("1_bw0a7")
@@ -141,3 +153,15 @@ theme_override_font_sizes/normal_font_size = 20
 text = "Confirm"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="confirm_choice" type="AudioStreamPlayer" parent="." unique_id=562705747]
+stream = SubResource("AudioStreamRandomizer_hhrlr")
+volume_db = -11.0
+max_polyphony = 6
+bus = &"SFX"
+
+[node name="select_move" type="AudioStreamPlayer" parent="." unique_id=1333283892]
+stream = SubResource("AudioStreamRandomizer_hltlt")
+volume_db = -11.0
+max_polyphony = 6
+bus = &"SFX"

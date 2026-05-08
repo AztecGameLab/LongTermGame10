@@ -27,12 +27,73 @@
 [ext_resource type="Resource" uid="uid://bpc18qv76ws1u" path="res://resources/abilities/coralleine/decoy/decoy_2.tres" id="23_bc0gg"]
 [ext_resource type="PackedScene" uid="uid://csbhyubbu6bo6" path="res://scenes/ui/fade.tscn" id="23_yuf3x"]
 [ext_resource type="Script" uid="uid://3xr6yasbqo77" path="res://scenes/levels/fade_control.gd" id="24_rjwpj"]
-[ext_resource type="AudioStream" uid="uid://dfe065d4r30vm" path="res://assets/audio/music/Mimksnap DEMO.mp3" id="25_rjwpj"]
 [ext_resource type="PackedScene" uid="uid://c1oskpjo8ptrk" path="res://scenes/levels/shop_2.tscn" id="26_shopnext"]
 [ext_resource type="PackedScene" uid="uid://c6losescrxy01" path="res://scenes/levels/lose_screen.tscn" id="27_losescn"]
 [ext_resource type="PackedScene" uid="uid://b828m0hfpjle8" path="res://scenes/ui/status_effect_inspect.tscn" id="28_2gh6g"]
 [ext_resource type="PackedScene" uid="uid://dki7wwnotyklo" path="res://scenes/ui/settings.tscn" id="30_menln"]
-[ext_resource type="Texture2D" uid="uid://ddkv1ar4yot2k" path="res://assets/ui/shipwreck_background.png" id="32_u2reh"]
+[ext_resource type="Texture2D" uid="uid://ddkv1ar4yot2k" path="res://assets/ui/shipwreck/shipwreck_background.png" id="32_u2reh"]
+[ext_resource type="AudioStream" uid="uid://bjt1d1xbmq4hh" path="res://assets/audio/music/Mimksnap 2.2.mp3" id="33_menln"]
+[ext_resource type="Texture2D" uid="uid://d28csm1m8cw23" path="res://assets/ui/shipwreck/Env_Shipwreck_Background.png" id="34_3v40c"]
+[ext_resource type="Texture2D" uid="uid://cyo3dymnjk1ha" path="res://assets/ui/shipwreck/Env_Shipwreck_Bubbles.png" id="35_3v74j"]
+[ext_resource type="Texture2D" uid="uid://blxyk8qhr5k3v" path="res://assets/ui/shipwreck/Env_Shipwreck_Foreground.png" id="36_4hyka"]
+
+[sub_resource type="Animation" id="Animation_i327h"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_4hyka"]
+resource_name = "move"
+length = 12.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 12)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 2, 0),
+"points": PackedFloat32Array(25, 0, 0, 1.5, 0, -25, -1.5, 0, 1.5, 0, 25, -1.5, 0, 0, 0),
+"times": PackedFloat32Array(0.009999275, 6, 12.009999)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i327h"]
+_data = {
+&"RESET": SubResource("Animation_i327h"),
+&"move": SubResource("Animation_4hyka")
+}
 
 [sub_resource type="Resource" id="Resource_yuf3x"]
 script = ExtResource("15_odcq4")
@@ -48,6 +109,7 @@ next_scene_on_loss = ExtResource("27_losescn")
 metadata/_custom_type_script = "uid://cbi33r5foad57"
 
 [node name="ShipwreckBackground" type="Sprite2D" parent="." unique_id=1151435878]
+visible = false
 position = Vector2(-0.061455656, -0.27654946)
 scale = Vector2(1.6680851, 1.6680851)
 texture = ExtResource("32_u2reh")
@@ -57,6 +119,22 @@ offset = Vector2(-2, -9)
 [node name="NormalGameplay(focusedOnFortuneOnly)4" type="Sprite2D" parent="." unique_id=641535787]
 visible = false
 texture = ExtResource("2_pf1g0")
+centered = false
+
+[node name="EnvShipwreckBackground" type="Sprite2D" parent="." unique_id=1182466862]
+texture = ExtResource("34_3v40c")
+centered = false
+
+[node name="EnvShipwreckBubbles" type="Sprite2D" parent="." unique_id=676298418]
+texture = ExtResource("35_3v74j")
+centered = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="EnvShipwreckBubbles" unique_id=1633517096]
+libraries/ = SubResource("AnimationLibrary_i327h")
+autoplay = &"move"
+
+[node name="EnvShipwreckForeground" type="Sprite2D" parent="." unique_id=439585266]
+texture = ExtResource("36_4hyka")
 centered = false
 
 [node name="Umi" parent="." unique_id=34133432 instance=ExtResource("3_yi6pd")]
@@ -181,6 +259,6 @@ script = ExtResource("24_rjwpj")
 metadata/_custom_type_script = "uid://3xr6yasbqo77"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1916575304]
-stream = ExtResource("25_rjwpj")
+stream = ExtResource("33_menln")
 volume_db = -6.0
 bus = &"Music"

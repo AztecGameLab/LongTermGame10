@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddkv1ar4yot2k"
-path="res://.godot/imported/shipwreck_background.png-f838f233052b177f92b1232a8eda7af2.ctex"
+uid="uid://cyo3dymnjk1ha"
+path="res://.godot/imported/Env_Shipwreck_Bubbles.png-f9ad45a13c33ec94e3c67e4ad11962d1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/shipwreck_background.png"
-dest_files=["res://.godot/imported/shipwreck_background.png-f838f233052b177f92b1232a8eda7af2.ctex"]
+source_file="res://assets/ui/shipwreck/Env_Shipwreck_Bubbles.png"
+dest_files=["res://.godot/imported/Env_Shipwreck_Bubbles.png-f9ad45a13c33ec94e3c67e4ad11962d1.ctex"]
 
 [params]
 
