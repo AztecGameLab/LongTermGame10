@@ -5,6 +5,8 @@ const MOVE_DISPLAY = preload("uid://8dt21l5flyv3")
 @onready var character_name: RichTextLabel = %Name
 @onready var margin_container: MarginContainer = %MarginContainer
 @onready var move_container: VBoxContainer = %MoveContainer
+@onready var confirm_choice: AudioStreamPlayer = $confirm_choice
+@onready var select_move: AudioStreamPlayer = $select_move
 
 @export var battle_manager: BattleManager
 var player_team: PlayerTeam
@@ -116,8 +118,10 @@ func _input(event: InputEvent) -> void:
 
 	if event.is_action_pressed(&"select_confirm"):
 		if not selecting_target:
+			select_move.play()
 			start_selecting_targets()
 		else:
+			confirm_choice.play()
 			var remaining_characters := player_team.submit_action(selected_character, selected_move.ability, selected_targets)
 			load_characters(remaining_characters)
 			stop_selecting_targets()
