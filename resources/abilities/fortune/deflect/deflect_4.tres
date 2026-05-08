@@ -32,7 +32,7 @@ metadata/_custom_type_script = "uid://da17dshmjafs6"
 [resource]
 script = ExtResource("1_ttw51")
 name = "Deflect"
-description = "Blocks 90% of the damage taken this turn. Returns all damage back to the attacker."
+description = "Blocks 90% of incoming damage this turn. Reflects 126% of the attack back, and staggers the attacker for 1 turn."
 move_target_type = 0
 action = SubResource("Resource_iqkw1")
 audio = ExtResource("6_j1id4")

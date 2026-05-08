@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://c84i4tkx4t6au" path="res://scripts/ability/action/heal_action.gd" id="3_14x2k"]
 [ext_resource type="Script" uid="uid://d0rap3gi3boj5" path="res://scripts/ability/action/damage_action.gd" id="4_2jfqh"]
 [ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="4_eem7c"]
+[ext_resource type="AudioStream" uid="uid://csjqex1hhw88a" path="res://assets/audio/voicelines/glimora/GlimoraHeal.wav" id="6_14x2k"]
 
 [sub_resource type="Resource" id="Resource_s44ys"]
 script = ExtResource("2_2jfqh")
@@ -35,4 +36,5 @@ name = "Self-Heal"
 description = "Heals itself"
 move_target_type = 0
 action = SubResource("Resource_tg45n")
+audio = ExtResource("6_14x2k")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"

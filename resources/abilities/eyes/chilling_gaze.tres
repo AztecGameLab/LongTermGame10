@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://be5ru5snax08s" path="res://scripts/ability/action/apply_status_action.gd" id="3_gc4qj"]
 [ext_resource type="Resource" uid="uid://b7mq86qexvdq5" path="res://resources/status_effects/weakness.tres" id="4_jsw5p"]
 [ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="5_0qkvc"]
+[ext_resource type="AudioStream" uid="uid://bqjq6wn43obu5" path="res://assets/audio/voicelines/eyes/eyes_attack.wav" id="7_gc4qj"]
 
 [sub_resource type="Resource" id="Resource_8wr2b"]
 script = ExtResource("2_f64ih")
@@ -34,4 +35,5 @@ name = "Chilling Gaze"
 description = "Weakness party for 3 turns."
 move_target_type = 8
 action = SubResource("Resource_3o154")
+audio = ExtResource("7_gc4qj")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"

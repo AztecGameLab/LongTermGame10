@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://be5ru5snax08s" path="res://scripts/ability/action/apply_status_action.gd" id="4_l8j7v"]
 [ext_resource type="Resource" uid="uid://due0xdviby15i" path="res://resources/status_effects/barbed_sting.tres" id="5_qhloy"]
 [ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="5_s5ya5"]
+[ext_resource type="AudioStream" uid="uid://c2sxccnx3skt" path="res://assets/audio/voicelines/glimora/GlimoraAttack.wav" id="7_vowga"]
 
 [sub_resource type="Resource" id="Resource_txp2o"]
 script = ExtResource("2_qhloy")
@@ -33,4 +34,5 @@ script = ExtResource("1_djlgf")
 name = "Barbed Sting"
 description = "Deals damage, applies weakness to an enemy, increasing the damage they take"
 action = SubResource("Resource_idomn")
+audio = ExtResource("7_vowga")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"

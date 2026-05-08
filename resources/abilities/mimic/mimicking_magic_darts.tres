@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://dq0gts7suc1fg" path="res://scripts/ability/action/animation_action.gd" id="2_aklu0"]
 [ext_resource type="Script" uid="uid://d0rap3gi3boj5" path="res://scripts/ability/action/damage_action.gd" id="3_0yxws"]
 [ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="5_w0673"]
+[ext_resource type="AudioStream" uid="uid://cxe2of7mo80md" path="res://assets/audio/voicelines/mimic/MimicAttack.wav" id="6_cux0y"]
 [ext_resource type="Script" uid="uid://3xfxcysmuqdm" path="res://scripts/ability/action/repeat_action.gd" id="6_fxfvo"]
 [ext_resource type="Script" uid="uid://ny1mjfoo1mqc" path="res://scripts/ability/ability.gd" id="7_mastv"]
 
@@ -37,6 +38,7 @@ metadata/_graph_h = 256.0
 script = ExtResource("6_fxfvo")
 times = 3
 hit_chance_decrease = 0.3
+damage_decrease = 0.3
 stop_on_miss = true
 action = SubResource("Resource_a0qop")
 metadata/_graph_x = 724.0
@@ -58,6 +60,7 @@ script = ExtResource("7_mastv")
 name = "Magic Darts?"
 description = "Fires up to 3 magic darts. 100% chance for first dart, 30% chance decrease for each dart, dealing 20 damage for each dart."
 action = SubResource("Resource_q0u3d")
+audio = ExtResource("6_cux0y")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
 metadata/_graph_x = 50.0
 metadata/_graph_y = 50.0
