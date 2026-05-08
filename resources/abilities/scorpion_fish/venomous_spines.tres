@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://be5ru5snax08s" path="res://scripts/ability/action/apply_status_action.gd" id="4_r6xqy"]
 [ext_resource type="Resource" uid="uid://c027tbdjo4sh6" path="res://resources/status_effects/scorpion_fish/venomous_spines_poison.tres" id="5_immvh"]
 [ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="5_tpth2"]
+[ext_resource type="AudioStream" uid="uid://dnvpg2v5xw25h" path="res://assets/audio/voicelines/scorpionfish/ScorpionfishAttack.wav" id="7_erkb2"]
 
 [sub_resource type="Resource" id="Resource_2hi2t"]
 script = ExtResource("2_immvh")
@@ -47,6 +48,7 @@ script = ExtResource("1_xn8n0")
 name = "Venomous Spines"
 description = "Deals 20 damage, applys a poison that deals 10 damage each turn"
 action = SubResource("Resource_obuuk")
+audio = ExtResource("7_erkb2")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"
 metadata/_graph_x = 50.0
 metadata/_graph_y = 50.0
