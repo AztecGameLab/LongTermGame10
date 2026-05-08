@@ -285,8 +285,6 @@ position = Vector2(220, -220)
 sprite_frames = SubResource("SpriteFrames_kml5a")
 animation = &"attack"
 autoplay = "idle"
-frame = 22
-frame_progress = 1.0
 
 [node name="SelectedIndicator" parent="." unique_id=2093613863 instance=ExtResource("3_lff58")]
 offset_left = -430.0

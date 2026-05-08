@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://bewmys3bnrfj4" path="res://scripts/ability/action/wait_action.gd" id="4_1ev84"]
 [ext_resource type="Script" uid="uid://da17dshmjafs6" path="res://scripts/ability/action/group_action.gd" id="4_qx8d0"]
 [ext_resource type="Script" uid="uid://3xfxcysmuqdm" path="res://scripts/ability/action/repeat_action.gd" id="5_j58gq"]
+[ext_resource type="AudioStream" uid="uid://cxe2of7mo80md" path="res://assets/audio/voicelines/mimic/MimicAttack.wav" id="7_slwm1"]
 
 [sub_resource type="Resource" id="Resource_0f2h3"]
 script = ExtResource("2_1ev84")
@@ -40,4 +41,5 @@ script = ExtResource("1_ab0hy")
 name = "Tentacle Multi-Attack"
 description = "Attacks a character multiple times."
 action = SubResource("Resource_lhudk")
+audio = ExtResource("7_slwm1")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"

@@ -8,6 +8,7 @@ class_name ShopController
 
 @export_range(1, 3) var shop_number: int = 1
 @export var next_scene: PackedScene
+@onready var confirm_choice: AudioStreamPlayer = $confirm_choice
 
 ## The animation name on the AnimatedSprite2D to play after all picks.
 @export var completion_animation: String = "1"
@@ -295,6 +296,7 @@ func _confirm_pick() -> void:
 		pick_order.append(char_id)
 	picks[char_id] = current_slot_idx
 	if picks.size() == CHARACTER_ORDER.size():
+		confirm_choice.play()
 		_complete_shop()
 		return
 	# Advance to next unpicked character
@@ -303,6 +305,7 @@ func _confirm_pick() -> void:
 		if not picks.has(_char_id()):
 			break
 	current_slot_idx = _first_enabled_slot(_char_id())
+	confirm_choice.play()
 	_update_highlight()
 
 func _undo_pick() -> void:

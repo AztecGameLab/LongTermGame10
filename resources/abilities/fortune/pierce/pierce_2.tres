@@ -16,8 +16,8 @@ metadata/_graph_h = 66.0
 
 [sub_resource type="Resource" id="Resource_n52ha"]
 script = ExtResource("1_atmg6")
-damage_minimum = 20
-damage_maximum = 60
+damage_minimum = 30
+damage_maximum = 50
 metadata/_custom_type_script = "uid://d0rap3gi3boj5"
 metadata/_graph_x = 980.0
 metadata/_graph_y = 80.0
@@ -35,7 +35,7 @@ metadata/_graph_h = 177.0
 [resource]
 script = ExtResource("1_x5i48")
 name = "Pierce"
-description = "Stabs the enemy for 20-60 damage."
+description = "Stabs the enemy for 30-50 damage."
 action = SubResource("Resource_j0skc")
 audio = ExtResource("5_0fmba")
 metadata/_custom_type_script = "uid://ny1mjfoo1mqc"

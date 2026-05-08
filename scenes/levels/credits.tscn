@@ -2989,7 +2989,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Boss Header" type="Label" parent="MarginContainer/VBoxContainer/Boss Artists" unique_id=1297385303]
-custom_minimum_size = Vector2(0, 250)
+custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 text = "Bosses"
 label_settings = SubResource("LabelSettings_uvrsu")
@@ -3673,7 +3673,7 @@ text = "Artemis Fine"
 label_settings = SubResource("LabelSettings_tlra1")
 
 [node name="Spacer8" type="Control" parent="MarginContainer/VBoxContainer/Music" unique_id=1298140476]
-custom_minimum_size = Vector2(0, 200)
+custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 
 [node name="Spacer7" type="Control" parent="MarginContainer/VBoxContainer" unique_id=971075587]
@@ -3758,6 +3758,7 @@ layout_mode = 2
 text = "Isaiah Taylor
 Jalen H.
 Instnx
+Artemis Fine
 Jarion Sarmiento
 Jerisa Maglanoc
 Paul Rosales
@@ -3809,7 +3810,7 @@ text = "SDSU Esports Engagement Center
 Carlos Noguez
 Stephanie Garrido
 
-Thank you so much to everyone who has helped playtest the game!"
+Thank you so much to everyone who helped playtest the game!"
 label_settings = SubResource("LabelSettings_tlra1")
 horizontal_alignment = 1
 
